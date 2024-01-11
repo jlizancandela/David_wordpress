@@ -1,0 +1,313 @@
+# Translation of Plugins - Post Grid Combo &#8211; 36+ Gutenberg Blocks - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Post Grid Combo &#8211; 36+ Gutenberg Blocks - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-07-09 03:40:40+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.7\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Post Grid Combo &#8211; 36+ Gutenberg Blocks - Stable (latest release)\n"
+
+#: includes/metabox-post-grid-hook.php:419
+#: includes/metabox-post-grid-hook.php:2344
+msgid "Terms relation"
+msgstr "Relación de términos"
+
+#: includes/metabox-post-grid-layout-hook.php:108
+msgid "Layout Editor"
+msgstr "Editor de diseño"
+
+#: includes/classes/class-settings.php:40
+msgid "Settings"
+msgstr "Ajustes"
+
+#: includes/functions.php:109
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: includes/menu/settings.php:164
+msgid "Save Changes"
+msgstr "Guardar los cambios"
+
+#: includes/post-grid-layout-elements.php:5775
+msgid "1 Comment"
+msgstr "1 comentario"
+
+#: includes/layout-elements/yet-another-stars-rating/layout-elements.php:92
+#: includes/layout-elements/yet-another-stars-rating/layout-elements.php:336
+msgid "Icon size"
+msgstr "Tamaño del icono"
+
+#: includes/classes/class-post-types.php:23
+#: includes/classes/class-post-types.php:24
+msgid "Post Grid"
+msgstr "Post Grid"
+
+#: includes/post-grid-layout-elements.php:5771
+msgid "No Comments"
+msgstr "No hay comentarios"
+
+#: includes/menu/import-layouts.php:35
+msgid "Start typing..."
+msgstr "Empieza a escribir..."
+
+#: includes/menu/settings-old.php:56
+msgid "Post Grid - Settings"
+msgstr "Post Grid - Ajustes"
+
+#: includes/menu/settings-old.php:87 includes/menu/settings.php:97
+msgid "Changes Saved."
+msgstr "Cambios guardados."
+
+#: includes/functions.php:927
+msgid "Character limit:"
+msgstr "Límite de caracteres:"
+
+#: includes/functions.php:900
+msgid "Read more text:"
+msgstr "Texto leer más:"
+
+#: includes/classes/class-meta-boxes.php:46
+msgid "Post Grid - Post Options"
+msgstr "Post Grid - Opciones de entrada"
+
+#. Author of the plugin
+msgid "PickPlugins"
+msgstr "PickPlugins"
+
+#: includes/classes/class-functions.php:23
+msgid "Title"
+msgstr "Título"
+
+#: includes/classes/class-functions.php:22
+#: includes/metabox-post-grid-layout-hook.php:137
+msgid "Author"
+msgstr "Autor"
+
+#: includes/classes/class-functions.php:30
+#: src/blocks/post-grid-filterable/index.php:1104
+msgid "Random"
+msgstr "Aleatorio"
+
+#: includes/classes/class-functions.php:26
+msgid "Date"
+msgstr "Fecha"
+
+#: includes/classes/class-functions.php:21
+msgid "ID"
+msgstr "ID"
+
+#: includes/metabox-post-grid-hook.php:506
+#: includes/metabox-post-grid-hook.php:1833
+msgid "Post query orderby"
+msgstr "Consulta de entrada ordenada por"
+
+#: includes/metabox-post-grid-hook.php:487
+#: includes/metabox-post-grid-hook.php:1814
+msgid "Post query order"
+msgstr "Orden de consulta"
+
+#: includes/metabox-post-grid-hook.php:579
+msgid "Exclude by post ID"
+msgstr "Excluir entrada por ID"
+
+#: includes/metabox-post-grid-hook.php:547
+msgid "Offset"
+msgstr "Desplazamiento"
+
+#: includes/metabox-post-grid-hook.php:534
+msgid "Posts per page"
+msgstr "Entradas por página"
+
+#: includes/metabox-post-grid-hook.php:1379
+msgid "Grid item margin"
+msgstr "Margen del elemento de la cuadrícula"
+
+#: includes/metabox-post-grid-hook.php:1119
+#: includes/metabox-post-grid-hook.php:1291
+#: includes/metabox-post-grid-hook.php:1306
+#: includes/metabox-post-grid-hook.php:1319
+#: includes/post-grid-layout-elements.php:2882
+#: includes/post-grid-layout-elements.php:2903
+#: includes/post-grid-layout-elements.php:2924
+msgid "Max height"
+msgstr "Altura máxima"
+
+#: includes/metabox-post-grid-hook.php:1118
+#: includes/metabox-post-grid-hook.php:1290
+#: includes/metabox-post-grid-hook.php:1305
+#: includes/metabox-post-grid-hook.php:1318
+#: includes/post-grid-layout-elements.php:2882
+#: includes/post-grid-layout-elements.php:2903
+#: includes/post-grid-layout-elements.php:2924
+msgid "Fixed height"
+msgstr "Altura fija"
+
+#: includes/metabox-post-grid-hook.php:1117
+#: includes/metabox-post-grid-hook.php:1289
+#: includes/metabox-post-grid-hook.php:1304
+#: includes/metabox-post-grid-hook.php:1317
+#: includes/post-grid-layout-elements.php:2882
+#: includes/post-grid-layout-elements.php:2903
+#: includes/post-grid-layout-elements.php:2924
+msgid "Auto height"
+msgstr "Altura automática"
+
+#: includes/classes/class-post-grid-support.php:49
+#: includes/metabox-post-grid-hook.php:1334
+msgid "Grid item height"
+msgstr "Altura del elemento de la cuadrícula"
+
+#: includes/metabox-post-grid-hook.php:1355
+msgid "Fixed"
+msgstr "FIjo"
+
+#: includes/layout-elements/kk-star-ratings/layout-elements.php:125
+#: includes/layout-elements/likebtn-like-button/layout-elements.php:112
+#: includes/layout-elements/multi-rating/layout-elements.php:139
+#: includes/layout-elements/page-views-count/layout-elements.php:125
+#: includes/layout-elements/page-visit-counter/layout-elements.php:125
+#: includes/layout-elements/post-views-counter/layout-elements.php:125
+#: includes/layout-elements/rate-my-post/layout-elements.php:129
+#: includes/layout-elements/rating-widget/layout-elements.php:111
+#: includes/layout-elements/simple-job-board/layout-elements.php:203
+#: includes/layout-elements/simple-job-board/layout-elements.php:536
+#: includes/layout-elements/simple-job-board/layout-elements.php:870
+#: includes/layout-elements/simple-job-board/layout-elements.php:1161
+#: includes/layout-elements/simple-job-board/layout-elements.php:1422
+#: includes/layout-elements/simple-job-board/layout-elements.php:1684
+#: includes/layout-elements/simple-job-board/layout-elements.php:1946
+#: includes/layout-elements/simple-job-board/layout-elements.php:2222
+#: includes/layout-elements/simple-job-board/layout-elements.php:2497
+#: includes/layout-elements/site-reviews/layout-elements.php:141
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:181
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:435
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:689
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:957
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:1226
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:1496
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:1751
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:2019
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:2334
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:2659
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:2960
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:3261
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:3571
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:3880
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:4184
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:4484
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:4777
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:5048
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:5319
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:5572
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:5825
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:6093
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:6358
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:6609
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:6877
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:7161
+#: includes/layout-elements/wck-custom-fields-and-custom-post-types-creator/layout-elements.php:7465
+#: includes/layout-elements/wp-job-manager/layout-elements.php:154
+#: includes/layout-elements/wp-job-manager/layout-elements.php:417
+#: includes/layout-elements/wp-job-manager/layout-elements.php:679
+#: includes/layout-elements/wp-job-manager/layout-elements.php:942
+#: includes/layout-elements/wp-job-manager/layout-elements.php:1205
+#: includes/layout-elements/wp-postratings/layout-elements.php:125
+#: includes/layout-elements/wp-postviews/layout-elements.php:125
+#: includes/layout-elements/yet-another-stars-rating/layout-elements.php:168
+#: includes/layout-elements/yet-another-stars-rating/layout-elements.php:412
+#: includes/layout-elements/yith-woocommerce-wishlist/layout-elements.php:119
+#: includes/metabox-post-grid-layout-hook.php:34
+#: includes/post-grid-layout-elements.php:85
+#: includes/post-grid-layout-elements.php:310
+#: includes/post-grid-layout-elements.php:635
+#: includes/post-grid-layout-elements.php:1543
+#: includes/post-grid-layout-elements.php:1864
+#: includes/post-grid-layout-elements.php:2234
+#: includes/post-grid-layout-elements.php:2580
+#: includes/post-grid-layout-elements.php:2978
+#: includes/post-grid-layout-elements.php:3369
+#: includes/post-grid-layout-elements.php:3750
+#: includes/post-grid-layout-elements.php:4116
+#: includes/post-grid-layout-elements.php:4420
+#: includes/post-grid-layout-elements.php:4733
+#: includes/post-grid-layout-elements.php:5090
+#: includes/post-grid-layout-elements.php:5403
+#: includes/post-grid-layout-elements.php:5695
+#: includes/post-grid-layout-elements.php:5928
+#: includes/post-grid-layout-elements.php:6176
+#: includes/post-grid-layout-elements.php:6394
+msgid "Custom CSS"
+msgstr "CSS personalizado"
+
+#: templates/post-grid-hook.php:216
+msgid "Search"
+msgstr "Buscar"
+
+#: includes/metabox-post-grid-hook.php:1233
+#: includes/post-grid-layout-elements.php:2844
+msgid "Media source"
+msgstr "Fuente de los medios"
+
+#: includes/functions.php:935
+msgid "Link target:"
+msgstr "Destino del enlace:"
+
+#: includes/functions.php:887
+msgid "Meta Key:"
+msgstr "Clave meta:"
+
+#: includes/functions.php:888
+msgid "Wrapper:"
+msgstr "Contenedor:"
+
+#: includes/classes/class-meta-boxes.php:35
+msgid "Post Grid Options"
+msgstr "Opciones de la cuadrícula de contenidos"
+
+#: includes/classes/class-functions.php:34
+msgid "Meta Value(number)"
+msgstr "Valor meta (numérico)"
+
+#: includes/classes/class-functions.php:32
+msgid "Menu order"
+msgstr "Orden en el menú"
+
+#: includes/classes/class-functions.php:25
+msgid "Type"
+msgstr "Tipo"
+
+#: includes/classes/class-functions.php:24
+msgid "Name"
+msgstr "Nombre"
+
+#: includes/media-source-options.php:32 includes/media-source-options.php:119
+#: includes/media-source-options.php:192 includes/media-source-options.php:273
+#: includes/metabox-post-grid-hook.php:137
+#: includes/metabox-post-grid-hook.php:185
+#: includes/metabox-post-grid-hook.php:568
+#: includes/metabox-post-grid-hook.php:1169
+#: includes/metabox-post-grid-hook.php:1762 includes/settings-hook.php:70
+msgid "No"
+msgstr "No"
+
+#: includes/media-source-options.php:33 includes/media-source-options.php:120
+#: includes/media-source-options.php:193 includes/media-source-options.php:274
+#: includes/metabox-post-grid-hook.php:138
+#: includes/metabox-post-grid-hook.php:186
+#: includes/metabox-post-grid-hook.php:569
+#: includes/metabox-post-grid-hook.php:1168
+#: includes/metabox-post-grid-hook.php:1761 includes/settings-hook.php:70
+msgid "Yes"
+msgstr "Sí"
+
+#: includes/metabox-post-grid-hook.php:956
+msgid "Content Layout"
+msgstr "Diseño del contenido"
+
+#: includes/metabox-post-grid-hook.php:607
+msgid "Query post by search keyword, please follow the reference https://codex.wordpress.org/Class_Reference/WP_Query#Search_Parameter"
+msgstr "Entrada de consulta por palabra clave de búsqueda, siga la referencia https://codex.wordpress.org/Class_Reference/WP_Query#Search_Parameter"

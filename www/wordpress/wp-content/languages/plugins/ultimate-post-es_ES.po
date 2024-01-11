@@ -1,0 +1,438 @@
+# Translation of Plugins - Post Grid Gutenberg Blocks and WordPress Blog Plugin &#8211; PostX - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Post Grid Gutenberg Blocks and WordPress Blog Plugin &#8211; PostX - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-10-09 19:24:31+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.11\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Post Grid Gutenberg Blocks and WordPress Blog Plugin &#8211; PostX - Stable (latest release)\n"
+
+#: classes/Options.php:61
+msgid "Get PostX Pro"
+msgstr "Obtener PostX Pro"
+
+#: addons/builder/Builder.php:182 assets/js/editor.blocks.js:2
+msgid "Featured Video"
+msgstr "Vídeo destacado"
+
+#. Author URI of the plugin
+msgid "https://www.wpxpo.com/postx/?utm_source=postx_plugin&utm_medium=wpxpo&utm_campaign=postx-dashboard"
+msgstr "https://www.wpxpo.com/postx/?utm_source=postx_plugin&utm_medium=wpxpo&utm_campaign=postx-dashboard"
+
+#: classes/Styles.php:84
+msgid "CSS Updated!"
+msgstr "¡CSS actualizado!"
+
+#: classes/Options.php:126 classes/Options.php:127
+msgid "Initial Setup"
+msgstr "Configuración inicial"
+
+#: blocks/News_Ticker.php:230
+msgid "Show Next Post"
+msgstr "Mostrar entrada siguiente"
+
+#: blocks/News_Ticker.php:228
+msgid "Pause Current Post"
+msgstr "Pausar entrada actual"
+
+#: blocks/News_Ticker.php:226
+msgid "Show Previous Post"
+msgstr "Mostrar entrada anterior"
+
+#. Description of the plugin
+msgid "<a href=\"https://www.wpxpo.com/postx/?utm_source=postx_plugin&utm_medium=postx&utm_campaign=postx-dashboard\">PostX</a> is the #1 Gutenberg Blocks plugin with 38+ free blocks that includes post gird, post list, post slider, carousel, news ticker, etc. Advanced capabilities like dynamic site building and design variations make it the best choice for creating News Magazine sites, and any kind of blog such as Personal Blogs, Travel Blogs, Fashion Blogs, Food Reviews, Recipe Blogs, etc."
+msgstr "<a href=\"https://www.wpxpo.com/postx/?utm_source=postx_plugin&utm_medium=postx&utm_campaign=postx-dashboard\">PostX</a> es el plugin #1 de Gutenberg Blocks con 38+ bloques gratuitos que incluyen cuadrícula de entradas, lista de entradas, carrusel de entradas, ticker de noticias, etc. Las capacidades avanzadas como la construcción de sitios dinámicos y variaciones de diseño lo convierten en la mejor opción para la creación de sitios de revistas de noticias, y cualquier tipo de blog, como blogs personales, blogs de viajes, blogs de moda, reseñas de alimentos, blogs de recetas, etc."
+
+#: addons/builder/Builder.php:324 addons/builder/Builder.php:325
+#: addons/custom_font/Custom_Font.php:266
+#: addons/custom_font/Custom_Font.php:267 assets/js/ultp_dashboard_min.js:2
+msgid "Add New"
+msgstr "Añadir nuevo"
+
+#: classes/Options.php:104 assets/js/editor.blocks.js:2
+msgid "Template Kits"
+msgstr "Kits de plantillas"
+
+#: classes/Options.php:103 assets/js/ultp_dashboard_min.js:2
+msgid "Site Builder"
+msgstr "Maquetador de web"
+
+#: classes/Initialization.php:508
+msgid "PostX Site Builder"
+msgstr "Maquetador de web PostX"
+
+#: classes/Functions.php:1727
+msgid "Your browser does not support the video tag."
+msgstr "Tu navegador no es compatible con la etiqueta de vídeo."
+
+#: addons/builder/init.php:7 assets/js/ultp_dashboard_min.js:2
+#: assets/js/ultp_initial_setup_min.js:2
+msgid "Dynamic Site Builder"
+msgstr "Maquetador dinámico de web"
+
+#: addons/builder/Builder.php:330
+msgid "Not Builder found in Trash"
+msgstr "No se ha encontrado maquetador en la papelera"
+
+#: addons/builder/Builder.php:329
+msgid "No Builder Found"
+msgstr "No se ha encontrado maquetador"
+
+#: addons/builder/Builder.php:328
+msgid "Search Builder"
+msgstr "Buscar maquetador"
+
+#: addons/builder/Builder.php:327
+msgid "Update Builder"
+msgstr "Actualizar maquetador"
+
+#: addons/builder/Builder.php:326
+msgid "Edit Builder"
+msgstr "Editar maquetador"
+
+#: addons/builder/Builder.php:323
+msgid "View Builder"
+msgstr "Ver maquetador"
+
+#: addons/builder/Builder.php:321
+msgid "Parent Builder"
+msgstr "Maquetador padre"
+
+#: addons/builder/Builder.php:318 addons/builder/Builder.php:319
+msgctxt "Builder"
+msgid "Builder"
+msgstr "Maquetador"
+
+#: addons/builder/Builder.php:231
+msgid "Select Sidebar(Widget Area)"
+msgstr "Selecciona barra lateral (área de widgets)"
+
+#: addons/builder/Builder.php:227
+msgid "Right Sidebar"
+msgstr "Barra lateral derecha"
+
+#: addons/builder/Builder.php:226
+msgid "Left Sidebar"
+msgstr "Barra lateral izquierda"
+
+#: addons/builder/Builder.php:223
+msgid "Sidebar"
+msgstr "Barra lateral"
+
+#: addons/builder/Builder.php:159
+msgid "PostX Builder Settings"
+msgstr "Ajustes del maqueteador PostX"
+
+#: classes/Functions.php:2562
+msgid "Upgrade Plan"
+msgstr "Actualizar plan"
+
+#: classes/Functions.php:2560
+msgid "We’re sorry, all PostX addons are not available on the free version. Please upgrade to a PRO plan to unlock all the addons of your choice."
+msgstr "Lo sentimos, todas las extensiones de PostX no están disponibles en la versión gratuita. Por favor, actualiza a un plan PRO para desbloquear todas las extensiones de tu elección."
+
+#: classes/Functions.php:2558
+msgid "Unlock 11+ Addons"
+msgstr "Desbloquea más de 11 extensiones"
+
+#: addons/builder/Builder.php:225 addons/builder/Builder.php:233
+#: assets/js/editor.blocks.js:2
+msgid "- None -"
+msgstr "- Nada -"
+
+#: classes/Templates.php:56
+msgid "PostX Template (Without Title)"
+msgstr "Plantilla PostX (sin título)"
+
+#: classes/Options.php:137 addons/builder/assets/js/conditions.js:2
+#: assets/js/editor.blocks.js:2 assets/js/ultp_dashboard_min.js:2
+#: assets/js/ultp_initial_setup_min.js:2
+msgid "Upgrade to Pro"
+msgstr "Actualizar a Pro"
+
+#: addons/custom_font/Custom_Font.php:180
+#: addons/builder/assets/js/conditions.js:2 assets/js/editor.blocks.js:2
+#: assets/js/ultp_dashboard_min.js:2 assets/js/ultp_initial_setup_min.js:2
+msgid "Close"
+msgstr "Cerrar"
+
+#: classes/Styles.php:243
+msgid "Widget CSS Saved"
+msgstr "Widget CSS guardado"
+
+#: classes/Options.php:107 assets/js/ultp_dashboard_min.js:2
+#: assets/js/ultp_initial_setup_min.js:2
+msgid "Addons"
+msgstr "Extensiones"
+
+#: addons/table_of_content/init.php:7 assets/js/editor.blocks.js:2
+#: assets/js/ultp_dashboard_min.js:2
+msgid "Table of Contents"
+msgstr "Tabla de contenidos"
+
+#: addons/custom_font/Custom_Font.php:157 assets/js/editor.blocks.js:2
+msgid "Normal"
+msgstr "Normal"
+
+#: addons/custom_font/Custom_Font.php:188
+#: addons/custom_font/Custom_Font.php:193
+#: addons/custom_font/Custom_Font.php:198
+#: addons/custom_font/Custom_Font.php:203
+#: addons/custom_font/Custom_Font.php:208 assets/js/editor.blocks.js:2
+msgid "Upload"
+msgstr "Subir"
+
+#: addons/beaver_builder/beaverbuilder.php:19 assets/js/editor.blocks.js:2
+#: assets/js/ultp_dashboard_min.js:2 assets/js/ultp_initial_setup_min.js:2
+msgid "General"
+msgstr "General"
+
+#: classes/Caches.php:167
+msgid "Data Fetched!!!"
+msgstr "¡Datos obtenidos!"
+
+#: classes/Options.php:108 assets/js/ultp_dashboard_min.js:2
+msgid "Blocks"
+msgstr "Bloques"
+
+#: addons/builder/Builder.php:320 addons/builder/Builder.php:322
+msgid "Builder"
+msgstr "Maquetador"
+
+#: classes/Styles.php:312
+msgid "PostX css file has been updated."
+msgstr "El archivo CSS de PostX se ha actualizado."
+
+#: classes/Options.php:85 classes/Options.php:86
+#: assets/js/ultp_initial_setup_min.js:2
+msgid "PostX"
+msgstr "PostX"
+
+#: addons/beaver_builder/beaverbuilder.php:6
+#: addons/bricks_builder/bricksbuilder.php:15 addons/divi/divi.php:14
+#: addons/elementor/Elementor_Widget.php:11 addons/wpbakery/wpbakery.php:61
+msgid "PostX Template"
+msgstr "Plantilla PostX"
+
+#: classes/Initialization.php:504
+msgid "PostX - Gutenberg Post Blocks"
+msgstr "PostX - Bloques de entradas de Gutenberg"
+
+#: classes/Styles.php:319
+msgid "Data Delete Done"
+msgstr "Realizado el borrado de datos"
+
+#: classes/Deactive.php:247
+msgid "Skip & Deactivate"
+msgstr "Saltar y desactivar"
+
+#: classes/Deactive.php:246
+msgid "Submit & Deactivate"
+msgstr "Enviar y desactivar"
+
+#: classes/Deactive.php:229
+msgid "If you have a moment, please let us know why you are deactivating PostX:"
+msgstr "Si tienes un momento, por favor, dinos por qué estás desactivando PostX:"
+
+#: classes/Deactive.php:224
+msgid "Quick Feedback"
+msgstr "Comentario rápido"
+
+#: classes/Deactive.php:196
+msgid "Please share the reason."
+msgstr "Por favor, comparte el motivo."
+
+#: classes/Deactive.php:195
+msgid "Other."
+msgstr "Otro."
+
+#: classes/Deactive.php:190
+msgid "It's a temporary deactivation."
+msgstr "Es una desactivación temporal."
+
+#: classes/Deactive.php:174
+msgid "Please share which plugin."
+msgstr "Por favor, comparte qué plugin."
+
+#: classes/Deactive.php:173
+msgid "I found a better plugin."
+msgstr "He encontrado un plugin mejor."
+
+#: classes/Deactive.php:168
+msgid "I no longer need the plugin."
+msgstr "Ya no necesito el plugin."
+
+#: classes/Deactive.php:79
+msgid "No Thanks"
+msgstr "No, gracias"
+
+#: classes/Deactive.php:78
+msgid "Allow"
+msgstr "Permitir"
+
+#: classes/Deactive.php:185
+msgid "I could not get the plugin to work."
+msgstr "No he podido hacer funcionar el plugin."
+
+#: classes/Deactive.php:180
+msgid "Please share more details."
+msgstr "Por favor, comparte más detalles."
+
+#: classes/Deactive.php:179
+msgid "The plugin suddenly stopped working."
+msgstr "El plugin, de repente, ha dejado de funcionar."
+
+#: classes/Deactive.php:77
+msgid "Want to help make <strong style=\"padding:0 5px;\"> %1$s </strong> even more awesome? Allow %1$s to collect <a style=\"padding:0 5px;\" href=\"https://www.wpxpo.com/data-collection-policy/\" target=\"_blank\">non-sensitive</a> diagnostic data and usage information."
+msgstr "¿Quieres ayudar a que <strong style=\"padding:0 5px;\">%1$s</strong> sea aún más impresionante? Permite que %1$s recopile datos de diagnóstico e información de uso <a style=\"padding:0 5px;\" href=\"https://www.wpxpo.com/data-collection-policy/\" target=\"_blank\">no sensible</a>."
+
+#. Plugin Name of the plugin
+msgid "PostX - Gutenberg Post Grid Blocks"
+msgstr "PostX - Gutenberg Post Grid Blocks"
+
+#: addons/templates/Saved_Templates.php:54
+msgid "Parent Template"
+msgstr "Plantilla principal"
+
+#: addons/templates/Saved_Templates.php:56
+msgid "View Template"
+msgstr "Ver plantilla"
+
+#: addons/templates/init.php:7 addons/templates/Saved_Templates.php:53
+#: addons/templates/Saved_Templates.php:55 classes/Options.php:105
+#: assets/js/ultp_dashboard_min.js:2
+msgid "Saved Templates"
+msgstr "Plantillas guardadas"
+
+#: addons/beaver_builder/beaverbuilder.php:39
+#: addons/elementor/Elementor_Widget.php:49
+#: addons/templates/Saved_Templates.php:57
+#: addons/templates/Saved_Templates.php:58
+msgid "Add New Template"
+msgstr "Añadir nueva plantilla"
+
+#: addons/elementor/Elementor_Widget.php:33
+msgid "Saved Template"
+msgstr "Plantillas guardadas"
+
+#: addons/templates/Saved_Templates.php:63
+msgid "Not Template found in Trash"
+msgstr "No se han encontrado plantillas en la papelera"
+
+#: addons/templates/Saved_Templates.php:62
+msgid "No Template Found"
+msgstr "No se han encontrado plantillas."
+
+#: addons/templates/Saved_Templates.php:61
+msgid "Search Template"
+msgstr "Buscar plantilla"
+
+#: addons/templates/Saved_Templates.php:60
+msgid "Update Template"
+msgstr "Actualizar plantilla"
+
+#: addons/beaver_builder/beaverbuilder.php:33
+#: addons/templates/Saved_Templates.php:59
+msgid "Edit Template"
+msgstr "Editar plantilla"
+
+#: addons/templates/Saved_Templates.php:52
+msgctxt "Templates"
+msgid "Saved Template"
+msgstr "Plantillas guardadas"
+
+#: addons/templates/Saved_Templates.php:51
+msgctxt "Templates"
+msgid "Saved Templates"
+msgstr "Plantillas guardadas"
+
+#: addons/templates/Saved_Templates.php:37 assets/js/ultp_dashboard_min.js:2
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: classes/Functions.php:1808 addons/builder/assets/js/conditions.js:2
+#: assets/js/editor.blocks.js:2 assets/js/ultp_dashboard_min.js:2
+msgid "Category"
+msgstr "Categoría"
+
+#: classes/Options.php:40 assets/js/ultp_dashboard_min.js:2
+#: assets/js/ultp_initial_setup_min.js:2
+msgid "Docs"
+msgstr "Documentos"
+
+#: classes/Options.php:41 classes/Options.php:110
+#: assets/js/ultp_dashboard_min.js:2
+msgid "Tutorials"
+msgstr "Tutoriales"
+
+#: classes/Options.php:42
+msgid "Support"
+msgstr "Soporte"
+
+#: addons/elementor/Elementor_Widget.php:26 classes/Options.php:71
+#: classes/Options.php:109 assets/js/ultp_dashboard_min.js:2
+#: assets/js/ultp_initial_setup_min.js:2
+msgid "Settings"
+msgstr "Ajustes"
+
+#: classes/Options.php:97 assets/js/ultp_dashboard_min.js:2
+msgid "Getting Started"
+msgstr "Empezar"
+
+#: classes/Functions.php:1280 classes/Functions.php:1546
+#: assets/js/editor.blocks.js:2 assets/js/ultp_initial_setup_min.js:2
+msgid "Next"
+msgstr "Siguiente"
+
+#: classes/Functions.php:1279 classes/Functions.php:1541
+#: assets/js/editor.blocks.js:2 assets/js/ultp_initial_setup_min.js:2
+msgid "Previous"
+msgstr "Anterior"
+
+#: blocks/template/meta.php:37 assets/js/editor.blocks.js:2
+msgid " comments"
+msgstr " comentarios"
+
+#: blocks/template/meta.php:22 blocks/template/meta.php:23
+msgid "By"
+msgstr "Por"
+
+#: blocks/Post_Grid_1.php:470 blocks/Post_Grid_2.php:446
+#: blocks/Post_Grid_3.php:455 blocks/Post_Grid_4.php:446
+#: blocks/Post_Grid_5.php:435 blocks/Post_Grid_6.php:453
+#: blocks/Post_Grid_7.php:451 blocks/Post_List_1.php:504
+#: blocks/Post_List_2.php:512 blocks/Post_List_3.php:472
+#: blocks/Post_List_4.php:515 blocks/Post_Module_1.php:490
+#: blocks/Post_Module_2.php:493 blocks/Post_Slider_1.php:382
+#: blocks/Post_Slider_2.php:396 assets/js/editor.blocks.js:2
+msgid "Read More"
+msgstr "Leer más"
+
+#: addons/builder/Builder.php:219 addons/builder/assets/js/conditions.js:2
+#: assets/js/ultp_dashboard_min.js:2 assets/js/ultp_initial_setup_min.js:2
+msgid "Container Width"
+msgstr "Anchura del contenedor"
+
+#: blocks/template/meta.php:41 blocks/template/meta.php:42
+msgid " ago"
+msgstr " atrás"
+
+#: blocks/template/meta.php:39
+msgid " views"
+msgstr "  visualizaciones"
+
+#: classes/Styles.php:198 classes/Styles.php:309
+msgid "CSS can not be saved due to permission!!!"
+msgstr "¡CSS no puede ser guardado debido a los permisos!"
+
+#: classes/Styles.php:202 classes/Styles.php:219
+msgid "Data not found!!"
+msgstr "¡Datos no encontrados!"
+
+#: classes/Styles.php:200 classes/Styles.php:217
+msgid "Data retrive done"
+msgstr "Recuperación de datos realizada"

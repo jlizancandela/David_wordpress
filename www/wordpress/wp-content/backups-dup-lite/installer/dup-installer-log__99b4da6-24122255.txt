@@ -1,0 +1,879 @@
+********************************************************************************
+* DUPLICATOR LITE: Install-Log
+* STEP-0 START @ 12:35:32
+* NOTICE: Do NOT post to public sites or forums!!
+********************************************************************************
+PACKAGE INFO________ ORIGINAL SERVER                        |CURRENT SERVER
+OS__________________: Linux                                 |Linux
+PHP VERSION_________: 8.2.12                                |8.2.4
+********************************************************************************
+CURRENT SERVER INFO
+PHP_________________: 8.2.4 | SAPI: apache2handler
+PHP MEMORY__________: 4294967296 | SUHOSIN: disabled
+ARCHITECTURE________: 64-bit
+SERVER______________: Apache/2.4.56 (Unix) OpenSSL/1.1.1t PHP/8.2.4 mod_perl/2.0.12 Perl/v5.34.1
+DOC ROOT____________: "/opt/lampp/htdocs/wordpress"
+REQUEST URL_________: "http://localhost/wordpress"
+********************************************************************************
+OVERWRITE PARAMS
+ *** FROM PACKAGE
+PARAM SET KEY[blogname]
+********************************************************************************
+MAINTENANCE MODE DISABLE
+INSTALLER INFO
+
+TEMPLATE____________: "base"
+SECURE MODE_________: "none"
+URL PLUGINS_________: https://jlc84.great-site.net/wordpress/wp-content/plugins
+VALIDATE ON START___: "normal"
+PATH_NEW____________: "/opt/lampp/htdocs/wordpress"
+URL_NEW_____________: "http://localhost/wordpress"
+********************************************************************************
+ARCHIVE INFO
+
+ARCHIVE NAME________: "/opt/lampp/htdocs/wordpress/20231124_podologiadavid_[HASH]_20231124122255_archive.zip"
+ARCHIVE SIZE________: 0B
+CREATED_____________: 2023-11-24 12:22:55
+WP VERSION__________: 6.4.1
+DUP VERSION_________: 1.5.7.1
+LICENSE_____________: Free version
+DB VERSION__________: 10.4.17
+DB FILE SIZE________: 17.73MB
+DB TABLES___________: 21
+DB ROWS_____________: 3133
+URL HOME____________: https://jlc84.great-site.net/wordpress
+URL CORE____________: https://jlc84.great-site.net/wordpress
+URL CONTENT_________: https://jlc84.great-site.net/wordpress/wp-content
+URL UPLOAD__________: http://jlc84.great-site.net/wordpress/wp-content/uploads
+URL PLUGINS_________: https://jlc84.great-site.net/wordpress/wp-content/plugins
+URL MU PLUGINS______: http://jlc84.great-site.net/wordpress/wp-content/mu-plugins
+URL THEMES__________: https://jlc84.great-site.net/wordpress/wp-content/themes
+PATH HOME___________: /home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress
+PATH ABS____________: /home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress
+PATH WPCONFIG_______: /home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress
+PATH WPCONTENT______: /home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress/wp-content
+PATH UPLOADS________: /home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress/wp-content/uploads
+PATH PLUGINS________: /home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress/wp-content/plugins
+PATH MUPLUGINS______: /home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress/wp-content/mu-plugins
+PATH THEMES_________: /home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress/wp-content/themes
+
+SUBSITES
+SUBSITE [ID:   1] "jlc84.great-site.net/wordpress/"
+
+PLUGINS
+PLUGIN [SLUG:akismet/akismet.php                               ][ON:false]  Akismet Anti-spam: Spam Protection
+PLUGIN [SLUG:all-in-one-wp-migration/all-in-one-wp-migration.php][ON:false]  All-in-One WP Migration
+PLUGIN [SLUG:chaty/cht-icons.php                               ][ON:false]  Chaty
+PLUGIN [SLUG:click-to-chat-for-whatsapp/click-to-chat.php      ][ON:false]  Click to Chat
+PLUGIN [SLUG:duplicator/duplicator.php                         ][ON:true ]  Duplicator
+PLUGIN [SLUG:easy-affiliate-links/easy-affiliate-links.php     ][ON:false]  Easy Affiliate Links
+PLUGIN [SLUG:elementor/elementor.php                           ][ON:true ]  Elementor
+PLUGIN [SLUG:essential-addons-for-elementor-lite/essential_adons_elementor.php][ON:true ]  Essential Addons for Elementor
+PLUGIN [SLUG:hello.php                                         ][ON:false]  Hello Dolly
+PLUGIN [SLUG:lazy-load-for-comments/lazy-load-for-comments.php ][ON:false]  Lazy Load for Comments
+PLUGIN [SLUG:post-grid/post-grid.php                           ][ON:false]  Post Grid Combo
+PLUGIN [SLUG:ultimate-post/ultimate-post.php                   ][ON:false]  PostX - Gutenberg Post Grid Blocks
+PLUGIN [SLUG:simple-css/simple-css.php                         ][ON:true ]  Simple CSS
+PLUGIN [SLUG:wp-whatsapp-chat/wp-whatsapp-chat.php             ][ON:true ]  Social Chat
+PLUGIN [SLUG:wpdiscuz/class.WpdiscuzCore.php                   ][ON:true ]  wpDiscuz
+PLUGIN [SLUG:wp-migrate-db-pro-compatibility.php               ][ON:false]  WP Migrate Lite Compatibility
+
+********************************************************************************
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/ctrls/ctrl.base.php:227][DELTA:   0.02343]  MESSAGE:END RENDER PAGE
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+
+-------------------------
+AJAX ACTION [sparam_s1] START
+AJAX ACTION [sparam_s1] SUCCESS
+-------------------------
+
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+STEP ACTION: "on-validate"
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/ctrls/ctrl.base.php:227][DELTA:   0.02101]  MESSAGE:END RENDER PAGE
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+
+-------------------------
+AJAX ACTION [validate] START
+START TEST "Archive Check" [CLASS: DUPX_Validation_test_archive_check]
+LOG-TIME[DELTA:   0.00002]  MESSAGE:TEST "Archive Check" RESULT: soft warning
+
+START TEST "Duplicator importer version" [CLASS: DUPX_Validation_test_importer_version]
+LOG-TIME[DELTA:   0.00001]  MESSAGE:TEST "Duplicator importer version" RESULT: skip
+
+START TEST "Overwrite Install" [CLASS: DUPX_Validation_test_owrinstall]
+LOG-TIME[DELTA:   0.00001]  MESSAGE:TEST "Overwrite Install" RESULT: skip
+
+START TEST "Recovery Point" [CLASS: DUPX_Validation_test_recovery]
+LOG-TIME[DELTA:   0.00001]  MESSAGE:TEST "Recovery Point" RESULT: skip
+
+START TEST "Package is Importable" [CLASS: DUPX_Validation_test_importable]
+LOG-TIME[DELTA:   0.00001]  MESSAGE:TEST "Package is Importable" RESULT: skip
+
+START TEST "REST API test" [CLASS: DUPX_Validation_test_rest_api]
+LOG-TIME[DELTA:   0.00001]  MESSAGE:TEST "REST API test" RESULT: skip
+
+START TEST "Manual extraction detected" [CLASS: DUPX_Validation_test_manual_extraction]
+LOG-TIME[DELTA:   0.00001]  MESSAGE:TEST "Manual extraction detected" RESULT: soft warning
+
+START TEST "Database Only" [CLASS: DUPX_Validation_test_dbonly_iswordpress]
+LOG-TIME[DELTA:   0.00001]  MESSAGE:TEST "Database Only" RESULT: skip
+
+START TEST "Package Age" [CLASS: DUPX_Validation_test_package_age]
+LOG-TIME[DELTA:   0.00002]  MESSAGE:TEST "Package Age" RESULT: good
+
+START TEST "Package Size" [CLASS: DUPX_Validation_test_package_size]
+LOG-TIME[DELTA:   0.00001]  MESSAGE:TEST "Package Size" RESULT: good
+
+START TEST "Replace PATHs in database" [CLASS: DUPX_Validation_test_replace_paths]
+LOG-TIME[DELTA:   0.00001]  MESSAGE:TEST "Replace PATHs in database" RESULT: skip
+
+START TEST "Managed hosting supported" [CLASS: DUPX_Validation_test_managed_supported]
+LOG-TIME[DELTA:   0.00002]  MESSAGE:TEST "Managed hosting supported" RESULT: skip
+
+START TEST "Siteground" [CLASS: DUPX_Validation_test_siteground]
+LOG-TIME[DELTA:   0.00007]  MESSAGE:TEST "Siteground" RESULT: skip
+
+START TEST "Addon Sites" [CLASS: DUPX_Validation_test_addon_sites]
+--------------------------------------
+PATHS MAPPING : "/opt/lampp/htdocs/wordpress"
+--------------------------------------
+LOG-TIME[DELTA:   0.08789]  MESSAGE:TEST "Addon Sites" RESULT: good
+
+START TEST "Wordfence" [CLASS: DUPX_Validation_test_wordfence]
+LOG-TIME[DELTA:   0.00009]  MESSAGE:TEST "Wordfence" RESULT: good
+
+START TEST "Table prefix of managed hosting" [CLASS: DUPX_Validation_test_managed_tprefix]
+LOG-TIME[DELTA:   0.00003]  MESSAGE:TEST "Table prefix of managed hosting" RESULT: skip
+
+START TEST "PHP Version Mismatch" [CLASS: DUPX_Validation_test_php_version]
+LOG-TIME[DELTA:   0.00002]  MESSAGE:TEST "PHP Version Mismatch" RESULT: good
+
+START TEST "PHP Open Base" [CLASS: DUPX_Validation_test_open_basedir]
+LOG-TIME[DELTA:   0.00001]  MESSAGE:TEST "PHP Open Base" RESULT: good
+
+START TEST "PHP Memory Limit" [CLASS: DUPX_Validation_test_memory_limit]
+LOG-TIME[DELTA:   0.00002]  MESSAGE:TEST "PHP Memory Limit" RESULT: good
+
+START TEST "PHP Extensions" [CLASS: DUPX_Validation_test_extensions]
+LOG-TIME[DELTA:   0.00001]  MESSAGE:TEST "PHP Extensions" RESULT: good
+
+START TEST "PHP Mysqli" [CLASS: DUPX_Validation_test_mysql_connect]
+LOG-TIME[DELTA:   0.00001]  MESSAGE:TEST "PHP Mysqli" RESULT: passed
+
+START TEST "PHP Tokenizer" [CLASS: DUPX_Validation_test_tokenizer]
+LOG-TIME[DELTA:   0.00000]  MESSAGE:TEST "PHP Tokenizer" RESULT: passed
+
+START TEST "PHP Timeout" [CLASS: DUPX_Validation_test_timeout]
+LOG-TIME[DELTA:   0.00001]  MESSAGE:TEST "PHP Timeout" RESULT: good
+
+START TEST "Disk Space" [CLASS: DUPX_Validation_test_disk_space]
+LOG-TIME[DELTA:   0.00625]  MESSAGE:TEST "Disk Space" RESULT: good
+
+START TEST "Permissions: General" [CLASS: DUPX_Validation_test_iswritable]
+LOG-TIME[DELTA:   0.02923]  MESSAGE:TEST "Permissions: General" RESULT: passed
+
+START TEST "Permissions: Configs Files " [CLASS: DUPX_Validation_test_iswritable_configs]
+LOG-TIME[DELTA:   0.00007]  MESSAGE:TEST "Permissions: Configs Files " RESULT: passed
+
+START TEST "Host Name" [CLASS: DUPX_Validation_test_db_host_name]
+LOG-TIME[DELTA:   0.00002]  MESSAGE:TEST "Host Name" RESULT: passed
+
+START TEST "Host Connection" [CLASS: DUPX_Validation_test_db_connection]
+LOG-TIME[DELTA:   0.00032]  MESSAGE:TEST "Host Connection" RESULT: passed
+
+START TEST "Database Version" [CLASS: DUPX_Validation_test_db_version]
+LOG-TIME[DELTA:   0.00135]  MESSAGE:TEST "Database Version" RESULT: passed
+
+START TEST "Create New Database" [CLASS: DUPX_Validation_test_db_create]
+LOG-TIME[DELTA:   0.00003]  MESSAGE:TEST "Create New Database" RESULT: skip
+
+START TEST "Database Engine Support" [CLASS: DUPX_Validation_test_db_supported_engine]
+LOG-TIME[DELTA:   0.01362]  MESSAGE:TEST "Database Engine Support" RESULT: passed
+
+START TEST "Database GTID Mode" [CLASS: DUPX_Validation_test_db_gtid_mode]
+LOG-TIME[DELTA:   0.00110]  MESSAGE:TEST "Database GTID Mode" RESULT: passed
+
+START TEST "Privileges: User Visibility" [CLASS: DUPX_Validation_test_db_visibility]
+LOG-TIME[DELTA:   0.00025]  MESSAGE:TEST "Privileges: User Visibility" RESULT: passed
+
+START TEST "Manual Table Check" [CLASS: DUPX_Validation_test_db_manual_tabels_count]
+LOG-TIME[DELTA:   0.00002]  MESSAGE:TEST "Manual Table Check" RESULT: skip
+
+START TEST "Multiple WordPress Installs" [CLASS: DUPX_Validation_test_db_multiple_wp_installs]
+LOG-TIME[DELTA:   0.00160]  MESSAGE:TEST "Multiple WordPress Installs" RESULT: passed
+
+START TEST "Privileges: User Resources" [CLASS: DUPX_Validation_test_db_user_resources]
+LOG-TIME[DELTA:   0.00209]  MESSAGE:TEST "Privileges: User Resources" RESULT: passed
+
+START TEST "Privileges: User Table Access" [CLASS: DUPX_Validation_test_db_user_perms]
+DB QUERY [ERROR][/opt/lampp/htdocs/wordpress/dup-installer/classes/database/class.db.php:645] MSG: Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100428. Please use mysql_upgrade to fix this error
+	SQL: SHOW PROCEDURE STATUS
+TRACE[1] CLASS___: DUPX_DB::mysqli_query      FILE: /opt/lampp/htdocs/wordpress/dup-installer/classes/validation/class.validation.database.service.php[608]
+TRACE[2] CLASS___: DUPX_Validation_database_service->dbHasProcedures FILE: /opt/lampp/htdocs/wordpress/dup-installer/classes/validation/class.validation.database.service.php[481]
+TRACE[3] CLASS___: DUPX_Validation_database_service->dbCheckUserPerms FILE: /opt/lampp/htdocs/wordpress/dup-installer/classes/validation/database-tests/class.validation.test.db.user.perms.php[28]
+TRACE[4] CLASS___: DUPX_Validation_test_db_user_perms->runTest FILE: /opt/lampp/htdocs/wordpress/dup-installer/classes/validation/class.validation.abstract.item.php[46]
+TRACE[5] CLASS___: DUPX_Validation_abstract_item->test FILE: /opt/lampp/htdocs/wordpress/dup-installer/classes/validation/class.validation.manager.php[232]
+TRACE[6] CLASS___: DUPX_Validation_manager->runTests FILE: /opt/lampp/htdocs/wordpress/dup-installer/classes/validation/class.validation.manager.php[205]
+TRACE[7] CLASS___: DUPX_Validation_manager->getValidateData FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.ajax.php[173]
+TRACE[8] CLASS___: DUPX_Ctrl_ajax::actions    FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.ajax.php[95]
+TRACE[9] CLASS___: DUPX_Ctrl_ajax::controller FILE: /opt/lampp/htdocs/wordpress/dup-installer/main.installer.php[56]
+
+DB QUERY [ERROR][/opt/lampp/htdocs/wordpress/dup-installer/classes/database/class.db.php:645] MSG: Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100428. Please use mysql_upgrade to fix this error
+	SQL: SHOW FUNCTION STATUS
+TRACE[1] CLASS___: DUPX_DB::mysqli_query      FILE: /opt/lampp/htdocs/wordpress/dup-installer/classes/validation/class.validation.database.service.php[625]
+TRACE[2] CLASS___: DUPX_Validation_database_service->dbHasFunctions FILE: /opt/lampp/htdocs/wordpress/dup-installer/classes/validation/class.validation.database.service.php[489]
+TRACE[3] CLASS___: DUPX_Validation_database_service->dbCheckUserPerms FILE: /opt/lampp/htdocs/wordpress/dup-installer/classes/validation/database-tests/class.validation.test.db.user.perms.php[28]
+TRACE[4] CLASS___: DUPX_Validation_test_db_user_perms->runTest FILE: /opt/lampp/htdocs/wordpress/dup-installer/classes/validation/class.validation.abstract.item.php[46]
+TRACE[5] CLASS___: DUPX_Validation_abstract_item->test FILE: /opt/lampp/htdocs/wordpress/dup-installer/classes/validation/class.validation.manager.php[232]
+TRACE[6] CLASS___: DUPX_Validation_manager->runTests FILE: /opt/lampp/htdocs/wordpress/dup-installer/classes/validation/class.validation.manager.php[205]
+TRACE[7] CLASS___: DUPX_Validation_manager->getValidateData FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.ajax.php[173]
+TRACE[8] CLASS___: DUPX_Ctrl_ajax::actions    FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.ajax.php[95]
+TRACE[9] CLASS___: DUPX_Ctrl_ajax::controller FILE: /opt/lampp/htdocs/wordpress/dup-installer/main.installer.php[56]
+
+LOG-TIME[DELTA:   0.06899]  MESSAGE:TEST "Privileges: User Table Access" RESULT: passed
+
+START TEST "Privileges: 'Show Variables' Query" [CLASS: DUPX_Validation_test_db_custom_queries]
+LOG-TIME[DELTA:   0.00158]  MESSAGE:TEST "Privileges: 'Show Variables' Query" RESULT: passed
+
+START TEST "Source Database Triggers" [CLASS: DUPX_Validation_test_db_triggers]
+LOG-TIME[DELTA:   0.00007]  MESSAGE:TEST "Source Database Triggers" RESULT: passed
+
+START TEST "Character Set and Collation Support" [CLASS: DUPX_Validation_test_db_supported_default_charset]
+LOG-TIME[DELTA:   0.00313]  MESSAGE:TEST "Character Set and Collation Support" RESULT: passed
+
+START TEST "Character Set and  Collation Capability" [CLASS: DUPX_Validation_test_db_supported_charset]
+LOG-TIME[DELTA:   0.00026]  MESSAGE:TEST "Character Set and  Collation Capability" RESULT: passed
+
+START TEST "Tables Case Sensitivity" [CLASS: DUPX_Validation_test_db_case_sensitive_tables]
+LOG-TIME[DELTA:   0.00003]  MESSAGE:TEST "Tables Case Sensitivity" RESULT: skip
+
+START TEST "Tables Flagged for Removal or Backup" [CLASS: DUPX_Validation_test_db_affected_tables]
+LOG-TIME[DELTA:   0.00123]  MESSAGE:TEST "Tables Flagged for Removal or Backup" RESULT: soft warning
+
+START TEST "Prefix too long" [CLASS: DUPX_Validation_test_db_prefix_too_long]
+LOG-TIME[DELTA:   0.00013]  MESSAGE:TEST "Prefix too long" RESULT: passed
+
+START TEST "Database cleanup" [CLASS: DUPX_Validation_test_db_cleanup]
+LOG-TIME[DELTA:   0.00002]  MESSAGE:TEST "Database cleanup" RESULT: skip
+
+
+CTRL PARAMS AFTER VALIDATION
+AJAX ACTION [validate] SUCCESS
+-------------------------
+
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+
+-------------------------
+AJAX ACTION [proceed_confirm_dialog] START
+AJAX ACTION [proceed_confirm_dialog] SUCCESS
+-------------------------
+
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+
+-------------------------
+AJAX ACTION [sparam_s1] START
+AJAX ACTION [sparam_s1] SUCCESS
+-------------------------
+
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+
+-------------------------
+AJAX ACTION [extract] START
+INITIALIZE FILTERS
+--------------------------------------
+PATHS MAPPING : "/opt/lampp/htdocs/wordpress"
+--------------------------------------
+********************************************************************************
+* DUPLICATOR LITE: Install-Log
+* STEP-1 START @ 12:37:13
+* NOTICE: Do NOT post to public sites or forums!!
+********************************************************************************
+USER INPUTS
+INSTALL TYPE________: single site
+BLOG NAME___________: "Podologia David"
+HOME URL NEW________: "http://localhost/wordpress"
+SITE URL NEW________: "http://localhost/wordpress"
+CONTENT URL NEW_____: "http://localhost/wordpress/wp-content"
+UPLOAD URL NEW______: "http://localhost/wordpress/wp-content/uploads"
+PLUGINS URL NEW_____: "http://localhost/wordpress/wp-content/plugins"
+MUPLUGINS URL NEW___: "http://localhost/wordpress/wp-content/mu-plugins"
+HOME PATH NEW_______: "/opt/lampp/htdocs/wordpress"
+SITE PATH NEW_______: "/opt/lampp/htdocs/wordpress"
+CONTENT PATH NEW____: "/opt/lampp/htdocs/wordpress/wp-content"
+UPLOAD PATH NEW_____: "/opt/lampp/htdocs/wordpress/wp-content/uploads"
+PLUGINS PATH NEW____: "/opt/lampp/htdocs/wordpress/wp-content/plugins"
+MUPLUGINS PATH NEW__: "/opt/lampp/htdocs/wordpress/wp-content/mu-plugins"
+ARCHIVE ACTION______: "donothing"
+SKIP WP FILES_______: "none"
+ARCHIVE ENGINE______: "manual"
+SET DIR PERMS_______: true
+DIR PERMS VALUE_____: 0755
+SET FILE PERMS______: true
+FILE PERMS VALUE____: 0644
+SAFE MODE___________: 0
+LOGGING_____________: 1
+ZIP THROTTLING______: false
+WP CONFIG___________: "modify"
+HTACCESS CONFIG_____: "new"
+OTHER CONFIG________: "new"
+FILE TIME___________: "current"
+********************************************************************************
+
+REMOVE FILTERS
+	DIR : "/opt/lampp/htdocs/wordpress/dup-installer"
+	FILE: "/opt/lampp/htdocs/wordpress/20231124_podologiadavid_[HASH]_20231124122255_installer-backup.php"
+	FILE: "/opt/lampp/htdocs/wordpress/20231124_podologiadavid_[HASH]_20231124122255_archive.zip"
+	FILE: "/opt/lampp/htdocs/wordpress/installer.php"
+	FILE: "/opt/lampp/htdocs/wordpress/dup-installer-bootlog__99b4da6-24122255.txt"
+EXTRACTION FILTERS
+	DIR : "dup-installer"
+	FILE: "20231124_podologiadavid_[HASH]_20231124122255_installer-backup.php"
+--------------------------------------
+
+
+EXTRACTION: MANUAL MODE >>> START
+MAINTENANCE MODE ENABLE
+BEFORE EXTRACION ACTIONS
+
+*** RESET CONFIG FILES IN CURRENT HOSTING >>> START
+
+*** RESET CONFIG FILES IN CURRENT HOSTING >>> END
+MAINTENANCE MODE ENABLE
+
+*** CREATE FOLDER AND PERMISSION PREPARE
+FOLDER PREPARE DONE
+
+EXTRACTION: MANUAL MODE >>> DONE
+
+EXTRACTION COMPLETE @ 12:37:13 - RUNTIME: 0.0820 sec. - 
+AJAX ACTION [extract] SUCCESS
+-------------------------
+
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+
+-------------------------
+AJAX ACTION [dbinstall] START
+ADD PREFIX META MAP ID 0 wp_
+
+
+
+********************************************************************************
+* DUPLICATOR LITE: INSTALL-LOG
+* STEP-2 START @ 12:37:13
+* NOTICE: Do NOT post to public sites or forums!!
+********************************************************************************
+USER INPUTS
+DB ENGINE___________: "chunk"
+VIEW MODE___________: "basic"
+DB ACTION___________: "empty"
+DB HOST_____________: "**OBSCURED**"
+DB NAME_____________: "**OBSCURED**"
+DB PASS_____________: "**OBSCURED**"
+DB PORT_____________: "**OBSCURED**"
+USER MODE___________: "overwrite"
+TABLE PREFIX________: "wp_"
+MYSQL MODE__________: "DEFAULT"
+MYSQL MODE OPTS_____: ""
+CHARSET_____________: "utf8mb4"
+COLLATE_____________: ""
+CUNKING_____________: true
+VIEW CREATION_______: true
+STORED PROCEDURE____: true
+FUNCTIONS___________: true
+REMOVE DEFINER______: false
+SPLIT CREATES_______: true
+--------------------------------------
+TABLES
+--------------------------------------
+TABLE "wp_chaty_contact_form_leads"_____________________[ROWS:       0] [EXTRACT|REPLACE] [INST NAME: wp_chaty_contact_form_leads]
+TABLE "wp_commentmeta"__________________________________[ROWS:       0] [EXTRACT|REPLACE] [INST NAME: wp_commentmeta]
+TABLE "wp_comments"_____________________________________[ROWS:       0] [EXTRACT|REPLACE] [INST NAME: wp_comments]
+TABLE "wp_duplicator_packages"__________________________[ROWS:       1] [EXTRACT|REPLACE] [INST NAME: wp_duplicator_packages]
+TABLE "wp_e_events"_____________________________________[ROWS:       0] [EXTRACT|REPLACE] [INST NAME: wp_e_events]
+TABLE "wp_links"________________________________________[ROWS:       0] [EXTRACT|REPLACE] [INST NAME: wp_links]
+TABLE "wp_options"______________________________________[ROWS:     333] [EXTRACT|REPLACE] [INST NAME: wp_options]
+TABLE "wp_postmeta"_____________________________________[ROWS:    2230] [EXTRACT|REPLACE] [INST NAME: wp_postmeta]
+TABLE "wp_posts"________________________________________[ROWS:     334] [EXTRACT|REPLACE] [INST NAME: wp_posts]
+TABLE "wp_termmeta"_____________________________________[ROWS:       2] [EXTRACT|REPLACE] [INST NAME: wp_termmeta]
+TABLE "wp_terms"________________________________________[ROWS:       4] [EXTRACT|REPLACE] [INST NAME: wp_terms]
+TABLE "wp_term_relationships"___________________________[ROWS:       7] [EXTRACT|REPLACE] [INST NAME: wp_term_relationships]
+TABLE "wp_term_taxonomy"________________________________[ROWS:       4] [EXTRACT|REPLACE] [INST NAME: wp_term_taxonomy]
+TABLE "wp_usermeta"_____________________________________[ROWS:      27] [EXTRACT|REPLACE] [INST NAME: wp_usermeta]
+TABLE "wp_users"________________________________________[ROWS:       1] [EXTRACT|REPLACE] [INST NAME: wp_users]
+TABLE "wp_wc_comments_subscription"_____________________[ROWS:       0] [EXTRACT|REPLACE] [INST NAME: wp_wc_comments_subscription]
+TABLE "wp_wc_feedback_forms"____________________________[ROWS:       0] [EXTRACT|REPLACE] [INST NAME: wp_wc_feedback_forms]
+TABLE "wp_wc_follow_users"______________________________[ROWS:       0] [EXTRACT|REPLACE] [INST NAME: wp_wc_follow_users]
+TABLE "wp_wc_phrases"___________________________________[ROWS:     207] [EXTRACT|REPLACE] [INST NAME: wp_wc_phrases]
+TABLE "wp_wc_users_rated"_______________________________[ROWS:       0] [EXTRACT|REPLACE] [INST NAME: wp_wc_users_rated]
+TABLE "wp_wc_users_voted"_______________________________[ROWS:       0] [EXTRACT|REPLACE] [INST NAME: wp_wc_users_voted]
+********************************************************************************
+
+--------------------------------------
+DATABASE-ENVIRONMENT
+--------------------------------------
+MYSQL VERSION:	This Server: 10.4.28 -- Build Server: 10.4.17
+FILE SIZE:	dup-database__[HASH].sql (14.11MB)
+TIMEOUT:	5000
+MAXPACK:	1048576
+SQLMODE-GLOBAL:	STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+SQLMODE-SESSION:NO_AUTO_VALUE_ON_ZERO
+DROP ALL TABLES
+DROP TABLE wp_chaty_contact_form_leads
+DROP TABLE wp_commentmeta
+DROP TABLE wp_comments
+DROP TABLE wp_e_events
+DROP TABLE wp_eafl_clicks
+DROP TABLE wp_eafl_relations
+DROP TABLE wp_links
+DROP TABLE wp_options
+DROP TABLE wp_postmeta
+DROP TABLE wp_posts
+DROP TABLE wp_term_relationships
+DROP TABLE wp_term_taxonomy
+DROP TABLE wp_termmeta
+DROP TABLE wp_terms
+DROP TABLE wp_usermeta
+DROP TABLE wp_users
+DROP TABLE wp_wc_comments_subscription
+DROP TABLE wp_wc_feedback_forms
+DROP TABLE wp_wc_follow_users
+DROP TABLE wp_wc_phrases
+DROP TABLE wp_wc_users_rated
+DROP TABLE wp_wc_users_voted
+DB QUERY [ERROR][/opt/lampp/htdocs/wordpress/dup-installer/classes/database/class.db.php:645] MSG: Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100428. Please use mysql_upgrade to fix this error
+	SQL: SHOW PROCEDURE STATUS WHERE db='wordpress'
+TRACE[1] CLASS___: DUPX_DB::mysqli_query      FILE: /opt/lampp/htdocs/wordpress/dup-installer/src/Core/Deploy/Database/DbCleanup.php[161]
+TRACE[2] CLASS___: Duplicator\Installer\Core\Deploy\Database\DbCleanup::dropProcs FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.dbinstall.php[583]
+TRACE[3] CLASS___: DUPX_DBInstall->dbActionEmpty FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.dbinstall.php[548]
+TRACE[4] CLASS___: DUPX_DBInstall->prepareDB  FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.dbinstall.php[206]
+TRACE[5] CLASS___: DUPX_DBInstall->deploy     FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.ajax.php[217]
+TRACE[6] CLASS___: DUPX_Ctrl_ajax::actions    FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.ajax.php[95]
+TRACE[7] CLASS___: DUPX_Ctrl_ajax::controller FILE: /opt/lampp/htdocs/wordpress/dup-installer/main.installer.php[56]
+
+PROCEDURE CLEAN ERROR: Could not get list of PROCEDURES to drop them.
+DB QUERY [ERROR][/opt/lampp/htdocs/wordpress/dup-installer/classes/database/class.db.php:645] MSG: Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100428. Please use mysql_upgrade to fix this error
+	SQL: SHOW FUNCTION STATUS WHERE db='wordpress'
+TRACE[1] CLASS___: DUPX_DB::mysqli_query      FILE: /opt/lampp/htdocs/wordpress/dup-installer/src/Core/Deploy/Database/DbCleanup.php[223]
+TRACE[2] CLASS___: Duplicator\Installer\Core\Deploy\Database\DbCleanup::dropFuncs FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.dbinstall.php[584]
+TRACE[3] CLASS___: DUPX_DBInstall->dbActionEmpty FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.dbinstall.php[548]
+TRACE[4] CLASS___: DUPX_DBInstall->prepareDB  FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.dbinstall.php[206]
+TRACE[5] CLASS___: DUPX_DBInstall->deploy     FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.ajax.php[217]
+TRACE[6] CLASS___: DUPX_Ctrl_ajax::actions    FILE: /opt/lampp/htdocs/wordpress/dup-installer/ctrls/classes/class.ctrl.ajax.php[95]
+TRACE[7] CLASS___: DUPX_Ctrl_ajax::controller FILE: /opt/lampp/htdocs/wordpress/dup-installer/main.installer.php[56]
+
+FUNCTION CLEAN ERROR: Could not get list of FUNCTIONS to drop them.
+--------------------------------------
+DATABASE RESULTS
+--------------------------------------
+QUERY FIXES
+GLOBAL RULES ADDED: PROC AND VIEWS
+
+QUERY FIXES GLOBAL RULES
+	SEARCH  => /^(\s*(?:\/\*!\d+\s)?\s*(?:CREATE.+)?DEFINER\s*=)([^\*\s]+)(.*)$/m
+	REPLACE => $1`root`@`localhost`$3
+
+	SEARCH  => /^(\s*CREATE.+(?:PROCEDURE|FUNCTION)[\s\S]*)(BEGIN)([\s\S]*)$/
+	REPLACE => $1SQL SECURITY INVOKER
+$2$3
+
+--------------------------------------
+** DATABASE CHUNK install start
+--------------------------------------
+DATABASE CHUNK SEEK POSITION: 0
+Auto Commit set to false successfully
+NO TABLE TO SKIP
+DATABASE CHUNK: CREATION TABLE MARKER FOUND
+Auto Commit set to true successfully
+--------------------------------------
+** DATABASE CHUNK install end
+--------------------------------------
+AJAX ACTION [dbinstall] SUCCESS
+-------------------------
+
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+
+-------------------------
+AJAX ACTION [dbinstall] START
+--------------------------------------
+** DATABASE CHUNK install start
+--------------------------------------
+DATABASE CHUNK SEEK POSITION: 4162132
+Auto Commit set to false successfully
+NO TABLE TO SKIP
+Auto Commit set to true successfully
+--------------------------------------
+** DATABASE CHUNK install end
+--------------------------------------
+AJAX ACTION [dbinstall] SUCCESS
+-------------------------
+
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+
+-------------------------
+AJAX ACTION [dbinstall] START
+--------------------------------------
+** DATABASE CHUNK install start
+--------------------------------------
+DATABASE CHUNK SEEK POSITION: 7522962
+Auto Commit set to false successfully
+NO TABLE TO SKIP
+Auto Commit set to true successfully
+--------------------------------------
+** DATABASE CHUNK install end
+--------------------------------------
+AJAX ACTION [dbinstall] SUCCESS
+-------------------------
+
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+
+-------------------------
+AJAX ACTION [dbinstall] START
+--------------------------------------
+** DATABASE CHUNK install start
+--------------------------------------
+DATABASE CHUNK SEEK POSITION: 13186801
+Auto Commit set to false successfully
+NO TABLE TO SKIP
+Auto Commit set to true successfully
+--------------------------------------
+** DATABASE CHUNK install end
+--------------------------------------
+ERRORS FOUND:	0
+DROPPED TABLES:	22
+RENAMED TABLES:	0
+QUERIES RAN:	3177
+
+TABLES ROWS IN DATABASE AFTER EXTRACTION
+
+TABLE "wp_chaty_contact_form_leads"_____________________[ROWS:     0]
+TABLE "wp_commentmeta"__________________________________[ROWS:     0]
+TABLE "wp_comments"_____________________________________[ROWS:     0]
+TABLE "wp_duplicator_packages"__________________________[ROWS:     1]
+TABLE "wp_e_events"_____________________________________[ROWS:     0]
+TABLE "wp_links"________________________________________[ROWS:     0]
+TABLE "wp_options"______________________________________[ROWS:   333]
+TABLE "wp_postmeta"_____________________________________[ROWS:  2230]
+TABLE "wp_posts"________________________________________[ROWS:   334]
+TABLE "wp_term_relationships"___________________________[ROWS:     7]
+TABLE "wp_term_taxonomy"________________________________[ROWS:     4]
+TABLE "wp_termmeta"_____________________________________[ROWS:     2]
+TABLE "wp_terms"________________________________________[ROWS:     4]
+TABLE "wp_usermeta"_____________________________________[ROWS:    27]
+TABLE "wp_users"________________________________________[ROWS:     1]
+TABLE "wp_wc_comments_subscription"_____________________[ROWS:     0]
+TABLE "wp_wc_feedback_forms"____________________________[ROWS:     0]
+TABLE "wp_wc_follow_users"______________________________[ROWS:     0]
+TABLE "wp_wc_phrases"___________________________________[ROWS:   207]
+TABLE "wp_wc_users_rated"_______________________________[ROWS:     0]
+TABLE "wp_wc_users_voted"_______________________________[ROWS:     0]
+
+INSERT DATA RUNTIME: 17.9429 sec.
+STEP-2 COMPLETE @ 12:37:31 - RUNTIME: 17.9429 sec.
+AJAX ACTION [dbinstall] SUCCESS
+-------------------------
+
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+
+-------------------------
+AJAX ACTION [webupdate] START
+
+====================================
+SET SEARCH AND REPLACE LIST INSTALL TYPE single site
+====================================
+SEARCH ITEM[T:path |P:12] SEARCH: /home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress REPLACE: /opt/lampp/htdocs/wordpress [SCOPE: ALL]
+SEARCH ITEM[T:urlnd|P:10] SEARCH: http://jlc84.great-site.net/wordpress/wp-content/uploads REPLACE: http://localhost/wordpress/wp-content/uploads [SCOPE: ALL]
+SEARCH ITEM[T:urlnd|P:12] SEARCH: https://jlc84.great-site.net/wordpress REPLACE: http://localhost/wordpress [SCOPE: ALL]
+SEARCH ITEM[T:urlnd|P:10] SEARCH: http://jlc84.great-site.net/wordpress/wp-content/mu-plugins REPLACE: http://localhost/wordpress/wp-content/mu-plugins [SCOPE: ALL]
+CHUNK LOAD DATA: IS NULL 
+CHUNK ACTION: CURRENT [start][][]
+
+
+********************************************************************************
+DUPLICATOR LITE: INSTALL-LOG
+STEP-3 START @ 12:37:31
+NOTICE: Do NOT post to public sites or forums
+********************************************************************************
+CHARSET SERVER:	"utf8mb4"
+CHARSET CLIENT:	"utf8mb4"
+********************************************************************************
+OPTIONS:
+SKIP PATH REPLACE_____: false
+DISALLOW_FILE_EDIT____: [value = ], [inWpConfig = ]
+DISALLOW_FILE_MODS____: [value = ], [inWpConfig = ]
+AUTOSAVE_INTERVAL_____: [value = 60], [inWpConfig = ]
+WP_POST_REVISIONS_____: [value = 1], [inWpConfig = ]
+FORCE_SSL_ADMIN_______: [value = ], [inWpConfig = ]
+WP_AUTO_UPDATE_CORE___: [value = false], [inWpConfig = ]
+WP_CACHE______________: [value = ], [inWpConfig = ]
+WPCACHEHOME___________: [value = /], [inWpConfig = ]
+WP_DEBUG______________: [value = ], [inWpConfig = 1]
+WP_DEBUG_LOG__________: [value = ], [inWpConfig = ]
+WP_DEBUG_DISPLAY______: [value = 1], [inWpConfig = ]
+WP_DISABLE_FATAL_ERROR_HANDLER: [value = ], [inWpConfig = ]
+SCRIPT_DEBUG__________: [value = ], [inWpConfig = ]
+CONCATENATE_SCRIPTS___: [value = ], [inWpConfig = ]
+SAVEQUERIES___________: [value = ], [inWpConfig = ]
+ALTERNATE_WP_CRON_____: [value = ], [inWpConfig = ]
+DISABLE_WP_CRON_______: [value = ], [inWpConfig = ]
+WP_CRON_LOCK_TIMEOUT__: [value = 60], [inWpConfig = ]
+COOKIE_DOMAIN_________: [value = ], [inWpConfig = ]
+WP_MEMORY_LIMIT_______: [value = 40M], [inWpConfig = ]
+WP_MAX_MEMORY_LIMIT___: [value = 512M], [inWpConfig = ]
+WP_TEMP_DIR___________: [value = ], [inWpConfig = ]
+********************************************************************************
+
+********************************************************************************
+CHUNK PARAMS:
+maxIteration__________: 0
+timeOut_______________: 5000
+throttling____________: 2
+rowsPerPage___________: 1000
+********************************************************************************
+
+CHUNK ACTION: CURRENT [cleanup_trans][][]
+[PHP ERR][E_WARNING] MSG:foreach() argument must be of type array|object, string given [CODE:2|FILE:/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Deploy/Database/DbCleanup.php|LINE:95]
+CLEAN OPTIONS [wp_options]
+	`option_name` = "duplicator_plugin_data_stats"
+	`option_name` LIKE "\_transient%"
+	`option_name` LIKE "\_site\_transient%"
+DATABASE OPTIONS DELETED [ROWS:    49]
+CHUNK ACTION: CURRENT [cleanup_extra][][]
+CLEANUP EXTRA
+	- SKIP DROP VIEWS
+	- SKIP DROP PROCS
+	- SKIP DROP FUNCS
+CHUNK ACTION: CURRENT [cleanup_packages][][]
+EMPTY PACKAGES TABLE
+CLEAN PACKAGES
+DATABASE PACKAGE DELETED [ROWS:     1]
+CHUNK ACTION: CURRENT [init][][]
+
+EVALUATE TABLE: "wp_chaty_contact_form_leads"_____________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_commentmeta"__________________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_comments"_____________________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_duplicator_packages"__________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_e_events"_____________________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_links"________________________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_options"______________________________________[ROWS:   284][PG:   1][SCAN:text columns]
+	--- BASE STRINGS ---
+	SEARCH[urlnd]  1:"http://jlc84.great-site.net/wordpress/wp-content/uploads" => "http://localhost/wordpress/wp-content/uploads"
+	SEARCH[urlnd]  2:"http://jlc84.great-site.net/wordpress/wp-content/mu-plugins" => "http://localhost/wordpress/wp-content/mu-plugins"
+	SEARCH[path ]  3:"/home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress" => "/opt/lampp/htdocs/wordpress"
+	SEARCH[urlnd]  4:"https://jlc84.great-site.net/wordpress" ==========> "http://localhost/wordpress"
+	CHUNK ACTION: CURRENT [search_replace][wp_options][0]
+
+EVALUATE TABLE: "wp_postmeta"_____________________________________[ROWS:  2230][PG:   3][SCAN:text columns]
+	--- BASE STRINGS ---
+	SEARCH[urlnd]  1:"http://jlc84.great-site.net/wordpress/wp-content/uploads" => "http://localhost/wordpress/wp-content/uploads"
+	SEARCH[urlnd]  2:"http://jlc84.great-site.net/wordpress/wp-content/mu-plugins" => "http://localhost/wordpress/wp-content/mu-plugins"
+	SEARCH[path ]  3:"/home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress" => "/opt/lampp/htdocs/wordpress"
+	SEARCH[urlnd]  4:"https://jlc84.great-site.net/wordpress" ==========> "http://localhost/wordpress"
+	CHUNK ACTION: CURRENT [search_replace][wp_postmeta][0]
+	CHUNK ACTION: CURRENT [search_replace][wp_postmeta][1]
+	CHUNK ACTION: CURRENT [search_replace][wp_postmeta][2]
+
+EVALUATE TABLE: "wp_posts"________________________________________[ROWS:   334][PG:   1][SCAN:text columns]
+	--- BASE STRINGS ---
+	SEARCH[urlnd]  1:"http://jlc84.great-site.net/wordpress/wp-content/uploads" => "http://localhost/wordpress/wp-content/uploads"
+	SEARCH[urlnd]  2:"http://jlc84.great-site.net/wordpress/wp-content/mu-plugins" => "http://localhost/wordpress/wp-content/mu-plugins"
+	SEARCH[path ]  3:"/home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress" => "/opt/lampp/htdocs/wordpress"
+	SEARCH[urlnd]  4:"https://jlc84.great-site.net/wordpress" ==========> "http://localhost/wordpress"
+	CHUNK ACTION: CURRENT [search_replace][wp_posts][0]
+
+EVALUATE TABLE: "wp_termmeta"_____________________________________[ROWS:     2][PG:   1][SCAN:text columns]
+	--- BASE STRINGS ---
+	SEARCH[urlnd]  1:"http://jlc84.great-site.net/wordpress/wp-content/uploads" => "http://localhost/wordpress/wp-content/uploads"
+	SEARCH[urlnd]  2:"http://jlc84.great-site.net/wordpress/wp-content/mu-plugins" => "http://localhost/wordpress/wp-content/mu-plugins"
+	SEARCH[path ]  3:"/home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress" => "/opt/lampp/htdocs/wordpress"
+	SEARCH[urlnd]  4:"https://jlc84.great-site.net/wordpress" ==========> "http://localhost/wordpress"
+	CHUNK ACTION: CURRENT [search_replace][wp_termmeta][0]
+
+EVALUATE TABLE: "wp_terms"________________________________________[ROWS:     4][PG:   1][SCAN:text columns]
+	--- BASE STRINGS ---
+	SEARCH[urlnd]  1:"http://jlc84.great-site.net/wordpress/wp-content/uploads" => "http://localhost/wordpress/wp-content/uploads"
+	SEARCH[urlnd]  2:"http://jlc84.great-site.net/wordpress/wp-content/mu-plugins" => "http://localhost/wordpress/wp-content/mu-plugins"
+	SEARCH[path ]  3:"/home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress" => "/opt/lampp/htdocs/wordpress"
+	SEARCH[urlnd]  4:"https://jlc84.great-site.net/wordpress" ==========> "http://localhost/wordpress"
+	CHUNK ACTION: CURRENT [search_replace][wp_terms][0]
+
+EVALUATE TABLE: "wp_term_relationships"___________________________[ROWS:     7][PG:   1][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_term_taxonomy"________________________________[ROWS:     4][PG:   1][SCAN:text columns]
+	--- BASE STRINGS ---
+	SEARCH[urlnd]  1:"http://jlc84.great-site.net/wordpress/wp-content/uploads" => "http://localhost/wordpress/wp-content/uploads"
+	SEARCH[urlnd]  2:"http://jlc84.great-site.net/wordpress/wp-content/mu-plugins" => "http://localhost/wordpress/wp-content/mu-plugins"
+	SEARCH[path ]  3:"/home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress" => "/opt/lampp/htdocs/wordpress"
+	SEARCH[urlnd]  4:"https://jlc84.great-site.net/wordpress" ==========> "http://localhost/wordpress"
+	CHUNK ACTION: CURRENT [search_replace][wp_term_taxonomy][0]
+
+EVALUATE TABLE: "wp_usermeta"_____________________________________[ROWS:    27][PG:   1][SCAN:text columns]
+	--- BASE STRINGS ---
+	SEARCH[urlnd]  1:"http://jlc84.great-site.net/wordpress/wp-content/uploads" => "http://localhost/wordpress/wp-content/uploads"
+	SEARCH[urlnd]  2:"http://jlc84.great-site.net/wordpress/wp-content/mu-plugins" => "http://localhost/wordpress/wp-content/mu-plugins"
+	SEARCH[path ]  3:"/home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress" => "/opt/lampp/htdocs/wordpress"
+	SEARCH[urlnd]  4:"https://jlc84.great-site.net/wordpress" ==========> "http://localhost/wordpress"
+	CHUNK ACTION: CURRENT [search_replace][wp_usermeta][0]
+
+EVALUATE TABLE: "wp_users"________________________________________[ROWS:     1][PG:   1][SCAN:text columns]
+	--- BASE STRINGS ---
+	SEARCH[urlnd]  1:"http://jlc84.great-site.net/wordpress/wp-content/uploads" => "http://localhost/wordpress/wp-content/uploads"
+	SEARCH[urlnd]  2:"http://jlc84.great-site.net/wordpress/wp-content/mu-plugins" => "http://localhost/wordpress/wp-content/mu-plugins"
+	SEARCH[path ]  3:"/home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress" => "/opt/lampp/htdocs/wordpress"
+	SEARCH[urlnd]  4:"https://jlc84.great-site.net/wordpress" ==========> "http://localhost/wordpress"
+	CHUNK ACTION: CURRENT [search_replace][wp_users][0]
+
+EVALUATE TABLE: "wp_wc_comments_subscription"_____________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_wc_feedback_forms"____________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_wc_follow_users"______________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_wc_phrases"___________________________________[ROWS:   207][PG:   1][SCAN:text columns]
+	--- BASE STRINGS ---
+	SEARCH[urlnd]  1:"http://jlc84.great-site.net/wordpress/wp-content/uploads" => "http://localhost/wordpress/wp-content/uploads"
+	SEARCH[urlnd]  2:"http://jlc84.great-site.net/wordpress/wp-content/mu-plugins" => "http://localhost/wordpress/wp-content/mu-plugins"
+	SEARCH[path ]  3:"/home/vol10_2/infinityfree.com/if0_35423552/htdocs/wordpress" => "/opt/lampp/htdocs/wordpress"
+	SEARCH[urlnd]  4:"https://jlc84.great-site.net/wordpress" ==========> "http://localhost/wordpress"
+	CHUNK ACTION: CURRENT [search_replace][wp_wc_phrases][0]
+
+EVALUATE TABLE: "wp_wc_users_rated"_______________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+
+EVALUATE TABLE: "wp_wc_users_voted"_______________________________[ROWS:     0][PG:   0][SCAN:no columns  ]
+--------------------------------------
+SCANNED:	Tables:21 	|	 Rows:3093 	|	 Cells:18525 
+UPDATED:	Tables:4 	|	 Rows:45 	|	 Cells:68 
+ERRORS:		0 
+RUNTIME:	0.570300 sec
+CHUNK ACTION: CURRENT [rem_maintenance][][]
+
+====================================
+REMOVE MAINTENANCE MODE
+====================================
+MAINTENANCE MODE DISABLE
+CHUNK ACTION: CURRENT [config_update][][]
+SET CONFIG FILES
+Retained original entry wpconfig target:/opt/lampp/htdocs/wordpress/wp-config.php
+New htaccess file created:/opt/lampp/htdocs/wordpress/.htaccess
+
+====================================
+CONFIGURATION FILE UPDATES
+====================================
+	UPDATE ABSPATH "dirname(__FILE__) . '/'"
+	UPDATE DB_NAME ""wordpress""
+	UPDATE DB_USER "** OBSCURED **"
+	UPDATE DB_PASSWORD "** OBSCURED **"
+	UPDATE DB_HOST ""localhost""
+	UPDATE DB_CHARSET "utf8mb4"
+	UPDATE DB_COLLATE ""
+	WP CONFIG UPDATE WP_DEBUG "false"
+	
+*** UPDATED WP CONFIG FILE ***
+
+====================================
+HTACCESS UPDATE
+====================================
+
+WEB SERVER CONFIGURATION FILE UPDATED:
+- Preparing .htaccess file with basic setup.
+HTACCESS FILE - Successfully updated the .htaccess file setting.
+
+====================================
+INDEX.PHP UPDATE
+====================================
+INDEX.PHP updated with new blog header "dirname(__FILE__) . '/wp-blog-header.php'"
+
+CHUNK ACTION: CURRENT [gen_update][][]
+
+====================================
+GENERAL UPDATES
+====================================
+
+====================================
+MANAGE PLUGINS
+====================================
+CHUNK ACTION: CURRENT [gen_clean][][]
+
+====================================
+GENERAL CLEANUP
+====================================
+RESET ALL USERS SESSION TOKENS
+MIGRATION INFO SET
+CHUNK ACTION: CURRENT [create_admin][][]
+
+====================================
+RESET USERS PASSWORD
+====================================
+CHUNK ACTION: CURRENT [notice_test][][]
+
+====================================
+CHECK FOR INDEX.HTML
+====================================
+NO INDEX.HTML WAS FOUND
+
+====================================
+NOTICES TEST
+====================================
+No General Notices Found
+
+CHUNK ACTION: CURRENT [cleanup_tmp_files][][]
+
+====================================
+CLEANUP TMP FILES
+====================================
+CHUNK ACTION: CURRENT [set_files_perms][][]
+
+====================================
+SET PARAMS PERMISSION
+====================================
+
+*** SET FOLDER PERMISSION AFTER EXTRACTION
+SET FOLDER PERMISSION DONE
+CHUNK ACTION: CURRENT [final_report][][]
+
+====================================
+FINAL REPORT NOTICES
+====================================
+
+STEP-3 COMPLETE @ 12:37:32 - RUNTIME: 0.7148 sec. 
+
+
+AJAX ACTION [webupdate] SUCCESS
+-------------------------
+
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+
+-------------------------
+AJAX ACTION [finalpre] START
+AJAX ACTION [finalpre] SUCCESS
+-------------------------
+
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+
+-------------------------
+AJAX ACTION [finalafter] START
+AJAX ACTION [finalafter] SUCCESS
+-------------------------
+
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/src/Core/Bootstrap.php:71] RESET TIME
+
+====================================
+FINAL REPORT NOTICES LIST
+====================================
+-----------------------
+[WARNING] PROCEDURE CLEAN ERROR: Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100428. Please use mysql_upgrade to fix this error
+	SECTIONS: database
+	LONG MSG: Unable to get list of PROCEDURES from database "wordpress".
+
+-----------------------
+[WARNING] FUNCTION CLEAN ERROR: Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100428. Please use mysql_upgrade to fix this error
+	SECTIONS: database
+	LONG MSG: Unable to get list of FUNCTIONS from database "wordpress".
+
+====================================
+LOG-TIME[/opt/lampp/htdocs/wordpress/dup-installer/ctrls/ctrl.base.php:227][DELTA:   0.01967]  MESSAGE:END RENDER PAGE
