@@ -16,5 +16,5 @@ $view           = get_post_meta(get_the_ID(),'__post_views_count', true);
 $post_time      = human_time_diff(get_the_time('U'),current_time('U'));
 $word_read      = apply_filters('ultp_word_read_min', 1200);
 $reading_time   = ceil(mb_strlen(strip_tags(get_the_content()))/$word_read).( isset($attr['metaMinText']) ? ' '.$attr['metaMinText'] : '' );
-$is_active = ultimate_post()->is_lc_active();
-$post_video = isset($attr['vidIconEnable']) && $attr['vidIconEnable'] ? get_post_meta($post_id, '__builder_feature_video', true) : '';
+$is_active      = ultimate_post()->is_lc_active();
+$post_video     = isset($attr['vidIconEnable']) && $attr['vidIconEnable'] ? get_post_meta($post_id, '__builder_feature_video', true) : '';

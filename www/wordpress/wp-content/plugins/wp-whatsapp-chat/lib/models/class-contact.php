@@ -2,156 +2,97 @@
 
 namespace QuadLayers\QLWAPP\Models;
 
-class Contact extends Base {
+use QuadLayers\QLWAPP\Entities\Contact as Contact_Entity;
+use QuadLayers\WP_Orm\Builder\CollectionRepositoryBuilder;
 
-	protected $table = 'contacts';
+/**
+ * Models_Action Class
+ */
+class Contact {
+
+	protected static $instance;
+	protected $repository;
+
+	public function __construct() {
+		add_filter( 'sanitize_option_qlwapp_contacts', 'wp_unslash' );
+		$builder = ( new CollectionRepositoryBuilder() )
+		->setTable( 'qlwapp_contacts' )
+		->setEntity( Contact_Entity::class )
+		->setAutoIncrement( true );
+
+		$this->repository = $builder->getRepository();
+	}
+
+	public function get_table() {
+		return $this->repository->getTable();
+	}
 
 	public function get_args() {
-
-		$display_component_model = new Display_Component();
-		$args                    = array(
-			'id'         => null,
-			'order'      => 1,
-			'active'     => 1,
-			'chat'       => true,
-			'auto_open'  => false,
-			'avatar'     => 'https://www.gravatar.com/avatar/00000000000000000000000000000000',
-			'type'       => 'phone',                // here we define the type of button, can be 'phone' or 'group'
-			'phone'      => '',
-			'group'      => '',
-			'firstname'  => 'John',
-			'lastname'   => 'Doe',
-			'label'      => esc_html__( 'Support', 'wp-whatsapp-chat' ),
-			'message'    => sprintf( esc_html__( 'Hello! I\'m testing the %1$s plugin %2$s', 'wp-whatsapp-chat' ), QLWAPP_PLUGIN_NAME, QLWAPP_LANDING_URL ),
-			'timefrom'   => '00:00',
-			'timeto'     => '00:00',
-			'timezone'   => qlwapp_get_current_timezone(),
-			'visibility' => 'readonly',
-			'timeout'    => 'readonly', /* TODO: delete */
-			'timedays'   => array(),
-			'display'    => $display_component_model->get_args(),
-		);
-
-		return $args;
-	}
-
-	public function get_next_id() {
-		$contactos = $this->get_contacts();
-		if ( count( $contactos ) ) {
-			return max( array_keys( $contactos ) ) + 1;
-		}
-		return 0;
-	}
-
-	public function add_contact( $contact_data ) {
-		$contact_id         = $this->get_next_id();
-		$contact_data['id'] = $contact_id;
-		return $this->save( $contact_data );
-	}
-
-	public function update_contact( $contact_data ) {
-		return $this->save( $contact_data );
-	}
-
-	public function update_contacts( $contacts, $order = 0 ) {
-		return $this->save_with_reorder( $contacts );
-	}
-
-	public function save( $contact_data = null ) {
-		$contacts                        = $this->get_contacts();
-		$contacts[ $contact_data['id'] ] = wp_parse_args( $contact_data, $this->get_args() );
-		return $this->save_with_reorder( $contacts, 1 );
-	}
-
-	public function save_with_reorder( $contacts, $with = 0 ) {
-		if ( $with ) {
-			$loop = 1;
-			foreach ( $contacts as $key => $value ) {
-				$contacts[ $key ]['order'] = $loop;
-				$loop++;
-			}
-		}
-		return $this->save_data( $this->table, $this->sanitize_value_data( $contacts ) );
-	}
-
-	public function delete( $id = null ) {
-		$contacts = parent::get_all( $this->table );
-		if ( $contacts ) {
-			if ( count( $contacts ) > 0 ) {
-				unset( $contacts[ $id ] );
-				return $this->save_with_reorder( $contacts, 1 );
-			}
-		}
-		return false;
-	}
-
-	/*
-	function settings_sanitize( $settings ) {
-		if ( isset( $settings['contacts'] ) ) {
-			if ( count( $settings['contacts'] ) ) {
-				foreach ( $settings['contacts'] as $id => $c ) {
-					$settings['contacts'][ $id ]['id']        = $id;
-					$settings['contacts'][ $id ]['auto_open'] = $settings['contacts'][ $id ]['auto_open'];
-					$settings['contacts'][ $id ]['chat']      = (bool) $settings['contacts'][ $id ]['chat'];
-					$settings['contacts'][ $id ]['avatar']    = sanitize_text_field( $settings['contacts'][ $id ]['avatar'] );
-					$settings['contacts'][ $id ]['phone']     = sanitize_text_field( $settings['contacts'][ $id ]['phone'] );
-					$settings['contacts'][ $id ]['firstname'] = sanitize_text_field( $settings['contacts'][ $id ]['firstname'] );
-					$settings['contacts'][ $id ]['lastname']  = sanitize_text_field( $settings['contacts'][ $id ]['lastname'] );
-					$settings['contacts'][ $id ]['label']     = sanitize_text_field( $settings['contacts'][ $id ]['label'] );
-					$settings['contacts'][ $id ]['message']   = wp_kses_post( $settings['contacts'][ $id ]['message'] );
-					$settings['contacts'][ $id ]['timeto']    = wp_kses_post( $settings['contacts'][ $id ]['timeto'] );
-					$settings['contacts'][ $id ]['phone']     = qlwapp_format_phone( $settings['contacts'][ $id ]['phone'] );
-					$settings['contacts'][ $id ]['timefrom']  = $settings['contacts'][ $id ]['timefrom'];
-					$settings['contacts'][ $id ]['timedays']  = $settings['contacts'][ $id ]['timedays'];
-				}
-			}
-		}
-		return $settings;
-	} */
-
-	public function sanitize_value_data( $contacts, $args = null ) {
-		foreach ( $contacts as $key => $contact ) {
-			$contacts[ $key ] = parent::sanitize_value_data( $contact, $this->get_args() );
-		}
-		return $contacts;
+		$entity   = new Contact_Entity();
+		$defaults = $entity->getDefaults();
+		return $defaults;
 	}
 
 	public function get_contact( $id ) {
-		// $parent_id = @max(array_keys(array_column($contacts, 'id'), $id));
-		$contacts = $this->get_contacts();
-		return array_replace_recursive( $this->get_args(), $contacts[ $id ] );
+		return $this->get( $id );
 	}
 
-	public function get_contacts() {
+	public function get( int $id ) {
+		$entity = $this->repository->find( $id );
+		if ( $entity ) {
+			return $entity->getProperties();
+		}
+	}
 
-		$button_model = new Button();
-		$button       = $button_model->get();
-		$result       = parent::get_all( $this->table );
-		if ( $result === null || count( $result ) === 0 ) {
-			$default          = array();
-			$default[0]       = $this->get_args();
-			$default[0]['id'] = 0;
-			$result           = $default;
-		} else {
-			foreach ( $result as $id => $c ) {
-				$result[ $id ] = wp_parse_args( $c, $this->get_args() );
+	public function delete( int $id ) {
+		return $this->repository->delete( $id );
+	}
+
+	public function update_contact( $contact_data ) {
+		return ! ! $this->update( $contact_data['id'], $contact_data );
+	}
+
+	public function update_contacts( $contacts ) {
+		foreach ( $contacts as $contact ) {
+			$this->update( $contact['id'], $contact );
+		}
+
+		return true;
+	}
+
+	public function update( int $id, array $contact ) {
+		$entity = $this->repository->update( $id, $this->sanitize_value_data( $contact ) );
+		if ( $entity ) {
+			return $entity->getProperties();
+		}
+	}
+
+	public function add_contact( $contact_data ) {
+		$contacts = $this->get_all();
+
+		$max_order = 0;
+
+		foreach ( $contacts as $contact ) {
+			if ( isset( $contact['order'] ) && $contact['order'] > $max_order ) {
+				$max_order = $contact['order'];
 			}
 		}
 
-		foreach ( $result as $id => $contact ) {
-			// Include the button phone number if the contact number is empty
-			if ( ! $contact['phone'] ) {
-				$result[ $id ]['phone'] = $button['phone'];
-			}
-			// Sanitize the contact phone number
-			$result[ $id ]['phone'] = qlwapp_format_phone( $result[ $id ]['phone'] );
-			// Apply vars replacement
-			if ( ! is_admin() ) {
-				$result[ $id ]['message'] = qlwapp_replacements_vars( $contact['message'] );
-			}
+		$contact_data['order'] = $max_order + 1;
+
+		return ! ! $this->create( $contact_data );
+	}
+
+	public function create( array $contact ) {
+		if ( isset( $contact['id'] ) ) {
+			unset( $contact['id'] );
 		}
 
-		return $result;
+		$entity = $this->repository->create( $this->sanitize_value_data( $contact ) );
+
+		if ( $entity ) {
+			return $entity->getProperties();
+		}
 	}
 
 	public function order_contact( $a, $b ) {
@@ -173,4 +114,81 @@ class Contact extends Base {
 		return $contacts;
 	}
 
+	public function get_contacts() {
+		return $this->get_all();
+	}
+
+	public function get_all() {
+		$button_model = Button::instance();
+		$button       = $button_model->get();
+		$entities     = $this->repository->findAll();
+
+		if ( ! $entities ) {
+			$default             = array();
+			$default[0]          = $this->get_args();
+			$default[0]['order'] = 1;
+			$default[0]['phone'] = qlwapp_format_phone( $button['phone'] );
+			$contact             = $this->create( $default[0] );
+			$default[0]['id']    = $contact['id'];
+
+			if ( ! is_admin() ) {
+				$default[0]['message'] = qlwapp_replacements_vars( $default[0]['message'] );
+			}
+
+			return $default;
+		}
+
+		$contacts = array();
+
+		foreach ( $entities as $entity ) {
+			$contact = $entity->getProperties();
+
+			if ( ! $contact['phone'] ) {
+				$contact['phone'] = qlwapp_format_phone( $button['phone'] );
+			}
+
+			if ( ! is_admin() ) {
+				$contact['message'] = qlwapp_replacements_vars( $contact['message'] );
+			}
+
+			$contacts[ $contact['id'] ] = $contact;
+		}
+
+		return $contacts;
+	}
+
+	public function delete_all() {
+		return $this->repository->deleteAll();
+	}
+
+	public function sanitize_value_data( $value_data ) {
+		$args = $this->get_args();
+
+		foreach ( $value_data as $key => $value ) {
+			if ( array_key_exists( $key, $args ) ) {
+				$type = $args[ $key ];
+
+				if ( is_null( $type ) && ! is_numeric( $value ) ) {
+					$value_data[ $key ] = intval( $value );
+				} elseif ( is_bool( $type ) && ! is_bool( $value ) ) {
+					$value_data[ $key ] = ( $value === 'true' || $value === '1' || $value === 1 );
+				} elseif ( is_string( $type ) && ! is_string( $value ) ) {
+					$value_data[ $key ] = strval( $value );
+				} elseif ( is_array( $type ) && ! is_array( $value ) ) {
+					$value_data[ $key ] = (array) $type;
+				}
+			} else {
+				unset( $value_data[ $key ] );
+			}
+		}
+
+		return $value_data;
+	}
+
+	public static function instance() {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new self();
+		}
+		return self::$instance;
+	}
 }

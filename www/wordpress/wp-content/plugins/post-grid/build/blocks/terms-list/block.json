@@ -4,7 +4,7 @@
   "name": "post-grid/terms-list",
   "title": "Terms List",
   "textdomain": "post-grid",
-  "category": "post-grid",
+  "category": "post-grid-tools",
   "usesContext": [
     "postId",
     "loopIndex",
@@ -50,6 +50,10 @@
           "queryPosts": false,
           "accordionOpen": false,
           "linkToTerm": false,
+          "linkTo": "termUrl",
+          "linkToCustomMeta": "",
+          "linkToAuthorMeta": "",
+          "customUrl": "",
           "postCountPosition": "beforeTitle",
           "postCountText": "Total Posts %s",
           "gridColNumber": {},
@@ -58,9 +62,41 @@
           "hideEmpty": false,
           "maxCount": 99,
           "postCount": false,
-          "class": "item inline-block",
+          "class": "item",
           "linkTarget": "",
           "linkAttr": []
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontFamily": {
+            "Desktop": "Poppins"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          }
+        }
+      }
+    },
+    "queryArgs": {
+      "type": "object",
+      "default": {
+        "items": []
+      }
+    },
+    "termTitle": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "text": ", "
         },
         "styles": {
           "color": {
@@ -100,6 +136,35 @@
           },
           "fontSize": {
             "Desktop": "18px"
+          }
+        }
+      }
+    },
+    "postCount": {
+      "type": "object",
+      "default": {
+        "options": {
+          "class": "",
+          "text": ", "
+        },
+        "styles": {
+          "color": {
+            "Desktop": "#000000"
+          },
+          "fontSize": {
+            "Desktop": "18px"
+          },
+          "fontFamily": {
+            "Desktop": "Poppins"
+          },
+          "fontStyle": {
+            "Desktop": "normal"
+          },
+          "fontWeight": {
+            "Desktop": "400"
+          },
+          "margin": {
+            "Desktop": "0px 10px 0px 10px"
           }
         }
       }

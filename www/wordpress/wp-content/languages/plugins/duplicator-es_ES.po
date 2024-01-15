@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Duplicator &#8211; WordPress Migration &amp; Backup Plugin - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-07 18:44:01+0000\n"
+"PO-Revision-Date: 2024-01-10 18:54:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -586,6 +586,14 @@ msgstr "Activar"
 #: template/admin_pages/about_us/about_us/extra_plugin_item.php:17
 msgid "Activated"
 msgstr "Activo"
+
+#: src/Views/EducationElements.php:120
+msgid "Mulstisite Support - Duplicator Pro supports multisite network backup & migration. You can even install a subsite as a standalone site."
+msgstr "Compatibilidad con multisitio - Duplicator Pro admite copias de seguridad y migraciones en red multisitio. Incluso puedes instalar un subsitio como sitio independiente."
+
+#: src/Views/EducationElements.php:118
+msgid "Large Site Support - Duplicator Pro has developed a new way to package backups especially tailored for larger site. No server timeouts or other restrictions."
+msgstr "Compatibilidad con sitios grandes - Duplicator Pro ha desarrollado una nueva forma de empaquetar copias de seguridad especialmente adaptada para sitios grandes. No hay tiempos de espera del servidor u otras restricciones."
 
 #: src/Views/EducationElements.php:116
 msgid "File & Database Table Filters - Use file and database filters to pick and choose exactly what you want to backup or transfer. No bloat!"

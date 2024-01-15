@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Contact Form by WPForms &#8211; Drag &amp; Drop Form Builder for WordPress - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-13 20:09:15+0000\n"
+"PO-Revision-Date: 2023-12-27 17:55:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,19 @@ msgstr ""
 "X-Generator: GlotPress/4.0.0-alpha.11\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Contact Form by WPForms &#8211; Drag &amp; Drop Form Builder for WordPress - Stable (latest release)\n"
+
+#: includes/admin/class-settings.php:494
+msgid "Amount entered is less than the required minimum."
+msgstr "La cantidad introducida es menor del mínimo requerido."
+
+#: includes/admin/class-settings.php:492
+msgid "Minimum Price"
+msgstr "Precio mínimo"
+
+#. translators: %1$s - WPForms.com doc page URL; %2$s - button text.
+#: includes/admin/class-settings.php:114
+msgid "It looks like you've downgraded to an older version of WPForms. We recommend always using the latest version as some features may not function as expected in older versions. <a href=\"%1$s\" target=\"_blank\" rel=\"noopener\">%2$s</a>"
+msgstr "Parece que has bajado a una versión anterior de WPForms. Recomendamos utilizar siempre la última versión, ya que algunas características pueden no funcionar como se esperaba en versiones anteriores. <a href=\"%1$s\" target=\"_blank\" rel=\"noopener\">%2$s</a>"
 
 #: templates/integrations/wpcode/code-snippets.php:104
 msgid "Sorry, we didn't find any snippets that match your criteria."
@@ -610,19 +623,19 @@ msgid "types"
 msgstr "tipos"
 
 #. translators: WPForms.com docs page URL.
-#: src/Admin/Payments/Views/Overview/Page.php:444
+#: src/Admin/Payments/Views/Overview/Page.php:445
 msgid "Deleting one or more selected payments may prevent processing of future subscription renewals. Payment filtering may also be affected. <a href=\"%1$s\" rel=\"noopener\" target=\"_blank\">Learn More</a>"
 msgstr "La eliminación de uno o más pagos seleccionados puede impedir el procesamiento de futuras renovaciones de suscripción. El filtrado de pagos también puede verse afectado. <a href=\"%1$s\" rel=\"noopener\" target=\"_blank\">Más información</a>"
 
-#: src/Admin/Payments/Views/Overview/Page.php:149
+#: src/Admin/Payments/Views/Overview/Page.php:150
 msgid "No subscription renewals for the selected period"
 msgstr "No hay renovaciones de suscripción para el periodo seleccionado"
 
-#: src/Admin/Payments/Views/Overview/Page.php:148
+#: src/Admin/Payments/Views/Overview/Page.php:149
 msgid "No new subscriptions for selected period"
 msgstr "No hay nuevas suscripciones para el periodo seleccionado"
 
-#: src/Admin/Payments/Views/Overview/Page.php:147
+#: src/Admin/Payments/Views/Overview/Page.php:148
 msgid "No refunds for selected period"
 msgstr "No hay devoluciones para el periodo seleccionado"
 
@@ -660,27 +673,27 @@ msgstr "Última modificación<br/>%1$s"
 msgid "Created<br/>%1$s"
 msgstr "Creado<br/>%1$s"
 
-#: includes/admin/class-settings.php:511
+#: includes/admin/class-settings.php:610
 msgid "All forms, entries, and uploaded files will be unrecoverable."
 msgstr "Todos los formularios, envíos y archivos subidos serán irrecuperables."
 
-#: includes/admin/class-settings.php:507
+#: includes/admin/class-settings.php:606
 msgid "All forms and settings will be unrecoverable."
 msgstr "Todos los formularios y ajustes serán irrecuperables."
 
-#: includes/admin/class-settings.php:506 includes/admin/class-settings.php:510
+#: includes/admin/class-settings.php:605 includes/admin/class-settings.php:609
 msgid "Remove ALL WPForms data upon plugin deletion."
 msgstr "Eliminar TODOS los datos de WPForms al eliminar el plugin."
 
-#: includes/admin/class-settings.php:471
+#: includes/admin/class-settings.php:570
 msgid "Hide the WPForms admin bar menu."
 msgstr "Ocultar el menú de la barra de administración de WPForms."
 
-#: includes/admin/class-settings.php:464
+#: includes/admin/class-settings.php:563
 msgid "Hide plugin announcements and update details."
 msgstr "Ocultar los anuncios y detalles de actualizaciones del plugin."
 
-#: includes/admin/class-settings.php:456
+#: includes/admin/class-settings.php:555
 msgid "Miscellaneous"
 msgstr "Varios"
 
@@ -702,12 +715,12 @@ msgid "Customize your email template and sending preferences."
 msgstr "Personaliza tu plantilla de correo electrónico y tus preferencias de envío."
 
 #. translators: %s - WPForms.com GDPR documentation URL.
-#: includes/admin/class-settings.php:327
+#: includes/admin/class-settings.php:420
 msgid "Enable GDPR related features and enhancements. <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"wpforms-learn-more\">Learn More</a>"
 msgstr "Activar las funciones y mejoras relacionadas con el GDPR. <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"wpforms-learn-more\">Más información</a>"
 
 #. translators: %s - WPForms.com form styling setting URL.
-#: includes/admin/class-settings.php:287
+#: includes/admin/class-settings.php:380
 msgid "Determines which CSS files to load and use for the site. \"Base and Form Theme Styling\" is recommended, unless you are experienced with CSS or instructed by support to change settings. <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"wpforms-learn-more\">Learn More</a>"
 msgstr "Determina qué archivos CSS cargar y utilizar para el sitio. Se recomienda «Estilos del tema base y del formulario», a menos que tengas experiencia con CSS o el servicio de asistencia te indique que cambies los ajustes. <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"wpforms-learn-more\">Más información</a>"
 
@@ -969,11 +982,11 @@ msgstr "La extensión %1$s requiere %2$s para que funcione."
 msgid "<a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">Read more</a> for additional information."
 msgstr "<a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">Lee más</a> para información adicional."
 
-#: src/Admin/Payments/Views/Overview/Page.php:150
+#: src/Admin/Payments/Views/Overview/Page.php:151
 msgid "No coupons applied during the selected period"
 msgstr "No se han aplicado cupones durante el periodo seleccionado"
 
-#: src/Admin/Payments/Views/Overview/Page.php:146
+#: src/Admin/Payments/Views/Overview/Page.php:147
 msgid "No sales for selected period"
 msgstr "No hay ventas en el periodo seleccionado"
 
@@ -981,11 +994,11 @@ msgstr "No hay ventas en el periodo seleccionado"
 msgid "Overview"
 msgstr "Resúmen"
 
-#: src/Admin/Helpers/Datepicker.php:352
+#: src/Admin/Helpers/Datepicker.php:411
 msgid "Last 30 days"
 msgstr "Últimos 30 días"
 
-#: src/Admin/Helpers/Datepicker.php:351
+#: src/Admin/Helpers/Datepicker.php:410
 msgid "Last 7 days"
 msgstr "Últimos 7 días"
 
@@ -1787,16 +1800,16 @@ msgid "Gateway"
 msgstr "Pasarela"
 
 #. translators: %s - WPForms.com Upgrade page URL.
-#: src/Admin/Payments/Views/Overview/Page.php:327
+#: src/Admin/Payments/Views/Overview/Page.php:328
 msgid "If you'd like to use another payment gateway, please consider <a href='%s'>upgrading to WPForms Pro</a>."
 msgstr "Si quieres utilizar otra pasarela de pago, considera la posibilidad de <a href='%s'>actualizar a WPForms Pro</a>."
 
 #. translators: %s - WPForms Addons admin page URL.
-#: src/Admin/Payments/Views/Overview/Page.php:316
+#: src/Admin/Payments/Views/Overview/Page.php:317
 msgid "Other payment gateways such as <strong>PayPal</strong> and <strong>Square</strong> can be installed from the <a href=\"%s\">Addons screen</a>."
 msgstr "Otras pasarelas de pago como <strong>PayPal</strong> y <strong>Square</strong> pueden instalarse desde la <a href=\"%s\">pantalla de extensiones</a>."
 
-#: src/Admin/Payments/Views/Overview/Page.php:313
+#: src/Admin/Payments/Views/Overview/Page.php:314
 msgid "First you need to set up a payment gateway. We've partnered with <strong>Stripe</strong> to bring easy payment forms to everyone.&nbsp;"
 msgstr "Antes tienes que configurar una pasarela de pago. Nos hemos asociado con <strong>Stripe</strong> para poner los formularios de pago sencillos al alcance de todo el mundo.&nbsp;"
 
@@ -1821,7 +1834,7 @@ msgid "Please select a different period or check back later."
 msgstr "Por favor, elige un periodo de tiempo diferente o vuelve más tarde."
 
 #: src/Admin/Payments/Views/Overview/Chart.php:167
-#: src/Admin/Payments/Views/Overview/Page.php:145
+#: src/Admin/Payments/Views/Overview/Page.php:146
 msgid "No payments for selected period"
 msgstr "No hay pagos en el periodo seleccionado"
 
@@ -1870,15 +1883,15 @@ msgstr "Detalles avanzados"
 msgid "Number of payments per page:"
 msgstr "Número de pagos por página:"
 
-#: src/Admin/Helpers/Datepicker.php:354
+#: src/Admin/Helpers/Datepicker.php:413
 msgid "Last 1 year"
 msgstr "Último año"
 
-#: src/Admin/Helpers/Datepicker.php:350
+#: src/Admin/Helpers/Datepicker.php:409
 msgid "Yesterday"
 msgstr "Ayer"
 
-#: src/Admin/Helpers/Datepicker.php:349
+#: src/Admin/Helpers/Datepicker.php:408
 msgid "Today"
 msgstr "Hoy"
 
@@ -2798,7 +2811,7 @@ msgstr "Información interna"
 msgid "The %s constant is no longer supported."
 msgstr "La constante %s ya no es compatible."
 
-#: includes/admin/class-settings.php:407 src/Frontend/Frontend.php:1819
+#: includes/admin/class-settings.php:506 src/Frontend/Frontend.php:1819
 msgid "Please fill out the field in required format."
 msgstr "Por favor, rellena el campo en el formato requerido."
 
@@ -2811,7 +2824,7 @@ msgstr "Acepta pagos usando PayPal Commerce, Stripe, Square, PayPal Standard y A
 msgid "Accept payments using PayPal Commerce, Stripe, Square, and PayPal Standard"
 msgstr "Acepta pagos usando PayPal Commerce, Stripe, Square y PayPal Standard"
 
-#: src/Admin/Helpers/Datepicker.php:355 src/Admin/Traits/FormTemplates.php:291
+#: src/Admin/Helpers/Datepicker.php:414 src/Admin/Traits/FormTemplates.php:291
 msgid "Custom"
 msgstr "Personalizado"
 
@@ -3770,17 +3783,17 @@ msgid "%1$s of %2$s max characters."
 msgstr "%1$s de %2$s caracteres máximos."
 
 #. translators: %1$s - words limit, %2$s - number of words left.
-#: includes/admin/class-settings.php:430
+#: includes/admin/class-settings.php:529
 msgid "Limit is %1$s words. Words remaining: %2$s."
 msgstr "El límite es de %1$s palabras. Palabras restantes: %2$s."
 
 #. translators: %1$s - characters limit, %2$s - number of characters left.
-#: includes/admin/class-settings.php:420
+#: includes/admin/class-settings.php:519
 msgid "Limit is %1$s characters. Characters remaining: %2$s."
 msgstr "El límite es de %1$s caracteres. Caracteres restantes: %2$s."
 
 #. translators: %s - suggested email address.
-#: includes/admin/class-settings.php:375 src/Frontend/Frontend.php:1791
+#: includes/admin/class-settings.php:468 src/Frontend/Frontend.php:1791
 msgid "Did you mean %s?"
 msgstr "¿Quieres decir %s?"
 
@@ -4325,7 +4338,7 @@ msgstr "Campo de autocompletado de la dirección"
 msgid "Location Info in Entries"
 msgstr "Información de ubicación en los envíos"
 
-#: includes/admin/class-settings.php:393
+#: includes/admin/class-settings.php:486
 msgid "Number Positive"
 msgstr "Número positivo"
 
@@ -4526,11 +4539,11 @@ msgstr "Google reCAPTCHA v2"
 msgid "%s verification failed, please try again later."
 msgstr "Ha fallado la verificación de %s. Por favor, inténtalo de nuevo más tarde."
 
-#: includes/admin/class-settings.php:427
+#: includes/admin/class-settings.php:526
 msgid "Word Limit"
 msgstr "Límite de palabras"
 
-#: includes/admin/class-settings.php:417
+#: includes/admin/class-settings.php:516
 msgid "Character Limit"
 msgstr "Límite de caracteres"
 
@@ -4736,12 +4749,12 @@ msgstr "Activar los registros"
 msgid "Enable and configure the logging functionality while debugging behavior of various parts of the plugin, including form and entry processing."
 msgstr "Activa y configura la funcionalidad de registro mientras depuras el comportamiento de varias partes del plugin, incluyendo el procesamiento de formularios y envíos."
 
-#: includes/admin/class-settings.php:383 includes/fields/class-email.php:638
+#: includes/admin/class-settings.php:476 includes/fields/class-email.php:638
 #: includes/fields/class-email.php:646 src/Frontend/Frontend.php:1796
 msgid "This email address is not allowed."
 msgstr "Esta dirección de correo electrónico no está permitida."
 
-#: includes/admin/class-settings.php:381
+#: includes/admin/class-settings.php:474
 msgid "Email Restricted"
 msgstr "Correo electrónico restringido"
 
@@ -4927,12 +4940,12 @@ msgstr "Guardar e incrustar"
 msgid "Please fill out all blanks."
 msgstr "Por favor, rellena todos los espacios en blanco."
 
-#: includes/admin/class-settings.php:405
+#: includes/admin/class-settings.php:504
 msgid "Input Mask Incomplete"
 msgstr "Máscara de entrada incompleta"
 
 #. translators: %s - WPForms.com smart tags documentation URL.
-#: includes/admin/class-settings.php:348
+#: includes/admin/class-settings.php:441
 msgid "%1$s These messages are displayed to the users as they fill out a form in real-time. Messages can include plain text and/or %2$sSmart Tags%3$s."
 msgstr "%1$s Estos mensajes se muestran en tiempo real a los usuarios a medida que rellenan un formulario. Los mensajes pueden incluir texto sin formato y/o %2$setiquetas inteligentes%3$s."
 
@@ -5089,7 +5102,7 @@ msgstr "Selección de opciones múltiples"
 msgid "North Macedonia (Republic of)"
 msgstr "Macedonia del Norte (República de)"
 
-#: includes/admin/class-settings.php:470
+#: includes/admin/class-settings.php:569
 msgid "Hide Admin Bar Menu"
 msgstr "Ocultar el menú en la barra de administración"
 
@@ -5962,11 +5975,11 @@ msgstr "encuesta"
 msgid "contact"
 msgstr "contacto"
 
-#: includes/admin/class-settings.php:411
+#: includes/admin/class-settings.php:510
 msgid "Checkbox Selection Limit"
 msgstr "Límite de selección de casillas"
 
-#: includes/admin/class-settings.php:372
+#: includes/admin/class-settings.php:465
 msgid "Email Suggestion"
 msgstr "Sugerencia de correo electrónico"
 
@@ -5982,12 +5995,12 @@ msgstr "Limita el número de casillas de verificación que un usuario puede sele
 msgid "Choice Limit"
 msgstr "Límite de elección"
 
-#: includes/admin/class-settings.php:413 includes/fields/class-checkbox.php:635
+#: includes/admin/class-settings.php:512 includes/fields/class-checkbox.php:635
 #: src/Frontend/Frontend.php:1800
 msgid "You have exceeded the number of allowed selections: {#}."
 msgstr "Has excedido el número de selecciones permitidas: {#}."
 
-#: includes/admin/class-settings.php:395 src/Frontend/Frontend.php:1798
+#: includes/admin/class-settings.php:488 src/Frontend/Frontend.php:1798
 msgid "Please enter a valid positive number."
 msgstr "Por favor, introduce un número de teléfono válido."
 
@@ -6387,35 +6400,35 @@ msgstr "Estás utilizando WPForms Lite - no necesitas licencia. ¡Diviértete!"
 msgid "The callback function used for the %s setting is missing."
 msgstr "No existe la función retorno usada para el ajuste de %s."
 
-#: includes/admin/class-settings.php:477
+#: includes/admin/class-settings.php:576
 msgid "Uninstall WPForms"
 msgstr "Desinstalar WPForms"
 
-#: includes/admin/class-settings.php:463
+#: includes/admin/class-settings.php:562
 msgid "Hide Announcements"
 msgstr "Ocultar los anuncios"
 
-#: includes/admin/class-settings.php:440 includes/admin/class-settings.php:447
+#: includes/admin/class-settings.php:539 includes/admin/class-settings.php:546
 msgid "Manage integrations with popular providers such as Constant Contact, Mailchimp, Zapier, and more."
 msgstr "Gestiona las integraciones con proveedores tan populares como Constant Contact, MailChimp, Zapier y más."
 
-#: includes/admin/class-settings.php:401 src/Frontend/Frontend.php:1799
+#: includes/admin/class-settings.php:500 src/Frontend/Frontend.php:1799
 msgid "Field values do not match."
 msgstr "Los valores del campo no coinciden."
 
-#: includes/admin/class-settings.php:399
+#: includes/admin/class-settings.php:498
 msgid "Confirm Value"
 msgstr "Confirma el valor"
 
-#: includes/admin/class-settings.php:387
+#: includes/admin/class-settings.php:480
 msgid "Number"
 msgstr "Número"
 
-#: includes/admin/class-settings.php:368 src/Frontend/Frontend.php:1787
+#: includes/admin/class-settings.php:461 src/Frontend/Frontend.php:1787
 msgid "Please enter a valid email address."
 msgstr "Por favor, introduce una dirección de correo electrónico válida."
 
-#: includes/admin/class-settings.php:349
+#: includes/admin/class-settings.php:442
 msgid "Validation Messages"
 msgstr "Mensajes de validación"
 
@@ -6473,47 +6486,47 @@ msgstr "Texto sin formato"
 msgid "Template"
 msgstr "Plantilla"
 
-#: includes/admin/class-settings.php:324
+#: includes/admin/class-settings.php:417
 msgid "GDPR Enhancements"
 msgstr "Mejoras para el RGPD"
 
-#: includes/admin/class-settings.php:317
+#: includes/admin/class-settings.php:410
 msgid "GDPR"
 msgstr "RGPD"
 
-#: includes/admin/class-settings.php:311
+#: includes/admin/class-settings.php:404
 msgid "Load WPForms assets site-wide. Only check if your site is having compatibility issues or instructed to by support."
 msgstr "Cargar los activos WPForms en todo el sitio. Márcalo sólo si tu sitio tiene problemas de compatibilidad o te lo indica el servicio de asistencia."
 
-#: includes/admin/class-settings.php:310
+#: includes/admin/class-settings.php:403
 msgid "Load Assets Globally"
 msgstr "Cargar los valores globalmente"
 
-#: includes/admin/class-settings.php:305
+#: includes/admin/class-settings.php:398
 msgid "No styling"
 msgstr "Sin estilo"
 
-#: includes/admin/class-settings.php:304
+#: includes/admin/class-settings.php:397
 msgid "Base styling only"
 msgstr "Solo estilo base"
 
-#: includes/admin/class-settings.php:303
+#: includes/admin/class-settings.php:396
 msgid "Base and form theme styling"
 msgstr "Estilo base y de formulario del tema"
 
-#: includes/admin/class-settings.php:284
+#: includes/admin/class-settings.php:377
 msgid "Include Form Styling"
 msgstr "Cargar los estilos de formulario"
 
-#: includes/admin/class-settings.php:272
+#: includes/admin/class-settings.php:365
 msgid "License Key"
 msgstr "Clave de la licencia"
 
-#: includes/admin/class-settings.php:265
+#: includes/admin/class-settings.php:358
 msgid "Your license key provides access to updates and addons."
 msgstr "Tu clave de licencia proporciona acceso a actualizaciones y extensiones."
 
-#: includes/admin/class-settings.php:265
+#: includes/admin/class-settings.php:358
 msgid "License"
 msgstr "Licencia"
 
@@ -6526,27 +6539,27 @@ msgstr "<a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">Lee nuestra
 msgid "reCAPTCHA is a free anti-spam service from Google which helps to protect your website from spam and abuse while letting real people pass through with ease."
 msgstr "reCAPTCHA es un servicio gratuito de Google contra el spam, que ayuda a proteger tu web del spam y de abusos, permitiendo entrar con facilidad a personas reales."
 
-#: includes/admin/class-settings.php:220
+#: includes/admin/class-settings.php:313
 msgid "Misc"
 msgstr "Varios"
 
-#: includes/admin/class-settings.php:210 includes/admin/class-settings.php:440
-#: includes/admin/class-settings.php:447
+#: includes/admin/class-settings.php:303 includes/admin/class-settings.php:539
+#: includes/admin/class-settings.php:546
 msgid "Integrations"
 msgstr "Integraciones"
 
-#: includes/admin/class-settings.php:205
+#: includes/admin/class-settings.php:298
 msgid "Validation"
 msgstr "Validación"
 
-#: includes/admin/class-settings.php:202 includes/admin/class-settings.php:207
-#: includes/admin/class-settings.php:222
+#: includes/admin/class-settings.php:295 includes/admin/class-settings.php:300
+#: includes/admin/class-settings.php:315
 #: src/Admin/Settings/Captcha/Page.php:124 src/Admin/Settings/Email.php:119
 #: src/Admin/Settings/Payments.php:49 src/Admin/Tools/Views/Logs.php:126
 msgid "Save Settings"
 msgstr "Guardar los ajustes"
 
-#: includes/admin/class-settings.php:176
+#: includes/admin/class-settings.php:269
 msgid "Settings were successfully saved."
 msgstr "Los ajustes se han guardado correctamente."
 
@@ -6965,7 +6978,7 @@ msgstr "Tienes que <a href=\"#\" class=\"wpforms-panel-switch\" data-panel=\"set
 
 #: includes/admin/builder/panels/class-settings.php:45
 #: includes/admin/builder/panels/class-settings.php:130
-#: includes/admin/class-settings.php:200 includes/admin/class-settings.php:277
+#: includes/admin/class-settings.php:293 includes/admin/class-settings.php:370
 #: includes/fields/class-base.php:948
 msgid "General"
 msgstr "General"
@@ -6999,7 +7012,7 @@ msgstr "Por defecto"
 #: includes/admin/class-menu.php:89 includes/admin/class-menu.php:90
 #: src/Admin/AdminBarMenu.php:260 src/Admin/Builder/Help.php:152
 #: src/Admin/Forms/Views.php:444 src/Admin/Payments/Payments.php:173
-#: src/Admin/Payments/Views/Overview/Page.php:141
+#: src/Admin/Payments/Views/Overview/Page.php:142
 #: src/Admin/Settings/Payments.php:47 src/Admin/Settings/Payments.php:78
 msgid "Payments"
 msgstr "Pagos"
@@ -7985,7 +7998,7 @@ msgstr "Soporte prioritario"
 msgid "Unlimited Sites"
 msgstr "Sitios ilimitados"
 
-#: includes/admin/class-settings.php:215 includes/admin/class-welcome.php:275
+#: includes/admin/class-settings.php:308 includes/admin/class-welcome.php:275
 #: templates/education/admin/settings/geolocation/heading.php:19
 msgid "Geolocation"
 msgstr "Geolocalización"
@@ -8131,7 +8144,7 @@ msgstr "Bienvenido a WPForms"
 msgid "Logs"
 msgstr "Registros"
 
-#: includes/admin/class-settings.php:362
+#: includes/admin/class-settings.php:455
 #: includes/functions/escape-sanitize.php:442 src/Frontend/Frontend.php:1786
 msgid "This field is required."
 msgstr "Este campo es obligatorio."
@@ -9615,7 +9628,7 @@ msgstr "Máscara de entrada"
 msgid "Single Line Text"
 msgstr "Texto de una sola línea"
 
-#: includes/admin/class-settings.php:389 includes/fields/class-number.php:168
+#: includes/admin/class-settings.php:482 includes/fields/class-number.php:168
 #: src/Frontend/Frontend.php:1797
 msgid "Please enter a valid number."
 msgstr "Por favor, introduce un número válido."
@@ -9648,7 +9661,7 @@ msgstr "Activar la confirmación por correo electrónico"
 msgid "Confirm Email"
 msgstr "Confirmar el correo electrónico"
 
-#: includes/admin/class-settings.php:366 includes/fields/class-email.php:41
+#: includes/admin/class-settings.php:459 includes/fields/class-email.php:41
 #: includes/fields/class-email.php:135 includes/fields/class-email.php:471
 #: includes/templates/class-simple-contact-form.php:43
 #: src/Admin/Settings/Email.php:118 src/Emails/Preview.php:159
@@ -9929,7 +9942,7 @@ msgstr "Código"
 msgid "Enter code for the form field."
 msgstr "Introduce el código para el campo de formulario."
 
-#: includes/admin/class-settings.php:360 includes/fields/class-base.php:1050
+#: includes/admin/class-settings.php:453 includes/fields/class-base.php:1050
 msgid "Required"
 msgstr "Obligatorio"
 
@@ -10357,7 +10370,7 @@ msgstr "Conexión del proveedor de marketing"
 msgid "Map custom fields (or properties) to form fields values."
 msgstr "Asigna campos personalizados (o propiedades) a los valores de los campos del formulario."
 
-#: src/Admin/Payments/Views/Overview/Page.php:142
+#: src/Admin/Payments/Views/Overview/Page.php:143
 #: src/Providers/Provider/Settings/FormBuilder.php:230
 #: templates/admin/payments/single/details.php:79
 msgid "Delete"
@@ -10646,11 +10659,12 @@ msgstr "Los informes de envíos de formulario no están disponibles."
 msgid "View all Form Entries inside the WordPress Dashboard"
 msgstr "Ver todos los envíos de formulario en el escritorio de WordPress"
 
-#: src/Admin/Helpers/Datepicker.php:353
+#: src/Admin/Helpers/Datepicker.php:412
 msgid "Last 90 days"
 msgstr "Últimos 90 días"
 
 #: includes/admin/builder/panels/class-fields.php:516
+#: includes/admin/class-settings.php:127
 #: includes/fields/class-internal-information.php:290
 #: includes/fields/class-internal-information.php:420
 #: includes/fields/class-internal-information.php:610

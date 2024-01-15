@@ -1,6 +1,12 @@
 <?php
 namespace QuadLayers\QLWAPP;
 
+use QuadLayers\QLWAPP\Models\Box;
+use QuadLayers\QLWAPP\Models\Button;
+use QuadLayers\QLWAPP\Models\Display;
+use QuadLayers\QLWAPP\Models\Scheme;
+use QuadLayers\QLWAPP\Models\Contact;
+
 class Frontend {
 
 	protected static $instance;
@@ -22,25 +28,31 @@ class Frontend {
 
 		if ( is_file( $file = apply_filters( 'qlwapp_box_template', QLWAPP_PLUGIN_DIR . 'templates/box.php' ) ) ) {
 
-			$box_model       = new Models\Box();
-			$contact_model   = new Models\Contact();
-			$button_model    = new Models\Button();
-			$display_model   = new Models\Display();
+			$box_model       = Box::instance();
+			$contact_model   = Contact::instance();
+			$button_model    = Button::instance();
+			$display_model   = Display::instance();
 			$display_service = new Controllers\Display_Services();
 
 			$contacts = $contact_model->get_contacts_reorder();
 			$display  = $display_model->get();
-			$button   = $button_model->get();
+			$button   = array();
 			$box      = $box_model->get();
+
+			// Compatibility
+			foreach ( $button_model->get() as $key => $value ) {
+				$button[ $key ]                          = $value;
+				$button[ str_replace( '_', '-', $key ) ] = $value;
+			}
 
 			include_once $file;
 		}
 	}
 
 	public function add_frontend_css() {
-		$scheme_model = new Models\Scheme();
+		$scheme_model = Scheme::instance();
 		$scheme       = $scheme_model->get();
-		$button_model = new Models\Button();
+		$button_model = Button::instance();
 		$button       = $button_model->get();
 		?>
 			<style>
@@ -54,7 +66,7 @@ class Frontend {
 						if ( is_numeric( $value ) ) {
 							$value = "{$value}px";
 						}
-						printf( '--%s-scheme-%s:%s;', QLWAPP_DOMAIN, esc_attr( $key ), esc_attr( $value ) );
+						printf( '--%s-scheme-%s:%s;', QLWAPP_DOMAIN, esc_attr( str_replace( '_', '-', $key ) ), esc_attr( $value ) );
 					}
 				}
 
@@ -66,10 +78,10 @@ class Frontend {
 						if ( ! str_contains( $key, 'animation' ) ) {
 							continue;
 						}
-						if ( str_contains( $key, 'animation-delay' ) ) {
+						if ( str_contains( $key, 'animation_delay' ) ) {
 							$value = "{$value}s";
 						}
-						printf( '--%s-button-%s:%s;', QLWAPP_DOMAIN, esc_attr( $key ), esc_attr( $value ) );
+						printf( '--%s-button-%s:%s;', QLWAPP_DOMAIN, esc_attr( str_replace( '_', '-', $key ) ), esc_attr( $value ) );
 					}
 				}
 
@@ -81,7 +93,7 @@ class Frontend {
 
 	public function box_display1( $show ) {
 		global $wp_query;
-		$display_model = new Models\Display();
+		$display_model = Display::instance();
 		$display       = $display_model->get();
 		if ( is_customize_preview() ) {
 			return true;
@@ -91,7 +103,7 @@ class Frontend {
 	}
 
 	public function do_shortcode( $atts, $content = null ) {
-		$button_model = new Models\Button();
+		$button_model = Button::instance();
 		$button       = $button_model->get();
 
 		$atts = wp_parse_args( $atts, $button );
@@ -121,7 +133,7 @@ class Frontend {
 			return;
 		}
 
-		$display_model   = new Models\Display();
+		$display_model   = Display::instance();
 		$display         = $display_model->get();
 		$display_service = new Controllers\Display_Services();
 

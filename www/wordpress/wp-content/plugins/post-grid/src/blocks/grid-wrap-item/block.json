@@ -2,9 +2,9 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
   "name": "post-grid/grid-wrap-item",
-  "title": "Grid Item",
+  "title": "Grid Maker Item",
   "textdomain": "post-grid",
-  "category": "post-grid",
+  "category": "post-grid-tools",
   "parent": [
     "post-grid/grid-wrap"
   ],
@@ -28,9 +28,7 @@
           "tag": "div",
           "class": "pg-grid-wrap-item"
         },
-        "styles": {
-          
-        }
+        "styles": {}
       }
     },
     "blockId": {

@@ -7,12 +7,12 @@
  */
 namespace ULTP;
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Templates class.
  */
-class Templates{
+class Templates {
 
   	/**
 	 * Setup class.
@@ -20,13 +20,8 @@ class Templates{
 	 * @since v.1.0.0
 	 */
     public function __construct() {
-        add_filter( 'template_include', array($this, 'set_template_callback') );
-        $post_types = get_post_types();
-		if (!empty($post_types)) {
-			foreach ($post_types as $post_type) {
-				add_filter( "theme_{$post_type}_templates", array( $this, 'add_template_callback' ) );
-			}
-        }
+        add_filter( 'template_include', array( $this, 'set_template_callback' ) );
+		add_filter( 'theme_page_templates', array( $this, 'add_template_callback' ) );
     }
 
     /**
@@ -36,9 +31,10 @@ class Templates{
      * @param STRING | Attachment 
 	 * @return STRING | Template File Path
 	 */
-    public function set_template_callback($template) {
-		if (is_singular() ) {
-            if (get_post_meta( get_the_ID(), '_wp_page_template', true ) === 'ultp_page_template' ) {
+    public function set_template_callback( $template ) {
+		if ( is_singular() ) {
+			global $post;
+            if ( get_post_meta( $post->ID, '_wp_page_template', true ) === 'ultp_page_template' ) {
                 $template = ULTP_PATH . 'classes/template-without-title.php';
             }
 		}
@@ -52,8 +48,8 @@ class Templates{
      * @param ARRAY | Page Template List
 	 * @return ARRAY | Page Template List as Array
 	 */
-    public function add_template_callback($templates) {
-		$templates['ultp_page_template'] = __('PostX Template (Without Title)', 'ultimate-post');
+    public function add_template_callback( $templates ) {
+		$templates['ultp_page_template'] = __( 'PostX Template (Without Title)', 'ultimate-post' );
 		return $templates;
 	}
 }

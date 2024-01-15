@@ -2,9 +2,9 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
   "name": "post-grid/menu-wrap",
-  "title": "Menu Wrap",
+  "title": "Menu Maker",
   "textdomain": "post-grid",
-  "category": "post-grid",
+  "category": "post-grid-tools",
   "usesContext": [
     "postId",
     "loopIndex",
@@ -64,9 +64,7 @@
       "type": "object",
       "default": {
         "options": {
-          "class": "pg-menu-link",
-          "text": "Label",
-          "url": ""
+          "class": "pg-menu-link"
         },
         "styles": {
           "backgroundColor": {

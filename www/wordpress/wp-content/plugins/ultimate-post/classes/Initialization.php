@@ -14,7 +14,7 @@ defined('ABSPATH') || exit;
 /**
  * Initialization class.
  */
-class ULTP_Initialization{
+class ULTP_Initialization {
 
     private $all_blocks;
 
@@ -24,37 +24,33 @@ class ULTP_Initialization{
 	 * @since v.1.1.0
 	 */
     public function __construct() {
+
         $this->compatibility_check();
         $this->requires(); // Include Necessary Files
         $this->blocks(); // Include Blocks
         $this->include_addons(); // Include Addons
 
-        add_action('wp',                            array($this, 'popular_posts_tracker_callback'));
-        add_filter('block_categories_all',          array($this, 'register_category_callback'), 999999999, 2); // Block Category Register
-        add_action('after_setup_theme',             array($this, 'add_image_size'));
+        add_action( 'wp',                            array( $this, 'popular_posts_tracker_callback' ) );
+        add_filter( 'block_categories_all',          array( $this, 'register_category_callback' ) , 999999999, 2);      // Block Category Register
+        add_action( 'after_setup_theme',             array( $this, 'add_image_size' ) );
+        add_action( 'enqueue_block_editor_assets',   array( $this, 'register_scripts_back_callback' ) );        // Only editor
+        add_action( 'admin_enqueue_scripts',         array( $this, 'register_scripts_option_panel_callback' ) );        // Option Panel
+        add_action( 'wp_enqueue_scripts',            array( $this, 'register_scripts_front_callback' ) );       // Both frontend
+        add_action( 'activated_plugin',              array( $this, 'activation_redirect' ) );
+        register_activation_hook( ULTP_PATH.'ultimate-post.php', array( $this, 'install_hook' ) );
 
-        add_action('enqueue_block_editor_assets',   array($this, 'register_scripts_back_callback')); // Only editor
-        add_action('admin_enqueue_scripts',         array($this, 'register_scripts_option_panel_callback')); // Option Panel
-        add_action('wp_enqueue_scripts',            array($this, 'register_scripts_front_callback')); // Both frontend
-        register_activation_hook(ULTP_PATH.'ultimate-post.php', array($this, 'install_hook'));
-        add_action( 'activated_plugin',             array($this, 'activation_redirect'));
+        add_action( 'wp_ajax_ultp_next_prev',        array( $this, 'ultp_next_prev_callback' ) );       // Next Previous AJAX Call
+        add_action( 'wp_ajax_nopriv_ultp_next_prev', array( $this, 'ultp_next_prev_callback' ) );       // Next Previous AJAX Call Logout User
+        add_action( 'wp_ajax_ultp_filter',           array( $this, 'ultp_filter_callback' ) );          // Next Previous AJAX Call
+        add_action( 'wp_ajax_nopriv_ultp_filter',    array( $this, 'ultp_filter_callback' ) );          // Next Previous AJAX Call Logout User
+        add_action( 'wp_ajax_ultp_pagination',       array( $this, 'ultp_pagination_callback' ) );      // Page Number AJAX Call
+        add_action( 'wp_ajax_nopriv_ultp_pagination',array( $this, 'ultp_pagination_callback' ) );      // Page Number AJAX Call Logout User
+        add_action( 'wp_ajax_ultp_share_count',      array( $this, 'ultp_shareCount_callback' ) );      // share Count save
 
-        add_action('wp_ajax_ultp_next_prev',        array($this, 'ultp_next_prev_callback')); // Next Previous AJAX Call
-        add_action('wp_ajax_nopriv_ultp_next_prev', array($this, 'ultp_next_prev_callback')); // Next Previous AJAX Call Logout User
-        add_action('wp_ajax_ultp_filter',           array($this, 'ultp_filter_callback')); // Next Previous AJAX Call
-        add_action('wp_ajax_nopriv_ultp_filter',    array($this, 'ultp_filter_callback')); // Next Previous AJAX Call Logout User
-        add_action('wp_ajax_ultp_pagination',       array($this, 'ultp_pagination_callback')); // Page Number AJAX Call
-        add_action('wp_ajax_nopriv_ultp_pagination',array($this, 'ultp_pagination_callback')); // Page Number AJAX Call Logout User
-        add_action('wp_ajax_ultp_share_count',      array($this, 'ultp_shareCount_callback')); // share Count save
-
-        add_action('admin_init',                    array($this, 'check_theme_compatibility'));
-        add_action( 'after_switch_theme',           array($this, 'wpxpo_swithch_thememe'));
-
+        add_action( 'admin_init',                    array( $this, 'check_theme_compatibility' ) );
+        add_action( 'after_switch_theme',            array( $this, 'wpxpo_swithch_thememe' ) );
         add_action( 'in_plugin_update_message-'.ULTP_BASE, array( $this, 'in_plugin_settings_update_message' ) );
-
-        add_action( 'upgrader_process_complete', array($this, 'plugin_upgrade_completed'), 10, 2 );
-
-        add_action('wp_ajax_ultp_getsearch_result',        array($this, 'ultp_get_search_result')); // Search Result Showing
+        add_action( 'upgrader_process_complete', array( $this, 'plugin_upgrade_completed'), 10, 2 );
     }
 
     /**
@@ -75,11 +71,11 @@ class ULTP_Initialization{
 	 * @return NULL
 	 */
     public function check_theme_compatibility() {
-        $licence = apply_filters( 'ultp_theme_integration' , FALSE);
+        $licence = apply_filters( 'ultp_theme_integration' , FALSE );
         $theme = get_transient( 'ulpt_theme_enable' );
 
-        if ($licence ) {
-            if ($theme != 'integration' ) {
+        if ( $licence ) {
+            if ( $theme != 'integration' ) {
                 $themes = wp_get_theme();
                 $api_params = array(
                     'wpxpo_theme_action' => 'theme_license',
@@ -91,18 +87,18 @@ class ULTP_Initialization{
                 
                 $response = wp_remote_post( 'https://www.wpxpo.com', array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
 
-                if (!is_wp_error( $response ) || 200 === wp_remote_retrieve_response_code( $response ) ) {
+                if ( !is_wp_error( $response ) || 200 === wp_remote_retrieve_response_code( $response ) ) {
                     $license_data = json_decode( wp_remote_retrieve_body( $response ) );
-                    if (isset($license_data->license)) {
-                        if ($license_data->license == 'valid' ) {
+                    if ( isset($license_data->license) ) {
+                        if ( $license_data->license == 'valid' ) {
                             set_transient( 'ulpt_theme_enable', 'integration', 2592000 ); // 30 days time
                         }
                     }
                 }
             }
         } else {
-            if ($theme == 'integration' ) {
-                delete_transient('ulpt_theme_enable');
+            if ( $theme == 'integration' ) {
+                delete_transient( 'ulpt_theme_enable' );
             }
         }
     }
@@ -128,12 +124,13 @@ class ULTP_Initialization{
 	 */
     public function register_scripts_option_panel_callback() {
         $is_active = ultimate_post()->is_lc_active();
-        $license_key = get_option('edd_ultp_license_key');
+        $license_key = get_option( 'edd_ultp_license_key' );
+        $_page = isset($_GET['page']) ? sanitize_text_field($_GET['page']) : '';
 
         // Custom Font Support Added
-        $font_settings = ultimate_post()->get_setting('ultp_custom_font');
+        $font_settings = ultimate_post()->get_setting( 'ultp_custom_font' );
         $custom_fonts = array();
-	    if ($font_settings == 'true') {
+	    if ( $font_settings == 'true' ) {
             wp_enqueue_media();
             $args = array(
                 'post_type'              => 'ultp_custom_font',
@@ -142,8 +139,8 @@ class ULTP_Initialization{
                 'order'                  => 'ASC'
             );
             $posts = get_posts( $args );
-            if ($posts) {
-                foreach( $posts as $post) {
+            if ( $posts ) {
+                foreach( $posts as $post ) {
                     setup_postdata( $post );
                     $font = get_post_meta($post->ID , '__font_settings', true);
 
@@ -158,12 +155,12 @@ class ULTP_Initialization{
             }
         }
         
-        wp_enqueue_style('wp-color-picker');
-        wp_enqueue_script('wp-color-picker');
-        wp_enqueue_script('ultp-option-script', ULTP_URL.'assets/js/ultp-option.js', array('jquery'), ULTP_VER, true);
-        wp_enqueue_style('ultp-option-style', ULTP_URL.'assets/css/ultp-option.css', array(), ULTP_VER);
+        wp_enqueue_style( 'wp-color-picker' );
+        wp_enqueue_script( 'wp-color-picker' );
+        wp_enqueue_script( 'ultp-option-script', ULTP_URL.'assets/js/ultp-option.js', array('jquery'), ULTP_VER, true );
+        wp_enqueue_style( 'ultp-option-style', ULTP_URL.'assets/css/ultp-option.css', array(), ULTP_VER );
 
-        wp_localize_script('ultp-option-script', 'ultp_option_panel', array(
+        wp_localize_script( 'ultp-option-script', 'ultp_option_panel', array(
             'url' => ULTP_URL,
             'active' => $is_active,
             'security' => wp_create_nonce('ultp-nonce'),
@@ -180,32 +177,29 @@ class ULTP_Initialization{
         ));
         
         /* === Installation Wizard === */
-        $_page = isset($_GET['page']) ? sanitize_text_field($_GET['page']) : '';
-        if ($_page == 'ultp-initial-setup-wizard') { 
-            wp_enqueue_script('ultp-initial-setup-script', ULTP_URL.'assets/js/ultp_initial_setup_min.js', array('wp-i18n', 'wp-api-fetch', 'wp-api-request'), ULTP_VER, true);
+        if ( $_page == 'ultp-initial-setup-wizard' ) { 
+            wp_enqueue_script( 'ultp-initial-setup-script', ULTP_URL.'assets/js/ultp_initial_setup_min.js', array('wp-i18n', 'wp-api-fetch', 'wp-api-request'), ULTP_VER, true );
             wp_set_script_translations( 'ultp-initial-setup-script', 'ultimate-post', ULTP_PATH . 'languages/' );
         }
 
         /* === Builder And Setting Pannel === */
-        // if ($_page == 'ultp-settings' || get_post_type(get_the_ID()) == 'ultp_builder') {
-        if (get_post_type(get_the_ID()) == 'ultp_builder') {
-            wp_enqueue_script('ultp-conditions-script', ULTP_URL.'addons/builder/assets/js/conditions.js', array('wp-i18n', 'wp-api-fetch','wp-components','wp-i18n','wp-blocks'), ULTP_VER, true);
-            wp_localize_script('ultp-conditions-script', 'ultp_condition', array(
+        if ( get_post_type(get_the_ID()) == 'ultp_builder' ) {
+            wp_enqueue_script( 'ultp-conditions-script', ULTP_URL.'addons/builder/assets/js/conditions.js', array('wp-i18n', 'wp-api-fetch','wp-components','wp-i18n','wp-blocks'), ULTP_VER, true );
+            wp_localize_script( 'ultp-conditions-script', 'ultp_condition', array(
                 'url' => ULTP_URL,
                 'active' => $is_active,
                 'premium_link' => ultimate_post()->get_premium_link(),
                 'license' => $license_key,
                 'builder_url' => admin_url('admin.php?page=ultp-settings#builder'),
                 'affiliate_id' => apply_filters( 'ultp_affiliate_id', FALSE )
-            ));
+            ) );
             wp_set_script_translations( 'ultp-conditions-script', 'ultimate-post', ULTP_PATH . 'languages/' );
         }
         
         /* === Dashboard === */
-        $_page = isset($_GET['page']) ? sanitize_text_field($_GET['page']) : '';
-        if ($_page == 'ultp-settings') {
-            wp_enqueue_script('ultp-dashboard-script', ULTP_URL.'assets/js/ultp_dashboard_min.js', array('wp-i18n', 'wp-api-fetch', 'wp-api-request', 'wp-components','wp-blocks'), ULTP_VER, true);
-            wp_localize_script('ultp-dashboard-script', 'ultp_dashboard_pannel', array(
+        if ( $_page == 'ultp-settings' ) {
+            wp_enqueue_script( 'ultp-dashboard-script', ULTP_URL.'assets/js/ultp_dashboard_min.js', array('wp-i18n', 'wp-api-fetch', 'wp-api-request', 'wp-components','wp-blocks'), ULTP_VER, true );
+            wp_localize_script( 'ultp-dashboard-script', 'ultp_dashboard_pannel', array(
                 'url' => ULTP_URL,
                 'active' => $is_active,
                 'license' => $license_key,
@@ -222,7 +216,7 @@ class ULTP_Initialization{
                 'expire' => get_option( 'edd_ultp_license_expire' ),
                 'is_free' => !ultimate_post()->is_lc_active(),
                 'is_pro' =>  (ultimate_post()->is_lc_active() && get_option('edd_ultp_license_expire') != 'lifetime')
-            ));
+            ) );
             wp_set_script_translations( 'ultp-dashboard-script', 'ultimate-post', ULTP_PATH . 'languages/' );
         }
         
@@ -237,19 +231,19 @@ class ULTP_Initialization{
 	 */
     public function register_scripts_front_callback() {
         $call_common = false;
-        if (isset($_GET['preview_id']) && isset($_GET['preview_nonce'])) {
+        if ( isset($_GET['preview_id']) && isset($_GET['preview_nonce']) ) {
             $call_common = true;
             ultimate_post()->register_scripts_common();
-        } else if ('yes' == get_post_meta(ultimate_post()->get_ID(), '_ultp_active', true)) {
+        } else if ( 'yes' == get_post_meta(ultimate_post()->get_ID(), '_ultp_active', true) ) {
             $call_common = true;
             ultimate_post()->register_scripts_common();
-        } else if (ultimate_post()->is_builder()) {
+        } else if ( ultimate_post()->is_builder() ) {
             $call_common = true;
             ultimate_post()->register_scripts_common();
-        } else if (apply_filters('postx_common_script', false)) {
+        } else if ( apply_filters('postx_common_script', false) ) {
             $call_common = true;
             ultimate_post()->register_scripts_common();
-        } else if (isset($_GET['et_fb'])) { // Divi Backend Builder
+        } else if ( isset($_GET['et_fb']) ) { // Divi Backend Builder
             $call_common = true;
             ultimate_post()->register_scripts_common();
         }
@@ -258,35 +252,35 @@ class ULTP_Initialization{
         $has_block = false;
         $widget_blocks = array();
         global $wp_registered_sidebars, $sidebars_widgets;
-        foreach ($wp_registered_sidebars as $key => $value) {
-            if (is_active_sidebar($key)) {
-                foreach ($sidebars_widgets[$key] as $val) {
-                    if (strpos($val, 'block-') !== false) {
-                        if (empty($widget_blocks)) { 
+        foreach ( $wp_registered_sidebars as $key => $value ) {
+            if ( is_active_sidebar($key) ) {
+                foreach ( $sidebars_widgets[$key] as $val ) {
+                    if ( strpos($val, 'block-') !== false ) {
+                        if ( empty($widget_blocks) ) { 
                             $widget_blocks = get_option( 'widget_block' );
                         }
                         foreach ( (array) $widget_blocks as $block ) {
-                            if (isset( $block['content'] ) && strpos($block['content'], 'wp:ultimate-post') !== false ) {
+                            if ( isset( $block['content'] ) && strpos($block['content'], 'wp:ultimate-post') !== false ) {
                                 $has_block = true;
                                 break;
                             }
                         }
-                        if ($has_block) {
+                        if ( $has_block ) {
                             break;
                         }
                     }
                 }
             }
         }
-        if ($has_block) {
-            if (!$call_common) {
+        if ( $has_block ) {
+            if ( !$call_common ) {
                 ultimate_post()->register_scripts_common();
             }
             $css = get_option('ultp-widget', true);
-            if ($css) {
-                wp_register_style('ultp-post-widget', false );
-                wp_enqueue_style('ultp-post-widget' );
-                wp_add_inline_style('ultp-post-widget', $css);
+            if ( $css ) {
+                wp_register_style( 'ultp-post-widget', false );
+                wp_enqueue_style( 'ultp-post-widget' );
+                wp_add_inline_style( 'ultp-post-widget', $css);
             }
         }
     }
@@ -302,17 +296,17 @@ class ULTP_Initialization{
         ultimate_post()->register_scripts_common();
         global $pagenow;
         $depends = 'wp-editor';
-        if ($pagenow === 'widgets.php' ) {
+        if ( $pagenow === 'widgets.php' ) {
             $depends = 'wp-edit-widgets';
         }
-        wp_enqueue_script('ultp-blocks-editor-script', ULTP_URL.'assets/js/editor.blocks.js', array('wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', $depends ), ULTP_VER, true);
-        wp_enqueue_style('ultp-blocks-editor-css', ULTP_URL.'assets/css/blocks.editor.css', array(), ULTP_VER);
-        if (is_rtl()) { 
-            wp_enqueue_style('ultp-blocks-editor-rtl-css', ULTP_URL.'assets/css/rtl.css', array(), ULTP_VER); 
+        wp_enqueue_script( 'ultp-blocks-editor-script', ULTP_URL.'assets/js/editor.blocks.js', array('wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', $depends ), ULTP_VER, true );
+        wp_enqueue_style( 'ultp-blocks-editor-css', ULTP_URL.'assets/css/blocks.editor.css', array(), ULTP_VER );
+        if ( is_rtl() ) { 
+            wp_enqueue_style( 'ultp-blocks-editor-rtl-css', ULTP_URL.'assets/css/rtl.css', array(), ULTP_VER ); 
         }
         $is_active = ultimate_post()->is_lc_active();
         $post_type = get_post_type();
-        wp_localize_script('ultp-blocks-editor-script', 'ultp_data', array(
+        wp_localize_script( 'ultp-blocks-editor-script', 'ultp_data', array(
             'url' => ULTP_URL,
             'ajax' => admin_url('admin-ajax.php'),
             'security' => wp_create_nonce('ultp-nonce'),
@@ -331,7 +325,7 @@ class ULTP_Initialization{
             'affiliate_id' => apply_filters( 'ultp_affiliate_id', FALSE ),
             'category_url' =>admin_url( 'edit-tags.php?taxonomy=category' ),
             'disable_image_size' => ultimate_post()->get_setting('disable_image_size')
-        ));
+        ) );
         wp_set_script_translations( 'ultp-blocks-editor-script', 'ultimate-post', ULTP_PATH . 'languages/' );
     }
 
@@ -343,10 +337,77 @@ class ULTP_Initialization{
 	 * @return NULL
 	 */
     public function install_hook() {
-        if (!get_option('ultp_options')) {
-            ultimate_post()->init_set_data();
+        $data = get_option( 'ultp_options', array() );
+        if ( empty( $data ) ) {
+            $init_data = array(
+                'css_save_as'       => 'wp_head',
+                'preloader_style'   => 'style1',
+                'preloader_color'   => '#037fff',
+                'container_width'   => '1140',
+                'hide_import_btn'   => '',
+                'disable_image_size'=> '',
+                'disable_view_cookies' => '',
+                'disable_google_font' => '',
+                'ultp_templates'    => 'true',
+                'ultp_elementor'    => 'true',
+                'ultp_table_of_content'=> 'true',
+                'ultp_builder'      => 'true',
+                'ultp_custom_font'  => 'true',
+                'ultp_chatgpt'      => 'true',
+                'post_grid_1'       => 'yes',
+                'post_grid_2'       => 'yes',
+                'post_grid_3'       => 'yes',
+                'post_grid_4'       => 'yes',
+                'post_grid_5'       => 'yes',
+                'post_grid_6'       => 'yes',
+                'post_grid_7'       => 'yes',
+                'post_list_1'       => 'yes',
+                'post_list_2'       => 'yes',
+                'post_list_3'       => 'yes',
+                'post_list_4'       => 'yes',
+                'post_module_1'     => 'yes',
+                'post_module_2'     => 'yes',
+                'post_slider_1'     => 'yes',
+                'post_slider_2'     => 'yes',
+                'heading'           => 'yes',
+                'image'             => 'yes',
+                'taxonomy'          => 'yes',
+                'wrapper'           => 'yes',
+                'news_ticker'       => 'yes',
+                'builder_advance_post_meta' => 'yes',
+                'builder_archive_title'     => 'yes',
+                'builder_author_box'        => 'yes',
+                'builder_post_next_previous'=> 'yes',
+                'builder_post_author_meta'  => 'yes',
+                'builder_post_breadcrumb'   => 'yes',
+                'builder_post_category'     => 'yes',
+                'builder_post_comment_count'=> 'yes',
+                'builder_post_comments'     => 'yes',
+                'builder_post_content'      => 'yes',
+                'builder_post_date_meta'    => 'yes',
+                'builder_post_excerpt'      => 'yes',
+                'builder_post_featured_image'=> 'yes',
+                'builder_post_reading_time' => 'yes',
+                'builder_post_social_share' => 'yes',
+                'builder_post_tag'          => 'yes',
+                'builder_post_title'        => 'yes',
+                'builder_post_view_count'   => 'yes',
+                'save_version'      => rand(1, 1000)
+            );
+            if ( empty( $data ) ) {
+                update_option( 'ultp_options', $init_data );
+                $GLOBALS['ultp_settings'] = $init_data;
+            } else {
+                foreach ( $init_data as $key => $single ) {
+                    if ( ! isset( $data[$key] ) ) {
+                        $data[$key] = $single;
+                    }
+                }
+                update_option( 'ultp_options', $data );
+                $GLOBALS['ultp_settings'] = $data;
+            }
         }
-        if (!get_transient('wpxpo_installation_date')) {
+        if (!get_transient( 'wpxpo_installation_date' )) {
             set_transient( 'wpxpo_installation_date', 'yes', 5 * DAY_IN_SECONDS ); // 5 Days Notice
         }
     }
@@ -360,12 +421,12 @@ class ULTP_Initialization{
 	 * @return NULL
 	 */
     public function activation_redirect($plugin) {
-        if (wp_doing_ajax()) {
+        if ( wp_doing_ajax() ) {
             return;
         }
         
-        if ($plugin == 'ultimate-post/ultimate-post.php' ) {
-            if (ultimate_post()->get_setting('init_setup') != 'yes') {
+        if ( $plugin == 'ultimate-post/ultimate-post.php' ) {
+            if ( ultimate_post()->get_setting('init_setup') != 'yes' ) {
                 exit(wp_safe_redirect(admin_url('admin.php?page=ultp-initial-setup-wizard'))); //phpcs:ignore
             } else {
                 exit(wp_safe_redirect(admin_url('admin.php?page=ultp-settings#home'))); //phpcs:ignore
@@ -425,7 +486,7 @@ class ULTP_Initialization{
         $this->all_blocks['ultimate-post_news-ticker'] = new \ULTP\blocks\News_Ticker();
         $this->all_blocks['ultimate-post_news-ticker'] = new \ULTP\blocks\Advanced_Search();
 
-        if (ultimate_post()->get_setting('ultp_builder') == 'true') {
+        if ( ultimate_post()->get_setting('ultp_builder') == 'true' ) {
             require_once ULTP_PATH.'addons/builder/blocks/Archive_Title.php';
             require_once ULTP_PATH.'addons/builder/blocks/Post_Title.php';
             require_once ULTP_PATH.'addons/builder/blocks/Post_Content.php';
@@ -442,7 +503,6 @@ class ULTP_Initialization{
             require_once ULTP_PATH.'addons/builder/blocks/Post_Comment_Count.php';
             require_once ULTP_PATH.'addons/builder/blocks/Post_Author_Meta.php';
             require_once ULTP_PATH.'addons/builder/blocks/Post_Date_Meta.php';
-            // require_once ULTP_PATH.'addons/builder/blocks/Related_Posts.php';
             require_once ULTP_PATH.'addons/builder/blocks/Post_Social_Share.php';
             require_once ULTP_PATH.'addons/builder/blocks/Advance_Post_Meta.php';
     
@@ -462,7 +522,6 @@ class ULTP_Initialization{
             new \ULTP\blocks\Post_Comment_Count();
             new \ULTP\blocks\Post_Author_Meta();
             new \ULTP\blocks\Post_Date_Meta();
-            // new \ULTP\blocks\Related_Posts();
             new \ULTP\blocks\Post_Social_Share();
             new \ULTP\blocks\Advance_Post_Meta();
         }
@@ -522,15 +581,15 @@ class ULTP_Initialization{
 	 * @return NULL
 	 */
     public function popular_posts_tracker_callback($post_id) {
-        if (!is_single()) { return; }
+        if ( !is_single() ) { return; }
         global $post;
         $post_id = isset($post->ID) ? $post->ID : '';
         $isEnable = apply_filters('ultp_view_cookies', true);
         // add_filter( 'ultp_view_cookies', '__return_false' ); 
         $cookies_disable = ultimate_post()->get_setting('disable_view_cookies');
-        if ($post_id && $isEnable && $cookies_disable != 'yes') {
+        if ( $post_id && $isEnable && $cookies_disable != 'yes' ) {
             $has_cookie = isset( $_COOKIE['ultp_view_'.$post_id] ) ? sanitize_text_field($_COOKIE['ultp_view_'.$post_id]) : false;
-            if (!$has_cookie) {
+            if ( !$has_cookie ) {
                 $count = (int)get_post_meta( $post_id, '__post_views_count', true );
                 update_post_meta($post_id, '__post_views_count', $count ? (int)$count + 1 : 1 );
                 setcookie( 'ultp_view_'.$post_id, 1, time() + 86400, COOKIEPATH ); // 1 days cookies
@@ -547,11 +606,11 @@ class ULTP_Initialization{
 	 */
     public function add_image_size() {
         $size_disable = ultimate_post()->get_setting('disable_image_size');
-        if ($size_disable != 'yes') {
-            add_image_size('ultp_layout_landscape_large', 1200, 800, true);
-            add_image_size('ultp_layout_landscape', 870, 570, true);
-            add_image_size('ultp_layout_portrait', 600, 900, true);
-            add_image_size('ultp_layout_square', 600, 600, true);
+        if ( $size_disable != 'yes' ) {
+            add_image_size( 'ultp_layout_landscape_large', 1200, 800, true );
+            add_image_size( 'ultp_layout_landscape', 870, 570, true );
+            add_image_size( 'ultp_layout_portrait', 600, 900, true );
+            add_image_size( 'ultp_layout_square', 600, 600, true );
         }
     }
 
@@ -564,11 +623,11 @@ class ULTP_Initialization{
 	 */
 	public function include_addons() {
 		$addons_dir = array_filter(glob(ULTP_PATH.'addons/*'), 'is_dir');
-		if (count($addons_dir) > 0) {
+		if ( count($addons_dir) > 0 ) {
 			foreach( $addons_dir as $key => $value ) {
 				$addon_dir_name = str_replace(dirname($value).'/', '', $value);
 				$file_name = ULTP_PATH . 'addons/'.$addon_dir_name.'/init.php';
-				if (file_exists($file_name) ) {
+				if ( file_exists($file_name) ) {
 					include_once $file_name;
 				}
 			}
@@ -583,7 +642,7 @@ class ULTP_Initialization{
 	 * @return STRING
 	 */
     public function ultp_next_prev_callback() {
-        if (! (isset($_REQUEST['wpnonce']) && wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['wpnonce'])), 'ultp-nonce'))) {
+        if ( ! (isset($_REQUEST['wpnonce']) && wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['wpnonce'])), 'ultp-nonce')) ) {
             return ;
         }
 
@@ -601,12 +660,12 @@ class ULTP_Initialization{
         $ultp_uniqueIds = isset($_POST['ultpUniqueIds']) ? json_decode(stripslashes(sanitize_text_field($_POST['ultpUniqueIds'])), true) : [];
         $ultp_current_unique_posts = isset($_POST['ultpCurrentUniquePosts']) ? json_decode(stripslashes(sanitize_text_field($_POST['ultpCurrentUniquePosts'])), true) : [];
 
-        if($widgetBlockId) {
+        if( $widgetBlockId ) {
             $blocks = parse_blocks(get_option('widget_block')[$widgetBlockId]['content']);
             $this->block_return($blocks, $paged, $blockId, $blockRaw, $blockName, $builder, '', $filterValue, $filterType, $ultp_uniqueIds, $ultp_current_unique_posts, $widgetBlockId, '');
         }elseif ($paged && $blockId && $postId && $blockName ) {
             $post = get_post($postId); 
-            if(has_blocks($post->post_content)) {
+            if( has_blocks($post->post_content) ) {
                 $blocks = parse_blocks($post->post_content);
                 $this->block_return($blocks, $paged, $blockId, $blockRaw, $blockName, $builder, $postId, $filterValue, $filterType, $ultp_uniqueIds, $ultp_current_unique_posts, '', $exclude_post_id);
             }
@@ -629,17 +688,17 @@ class ULTP_Initialization{
         $wraper_after = '';
         $style = $pageNum == 1 ? 'style="display:none"' : '';
 
-        if($attr['paginationType'] == 'loadMore') {
+        if( $attr['paginationType'] == 'loadMore' ) {
             $wraper_after .= '<div '.$style.' class="ultp-loadmore "'. $data_filter_value . $data_filter_type .'>';
                 $wraper_after .= '<span class="ultp-loadmore-action" tabindex="0" role="button" data-pages="'.$pageNum.'" data-pagenum="1" data-blockid="'.$attr['blockId'].'" data-blockname="'.$blockRaw.'" data-postid="'.$postId.'" '.ultimate_post()->get_builder_attr($attr['queryType']).'>'.( isset($attr['loadMoreText']) ? $attr['loadMoreText'] : 'Load More' ).' <span class="ultp-spin">'.ultimate_post()->svg_icon('refresh').'</span></span>';
             $wraper_after .= '</div>';
         }
-        else if($attr['paginationType'] == 'navigation') {
+        else if( $attr['paginationType'] == 'navigation' ) {
             $wraper_after .= '<div '.$style.'  class="ultp-next-prev-wrap" data-pages="'.$pageNum.'" data-pagenum="1" data-blockid="'.$attr['blockId'].'" data-blockname="'.$blockRaw.'" data-postid="'.$postId.'" '.ultimate_post()->get_builder_attr($attr['queryType']). $data_filter_value . $data_filter_type .'>';
                 $wraper_after .= ultimate_post()->next_prev();
             $wraper_after .= '</div>';
         }
-        else if($attr['paginationType'] == 'pagination') {
+        else if( $attr['paginationType'] == 'pagination' ) {
             $wraper_after .= '<div class="ultp-pagination-wrap'.($attr["paginationAjax"] ? " ultp-pagination-ajax-action" : "").'" data-paged="1" data-blockid="'.$attr['blockId'].'" data-postid="'.$postId.'" data-pages="'.$pageNum.'" data-blockname="'.$blockRaw.'" '.ultimate_post()->get_builder_attr($attr['queryType']). $data_filter_value . $data_filter_type .'>';
                 $wraper_after .= ultimate_post()->pagination($pageNum, $attr['paginationNav'], $attr['paginationText'], $attr["paginationAjax"], isset($_SERVER['HTTP_REFERER'])?esc_url_raw($_SERVER['HTTP_REFERER']):'');
             $wraper_after .= '</div>';
@@ -655,20 +714,20 @@ class ULTP_Initialization{
      * @since v.1.0.0
 	 * @return STRING
 	 */
-    public function filter_block_return($blocks, $blockId, $blockRaw, $blockName, $taxtype, $taxonomy, $postId, &$toReturn, $widgetBlockId='') {
-        foreach ($blocks as $key => $value) {
-            if ($blockName == $value['blockName']) {
-                if ($value['attrs']['blockId'] == $blockId) {
+    public function filter_block_return( $blocks, $blockId, $blockRaw, $blockName, $taxtype, $taxonomy, $postId, &$toReturn, $widgetBlockId='' ) {
+        foreach ( $blocks as $key => $value ) {
+            if ( $blockName == $value['blockName'] ) {
+                if ( $value['attrs']['blockId'] == $blockId ) {
                     // if(!$value['attrs']['currentPostId']) {
                     //     $this->update_block_attr( $postId, $blocks, $key, $widgetBlockId );
                     // }
                     $attr = $this->all_blocks[$blockRaw]->get_attributes(true);
-                    if ($taxonomy) {
+                    if ( $taxonomy ) {
                         $value['attrs']['queryTaxValue'] = json_encode(array($taxonomy));
                         $value['attrs']['queryTax'] = $taxtype;
                         $value['attrs']['ajaxCall'] = true;
                     }
-                    if (isset($value['attrs']['queryNumber'])) {
+                    if ( isset($value['attrs']['queryNumber']) ) {
                         $value['attrs']['queryNumber'] = $value['attrs']['queryNumber'];
                     }
                     $attr = array_merge($attr, $value['attrs']);
@@ -685,7 +744,7 @@ class ULTP_Initialization{
                     ];
                 }
             }
-            if (!empty($value['innerBlocks'])) {
+            if ( !empty($value['innerBlocks']) ) {
                 $this->filter_block_return($value['innerBlocks'], $blockId, $blockRaw, $blockName, $taxtype, $taxonomy, $postId, $toReturn, $widgetBlockId);
             }
         }
@@ -700,12 +759,12 @@ class ULTP_Initialization{
 	 * @return STRING
 	 */
     public function ultp_filter_callback() {
-        if (! (isset($_REQUEST['wpnonce']) && wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['wpnonce'])), 'ultp-nonce'))) {
+        if ( ! (isset($_REQUEST['wpnonce']) && wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['wpnonce'])), 'ultp-nonce')) ) {
             return ;
         }
      
         $taxtype    = isset($_POST['taxtype'])? sanitize_text_field($_POST['taxtype']):'';
-        if ($taxtype ) {
+        if ( $taxtype ) {
             $blockId    = isset($_POST['blockId'])? sanitize_text_field($_POST['blockId']):'';
             $postId     = isset($_POST['postId'])?sanitize_text_field($_POST['postId']):'';
             $taxonomy   = isset($_POST['taxonomy'])?sanitize_text_field($_POST['taxonomy']):'';
@@ -714,10 +773,10 @@ class ULTP_Initialization{
             $post = get_post($postId); 
             $widgetBlockId  = isset($_POST['widgetBlockId'])? sanitize_text_field($_POST['widgetBlockId']):'';
             $toReturn = [];
-            if($widgetBlockId) {
+            if( $widgetBlockId ) {
                 $blocks = parse_blocks(get_option('widget_block')[$widgetBlockId]['content']);
                 $data = $this->filter_block_return($blocks, $blockId, $blockRaw, $blockName, $taxtype, $taxonomy, $postId, $toReturn, $widgetBlockId);
-            }elseif (has_blocks($post->post_content)) {
+            }elseif ( has_blocks($post->post_content) ) {
                 $blocks = parse_blocks($post->post_content);
                 $data = $this->filter_block_return($blocks, $blockId, $blockRaw, $blockName, $taxtype, $taxonomy, $postId, $toReturn, '');
             }
@@ -740,7 +799,7 @@ class ULTP_Initialization{
         }
 
         $paged      = isset($_POST['paged'])? sanitize_text_field($_POST['paged']):'';
-        if ($paged) {
+        if ( $paged ) {
             $blockId    = isset($_POST['blockId'])? sanitize_text_field($_POST['blockId']):'';
             $postId     = isset($_POST['postId'])?sanitize_text_field($_POST['postId']):'';
             $blockRaw   = isset($_POST['blockName'])?sanitize_text_field($_POST['blockName']):'';
@@ -754,10 +813,10 @@ class ULTP_Initialization{
             $ultp_uniqueIds = isset($_POST['ultpUniqueIds']) ? json_decode(stripslashes(sanitize_text_field($_POST['ultpUniqueIds'])), true) : [];
             $ultp_current_unique_posts = isset($_POST['ultpCurrentUniquePosts']) ? json_decode(stripslashes(sanitize_text_field($_POST['ultpCurrentUniquePosts'])), true) : [];
             
-            if($widgetBlockId) {
+            if( $widgetBlockId ) {
                 $blocks = parse_blocks(get_option('widget_block')[$widgetBlockId]['content']);
                 $this->block_return($blocks, $paged, $blockId, $blockRaw, $blockName, $builder, '', $filterValue, $filterType, $ultp_uniqueIds, $ultp_current_unique_posts, $widgetBlockId, '');
-            }elseif(has_blocks($post->post_content)) {
+            }elseif( has_blocks($post->post_content) ) {
                 $blocks = parse_blocks($post->post_content);
                 $this->block_return($blocks, $paged, $blockId, $blockRaw, $blockName, $builder, $postId, $filterValue, $filterType, $ultp_uniqueIds, $ultp_current_unique_posts, '', $exclude_post_id);
             }
@@ -771,7 +830,7 @@ class ULTP_Initialization{
 	 * @return STRING
 	 */
     public function ultp_shareCount_callback() {
-        if (! (isset($_REQUEST['wpnonce']) && wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['wpnonce'])), 'ultp-nonce'))) {
+        if ( ! (isset($_REQUEST['wpnonce']) && wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['wpnonce'])), 'ultp-nonce')) ) {
             return ;
         }
             $id =isset($_POST['postId'])? sanitize_text_field($_POST['postId']):'';
@@ -787,7 +846,7 @@ class ULTP_Initialization{
      * @since v.3.1.1
 	 */
     function update_block_attr($postId, $blocks, $key, $widgetBlockId ) {
-        if($widgetBlockId) {
+        if( $widgetBlockId ) {
             $widget_blocks = get_option('widget_block');
             $block_parsed = parse_blocks($widget_blocks[$widgetBlockId]['content']);
             $block_parsed[$key]['attrs']['currentPostId'] = 'widgets';
@@ -808,41 +867,41 @@ class ULTP_Initialization{
      * @since v.1.0.0
 	 * @return STRING
 	 */
-    public function block_return($blocks, $paged, $blockId, $blockRaw, $blockName, $builder, $postId, $filterValue, $filterType, $ultp_uniqueIds=[], $ultp_current_unique_posts=[] , $widgetBlockId='', $exclude_post_id = '') {
-        foreach ($blocks as $key => $value) {
+    public function block_return( $blocks, $paged, $blockId, $blockRaw, $blockName, $builder, $postId, $filterValue, $filterType, $ultp_uniqueIds=[], $ultp_current_unique_posts=[] , $widgetBlockId='', $exclude_post_id = '' ) {
+        foreach ( $blocks as $key => $value ) {
             if ($blockName == $value['blockName']) {
-                if ($value['attrs']['blockId'] == $blockId) {
+                if ( $value['attrs']['blockId'] == $blockId ) {
                     // if(!$value['attrs']['currentPostId']) {
                     //     $this->update_block_attr( $postId, $blocks, $key, $widgetBlockId );
                     // }
                     $attr = $this->all_blocks[$blockRaw]->get_attributes(true); 
                     $value['attrs']['paged'] = $paged;
-                    if ($builder) {
+                    if ( $builder ) {
                         $value['attrs']['builder'] = $builder;
                     }
-                    if ($postId) {
+                    if ( $postId ) {
                         $attr['current_post'] = $postId;
-                        if(get_post_type($postId) == 'ultp_builder' && !$builder){
+                        if( get_post_type($postId) == 'ultp_builder' && !$builder ){
                             $attr['current_post'] = $exclude_post_id;
                         }
                     }
-                    if (isset($value['attrs']['queryUnique']) && $value['attrs']['queryUnique']) {
+                    if ( isset($value['attrs']['queryUnique']) && $value['attrs']['queryUnique'] ) {
                         $value['attrs']['loadMoreQueryUnique'] = $ultp_uniqueIds;
                         $ultp_uniqueIds[$value['attrs']['queryUnique']] = array_diff( $ultp_uniqueIds[$value['attrs']['queryUnique']], $ultp_current_unique_posts );
                         $value['attrs']['savedQueryUnique'] = $ultp_uniqueIds;
                         $value['attrs']['ultp_current_unique_posts'] = $ultp_current_unique_posts;
                     }
-                    if(isset($value['attrs']['queryUnique']) && $value['attrs']['queryUnique'] && ( $value['attrs']['paginationType'] == 'loadMore' || $value['attrs']['paginationType'] == 'navigation') && isset($ultp_uniqueIds) && !isset($ultp_current_unique_posts)) {
+                    if( isset($value['attrs']['queryUnique']) && $value['attrs']['queryUnique'] && ( $value['attrs']['paginationType'] == 'loadMore' || $value['attrs']['paginationType'] == 'navigation') && isset($ultp_uniqueIds) && !isset($ultp_current_unique_posts) ) {
                         die();
                     }
 
-                    if($filterValue) {
+                    if( $filterValue ) {
                         $value['attrs']['queryTaxValue'] = json_encode(array($filterValue));
                         $value['attrs']['queryTax'] = $filterType;
                         $value['attrs']['checkFilter'] = true;
                     }
                     // Exclude Current Post From Pagination
-                    if($exclude_post_id){
+                    if( $exclude_post_id ){
                         $queryArr = json_decode( $value['attrs']['queryExclude']);
                         $queryArr[] = array(
                             'value' => $exclude_post_id,
@@ -855,7 +914,7 @@ class ULTP_Initialization{
                     die();
                 }
             }
-            if (!empty($value['innerBlocks'])) {
+            if ( !empty($value['innerBlocks']) ) {
                 $this->block_return($value['innerBlocks'], $paged, $blockId, $blockRaw, $blockName, $builder, $postId, $filterValue, $filterType, $ultp_uniqueIds, $ultp_current_unique_posts, $widgetBlockId, $exclude_post_id);
             }
         }
@@ -882,31 +941,31 @@ class ULTP_Initialization{
         $is_copy = false;
         $current_tag = '';
         $tag_text = 'Stable tag:';
-        if (!empty($changelog_lines)) {
+        if ( !empty($changelog_lines) ) {
             echo '<hr style="border-color:#dba617;"/>';
             echo '<div style="color:#50575e;font-size:13px;font-weight:bold;"> <span style="color:#f56e28;" class="dashicons dashicons-warning"></span> ' . esc_html('PostX is ready for the next update. Changelog:-') . '</div>';
             echo '<hr style="border-color:#dba617;"/>';
             echo '<ul style="max-height:200px;overflow:scroll;">';
-            foreach ($changelog_lines as $key => $line) {
+            foreach ( $changelog_lines as $key => $line ) {
                 // Get Current Vesion
-                if ($current_tag == '') {
-                    if (strpos($line, $tag_text) !== false) { 
+                if ( $current_tag == '' ) {
+                    if ( strpos($line, $tag_text) !== false ) { 
                         $current_tag = trim(str_replace($tag_text, '', $line));
                     }
                 } else {
-                    if ($is_copy) {
-                        if (strpos($line, '= '.ULTP_VER) !== false) {
+                    if ( $is_copy ) {
+                        if ( strpos($line, '= '.ULTP_VER) !== false ) {
                             break;
                         }
-                        if (!empty($line)) {
-                            if (strpos($line, '= ') !== false) {
+                        if ( !empty($line) ) {
+                            if ( strpos($line, '= ') !== false ) {
                                 echo '<li style="color:#50575e;font-weight:bold;"><br/>'.esc_html($line).'</li>';
                             } else {
                                 echo '<li>'.esc_html($line).'</li>';
                             }
                         }
                     } else {
-                        if (strpos($line, '= '.$current_tag) !== false) { // Current Version
+                        if ( strpos($line, '= '.$current_tag) !== false ) { // Current Version
                             $is_copy = true;
                             echo '<li style="color:#50575e;font-weight:bold;">'.esc_html($line).'</li>';
                         }
@@ -925,22 +984,9 @@ class ULTP_Initialization{
      * @return void
      */
     public function plugin_upgrade_completed() {
-        if (ultimate_post()->get_setting('init_setup') != 'yes') {
+        if ( ultimate_post()->get_setting('init_setup') != 'yes' ) {
             ultimate_post()->set_setting('init_setup', 'yes');
         }
     }
 
-    /**
-     * Search Result Data Showing
-     *
-     * @since V.2.9.10
-     * @param STRING | Search Query
-	 * @return ARRAY | Search Result ( Post )
-     */
-    public function ultp_get_search_result() {
-        $result = ultimate_post()->get_search_data( isset($_POST['data'])?sanitize_text_field($_POST['data']):''); //phpcs:disable WordPress.Security.NonceVerification.Missing
-        return wp_send_json_success( [
-            'result_list' => $result
-        ] );
-    }
 }

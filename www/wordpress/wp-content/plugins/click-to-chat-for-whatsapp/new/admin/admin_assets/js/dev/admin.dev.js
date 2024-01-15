@@ -600,10 +600,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 $('.ga_ads_checkbox').toggle(500);
             });
 
-            // display - call gtag_report_conversion by default if checked.
-            if ($('#ga_ads').is(':checked')) {
-                $(".ga_ads_checkbox").show();
-            }
+            // // display - call gtag_report_conversion by default if checked.
+            // if ($('#ga_ads').is(':checked')) {
+            //     $(".ga_ads_checkbox").show();
+            // }
 
             // hover text on save_changes button
             var text = $('#ctc_save_changes_hover_text').text();
@@ -642,7 +642,7 @@ document.addEventListener('DOMContentLoaded', function () {
             /**
              * ht_ctc_sidebar_contat - not added, as it may cause view distraction..
              */
-            var styles_list = [
+            var collapsible_list = [
                 'ht_ctc_s1',
                 'ht_ctc_s2',
                 'ht_ctc_s3',
@@ -655,7 +655,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 'ht_ctc_s8',
                 'ht_ctc_s99',
                 'ht_ctc_webhooks',
-                'ht_ctc_analytics',
+                // 'ht_ctc_analytics',
                 'ht_ctc_animations',
                 'ht_ctc_notification',
                 'ht_ctc_other_settings',
@@ -670,9 +670,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 'url_structure',
             ];
 
+            // dynamically add to collapsible_list
             if (document.querySelector('.coll_active')) {
                 $('.coll_active').each(function () {
-                    styles_list.push($(this).attr('data-coll_active'));
+                    collapsible_list.push($(this).attr('data-coll_active'));
                 });
             }
 
@@ -682,7 +683,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 'ht_ctc_show_hide_settings',
                 'ht_ctc_woo_1',
                 'ht_ctc_webhooks',
-                'ht_ctc_analytics',
+                // 'ht_ctc_analytics',
                 'ht_ctc_animations',
                 'ht_ctc_notification',
                 'g_content_collapsible',
@@ -690,7 +691,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ];
 
 
-            styles_list.forEach(e => {
+            collapsible_list.forEach(e => {
 
                 // one known issue.. is already active its not working as expected. 
                 var is_col = (ctc_getItem('col_' + e)) ? ctc_getItem('col_' + e) : '';
@@ -706,9 +707,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 $('.' + e).collapsible({
                     onOpenEnd() {
+                        console.log(e + ' open');
                         ctc_setItem('col_' + e, 'open');
                     },
                     onCloseEnd() {
+                        console.log(e + ' close');
                         ctc_setItem('col_' + e, 'close');
                     }
                 });
@@ -1015,8 +1018,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // analytics count
             $(".analytics_count_message").on("click", function (e) {
-                $(".analytics_count_message span").hide();
-                $('.analytics_count_select').show(200);
+                // $(".analytics_count_message span").hide();
+                $('.analytics_count_select').toggle(200);
+            });
+
+            // on change - analytics count value 
+            $(".select_analytics").on("change", function (e) {
+                var change_val = e.target.value;
+                // $(".analytics_count_message span").show();
+                // $('.analytics_count_select').hide(200);
+                $(".analytics_count_message span").html(change_val);
             });
 
         }

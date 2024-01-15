@@ -1,7 +1,7 @@
 <?php
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
-if ($attr['metaShow']) {
+if ( $attr['metaShow'] ) {
     $metaCondition;
     switch ($block_name) {
         case 'post-grid-5':

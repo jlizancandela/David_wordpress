@@ -4,7 +4,7 @@ Tags: post grid, blog designer, wordPress blog plugin, gutenberg blocks, post bl
 Requires at least: 5.0    
 Tested up to: 6.4.1
 Requires PHP: 5.6
-Stable tag: 3.1.9
+Stable tag: 3.2.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -367,6 +367,16 @@ It is a Gutenberg plugin it works great with WordPress version 5.x.x or more. An
 11. With the help of the Elementor and Saved Template addons, you can use any of the post blocks of PostX to any pages while editing with Elementor builder.
 
 == Changelog ==
+= 3.2.1 – 15 January 2024 =
+* Fix: Taxonomy letter spacing issue in Post Slider #2 block.
+* Update: Performance Improved
+* Update: Pagination support for Query Source custom selections and specific posts.
+
+= 3.2.0 – 25 December 2023 =
+* Fix: PostX Taxonomy Blocks rendering issue on single posts
+* Fix: PostX Breadcrumb Block attribute issue
+* Fix: Specific SVG logo optimization issue
+
 = 3.1.9 – 26 November 2023 =
 * Fix: Post Content Block link Color issue
 

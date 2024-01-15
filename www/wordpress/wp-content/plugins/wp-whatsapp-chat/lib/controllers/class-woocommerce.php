@@ -2,6 +2,11 @@
 
 namespace QuadLayers\QLWAPP\Controllers;
 
+use QuadLayers\QLWAPP\Models\Box;
+use QuadLayers\QLWAPP\Models\Display;
+use QuadLayers\QLWAPP\Models\WooCommerce as WooCommerce_Model;
+use QuadLayers\QLWAPP\Models\Contact;
+
 class WooCommerce extends Base {
 
 	protected static $instance;
@@ -20,7 +25,7 @@ class WooCommerce extends Base {
 
 	public function woocommerce_init() {
 		if ( class_exists( 'WooCommerce' ) ) {
-			$woocommerce_model = new \QuadLayers\QLWAPP\Models\WooCommerce();
+			$woocommerce_model = WooCommerce_Model::instance();
 			$woocommerce       = $woocommerce_model->get();
 
 			$position          = (string) $woocommerce['position'];
@@ -42,10 +47,10 @@ class WooCommerce extends Base {
 
 		if ( is_file( $file = apply_filters( 'qlwapp_box_template', QLWAPP_PLUGIN_DIR . 'templates/box.php' ) ) ) {
 
-			$box_model         = new \QuadLayers\QLWAPP\Models\Box();
-			$contact_model     = new \QuadLayers\QLWAPP\Models\Contact();
-			$woocommerce_model = new \QuadLayers\QLWAPP\Models\WooCommerce();
-			$display_model     = new \QuadLayers\QLWAPP\Models\Display();
+			$box_model         = Box::instance();
+			$contact_model     = Contact::instance();
+			$woocommerce_model = WooCommerce_Model::instance();
+			$display_model     = Display::instance();
 			$display_service   = new Display_Services();
 
 			$contacts = $contact_model->get_contacts_reorder();
@@ -61,7 +66,7 @@ class WooCommerce extends Base {
 
 		global $submenu;
 
-		$woocommerce_model = new \QuadLayers\QLWAPP\Models\WooCommerce();
+		$woocommerce_model = WooCommerce_Model::instance();
 		$woocommerce       = $woocommerce_model->get();
 
 		$positions = array(
@@ -78,11 +83,14 @@ class WooCommerce extends Base {
 	}
 
 	public function ajax_qlwapp_save_woocommerce() {
-		$woocommerce_model = new \QuadLayers\QLWAPP\Models\WooCommerce();
+		$woocommerce_model = WooCommerce_Model::instance();
 		if ( current_user_can( 'manage_options' ) ) {
 			if ( check_ajax_referer( 'qlwapp_save_woocommerce', 'nonce', false ) && isset( $_REQUEST['form_data'] ) ) {
 				$form_data = array();
 				parse_str( $_REQUEST['form_data'], $form_data );
+				if ( ! isset( $form_data['timedays'] ) ) {
+					$form_data['timedays'] = array();
+				}
 				if ( is_array( $form_data ) ) {
 					$woocommerce_model->save( $form_data );
 					return parent::success_save( $form_data );

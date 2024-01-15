@@ -3,7 +3,7 @@ Requires at least: 4.6
 Tested up to: 6.4.2
 Requires PHP: 5.6
 Contributors: holithemes
-Stable tag: 3.31
+Stable tag: 3.31.1
 Tags: whatsapp, whatsapp business, click to chat, whatsapp chat, whatsapp support, whatsapp group, click to chat for whatsapp, WhatsApp WooCommerce, whatsapp wordpress, whatsapp floating button, chat, holithemes
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -554,6 +554,9 @@ or
 After Activating the plugin, add a WhatsApp Number in the plugin settings.
 
 == Changelog ==
+
+= 3.31.1 =
+* Enhancement: Analytics Section
 
 = 3.31 =
 * New: Settings to update event name and parameters for Google Analytics and Meta Pixel.

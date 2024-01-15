@@ -5,7 +5,7 @@ Tags: whatsapp, whatsapp business, click to chat, Social Chat, woocommerce whats
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 6.4
-Stable tag: 7.1.9
+Stable tag: 7.2.3
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -136,6 +136,18 @@ Don't use: +001-(555)1234567
 * Brazilian Portuguese (thanks to [Dionizio Bach](@djio))
 
 == Changelog ==
+
+= 7.2.3 =
+Fix WhatsApp message missing line breakes 
+
+= 7.2.2 =
+Fix WhatsApp close on Android keyboard open
+
+= 7.2.1 =
+Implement database orm
+
+= 7.2.0 =
+Fix WhatsApp button auto open
 
 = 7.1.9 =
 Lazy loading images

@@ -22,9 +22,25 @@ class Options{
     public function __construct() {
         add_action( 'admin_init', array( $this, 'handle_external_redirects' ) );
         add_action( 'admin_menu', array( $this, 'menu_page_callback' ) );
-        add_action( 'in_admin_header', array($this, 'remove_all_notices') );
+        add_action( 'in_admin_header', array( $this, 'remove_all_notices' ) );
         add_filter( 'plugin_row_meta', array( $this, 'plugin_settings_meta' ), 10, 2 );
         add_filter( 'plugin_action_links_'.ULTP_BASE, array( $this, 'plugin_action_links_callback' ) );
+        // add_filter( 'ultp_plugin_notice', array( $this, 'plugin_notice_callback' ) );
+    }
+
+    /**
+	 * Dashboard Notice Data
+     * 
+     * @since v.3.1.8
+	 * @param NULL
+	 * @return NULL
+	 */
+    public function plugin_notice_callback() {
+        return array(
+            'start' => '12-2-2023', // Date format "d-m-Y" [08-02-2019]
+            'end' => '22-3-2023',
+            'content' => 'Upgrade 30% off Sale!!!'
+        );
     }
     
     
@@ -56,14 +72,16 @@ class Options{
     public function plugin_action_links_callback( $links ) {
         $upgrade_link = array();
         $setting_link = array();
-        if (!defined('ULTP_PRO_VER')) {
+        if ( !defined('ULTP_PRO_VER') ) {
             $upgrade_link = array(
                 'ultp_pro' => '<a href="'.esc_url(ultimate_post()->get_premium_link('', 'plugin_dir_pro')).'" target="_blank"><span style="color: #e83838; font-weight: bold;">'.esc_html__('Get PostX Pro', 'ultimate-post').'</span></a>'
             );
-            $notice = ultimate_post()->get_notice_data('plugin');
-            if (count($notice) > 0) {
+
+            $notice = apply_filters( 'ultp_plugin_notice', array() );
+
+            if ( count($notice) > 0 ) {
                 $current_time = date('U');
-                if ($current_time > strtotime($notice['start']) && $current_time < strtotime($notice['end'])) {
+                if ( $current_time > strtotime($notice['start']) && $current_time < strtotime($notice['end']) ) {
                     $upgrade_link['ultp_pro'] = '<a href="'.esc_url(ultimate_post()->get_premium_link('', 'plugin_dir_pro')).'" target="_blank"><span style="color: #e83838; font-weight: bold;">'.$notice['content'].'</span></a>';
                 }
             }
@@ -100,17 +118,18 @@ class Options{
         );
     
         $menu_lists = array(
-            'builder'           => __( 'Site Builder', 'ultimate-post' ),
-            'templatekit'       => __( 'Template Kits', 'ultimate-post' ),
-            'saved-templates'   => __( 'Saved Templates', 'ultimate-post' ),
-            'custom-font'       => __( 'Custom Font', 'ultimate-post' ),
-            'addons'            => __( 'Addons', 'ultimate-post' ),
-            'blocks'            => __( 'Blocks', 'ultimate-post' ),
-            'settings'          => __( 'Settings', 'ultimate-post' ),
-            'tutorials'         => __( 'Tutorials', 'ultimate-post' ),
-            'license'           => __( 'License', 'ultimate-post' ),
+            'builder'           => esc_html__( 'Site Builder', 'ultimate-post' ),
+            'templatekit'       => esc_html__( 'Template Kits', 'ultimate-post' ),
+            'saved-templates'   => esc_html__( 'Saved Templates', 'ultimate-post' ),
+            'custom-font'       => esc_html__( 'Custom Font', 'ultimate-post' ),
+            'addons'            => esc_html__( 'Addons', 'ultimate-post' ),
+            'blocks'            => esc_html__( 'Blocks', 'ultimate-post' ),
+            'settings'          => esc_html__( 'Settings', 'ultimate-post' ),
+            'tutorials'         => esc_html__( 'Tutorials', 'ultimate-post' ),
+            'license'           => esc_html__( 'License', 'ultimate-post' ),
+            'support'           => '<span class="dashicons dashicons-email" style="font-size: 17px; line-height: 1.2; margin-right: 3px"></span>'.esc_html__( 'Get Quick Support', 'ultimate-post' )
         );
-        foreach ($menu_lists as $key => $val) {
+        foreach ( $menu_lists as $key => $val ) {
             add_submenu_page(
                 'ultp-settings',
                 $val,
@@ -120,17 +139,15 @@ class Options{
                 array(__CLASS__, 'render_main')
             );
         }
-        // if (ultimate_post()->get_setting('init_setup') == 'yes') {
-            add_submenu_page( 
-                'ultp-settings',
-                esc_html__('Initial Setup', 'ultimate-post'),  
-                esc_html__('Initial Setup', 'ultimate-post'), 
-                'manage_options',
-                'ultp-initial-setup-wizard',
-                array(__CLASS__, 'initial_setup')
-            );
-        // }
-        if (!ultimate_post()->is_lc_active()) {
+        add_submenu_page( 
+            'ultp-settings',
+            esc_html__( 'Initial Setup', 'ultimate-post' ),  
+            esc_html__( 'Initial Setup', 'ultimate-post' ), 
+            'manage_options',
+            'ultp-initial-setup-wizard',
+            array(__CLASS__, 'initial_setup')
+        );
+        if ( !ultimate_post()->is_lc_active() ) {
             add_submenu_page(
                 'ultp-settings',
                 '',

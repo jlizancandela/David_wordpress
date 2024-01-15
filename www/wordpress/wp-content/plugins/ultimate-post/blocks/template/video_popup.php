@@ -1,13 +1,14 @@
 <?php
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
+
 $post_loop .= '<div class="ultp-video-modal">';
     $post_loop .= '<div class="ultp-video-modal__overlay"></div>';
-    if($attr['vidIconEnable']) {
+    if ( $attr['vidIconEnable'] ) {
         $post_loop .= '<span class="ultp-video-close"></span>';
     }
     $post_loop .= '<div class="ultp-video-modal__Wrapper">';
         $post_loop .= '<div class="ultp-video-modal__content">';
-            if($attr['enablePopupTitle']) {
+            if ( $attr['enablePopupTitle'] ) {
                 $post_loop .= '<a href="'.$titlelink.'">'.$title.'</a>';
             }
             $post_loop .= '<div class="ultp-loader-container"><div class="ultp-popup-loader"></div></div>';

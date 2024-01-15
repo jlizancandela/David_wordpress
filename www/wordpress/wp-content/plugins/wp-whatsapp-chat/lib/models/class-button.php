@@ -1,34 +1,61 @@
 <?php
-
 namespace QuadLayers\QLWAPP\Models;
 
-class Button extends Base {
+use QuadLayers\QLWAPP\Entities\Button as Button_Entity;
 
-	protected $table = 'button';
+use QuadLayers\WP_Orm\Builder\SingleRepositoryBuilder;
 
-	public function get_args() {
-		$args = array(
-			'layout'          => 'button',
-			'box'             => 'no',
-			'position'        => 'bottom-right',
-			'text'            => esc_html__( 'How can I help you?', 'wp-whatsapp-chat' ),
-			'message'         => sprintf( esc_html__( 'Hello! I\'m testing the %1$s plugin %2$s', 'wp-whatsapp-chat' ), QLWAPP_PLUGIN_NAME, QLWAPP_LANDING_URL ),
-			'icon'            => 'qlwapp-whatsapp-icon',
-			'type'            => 'phone',                 // here we define the type of button, can be 'phone' or 'group'
-			'phone'           => QLWAPP_PHONE_NUMBER,
-			'group'           => '',
-			'developer'       => 'no',
-			'rounded'         => 'yes',
-			'timefrom'        => '00:00',
-			'timeto'          => '00:00',
-			'timedays'        => array(),
-			'timezone'        => qlwapp_get_current_timezone(),
-			'visibility'      => 'readonly',
-			'timeout'         => 'readonly', /* TODO: delete */
-			'animation-name'  => '',
-			'animation-delay' => '',
-		);
-		return $args;
+class Button {
+
+	protected static $instance;
+	protected $repository;
+
+	public function __construct() {
+		add_filter( 'sanitize_option_qlwapp_button', 'wp_unslash' );
+		$builder = ( new SingleRepositoryBuilder() )
+		->setTable( 'qlwapp_button' )
+		->setEntity( Button_Entity::class );
+
+		$this->repository = $builder->getRepository();
+	}
+
+	public function get_table() {
+		return $this->repository->getTable();
+	}
+
+	public function get() {
+		$entity = $this->repository->find();
+		$result = null;
+
+		if ( $entity ) {
+			$result = $entity->getProperties();
+		} else {
+			$admin  = new Button_Entity();
+			$result = $admin->getProperties();
+		}
+
+		// $result['message'] = stripslashes( $result['message'] );
+
+		if ( ! is_admin() ) {
+			$result['text']    = qlwapp_replacements_vars( $result['text'] );
+			$result['message'] = qlwapp_replacements_vars( $result['message'] );
+		}
+
+		return $result;
+	}
+
+	public function delete_all() {
+		return $this->repository->delete();
+	}
+
+	public function save( $data ) {
+		error_log( 'data: ' . json_encode( $data, JSON_PRETTY_PRINT ) );
+		$entity = $this->repository->create( $this->sanitize( $data ) );
+		error_log( 'sanitize: ' . json_encode( $this->sanitize( $data ), JSON_PRETTY_PRINT ) );
+
+		if ( $entity ) {
+			return true;
+		}
 	}
 
 	public function sanitize( $settings ) {
@@ -42,7 +69,7 @@ class Button extends Base {
 			$settings['text'] = sanitize_text_field( $settings['text'] );
 		}
 		if ( isset( $settings['message'] ) ) {
-			$settings['message'] = sanitize_text_field( $settings['message'] );
+			$settings['message'] = sanitize_textarea_field( $settings['message'] );
 		}
 		if ( isset( $settings['icon'] ) ) {
 			$settings['icon'] = sanitize_html_class( $settings['icon'] );
@@ -57,21 +84,10 @@ class Button extends Base {
 		return $settings;
 	}
 
-	public function save( $button_data = null ) {
-		return parent::save_data( $this->table, $this->sanitize( $button_data ) );
-	}
-
-	public function get() {
-
-		$result = $this->get_all( $this->table );
-
-		$result = wp_parse_args( $result, $this->get_args() );
-
-		if ( ! is_admin() ) {
-			$result['text']    = qlwapp_replacements_vars( $result['text'] );
-			$result['message'] = qlwapp_replacements_vars( $result['message'] );
+	public static function instance() {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new self();
 		}
-
-		return $result;
+		return self::$instance;
 	}
 }

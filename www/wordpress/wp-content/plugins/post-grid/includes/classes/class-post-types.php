@@ -11,8 +11,38 @@ class class_post_grid_post_types
 
         add_action('init', array($this, '_posttype_post_grid_layout'), 80);
         add_action('init', array($this, '_posttype_saved_template'));
+        add_action('admin_init', array($this, 'add_capability'));
     }
+    public function add_capability()
+    {
+        $role = get_role('administrator');
 
+
+
+        $role->add_cap('publish_post_grids');
+        $role->add_cap('edit_post_grids');
+        $role->add_cap('edit_others_post_grids');
+        $role->add_cap('read_private_post_grids');
+        $role->add_cap('edit_post_grid');
+        $role->add_cap('read_post_grid');
+        $role->add_cap('delete_post_grid', false);
+
+        $role->add_cap('publish_post_grid_templates');
+        $role->add_cap('edit_post_grid_templates');
+        $role->add_cap('edit_others_post_grid_templates');
+        $role->add_cap('read_private_post_grid_templates');
+        $role->add_cap('edit_post_grid_template');
+        $role->add_cap('read_post_grid_template');
+        $role->add_cap('delete_post_grid_template', false);
+
+        $role->add_cap('publish_post_grid_layouts');
+        $role->add_cap('edit_post_grid_layouts');
+        $role->add_cap('edit_others_post_grid_layouts');
+        $role->add_cap('read_private_post_grid_layouts');
+        $role->add_cap('edit_post_grid_layout');
+        $role->add_cap('read_post_grid_layout');
+        $role->add_cap('delete_post_grid_layout', false);
+    }
 
     public function _posttype_post_grid()
     {
@@ -50,6 +80,15 @@ class class_post_grid_post_types
                 'public'                 => false,
                 'show_ui'                 => true,
                 'capability_type'         => 'post',
+                'capabilities' => array(
+                    'publish_posts' => 'publish_post_grids',
+                    'edit_posts' => 'edit_post_grids',
+                    'edit_others_posts' => 'edit_others_post_grids',
+                    'read_private_posts' => 'read_private_post_grids',
+                    'edit_post' => 'edit_post_grid',
+                    'delete_post' => 'delete_post_grid',
+                    'read_post' => 'read_post_grid',
+                ),
                 'map_meta_cap'          => true,
                 'publicly_queryable'     => ($post_grid_preview == 'yes') ? true : false,
                 'exclude_from_search'     => false,
@@ -101,6 +140,15 @@ class class_post_grid_post_types
                 'public'                 => false,
                 'show_ui'                 => true,
                 'capability_type'         => 'post',
+                'capabilities' => array(
+                    'publish_posts' => 'publish_post_grid_layouts',
+                    'edit_posts' => 'edit_post_grid_layouts',
+                    'edit_others_posts' => 'edit_others_post_grid_layouts',
+                    'read_private_posts' => 'read_private_post_grid_layouts',
+                    'edit_post' => 'edit_post_grid_layout',
+                    'delete_post' => 'delete_post_grid_layout',
+                    'read_post' => 'read_post_grid_layout',
+                ),
                 'map_meta_cap'          => true,
                 'publicly_queryable'     => false,
                 'exclude_from_search'     => false,
@@ -196,6 +244,15 @@ class class_post_grid_post_types
                 'public'                 => true,
                 'show_ui'                 => true,
                 'capability_type'         => 'post',
+                'capabilities' => array(
+                    'publish_posts' => 'publish_post_grid_templates',
+                    'edit_posts' => 'edit_post_grid_templates',
+                    'edit_others_posts' => 'edit_others_post_grid_templates',
+                    'read_private_posts' => 'read_private_post_grid_templates',
+                    'edit_post' => 'edit_post_grid_template',
+                    'delete_post' => 'delete_post_grid_template',
+                    'read_post' => 'read_post_grid_template',
+                ),
                 'map_meta_cap'          => true,
                 'publicly_queryable'     => false,
                 'exclude_from_search'     => false,

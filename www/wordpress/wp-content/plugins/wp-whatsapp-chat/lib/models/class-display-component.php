@@ -4,6 +4,7 @@ namespace QuadLayers\QLWAPP\Models;
 
 class Display_Component {
 
+	protected static $instance;
 	// entries ex. page or post , taxonomies ex. tag or category
 
 	public $base = array(
@@ -74,4 +75,10 @@ class Display_Component {
 		return $array;
 	}
 
+	public static function instance() {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new self();
+		}
+		return self::$instance;
+	}
 }

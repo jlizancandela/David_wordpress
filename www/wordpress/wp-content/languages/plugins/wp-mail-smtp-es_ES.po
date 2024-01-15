@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - WP Mail SMTP by WPForms &#8211; The Most Popular SMTP and Email Log Plugin - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-27 15:52:47+0000\n"
+"PO-Revision-Date: 2024-01-13 12:40:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,92 @@ msgstr ""
 "X-Generator: GlotPress/4.0.0-alpha.11\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - WP Mail SMTP by WPForms &#8211; The Most Popular SMTP and Email Log Plugin - Stable (latest release)\n"
+
+#. translators: %s - URL to our Gmail doc.
+#: src/Providers/Gmail/Options.php:41
+msgid "Our Gmail mailer works with any Gmail or Google Workspace account via the Google API. You can send WordPress emails from your main email address or a Gmail alias, and it's more secure than connecting to Gmail using SMTP credentials. We now have a One-Click Setup, which simply asks you to authorize your Google account to use our app and takes care of everything for you. Alternatively, you can connect manually, which involves several steps that are more technical than other mailer options, so we created a detailed guide to walk you through the process.<br><br>To get started, read our <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">Gmail documentation</a>."
+msgstr "Nuestro correo de Gmail funciona con cualquier cuenta de Gmail o Google Workspace a través de la API de Google. Puedes enviar correos de WordPress desde tu dirección de correo electrónico principal o desde un alias de Gmail, y es más seguro que conectarse a Gmail utilizando credenciales SMTP. Ahora disponemos de una Configuración con un solo clic, que simplemente te pide que autorices tu cuenta de Google para utilizar nuestra aplicación y se encarga de todo por ti. Alternativamente, puedes conectarte manualmente, lo que implica varios pasos que son más técnicos que otras opciones de correo, por lo que hemos creado una guía detallada para guiarte a través del proceso.<br><br>Para empezar, lee nuestra <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">documentación de Gmail</a>."
+
+#: assets/languages/wp-mail-smtp-vue.php:991 src/Admin/Area.php:560
+msgid "We're sorry, One-Click Setup for Google Mailer is not available on your plan. Please upgrade to the Pro plan to unlock all these awesome features."
+msgstr "Lo sentimos, la Configuración con un clic para Google Mailer no está disponible en tu plan. Por favor, actualiza al plan Pro para desbloquear todas estas increíbles características."
+
+#: assets/languages/wp-mail-smtp-vue.php:988 src/Admin/Area.php:559
+msgid "One-Click Setup for Google Mailer <br> is a Pro Feature"
+msgstr "La configuración con un clic de Google Mailer <br> es una característica Pro"
+
+#: assets/languages/wp-mail-smtp-vue.php:985
+msgid "The email address that emails are sent from. You can use only the connected email address or its alias."
+msgstr "La dirección de correo electrónico desde la que se envían los correos electrónicos. Sólo puedes utilizar la dirección de correo electrónico conectada o su alias."
+
+#: assets/languages/wp-mail-smtp-vue.php:982
+msgid "The email address that emails are sent from. The email address that emails are sent from. You can use only the connected email address or its alias."
+msgstr "La dirección de correo electrónico desde la que se envían los correos electrónicos. La dirección de correo electrónico desde la que se envían los correos electrónicos. Sólo puedes utilizar la dirección de correo electrónico conectada o su alias."
+
+#: assets/languages/wp-mail-smtp-vue.php:979
+msgid "The email address that emails are sent from. You can use only connected email address or his alias."
+msgstr "La dirección de correo electrónico desde la que se envían los correos electrónicos. Puedes utilizar sólo la dirección de correo electrónico conectada o su alias."
+
+#: assets/languages/wp-mail-smtp-vue.php:976
+msgid "The email address that emails are sent from. You can use only connected email address or "
+msgstr "La dirección de correo electrónico desde la que se envían los correos electrónicos. Puedes utilizar sólo la dirección de correo electrónico conectada o "
+
+#: assets/languages/wp-mail-smtp-vue.php:973
+msgid "You have successfully connected your site with your Gmail account. Now you can start sending emails through Gmail."
+msgstr "Has conectado correctamente tu sitio con tu cuenta de Gmail. Ahora puedes empezar a enviar correos electrónicos a través de Gmail."
+
+#: assets/languages/wp-mail-smtp-vue.php:970
+msgid "You have successfully connected your site with your Gmail account. This site will now send emails via your Gmail account."
+msgstr "Has conectado correctamente tu sitio con tu cuenta de Gmail. Este sitio ahora enviará correos electrónicos a través de tu cuenta de Gmail."
+
+#: assets/languages/wp-mail-smtp-vue.php:967
+msgid "One-Click Setup for Google Mailer requires an active license. Verify your license to proceed with this One-Click Setup, please."
+msgstr "La configuración con un solo clic para el correo de Google necesita una licencia activa. Verifica tu licencia para continuar con esta configuración, por favor."
+
+#: assets/languages/wp-mail-smtp-vue.php:964
+msgid "One-Click Setup for Google Mailer requires an active license. Verify your license to proceed with this one-click setup, please."
+msgstr "La configuración con un solo clic para el correo de Google necesita una licencia activa. Verifica tu licencia para continuar con esta configuración, por favor."
+
+#: assets/languages/wp-mail-smtp-vue.php:961
+msgid "One-Click Setup for Google Mailer requires an active license. Verify your license to proceed with this one-click setup."
+msgstr "La configuración con un solo clic para el correo de Google necesita una licencia activa. Verifica tu licencia para continuar con esta configuración, por favor."
+
+#: assets/languages/wp-mail-smtp-vue.php:958
+msgid "One-Click Setup for Google Mailer requires an active license. Emails are currently not being sent."
+msgstr "La configuración con un solo clic para el correo de Google necesita una licencia activa. Actualmente los correos electrónicos no están siendo enviados."
+
+#: assets/languages/wp-mail-smtp-vue.php:955
+msgid "Gmail mailer requires a valid Easy WP SMTP Pro license. Please activate your license key."
+msgstr "El correo de Gmail necesita una licencia válida de Easy WP SMTP Pro. Por favor, activa tu clave de licencia."
+
+#: assets/languages/wp-mail-smtp-vue.php:952
+msgid "Now you can continue mailer configuration."
+msgstr "Ahora puedes continuar la configuración del correo."
+
+#: assets/languages/wp-mail-smtp-vue.php:949 src/Admin/Area.php:183
+msgid "There was an error while processing the authentication request."
+msgstr "Se ha producido un error al procesar la solicitud de identificación."
+
+#: assets/languages/wp-mail-smtp-vue.php:946
+msgid "Sign in with Google"
+msgstr "Acceder con Google"
+
+#: assets/languages/wp-mail-smtp-vue.php:943
+msgid "Disabled"
+msgstr "Desactivado"
+
+#: assets/languages/wp-mail-smtp-vue.php:940
+msgid "Enabled"
+msgstr "Activado"
+
+#: assets/languages/wp-mail-smtp-vue.php:937
+#: src/Providers/Gmail/Options.php:103
+msgid "Provides a quick and easy way to connect to Google that doesn't require creating your own app."
+msgstr "Proporciona una manera rápida y fácil de conectar con Google que no requiere de crear tu propia app."
+
+#: assets/languages/wp-mail-smtp-vue.php:934 src/Providers/Gmail/Options.php:91
+msgid "One-Click Setup"
+msgstr "Configuración en un solo clic"
 
 #: src/Admin/Pages/SmartRoutingTab.php:106
 msgid "Send emails from different additional connections based on your configured conditions. Emails that do not match any of the conditions below will be sent via your Primary Connection."
@@ -588,7 +674,7 @@ msgstr "Pega la URL del webhook que te gustaría usar para recibir alertas cuand
 
 #: src/Admin/Pages/AlertsTab.php:240
 msgid "Webhook"
-msgstr "Webhook"
+msgstr "Gancho web"
 
 #: src/Admin/Pages/AlertsTab.php:229
 msgid "To Phone Number"

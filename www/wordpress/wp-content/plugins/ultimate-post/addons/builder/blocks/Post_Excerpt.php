@@ -52,12 +52,13 @@ class Post_Excerpt {
             )
         );
     }
+
     public function content($attr, $noAjax) {
         $attr = wp_parse_args($attr, $this->get_attributes());
         $block_name = 'post-excerpt';
         $wrapper_before = $wrapper_after = $content = '';
 
-        $excerpt = ultimate_post()->excerpt_word($attr['excerptLimit']);
+        $excerpt = $this->excerpt_word($attr['excerptLimit']);
         if ($excerpt) {
             $wrapper_before .= '<div '.($attr['advanceId']?'id="'.$attr['advanceId'].'" ':'').' class="wp-block-ultimate-post-'.$block_name.' ultp-block-'.$attr["blockId"].(isset($attr["className"])?' '.$attr["className"]:'').''.(isset($attr["align"])? ' align' .$attr["align"]:'').'">';
                 $wrapper_before .= '<div class="ultp-block-wrapper">';
@@ -70,4 +71,25 @@ class Post_Excerpt {
         
         return $wrapper_before.$content.$wrapper_after;
     }
+
+    public function excerpt_word($charlength = 200) {
+        $html = '';
+        $charlength++;
+        $excerpt = get_the_excerpt();
+        if (mb_strlen( $excerpt ) > $charlength ) {
+            $subex = mb_substr( $excerpt, 0, $charlength );
+            $exwords = explode( ' ', $subex );
+            $excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
+            if ($excut < 0 ) {
+                $html = mb_substr( $subex, 0, $excut );
+            } else {
+                $html = $subex;
+            }
+            $html .= '...';
+        } else {
+            $html = $excerpt;
+        }
+        return $html;
+    }
+
 }

@@ -1,20 +1,19 @@
 <?php
 namespace ULTP\blocks;
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 class Heading{
+    
     public function __construct() {
-        add_action('init', array($this, 'register'));
+        add_action('init', array ($this, 'register' ) );
     }
+
     public function get_attributes() {
 
         return array(
             'blockId' => '',
-
-            //--------------------------
-            //      Heading Setting/Style
-            //--------------------------
+            // Heading Setting/Style
             'headingText' => 'This is a Heading Example',
             'headingURL' => '',
             'openInTab' => false,
@@ -40,10 +39,7 @@ class Heading{
             'subHeadingTypo' => (object)['openTypography'=>1,'size'=>(object)['lg'=>'16', 'unit'=>'px'], 'spacing'=>(object)[ 'lg'=>'0', 'unit'=>'px'], 'height'=>(object)[ 'lg'=>'27', 'unit'=>'px'],'decoration'=>'none','transform' => '','family'=>'','weight'=>'500'],
             'subHeadingColor' => '#989898',
             'subHeadingSpacing' => (object)['lg' =>(object)['top' => '8', 'unit' =>'px']],
-
-            //--------------------------
-            //  Wrapper Style
-            //--------------------------
+            // Wrapper Style
             'wrapBg' => (object)['openColor' => 0, 'type' => 'color', 'color' => '#f5f5f5'],
             'wrapBorder' => (object)['openBorder'=>0, 'width' =>(object)['top' => 1, 'right' => 1, 'bottom' => 1, 'left' => 1],'color' => '#009fd4','type' => 'solid'],
             'wrapShadow' => (object)['openShadow' => 0, 'width' => (object)['top' => 1, 'right' => 1, 'bottom' => 1, 'left' => 1],'color' => '#009fd4'],
@@ -68,13 +64,13 @@ class Heading{
             array(
                 'editor_script' => 'ultp-blocks-editor-script',
                 'editor_style'  => 'ultp-blocks-editor-css',
-                'render_callback' =>  array($this, 'content')
+                'render_callback' =>  array( $this, 'content' )
             )
         );
     }
 
-    public function content($attr, $noAjax) {
-        $attr = wp_parse_args($attr, $this->get_attributes());
+    public function content( $attr, $noAjax ) {
+        $attr = wp_parse_args( $attr, $this->get_attributes() );
         
         $wraper_before = '';
         $block_name = 'heading';
@@ -82,7 +78,7 @@ class Heading{
 
         $wraper_before .= '<div '.($attr['advanceId']?'id="'.$attr['advanceId'].'" ':'').' class="wp-block-ultimate-post-'.$block_name.' ultp-block-'.$attr["blockId"].''.(isset($attr["align"])? ' align' .$attr["align"]:'').''.(isset($attr["className"])?' '.$attr["className"]:'').'">';
             $wraper_before .= '<div class="ultp-block-wrapper">';
-                include ULTP_PATH.'blocks/template/heading.php';
+                include ULTP_PATH . 'blocks/template/heading.php';
             $wraper_before .= '</div>';
         $wraper_before .= '</div>';
 

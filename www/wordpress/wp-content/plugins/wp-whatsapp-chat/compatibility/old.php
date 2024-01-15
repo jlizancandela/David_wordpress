@@ -1,5 +1,11 @@
 <?php
 
+use QuadLayers\QLWAPP\Models\Box;
+use QuadLayers\QLWAPP\Models\Button;
+use QuadLayers\QLWAPP\Models\Display;
+use QuadLayers\QLWAPP\Models\Scheme;
+use QuadLayers\QLWAPP\Models\Contact;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
@@ -192,18 +198,19 @@ class QLWAPP_Compatibility {
 
 	public function premium_version() {
 		global $qlwapp;
+
+		$qlwapp = array();
+
 		// models
-		$model         = new QuadLayers\QLWAPP\Models\Base();
 		$license_model = new QuadLayers\QLWAPP\Models\License();
-		$button_model  = new QuadLayers\QLWAPP\Models\Button();
-		$box_model     = new QuadLayers\QLWAPP\Models\Box();
-		$contact_model = new QuadLayers\QLWAPP\Models\Contact();
+		$button_model  = Button::instance();
+		$box_model     = Box::instance();
+		$contact_model = Contact::instance();
 		$chat_model    = new QuadLayers\QLWAPP\Models\Chat();
-		$display_model = new QuadLayers\QLWAPP\Models\Display();
-		$scheme_model  = new QuadLayers\QLWAPP\Models\Scheme();
+		$display_model = Display::instance();
+		$scheme_model  = Scheme::instance();
 
 		// objects
-		$qlwapp             = $model->options();
 		$qlwapp['button']   = $button_model->get();
 		$qlwapp['box']      = $box_model->get();
 		$qlwapp['contacts'] = $contact_model->get_contacts_reorder();
@@ -239,12 +246,71 @@ class QLWAPP_Compatibility {
 		}
 	}
 
+	// Compatibility Since Version 7.2.0
+	public function previous_versions_qlwapp( $model_slug ) {
+		$qlwapp = get_option( 'qlwapp', array() );
+		if ( ! empty( $qlwapp[ $model_slug ] ) ) {
+			$model = array();
+
+			foreach ( $qlwapp[ $model_slug ] as $key => $value ) {
+				$model[ str_replace( '-', '_', $key ) ] = $value;
+				$model[ $key ]                          = $value;
+			}
+
+			return $model;
+		}
+		return null;
+	}
+
 	public function __construct() {
 		add_filter( 'wp', array( $this, 'premium_version' ) );
 		add_action( 'customize_register', array( $this, 'premium_version' ), -10 );
 		add_action( 'admin_init', array( $this, 'settings_register' ) );
 		add_filter( 'option_qlwapp', array( $this, 'previous_versions' ) );
 		add_filter( 'default_option_qlwapp', array( $this, 'previous_author' ), 20 );
+		// Compatibility Since Version 7.2.0
+		add_filter(
+			'default_option_qlwapp_box',
+			function() {
+				return $this->previous_versions_qlwapp( 'box' );
+			}
+		);
+		add_filter(
+			'default_option_qlwapp_button',
+			function() {
+				return $this->previous_versions_qlwapp( 'button' );
+			}
+		);
+		add_filter(
+			'default_option_qlwapp_display',
+			function() {
+				return $this->previous_versions_qlwapp( 'display' );
+			}
+		);
+		add_filter(
+			'default_option_qlwapp_scheme',
+			function() {
+				return $this->previous_versions_qlwapp( 'scheme' );
+			}
+		);
+		add_filter(
+			'default_option_qlwapp_settings',
+			function() {
+				return $this->previous_versions_qlwapp( 'settings' );
+			}
+		);
+		add_filter(
+			'default_option_qlwapp_woocommerce',
+			function() {
+				return $this->previous_versions_qlwapp( 'woocommerce' );
+			}
+		);
+		add_filter(
+			'default_option_qlwapp_contacts',
+			function() {
+				return $this->previous_versions_qlwapp( 'contacts' );
+			}
+		);
 	}
 
 	public static function instance() {

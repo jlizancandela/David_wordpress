@@ -2,9 +2,9 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
   "name": "post-grid/menu-wrap-item",
-  "title": "Menu Item",
+  "title": "Menu Maker Item",
   "textdomain": "post-grid",
-  "category": "post-grid",
+  "category": "post-grid-tools",
   "usesContext": [
     "postId",
     "loopIndex",
@@ -76,8 +76,7 @@
           "position": "beforeText",
           "class": "pg-menu-icon"
         },
-        "styles": {
-        }
+        "styles": {}
       }
     },
     "blockId": {

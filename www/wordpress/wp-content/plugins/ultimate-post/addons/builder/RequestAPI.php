@@ -214,14 +214,138 @@ class RequestAPI{
             'success' => true,
             'postlist' => $post_list,
             'settings' => get_option('ultp_builder_conditions', array()),
-            'defaults' => ultimate_post()->builder_data(),
-            // 'new_url' => add_query_arg(array('post_type'=>'ultp_builder'),admin_url('post-new.php'))
+            'defaults' => $this->builder_data()
         ];
         if (isset($post['pid']) && $post['pid']) {
             $post_meta = get_post_meta( $post['pid'], '__ultp_builder_type', true );
             $arg['type'] = $post_meta ? $post_meta : 'archive';
         }
         return $arg;
+    }
+
+
+    /**
+	 * Get Add Default Condition Data
+     * 
+     * @since v.2.7.0
+	 * @return ARRAY | Default Data
+	 */
+    public function builder_data() {
+        $archive_data = array(
+            array(
+                'label' => 'All Archive',
+                'value' => '',
+            ),
+            array(
+                'label' => 'Author Archive',
+                'value' => 'author',
+                'search' => 'author###'
+            ),
+            array(
+                'label' => 'Date Archive',
+                'value' => 'date',
+            ),
+            array(
+                'label' => 'Search Results',
+                'value' => 'search',
+            )
+        );
+        $single_data = array(
+            array(
+                'label' => 'Front Page', 
+                'value' => 'front_page', 
+            )
+        );
+        $header_data = array(
+            array(
+                'label' => 'Entire Site',
+                'value' => 'entire_site', 
+            ),
+            array(
+                'label' => 'Archive',
+                'value' => 'archive',
+            ),
+            array(
+                'label' => 'Singular',
+                'value' => 'singular',
+            )
+        );
+        
+        $post_type = get_post_types( ['public' => true], 'objects' );
+        foreach ($post_type as $key => $type) {
+            // Post Type
+            $single_temp = [ 
+                'label' => $type->label, 
+                'value' => $type->name, 
+                'search' => 'type###'.$type->name 
+            ];
+            $archive_temp = [];
+
+            // Taxonomy
+            $taxonomy = get_object_taxonomies( $type->name, 'objects' );
+            if (!empty($taxonomy)) {
+                $single_tax = $archive_tax = [];
+                $single_tax[] = $single_temp;
+
+                $archive_temp = [ 
+                    'label' => $type->label . ' Archive', 
+                    'value' => $type->name . '_archive',
+                ];
+                // $archive_tax[] = $archive_temp;
+                foreach ($taxonomy as $key => $val) {
+                    if ($val->public) {
+                        $single_tax[] = [
+                            'label' => 'In ' . $val->label, 
+                            'value' => 'in_' . $val->name, 
+                            'search' => 'term###'.$val->name
+                        ];
+                        $archive_tax[] = [
+                            'label' => $val->label, 
+                            'value' => $val->name, 
+                            'search' => 'term###'.$val->name
+                        ];
+
+                        if ($val->hierarchical) {
+                            // Hierarchical
+                            $single_tax[] = [
+                                'label' => 'In Child ' . $val->label,
+                                'value' => 'in_' . $val->name . '_children',
+                                'search' => 'term###'.$val->name
+                            ];
+                            $archive_tax[] = [
+                                'label' => 'Direct Child ' . $val->label . ' Of',
+                                'value' => 'child_of_' . $val->name,
+                                'search' => 'term###'.$val->name
+                            ];
+                            $archive_tax[] = [
+                                'label' => 'Any Child ' . $val->label . ' Of',
+                                'value' => 'any_child_of_' . $val->name,
+                                'search' => 'term###'.$val->name
+                            ];
+                        }
+                    }
+                }
+                // Author
+                $single_tax[] = [
+                    'label' => 'Posts By Author',
+                    'value' => 'post_by_author',
+                    'search' => 'author###'
+                ];
+                $single_temp['attr'] = $single_tax;
+                $archive_temp['attr'] = $archive_tax;
+            }
+            $single_data[] = $single_temp;
+            if (!empty($archive_temp)) {
+                $archive_data[] = $archive_temp;
+            }
+        }
+
+        return [
+            'singular' => $single_data, 
+            'archive' => $archive_data,
+            'header'=> $header_data, 
+            'footer'=> $header_data
+        ];
     }
 
 

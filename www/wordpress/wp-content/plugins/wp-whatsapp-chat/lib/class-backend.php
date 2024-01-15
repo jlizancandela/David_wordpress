@@ -16,15 +16,8 @@ class Backend {
 		Controllers\WooCommerce::instance();
 		Controllers\Scheme::instance();
 		Controllers\Premium::instance();
-		add_filter( 'default_option_qlwapp', array( $this, 'generate_db' ) );
-		add_filter( 'sanitize_option_qlwapp', 'wp_unslash' );
 		add_action( 'admin_enqueue_scripts', array( $this, 'add_js' ) );
 		add_action( 'admin_head', array( $this, 'add_css' ) );
-	}
-
-	public function generate_db() {
-		$db = new Models\Base();
-		return $db->options();
 	}
 
 	public function add_css() {

@@ -18,8 +18,9 @@ use DUP_DB;
 use DUP_LITE_Plugin_Upgrade;
 use DUP_Log;
 use DUP_Package;
-use DUP_Package_Screen;
 use DUP_Settings;
+use DUP_UI_Screen;
+use Duplicator\Controllers\HelpPageController;
 use Duplicator\Utils\Email\EmailSummaryBootstrap;
 use Duplicator\Views\AdminNotices;
 use DUP_Util;
@@ -113,6 +114,7 @@ class Bootstrap
             EducationElements::init();
             Notifications::init();
             EmailSummaryPreviewPageController::init();
+            HelpPageController::init();
             $dashboardService = new ServicesDashboard();
             $dashboardService->init();
             $extraPlugin = new ServicesExtraPlugins();
@@ -184,7 +186,7 @@ class Bootstrap
 
         /* CSS */
         wp_register_style('dup-jquery-ui', DUPLICATOR_PLUGIN_URL . 'assets/css/jquery-ui.css', null, "1.11.2");
-        wp_register_style('dup-font-awesome', DUPLICATOR_PLUGIN_URL . 'assets/css/fontawesome-all.min.css', null, '5.7.2');
+        wp_register_style('dup-font-awesome', DUPLICATOR_PLUGIN_URL . 'assets/css/font-awesome/css/all.min.css', [], '6.4.2');
         wp_register_style('dup-plugin-global-style', DUPLICATOR_PLUGIN_URL . 'assets/css/global_admin_style.css', null, DUPLICATOR_VERSION);
         wp_register_style('dup-plugin-style', DUPLICATOR_PLUGIN_URL . 'assets/css/style.css', array('dup-plugin-global-style'), DUPLICATOR_VERSION);
 
@@ -195,7 +197,7 @@ class Bootstrap
         wp_register_script('dup-parsley', DUPLICATOR_PLUGIN_URL . 'assets/js/parsley.min.js', array('jquery'), '1.1.18');
         wp_register_script('dup-jquery-qtip', DUPLICATOR_PLUGIN_URL . 'assets/js/jquery.qtip/jquery.qtip.min.js', array('jquery'), '2.2.1');
 
-        add_action('admin_head', array('DUP_UI_Screen', 'getCustomCss'));
+        add_action('admin_head', [DUP_UI_Screen::class, 'getCustomCss']);
         // Clean tmp folder
         DUP_Package::not_active_files_tmp_cleanup();
 
@@ -213,18 +215,22 @@ class Bootstrap
      */
     public static function menuInit()
     {
+        $menuLabel = apply_filters('duplicator_menu_label_duplicator', 'Duplicator');
         //SVG Icon: See https://websemantics.uk/tools/image-to-data-uri-converter/
-        $hook_prefix = add_menu_page('Duplicator Plugin', 'Duplicator', 'export', 'duplicator', null, DUP_Constants::ICON_SVG);
+        $hook_prefix = add_menu_page('Duplicator Plugin', $menuLabel, 'export', 'duplicator', null, DUP_Constants::ICON_SVG);
         add_action('admin_print_scripts-' . $hook_prefix, array(__CLASS__, 'scripts'));
         add_action('admin_print_styles-' . $hook_prefix, array(__CLASS__, 'styles'));
 
         //Submenus are displayed in the same order they have in the array
         $subMenuItems = self::getSubmenuItems();
         foreach ($subMenuItems as $k => $subMenuItem) {
+            $pageTitle = apply_filters('duplicator_page_title_' . $subMenuItem['menu_slug'], $subMenuItem['page_title']);
+            $menuLabel = apply_filters('duplicator_menu_label_' . $subMenuItem['menu_slug'], $subMenuItem['menu_title']);
+
             $subMenuItems[$k]['hook_prefix'] = add_submenu_page(
                 $subMenuItem['parent_slug'],
-                $subMenuItem['page_title'],
-                $subMenuItem['menu_title'],
+                $pageTitle,
+                $menuLabel,
                 $subMenuItem['capability'],
                 $subMenuItem['menu_slug'],
                 $subMenuItem['callback'],
@@ -237,7 +243,6 @@ class Bootstrap
             }
             add_action('admin_print_styles-' . $subMenuItems[$k]['hook_prefix'], array(__CLASS__, 'styles'));
         }
-        $GLOBALS['DUP_Package_Screen'] = new DUP_Package_Screen($subMenuItems[0]['hook_prefix']);
     }
 
     /**

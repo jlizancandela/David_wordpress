@@ -2,6 +2,8 @@
 
 namespace QuadLayers\QLWAPP\Controllers;
 
+use QuadLayers\QLWAPP\Models\Contact as ModelsContact;
+
 class Contact extends Base {
 
 	protected static $instance;
@@ -22,7 +24,7 @@ class Contact extends Base {
 
 	public function add_panel() {
 		global $submenu;
-		$contact_model      = new \QuadLayers\QLWAPP\Models\Contact();
+		$contact_model      = ModelsContact::instance();
 		$contact_visibility = new \QuadLayers\QLWAPP\Models\Display_Component();
 		$contacts           = $contact_model->get_contacts_reorder();
 
@@ -34,7 +36,7 @@ class Contact extends Base {
 	}
 
 	public function get_contact( $contact_id ) {
-		$contact_model = new \QuadLayers\QLWAPP\Models\Contact();
+		$contact_model = ModelsContact::instance();
 		$contact       = $contact_model->get_contact( $contact_id );
 
 		foreach ( $contact['display']['entries'] as $key => $value ) {
@@ -92,7 +94,10 @@ class Contact extends Base {
 			if ( check_ajax_referer( 'qlwapp_save_contact', 'nonce', false ) && isset( $_REQUEST['contact_data'] ) ) {
 				$contact_data = array();
 				parse_str( $_REQUEST['contact_data'], $contact_data );
-				$contact_model = new \QuadLayers\QLWAPP\Models\Contact();
+				if ( ! isset( $contact_data['timedays'] ) ) {
+					$contact_data['timedays'] = array();
+				}
+				$contact_model = ModelsContact::instance();
 				if ( is_array( $contact_data ) ) {
 					if ( isset( $contact_data['id'] ) ) {
 						return parent::success_save( $contact_model->update_contact( $contact_data ) );
@@ -110,7 +115,7 @@ class Contact extends Base {
 		if ( current_user_can( 'manage_options' ) ) {
 			if ( check_ajax_referer( 'qlwapp_save_contact_order', 'nonce', false ) && isset( $_REQUEST['contact_data'] ) ) {
 				if ( array_key_exists( 'contact_data', $_REQUEST ) ) {
-					$contact_model = new \QuadLayers\QLWAPP\Models\Contact();
+					$contact_model = ModelsContact::instance();
 					$contacts      = $contact_model->get_contacts();
 					$contact_order = array();
 					parse_str( $_REQUEST['contact_data'], $contact_order );
@@ -138,7 +143,7 @@ class Contact extends Base {
 
 			$contact_id = ( isset( $_REQUEST['contact_id'] ) ) ? absint( $_REQUEST['contact_id'] ) : -1;
 
-			$contact_model = new \QuadLayers\QLWAPP\Models\Contact();
+			$contact_model = ModelsContact::instance();
 
 			$contact = $contact_model->delete( $contact_id );
 			if ( $contact_id ) {
@@ -152,7 +157,7 @@ class Contact extends Base {
 
 	public function add_js() {
 		if ( isset( $_GET['page'] ) && ( $_GET['page'] === 'qlwapp_contacts' ) ) {
-			$contact_model = new \QuadLayers\QLWAPP\Models\Contact();
+			$contact_model = ModelsContact::instance();
 			wp_enqueue_media();
 			wp_localize_script(
 				'qlwapp-admin',

@@ -2,6 +2,9 @@
 
 namespace QuadLayers\QLWAPP\Controllers;
 
+use QuadLayers\QLWAPP\Models\Box as Box_Model;
+use QuadLayers\QLWAPP\Models\Button;
+
 class Box extends Base {
 
 	protected static $instance;
@@ -17,16 +20,16 @@ class Box extends Base {
 
 	public function add_panel() {
 		global $submenu;
-		$box_model    = new \QuadLayers\QLWAPP\Models\Box();
+		$box_model    = Box_Model::instance();
 		$box          = $box_model->get();
-		$button_model = new \QuadLayers\QLWAPP\Models\Button();
+		$button_model = Button::instance();
 		$button       = $button_model->get();
 		include QLWAPP_PLUGIN_DIR . '/lib/view/backend/pages/parts/header.php';
 		include QLWAPP_PLUGIN_DIR . '/lib/view/backend/pages/box.php';
 	}
 
 	public function ajax_qlwapp_save_box() {
-		$box_model = new \QuadLayers\QLWAPP\Models\Box();
+		$box_model = Box_Model::instance();
 		if ( current_user_can( 'manage_options' ) ) {
 			if ( check_ajax_referer( 'qlwapp_save_box', 'nonce', false ) && isset( $_REQUEST['form_data'] ) ) {
 				$form_data = array();

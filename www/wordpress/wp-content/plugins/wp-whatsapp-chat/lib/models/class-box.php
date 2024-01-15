@@ -1,30 +1,57 @@
 <?php
-
 namespace QuadLayers\QLWAPP\Models;
 
-class Box extends Base {
+use QuadLayers\QLWAPP\Entities\Box as Box_Entity;
 
-	protected $table = 'box';
+use QuadLayers\WP_Orm\Builder\SingleRepositoryBuilder;
 
-	public function get_args() {
-		$args = array(
-			'enable'          => 'yes',
-			'auto_open'       => 'no',
-			'auto_delay_open' => 1000,
-			'lazy_load'       => 'no',
-			'header'          => '     <h3 style="
-			font-size: 26px;
-			font-weight: bold;
-			margin: 0 0 0.25em 0;
-		">Hello!</h3>
-		<p style="
-			font-size: 14px;
-		">Click one of our contacts below to chat on WhatsApp</p>',
-			// 'header'          => '<p><span style="font-size: 12px;line-height: 34px;vertical-align: bottom;letter-spacing: -0.2px">Powered by</span> <a href="' . QLWAPP_LANDING_URL . '" target="_blank" rel="noopener" style="font-size: 24px;line-height: 34px;font-family: Calibri;font-weight: bold;text-decoration: none;color: white">Social Chat</a></p>',
-			'footer'          => '<p style="text-align: start;">Social Chat is free, download and try it now <a target="_blank" href="' . QLWAPP_LANDING_URL . '">here!</a></p>',
-			'response'        => esc_html__( 'Write a response', 'wp-whatsapp-chat' ),
-		);
-		return $args;
+class Box {
+
+	protected static $instance;
+	protected $repository;
+
+	public function __construct() {
+		add_filter( 'sanitize_option_qlwapp_box', 'wp_unslash' );
+		$builder = ( new SingleRepositoryBuilder() )
+		->setTable( 'qlwapp_box' )
+		->setEntity( Box_Entity::class );
+
+		$this->repository = $builder->getRepository();
+	}
+
+	public function get_table() {
+		return $this->repository->getTable();
+	}
+
+	public function get() {
+		$entity = $this->repository->find();
+		$result = null;
+
+		if ( $entity ) {
+			$result = $entity->getProperties();
+		} else {
+			$admin  = new Box_Entity();
+			$result = $admin->getProperties();
+		}
+
+		if ( ! is_admin() ) {
+			$result['header'] = qlwapp_replacements_vars( $result['header'] );
+			$result['footer'] = qlwapp_replacements_vars( $result['footer'] );
+		}
+
+		return $result;
+	}
+
+	public function delete_all() {
+		return $this->repository->delete();
+	}
+
+	public function save( $data ) {
+		$entity = $this->repository->create( $this->sanitize( $data ) );
+
+		if ( $entity ) {
+			return true;
+		}
 	}
 
 	public function sanitize( $settings ) {
@@ -43,24 +70,14 @@ class Box extends Base {
 		if ( isset( $settings['footer'] ) ) {
 			$settings['footer'] = wp_kses_post( $settings['footer'] );
 		}
+
 		return $settings;
 	}
 
-	public function get() {
-
-		$result = $this->get_all( $this->table );
-
-		$result = wp_parse_args( $result, $this->get_args() );
-
-		if ( ! is_admin() ) {
-			$result['header'] = qlwapp_replacements_vars( $result['header'] );
-			$result['footer'] = qlwapp_replacements_vars( $result['footer'] );
+	public static function instance() {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new self();
 		}
-
-		return $result;
-	}
-
-	public function save( $box_data = null ) {
-		return parent::save_data( $this->table, $this->sanitize( $box_data ) );
+		return self::$instance;
 	}
 }

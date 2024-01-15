@@ -1485,6 +1485,7 @@ class Login_Register extends Widget_Base {
 			'description'   => __( 'Please note that only your current domain is allowed here to keep your site secure.', 'essential-addons-for-elementor-lite' ),
 			'condition'     => [
 				'redirect_after_login' => 'yes',
+				'login_redirect_url_prev_page!' => 'yes',
 			],
 			'default'       => [
 				'url'         => admin_url(),
@@ -1517,6 +1518,16 @@ class Login_Register extends Widget_Base {
 				] );
 			}
 		}
+
+		$this->add_control( 'login_redirect_url_prev_page', [
+			'label'   => __( 'Redirect to Previous Page', 'essential-addons-for-elementor-lite' ),
+			'description'   => __( 'Redirect to the last visited page before login.', 'essential-addons-for-elementor-lite' ),
+			'type'    => Controls_Manager::SWITCHER,
+			'default' => '',
+			'condition'     => [
+				'redirect_after_login' => 'yes',
+			],
+		] );
 
 		$this->end_controls_section();
 	}
@@ -2126,6 +2137,17 @@ class Login_Register extends Widget_Base {
 				'is_external' => false,
 				'nofollow'    => true,
 			],
+			'condition'     => [
+				'register_action' => 'redirect',
+				'register_redirect_url_prev_page!' => 'yes'
+			],
+		] );
+
+		$this->add_control( 'register_redirect_url_prev_page', [
+			'label'   => __( 'Redirect to Previous Page', 'essential-addons-for-elementor-lite' ),
+			'description'   => __( 'Redirect to the last visited page before registration.', 'essential-addons-for-elementor-lite' ),
+			'type'    => Controls_Manager::SWITCHER,
+			'default' => '',
 			'condition'     => [
 				'register_action' => 'redirect',
 			],
@@ -5519,7 +5541,7 @@ class Login_Register extends Widget_Base {
             
 	        $recaptcha_api_args1 = apply_filters( 'eael_lr_recaptcha_api_args_v3', $recaptcha_api_args1 );
 	        $recaptcha_api_args1 = http_build_query( $recaptcha_api_args1 );
-            wp_register_script('eael-recaptcha-v3', "https://www.google.com/recaptcha/api.js?{$recaptcha_api_args1}", false, EAEL_PLUGIN_VERSION, false);
+            wp_register_script('eael-recaptcha-v3', "https://www.recaptcha.net/recaptcha/api.js?{$recaptcha_api_args1}", false, EAEL_PLUGIN_VERSION, false);
 			wp_enqueue_script('eael-recaptcha-v3');
 			wp_dequeue_script('eael-recaptcha');
         }
@@ -5754,8 +5776,6 @@ class Login_Register extends Widget_Base {
 								<?php
 								$this->print_necessary_hidden_fields( 'login' );
 
-								$this->print_login_validation_errors();
-
 								do_action( 'eael/login-register/before-login-form-close', $this );
 								?>
                             </form>
@@ -5770,6 +5790,17 @@ class Login_Register extends Widget_Base {
                 </div>
 
             </section>
+
+			<script>
+				jQuery(document).ready(function($){
+					var eael_get_login_status = localStorage.getItem( 'eael-is-login-form' );
+					if( eael_get_login_status === 'true' ) {
+						setTimeout(function() {
+							jQuery('[eael-login="yes"]').trigger('click').addClass('eael-clicked');
+						},100);
+					}
+				});
+			</script>
 			<?php
 		}
 	}
@@ -6513,6 +6544,24 @@ class Login_Register extends Widget_Base {
 					}
 				}
 			}
+
+			if ( ! empty( $this->ds['login_redirect_url_prev_page'] ) && 'yes' === $this->ds['login_redirect_url_prev_page'] ) {
+				$login_redirect_url_prev_page = ! empty( $_SERVER['HTTP_REFERER'] ) ? esc_url_raw( $_SERVER['HTTP_REFERER'] ) : '';
+				?>
+				<input type="hidden"
+					name="redirect_to_prev_page_login"
+					value="<?php echo esc_attr( $login_redirect_url_prev_page ); ?>">
+			<?php }
+		}
+
+		if ( 'register' === $form_type ) {
+			if ( ! empty( $this->ds['register_redirect_url_prev_page'] ) && 'yes' === $this->ds['register_redirect_url_prev_page'] ) {
+				$register_redirect_url_prev_page = ! empty( $_SERVER['HTTP_REFERER'] ) ? esc_url_raw( $_SERVER['HTTP_REFERER'] ) : '';
+				?>
+                <input type="hidden"
+                       name="redirect_to_prev_page"
+                       value="<?php echo esc_attr( $register_redirect_url_prev_page ); ?>">
+			<?php }
 		}
 
 		if ( 'resetpassword' === $form_type ) {
@@ -6592,21 +6641,10 @@ class Login_Register extends Widget_Base {
 	}
 
 	protected function print_login_validation_errors() {
-		$error_key = 'eael_login_error_' . $this->get_id();
 		$resetpassword_success_key = 'eael_resetpassword_success_' . $this->get_id();
-		$resetpassword_success = apply_filters( 'eael/login-register/resetpassword-success-message', get_option( $resetpassword_success_key ) );
+		$resetpassword_success     = apply_filters( 'eael/login-register/resetpassword-success-message', get_option( $resetpassword_success_key ) );
 
-		if ( $login_error = apply_filters( 'eael/login-register/login-error-message', get_option( $error_key ) ) ) {
-			do_action( 'eael/login-register/before-showing-login-error', $login_error, $this );
-			?>
-            <p class="eael-form-msg invalid">
-				<?php echo HelperCLass::eael_wp_kses( $login_error ); ?>
-            </p>
-			<?php
-			do_action( 'eael/login-register/after-showing-login-error', $login_error, $this );
-
-			delete_option( $error_key );
-		} else if( ! empty( $resetpassword_success ) && 'register' !== $this->ds['default_form_type'] ){
+		if ( ! empty( $resetpassword_success ) && 'register' !== $this->ds['default_form_type'] ) {
 			$this->print_resetpassword_success_message( $resetpassword_success );
 		}
 	}

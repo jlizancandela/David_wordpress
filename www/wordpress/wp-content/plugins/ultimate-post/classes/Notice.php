@@ -18,27 +18,53 @@ class Notice {
 	 *
 	 * @since v.1.0.0
 	 */
-    private $notice_version = 'v13';    
+    private $notice_version = 'v13';
     private $valid_notices = array();
-    public function __construct(){
-        $default_notice = ultimate_post()->get_notice_data('banner', $this->notice_version);
 
-        $this->valid_notices = array();
-        if (is_array($default_notice ) && count($default_notice) > 0) {
-            foreach ($default_notice as $key => $notice) {
-                $current_time = date('U');
+    public function __construct() {
+        // add_filter( 'ultp_dashboard_notice', array( $this, 'dashboard_notice_callback' ) );
+        add_action( 'admin_notices', array( $this, 'ultp_installation_notice_callback' ) );
+		add_action( 'admin_init', array( $this, 'set_dismiss_notice_callback' ) );
+	}
 
-                if ($current_time > strtotime($notice['start']) && $current_time < strtotime($notice['end']) && $notice['visibility']) {
-                    $this->valid_notices[] = $notice;
+    public function notice_data() {
+        $valid_notices = array();
+        $default_notice = apply_filters( 'ultp_dashboard_notice', array() );
+        if ( is_array( $default_notice ) && count( $default_notice ) > 0 ) {
+            foreach ( $default_notice as $key => $notice ) {
+                $current_time = date( 'U' );
+                if ( $current_time > strtotime( $notice['start'] ) && $current_time < strtotime( $notice['end'] ) && $notice['visibility'] ) {
+                    $valid_notices[] = $notice;
                 }
             }
         }
+        return $valid_notices;
+    }
 
-        if (count($this->valid_notices) > 0) {
-            add_action('admin_notices',array($this,'ultp_installation_notice_callback'));
-        }
-		add_action('admin_init', array($this, 'set_dismiss_notice_callback'));
-	}
+    
+    /**
+	 * Dashboard Notice Data
+     * 
+     * @since v.3.1.8
+	 * @param NULL
+	 * @return NULL
+	 */
+    public function dashboard_notice_callback() {
+        return array(
+            array(
+                'key' => 'black_friday_free',
+                'start' => '22-11-2023',
+                'end' => '26-12-2023',
+                'type' => 'banner',
+                'content' => ULTP_URL.'assets/img/dashboard_banner/black_friday_free.jpg',
+                'force' => true,
+                'url' => ultimate_post()->get_premium_link('', 'dashboard_db_banner'),
+                'visibility' => !ultimate_post()->is_lc_active(),
+                'priority' => 50,
+                'repeat_interval' => '',
+            )
+        );
+    }
 
     /**
 	 * Promotional Dismiss Notice Option Data
@@ -48,23 +74,20 @@ class Notice {
 	 * @return NULL
 	 */
 	public function set_dismiss_notice_callback() {
-        if(count($this->valid_notices)>0) {
-            foreach ($this->valid_notices as $notice) {
-                $notice_key = isset($notice['key'])?$notice['key']:$this->notice_version;                
-                if (isset($_GET['disable_postx_notice_' .$notice_key ])) {
-                    if (sanitize_key($_GET['disable_postx_notice_' . $notice_key]) == 'yes') {
-                        // set_transient( 'ultp_get_pro_notice_' . $this->notice_version, 'off', 2592000 ); // 30 days notice
-                        if(isset($notice['repeat_interval']) && ''!=$notice['repeat_interval']) {
+        $valid_notices = $this->notice_data();
+        if ( count( $valid_notices ) > 0 ) {
+            foreach ( $valid_notices as $notice ) {
+                $notice_key = isset( $notice['key'] ) ? $notice['key'] : $this->notice_version;                
+                if ( isset( $_GET['disable_postx_notice_' .$notice_key ] ) ) {
+                    if ( sanitize_key( $_GET['disable_postx_notice_' . $notice_key] ) == 'yes' ) {
+                        if ( isset( $notice['repeat_interval'] ) && '' != $notice['repeat_interval'] ) {
                             $interval = (int) $notice['repeat_interval'];
-                            $this->set_notice('ultp_get_pro_notice_' . $notice_key, 'off',  $interval ); // 30 (2592000) days notice
+                            ultimate_post()->set_transient_without_cache( 'ultp_get_pro_notice_' . $notice_key, 'off',  $interval ); // 30 (2592000) days notice
                         } else {
-                            
-                            $this->set_notice('ultp_get_pro_notice_' . $notice_key, 'off' ); // 30 (2592000) days notice
+                            ultimate_post()->set_transient_without_cache( 'ultp_get_pro_notice_' . $notice_key, 'off' ); // 30 (2592000) days notice
                         }
                     }
                 }
-                
-                
             }
         }
 	}
@@ -76,44 +99,31 @@ class Notice {
 	 * @param NULL
 	 * @return STRING
 	 */
-	public function ultp_installation_notice_callback() {    
-        // ultimate_post()->get_tran('ultp_get_pro_notice_' . $this->notice_version) != 'off'        
-        if(count($this->valid_notices)>0) {
-            foreach ($this->valid_notices as $notice) {                
-                $notice_key = isset($notice['key'])?$notice['key']:$this->notice_version;
-                if ($this->get_notice('ultp_get_pro_notice_' . $notice_key) != 'off') {
-                    // if (!ultimate_post()->is_lc_active() && ($this->force || get_transient('wpxpo_installation_date') != 'yes')) {
-                    if ( ($notice['force'] || get_transient('wpxpo_installation_date') != 'yes') ) {                        
-                        if (!isset($_GET['disable_postx_notice_' . $notice_key])) {
-                            $this->ultp_notice_css();
-                            
-                            ?>
-                            
-                            
+	public function ultp_installation_notice_callback() {
+        $valid_notices = $this->notice_data();
+        if ( count( $valid_notices ) > 0 ) {
+            $this->ultp_notice_css();
+            foreach ( $valid_notices as $notice ) {
+                $notice_key = isset( $notice['key'] ) ? $notice['key'] : $this->notice_version;
+                if ( ultimate_post()->get_transient_without_cache('ultp_get_pro_notice_' . $notice_key) != 'off' ) {
+                    if ( ( $notice['force'] || get_transient('wpxpo_installation_date') != 'yes' ) ) {
+                        if ( ! isset( $_GET['disable_postx_notice_' . $notice_key] ) ) {
+                            switch ( $notice['type'] ) {
+                                case 'banner': ?>
+                                    <div class="wc-install ultp-free-notice">
+                                        <div class="wc-install-body ultp-image-banner">
+                                            <a class="wc-dismiss-notice" href="<?php echo esc_url( add_query_arg( 'disable_postx_notice_' . $notice_key, 'yes' ) ); ?>">Dismiss</a>
+                                            <a class="ultp-btn-image" target="_blank" href="<?php echo esc_url($notice['url']); ?>">
+                                                <img loading="lazy" src="<?php echo esc_url($notice['content']); ?>" alt="Discount Banner"/>
+                                            </a>
+                                        </div>
+                                    </div>
                                 <?php
-                                    switch ($notice['type']) {
-                                        case 'banner': 
-                                        ?>
-                                        <div class="wc-install ultp-free-notice">
-                                            <div class="wc-install-body ultp-image-banner">
-                                                <a class="wc-dismiss-notice" href="<?php echo esc_url( add_query_arg( 'disable_postx_notice_' . $notice_key, 'yes' ) ); ?>">
-                                                    Dismiss
-                                                </a>
-                                                <a class="ultp-btn-image" target="_blank" href="<?php echo esc_url($notice['url']); ?>">
-                                                    <img loading="lazy" src="<?php echo esc_url($notice['content']); ?>" alt="Discount Banner"/>
-                                                </a>
-                                            </div>
-                                            </div>
-                                        <?php
-                                         break;
-                                        case 'content':
-                                            echo $notice['content'];
-                                        ?>
-                                        <?php break;
-                                    }
-                                ?>
-                            
-                            <?php
+                                break;
+                                case 'content':
+                                    echo $notice['content'];
+                                break;
+                            }
                         }
                     }
                 }
@@ -280,84 +290,62 @@ class Notice {
             .ultp-free-notice .ultp-dismiss:hover {
                 color: #d2d2d2;
             }
-            /* ===== Old Banner Css End ===== */
-			/* ===== Updated Banner Css Start ===== */
-            .ultp-notice {
-                background: #fff;
-                border: 1px solid #c3c4c7;
-                border-left-color: #037FFF !important;
-                border-left-width: 4px;
-                border-radius: 4px 0px 0px 4px;
-                box-shadow: 0 1px 1px rgba(0,0,0,.04);
-                padding: 0px !important;
-                margin: 20px 20px 0 2px !important;
-                clear: both;
+            /*----- ULTP Into Notice ------*/
+            .notice.notice-success.ultp-notice {
+                border-left-color: #4D4DFF;
+                padding: 0;
             }
-            .ultp-notice .ultp-notice-container {
+            .ultp-notice-container {
                 display: flex;
-                width: 100%;
             }
-
-            .ultp-notice .ultp-notice-container a{
+            .ultp-notice-container a{
                 text-decoration: none;
             }
-
-            .ultp-notice .ultp-notice-container a:visited{
+            .ultp-notice-container a:visited{
                 color: white;
             }
-            .ultp-notice .ultp-notice-container img {
-                height: 100%; 
-                width: 100%;
-                max-width: 30px !important;
-                padding: 12px;
+            .ultp-notice-container img {
+                height: 100px; 
+                width: 100px;
             }
-
-            .ultp-notice .ultp-notice-image {
-                display: flex;
-                align-items: center;
-                flex-direction: column;
-                justify-content: center;
+            .ultp-notice-image {
+                padding-top: 15px;
+                padding-left: 12px;
+                padding-right: 12px;
                 background-color: #f4f4ff;
             }
-            .ultp-notice .ultp-notice-image img{
+            .ultp-notice-image img{
                 max-width: 100%;
-                /* height: 300px; */
             }
-
-            .ultp-notice .ultp-notice-content {
+            .ultp-notice-content {
                 width: 100%;
-                margin: 5px !important;
-                padding: 8px !important;
+                padding: 16px;
                 display: flex;
                 flex-direction: column;
-                gap: 0px;
+                gap: 8px;
             }
-
-            .ultp-notice .ultp-notice-ultp-button {
+            .ultp-notice-ultp-button {
                 max-width: fit-content;
-                text-decoration: none;
-                padding: 7px 12px;
-                font-size: 12px;
+                padding: 8px 15px;
+                font-size: 16px;
                 color: white;
+                background-color: #4D4DFF;
                 border: none;
                 border-radius: 2px;
                 cursor: pointer;
                 margin-top: 6px;
-                background-color: #037FFF;
+                text-decoration: none;
             }
-
             .ultp-notice-heading {
                 font-size: 18px;
                 font-weight: 500;
                 color: #1b2023;
             }
-
             .ultp-notice-content-header {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
             }
-
             .ultp-notice-close .dashicons-no-alt {
                 font-size: 25px;
                 height: 26px;
@@ -365,16 +353,18 @@ class Notice {
                 cursor: pointer;
                 color: #585858;
             }
-
             .ultp-notice-close .dashicons-no-alt:hover {
                 color: red;
             }
-
             .ultp-notice-content-body {
-                font-size: 12px;
+                font-size: 14px;
                 color: #343b40;
             }
-            .ultp-bold {
+            .ultp-notice-wholesalex-button:hover {
+                background-color: #6C6CFF;
+                color: white;
+            }
+            span.ultp-bold {
                 font-weight: bold;
             }
             a.ultp-pro-dismiss:focus {
@@ -395,34 +385,14 @@ class Notice {
             a.ultp-notice-ultp-button:hover {
                 color: #fff !important;
             }
-            .ultp-notice .ultp-link-wrap  {
-                margin-top: 10px;
-            }
-            .ultp-notice .ultp-link-wrap a {
-                margin-right: 4px;
-            }
-            .ultp-notice .ultp-link-wrap a:hover {
-                background-color: #004fd0;
-            }
-            body .ultp-notice .ultp-link-wrap > a.ultp-notice-skip {
-                background: none !important;
-                border: 1px solid #037FFF;
-                color: #037FFF;
-                padding: 6px 15px !important;
-            }
-            body .ultp-notice .ultp-link-wrap > a.ultp-notice-skip:hover {
-                background: #037FFF !important;
-            }
             @keyframes rotation {
                 0% {
                     transform: rotate(0deg);
                 }
-
                 100% {
                     transform: rotate(360deg);
                 }
             }
-		    /* ===== Updated Banner Css End ===== */
 		</style>
 		<?php
     }

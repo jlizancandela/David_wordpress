@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Click to Chat &#8211; HoliThemes - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-13 12:33:25+0000\n"
+"PO-Revision-Date: 2023-12-29 17:27:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,17 +11,37 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: Plugins - Click to Chat &#8211; HoliThemes - Stable (latest release)\n"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:252
-#: new/admin/class-ht-ctc-admin-other-settings.php:306
-#: new/admin/class-ht-ctc-admin-other-settings.php:478
-#: new/admin/class-ht-ctc-admin-other-settings.php:532
+#: new/admin/class-ht-ctc-admin-other-settings.php:361
+msgid "Pixel"
+msgstr "Pixel"
+
+#: new/admin/class-ht-ctc-admin-other-settings.php:445
+msgid "Custom Event Name"
+msgstr "Nombre del evento personalizado"
+
+#: new/admin/class-ht-ctc-admin-other-settings.php:423
+msgid "Event Type"
+msgstr "Tipo de evento"
+
+#: new/admin/class-ht-ctc-admin-other-settings.php:339
+msgid "dataLayer"
+msgstr "dataLayer"
+
+#: new/admin/class-ht-ctc-admin-other-settings.php:339
+msgid "Create Event from Google Tag manager (GTM)"
+msgstr "Crear evento desde Google Tag manager (GTM)"
+
+#: new/admin/class-ht-ctc-admin-other-settings.php:258
+#: new/admin/class-ht-ctc-admin-other-settings.php:312
+#: new/admin/class-ht-ctc-admin-other-settings.php:497
+#: new/admin/class-ht-ctc-admin-other-settings.php:551
 msgid "Event Parameter"
 msgstr "Parámetros del evento"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:217
-#: new/admin/class-ht-ctc-admin-other-settings.php:222
-#: new/admin/class-ht-ctc-admin-other-settings.php:421
-#: new/admin/class-ht-ctc-admin-other-settings.php:437
+#: new/admin/class-ht-ctc-admin-other-settings.php:223
+#: new/admin/class-ht-ctc-admin-other-settings.php:228
+#: new/admin/class-ht-ctc-admin-other-settings.php:440
+#: new/admin/class-ht-ctc-admin-other-settings.php:456
 msgid "Event Name"
 msgstr "Nombre del evento"
 
@@ -73,34 +93,34 @@ msgstr "Mostrar después de un retardo de tiempo"
 msgid "Time, Scroll Delay"
 msgstr "Retardo por tiempo, scroll"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:939
+#: new/admin/class-ht-ctc-admin-other-settings.php:975
 msgid "Time in seconds"
 msgstr "Tiempo en segundos"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:935
+#: new/admin/class-ht-ctc-admin-other-settings.php:971
 msgid "Badge Time Delay"
 msgstr "Retraso de la insignia"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:925
+#: new/admin/class-ht-ctc-admin-other-settings.php:961
 msgid "Add border Color"
 msgstr "Añadir color de borde"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:905
+#: new/admin/class-ht-ctc-admin-other-settings.php:941
 msgid "Badge Background Color"
 msgstr "Color de fondo de la insignia"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:894
-#: new/admin/class-ht-ctc-admin-other-settings.php:898
+#: new/admin/class-ht-ctc-admin-other-settings.php:930
+#: new/admin/class-ht-ctc-admin-other-settings.php:934
 msgid "Notification Count"
 msgstr "Conteo de avisos"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:880
-#: new/admin/class-ht-ctc-admin-other-settings.php:885
+#: new/admin/class-ht-ctc-admin-other-settings.php:916
+#: new/admin/class-ht-ctc-admin-other-settings.php:921
 msgid "Add Notification Badge"
 msgstr "Añadir insignia de aviso"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:871
-#: new/admin/class-ht-ctc-admin-other-settings.php:875
+#: new/admin/class-ht-ctc-admin-other-settings.php:907
+#: new/admin/class-ht-ctc-admin-other-settings.php:911
 msgid "Notification Badge"
 msgstr "Insignia de aviso"
 
@@ -112,12 +132,12 @@ msgstr "Texto que aparece inicialmente en la ventana de chat de WhatsApp. Añade
 msgid "WhatsApp or WhatsApp business number"
 msgstr "Número de WhatsApp o WhatsApp Business"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1014
+#: new/admin/class-ht-ctc-admin-other-settings.php:1050
 msgid "hide for Accessibility API (screen readers)"
 msgstr "ocultar para la API de accesibilidad (lectores de pantalla)"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1008
-#: new/admin/class-ht-ctc-admin-other-settings.php:1013
+#: new/admin/class-ht-ctc-admin-other-settings.php:1044
+#: new/admin/class-ht-ctc-admin-other-settings.php:1049
 msgid "Add aria-hidden=true"
 msgstr "Añadir aria-hidden=true"
 
@@ -152,11 +172,11 @@ msgstr "Abrir enlaces en"
 msgid "URL Structure"
 msgstr "Estructura de URLs"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1202
+#: new/admin/class-ht-ctc-admin-other-settings.php:1238
 msgid "FAQ"
 msgstr "FAQ"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1206
+#: new/admin/class-ht-ctc-admin-other-settings.php:1242
 msgid "Chat"
 msgstr "Chat"
 
@@ -275,7 +295,7 @@ msgstr "Contenido de la cabecera"
 msgid "Add Greetings Dialog"
 msgstr "Añadir ventana de saludo"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:622
+#: new/admin/class-ht-ctc-admin-other-settings.php:658
 msgid "call gtag_report_conversion function"
 msgstr "llamada a la función `gtag_report_conversion`"
 
@@ -322,16 +342,16 @@ msgstr "Página de tienda de WooCommerce"
 msgid "Add WhatsApp"
 msgstr "Añadir WhatsApp"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1001
+#: new/admin/class-ht-ctc-admin-other-settings.php:1037
 msgid "Position of the element along with z-index. stacking the elements"
 msgstr "Posición del elemento junto con el z-index, apilando los elementos"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:996
-#: new/admin/class-ht-ctc-admin-other-settings.php:1000
+#: new/admin/class-ht-ctc-admin-other-settings.php:1032
+#: new/admin/class-ht-ctc-admin-other-settings.php:1036
 msgid "z-index"
 msgstr "z-index"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:985
+#: new/admin/class-ht-ctc-admin-other-settings.php:1021
 msgid "All these below settings are not important to everyone"
 msgstr "Todos estos ajustes siguientes no son importantes para todo el mundo"
 
@@ -395,15 +415,15 @@ msgstr "Fijo: Posición relativa a la pantalla, permanece en el mismo lugar incl
 msgid "Position Type"
 msgstr "Tipo de posición"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1125
+#: new/admin/class-ht-ctc-admin-other-settings.php:1161
 msgid "'Click to Chat' - 'Display Settings' - 'Global' - check "
 msgstr "«Click to Chat» - «Ajustes de visualización» - «Global» - comprobar "
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:848
+#: new/admin/class-ht-ctc-admin-other-settings.php:884
 msgid "Entrance Effects"
 msgstr "Efectos de entrada"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:835
+#: new/admin/class-ht-ctc-admin-other-settings.php:871
 msgid "Entry Effects"
 msgstr "Efecto de entrada"
 
@@ -429,11 +449,11 @@ msgstr "Ejemplo: "
 msgid "Check this, If styles for mobile, desktop not selected as expected(due to cache)"
 msgstr "Márcalo si los estilos para móvil y escritorio no se seleccionan como se espera (debido a la caché)"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:655
+#: new/admin/class-ht-ctc-admin-other-settings.php:691
 msgid "using"
 msgstr "usando"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:655
+#: new/admin/class-ht-ctc-admin-other-settings.php:691
 msgid "Integrate, Automation"
 msgstr "Integración, automatización"
 
@@ -492,7 +512,7 @@ msgid "Post Id's"
 msgstr "ID de entrada"
 
 #: new/admin/admin_commons/admin-show-hide.php:146
-#: new/admin/class-ht-ctc-admin-other-settings.php:1125
+#: new/admin/class-ht-ctc-admin-other-settings.php:1161
 msgid "Hide on all pages"
 msgstr "Ocultar en todas las páginas"
 
@@ -519,39 +539,39 @@ msgstr "código del país"
 msgid "WhatsApp or WhatsApp business number with "
 msgstr "Número de WhatsApp o de WhatsApp Business con "
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:257
-#: new/admin/class-ht-ctc-admin-other-settings.php:311
-#: new/admin/class-ht-ctc-admin-other-settings.php:483
-#: new/admin/class-ht-ctc-admin-other-settings.php:537
-#: new/admin/class-ht-ctc-admin-other-settings.php:713
+#: new/admin/class-ht-ctc-admin-other-settings.php:263
+#: new/admin/class-ht-ctc-admin-other-settings.php:317
+#: new/admin/class-ht-ctc-admin-other-settings.php:502
+#: new/admin/class-ht-ctc-admin-other-settings.php:556
+#: new/admin/class-ht-ctc-admin-other-settings.php:749
 msgid "Value"
 msgstr "Valor"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:713
-#: new/admin/class-ht-ctc-admin-other-settings.php:714
+#: new/admin/class-ht-ctc-admin-other-settings.php:749
+#: new/admin/class-ht-ctc-admin-other-settings.php:750
 msgid "Add Value"
 msgstr "Añadir el valor"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:662
+#: new/admin/class-ht-ctc-admin-other-settings.php:698
 msgid "Calls this webhook url after user clicks on WhatsApp Icon/Button"
 msgstr "Llama a la URL de este webhook después de que el usuario haga clic en el icono/imagen de WhatsApp"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:661
+#: new/admin/class-ht-ctc-admin-other-settings.php:697
 msgid "Webhook URL"
 msgstr "URL del webhook"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:650
-#: new/admin/class-ht-ctc-admin-other-settings.php:655
+#: new/admin/class-ht-ctc-admin-other-settings.php:686
+#: new/admin/class-ht-ctc-admin-other-settings.php:691
 msgid "Webhooks"
 msgstr "Webhooks"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1106
-#: new/admin/class-ht-ctc-admin-other-settings.php:1117
+#: new/admin/class-ht-ctc-admin-other-settings.php:1142
+#: new/admin/class-ht-ctc-admin-other-settings.php:1153
 msgid "Adds WhatsApp Icon for Share"
 msgstr "Añade el icono de WhatsApp para compartir"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1079
-#: new/admin/class-ht-ctc-admin-other-settings.php:1090
+#: new/admin/class-ht-ctc-admin-other-settings.php:1115
+#: new/admin/class-ht-ctc-admin-other-settings.php:1126
 msgid "Adds WhatsApp Icon for Group"
 msgstr "Añade el icono de WhatsApp para el grupo"
 
@@ -559,11 +579,12 @@ msgstr "Añade el icono de WhatsApp para el grupo"
 msgid "Please clear the cache after save changes"
 msgstr "Por favor, vacía la caché después de guardar los cambios"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:625
+#: new/admin/class-ht-ctc-admin-other-settings.php:661
 msgid "call gtag_report_conversion function, when user clicks"
 msgstr "llama a la función `gtag_report_conversion` cuando el usuario hace clic"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:575
+#: new/admin/class-ht-ctc-admin-other-settings.php:591
+#: new/admin/class-ht-ctc-admin-other-settings.php:602
 msgid "Google Ads Conversion"
 msgstr "Conversión de Google Ads"
 
@@ -575,7 +596,7 @@ msgstr "Número"
 msgid "Country Code"
 msgstr "Código del país"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1205
+#: new/admin/class-ht-ctc-admin-other-settings.php:1241
 msgid "If any issue? Please, contact us"
 msgstr "¿Tienes algún problema? Por favor, contacta con nosotros"
 
@@ -603,9 +624,9 @@ msgstr "Mostrar"
 msgid "Pre-filled Message"
 msgstr "Mensaje inicial"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1157
-#: new/admin/class-ht-ctc-admin-other-settings.php:1160
-#: new/admin/class-ht-ctc-admin-other-settings.php:1168
+#: new/admin/class-ht-ctc-admin-other-settings.php:1193
+#: new/admin/class-ht-ctc-admin-other-settings.php:1196
+#: new/admin/class-ht-ctc-admin-other-settings.php:1204
 msgid "AMP Compatibility"
 msgstr "Compatibilidad con AMP"
 
@@ -625,19 +646,19 @@ msgstr "Tamaño de la fuente (ej.: 15px)"
 msgid "Font Size"
 msgstr "Tamaño de la fuente"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1182
+#: new/admin/class-ht-ctc-admin-other-settings.php:1218
 msgid "Debug mode"
 msgstr "Modo de depuración"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1138
+#: new/admin/class-ht-ctc-admin-other-settings.php:1174
 msgid "Debug, Troubleshoot, .."
 msgstr "Depuración, diagnóstico, ..."
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1124
+#: new/admin/class-ht-ctc-admin-other-settings.php:1160
 msgid "Chat settings are enabled by default. If like to hide chat on all pages"
 msgstr "Los ajustes del chat están activados por defecto. Si te gustaría ocultar el chat en todas las páginas"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1064
+#: new/admin/class-ht-ctc-admin-other-settings.php:1100
 msgid "Group, Share features"
 msgstr "Características de grupo y de compartir"
 
@@ -649,25 +670,25 @@ msgstr "Se muestra en las páginas de este tipo de categoría. Añade varias cat
 msgid "Hides on this Category type pages, Add multiple Categories by separating with a comma ( , ) "
 msgstr "Se oculta en las páginas de este tipo de categoría. Añade varias categorías separándolas con una coma ( , )"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1207
+#: new/admin/class-ht-ctc-admin-other-settings.php:1243
 msgid "Mail"
 msgstr "Correo"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:825
+#: new/admin/class-ht-ctc-admin-other-settings.php:861
 msgid "E.g. Add 2 to repeat animation 2 times"
 msgstr "Por ejemplo: Añade 2 para repetir la animación 2 veces"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:820
-#: new/admin/class-ht-ctc-admin-other-settings.php:824
+#: new/admin/class-ht-ctc-admin-other-settings.php:856
+#: new/admin/class-ht-ctc-admin-other-settings.php:860
 msgid "Animation Iteration"
 msgstr "Iteración de la animación"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:813
+#: new/admin/class-ht-ctc-admin-other-settings.php:849
 msgid "E.g. Add 1 for 1 second delay"
 msgstr "Por ejemplo: Añade 1 para un retraso de 1 segundo"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:808
-#: new/admin/class-ht-ctc-admin-other-settings.php:812
+#: new/admin/class-ht-ctc-admin-other-settings.php:844
+#: new/admin/class-ht-ctc-admin-other-settings.php:848
 msgid "Animation Delay"
 msgstr "Retraso de la animación"
 
@@ -680,14 +701,14 @@ msgstr "Retraso de la animación"
 msgid "Full Width on Mobile"
 msgstr "Ancho completo en móviles"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:776
-#: new/admin/class-ht-ctc-admin-other-settings.php:781
-#: new/admin/class-ht-ctc-admin-other-settings.php:786
-#: new/admin/class-ht-ctc-admin-other-settings.php:800
+#: new/admin/class-ht-ctc-admin-other-settings.php:812
+#: new/admin/class-ht-ctc-admin-other-settings.php:817
+#: new/admin/class-ht-ctc-admin-other-settings.php:822
+#: new/admin/class-ht-ctc-admin-other-settings.php:836
 msgid "Animations"
 msgstr "Animaciones"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:597
+#: new/admin/class-ht-ctc-admin-other-settings.php:633
 msgid "Analytics"
 msgstr "Analíticas"
 
@@ -766,15 +787,15 @@ msgstr "Introduce el ID del grupo de WhatsApp. Por ejemplo: 9EHLsEsOeJk6AVtE8AvX
 msgid "WhatsApp Group ID"
 msgstr "ID del grupo de WhatsApp"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:558
+#: new/admin/class-ht-ctc-admin-other-settings.php:577
 msgid "If Facebook Pixel installed creates an Event there"
 msgstr "Si está instalado el píxel de Facebook, crea un evento ahí"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:350
+#: new/admin/class-ht-ctc-admin-other-settings.php:369
 msgid "Facebook Pixel"
 msgstr "Píxel de Facebook"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:332
+#: new/admin/class-ht-ctc-admin-other-settings.php:338
 msgid "If Google Analytics installed creates an Event there"
 msgstr "Si Google Analytics está instalado, crea un evento ahí"
 
@@ -946,7 +967,7 @@ msgstr "Estilo-1"
 msgid "Select Style (Mobile)"
 msgstr "Seleccionar el estilo (Móvil)"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1206
+#: new/admin/class-ht-ctc-admin-other-settings.php:1242
 msgid "WhatsApp"
 msgstr "WhatsApp"
 
@@ -954,7 +975,7 @@ msgstr "WhatsApp"
 msgid "Contact Us"
 msgstr "Contacta con nosotros"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1202
+#: new/admin/class-ht-ctc-admin-other-settings.php:1238
 msgid "Frequently Asked Questions"
 msgstr "Preguntas frecuentes"
 
@@ -999,26 +1020,26 @@ msgstr "Añade los ID de las entradas a ocultar. Añade varios ID de entradas se
 msgid "Hide on this pages"
 msgstr "Ocultar en estas páginas"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1258
-#: new/admin/class-ht-ctc-admin-other-settings.php:1267
+#: new/admin/class-ht-ctc-admin-other-settings.php:1294
+#: new/admin/class-ht-ctc-admin-other-settings.php:1303
 msgid "Delete this plugin settings when uninstalls"
 msgstr "Borrar los ajustes de este plugin al desinstalarlo"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1106
+#: new/admin/class-ht-ctc-admin-other-settings.php:1142
 msgid "Share Settings page"
 msgstr "Página de ajustes para compartir"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1104
-#: new/admin/class-ht-ctc-admin-other-settings.php:1114
+#: new/admin/class-ht-ctc-admin-other-settings.php:1140
+#: new/admin/class-ht-ctc-admin-other-settings.php:1150
 msgid "Enable Share Features"
 msgstr "Activar las características para compartir"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1079
+#: new/admin/class-ht-ctc-admin-other-settings.php:1115
 msgid "Group Settings page"
 msgstr "Página de ajustes de grupo"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:1077
-#: new/admin/class-ht-ctc-admin-other-settings.php:1087
+#: new/admin/class-ht-ctc-admin-other-settings.php:1113
+#: new/admin/class-ht-ctc-admin-other-settings.php:1123
 msgid "Enable Group Features"
 msgstr "Activar las características de grupo"
 
@@ -1328,12 +1349,12 @@ msgstr "Haciendo trampas, ¿eh?"
 #: new/admin/class-ht-ctc-admin-group-page.php:112
 #: new/admin/class-ht-ctc-admin-main-page.php:281
 #: new/admin/class-ht-ctc-admin-main-page.php:312
-#: new/admin/class-ht-ctc-admin-other-settings.php:332
-#: new/admin/class-ht-ctc-admin-other-settings.php:558
-#: new/admin/class-ht-ctc-admin-other-settings.php:625
-#: new/admin/class-ht-ctc-admin-other-settings.php:1090
-#: new/admin/class-ht-ctc-admin-other-settings.php:1117
-#: new/admin/class-ht-ctc-admin-other-settings.php:1125
+#: new/admin/class-ht-ctc-admin-other-settings.php:338
+#: new/admin/class-ht-ctc-admin-other-settings.php:577
+#: new/admin/class-ht-ctc-admin-other-settings.php:661
+#: new/admin/class-ht-ctc-admin-other-settings.php:1126
+#: new/admin/class-ht-ctc-admin-other-settings.php:1153
+#: new/admin/class-ht-ctc-admin-other-settings.php:1161
 #: new/admin/class-ht-ctc-admin-share-page.php:98
 #: new/admin/class-ht-ctc-admin-share-page.php:113
 #: new/admin/class-ht-ctc-admin-share-page.php:144
@@ -1439,7 +1460,7 @@ msgstr "Color del texto al pasar el cursor"
 #: new/admin/class-ht-ctc-admin-customize-styles.php:1034
 #: new/admin/class-ht-ctc-admin-customize-styles.php:1222
 #: new/admin/class-ht-ctc-admin-customize-styles.php:1412
-#: new/admin/class-ht-ctc-admin-other-settings.php:915
+#: new/admin/class-ht-ctc-admin-other-settings.php:951
 #: prev/admin/class-ccw-admin-page-customize-styles.php:87
 #: prev/admin/class-ccw-admin-page-customize-styles.php:185
 #: prev/admin/class-ccw-admin-page-customize-styles.php:459
@@ -1470,7 +1491,8 @@ msgstr "ID de entradas y páginas a ocultar"
 msgid "Hide Based on post type"
 msgstr "Ocultar en base al tipo de contenido"
 
-#: new/admin/class-ht-ctc-admin-other-settings.php:142
+#: new/admin/class-ht-ctc-admin-other-settings.php:141
+#: new/admin/class-ht-ctc-admin-other-settings.php:148
 #: prev/admin/class-ccw-admin-page.php:37
 msgid "Google Analytics"
 msgstr "Google Analytics"

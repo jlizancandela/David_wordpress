@@ -369,7 +369,8 @@ class REST_API{
 	 */
     public function get_dashboard_callback($server) {
         $post = $server->get_params();
-        if (isset($post['type'])) {
+
+        if ( isset($post['type']) ) {
 
             switch ($post['type']) {
 
@@ -424,7 +425,6 @@ class REST_API{
                         'pages' => $the_query->max_num_pages
                     );
                 break;
-
                 
                 case 'action_draft':
                 case 'action_publish':
@@ -531,115 +531,42 @@ class REST_API{
                         'success' => true, 
                         'message' => __('The selected item is deleted.', 'ultimate-post')
                     );
+
+                case 'support_data':
+                    $user_info = get_userdata( get_current_user_id() );
+                    $name = $user_info->first_name . ($user_info->last_name ? ' ' . $user_info->last_name : '');
+                    return array(
+                        'success' => true, 
+                        'data' => array(
+                            'name' => $name ? $name : $user_info->user_login,
+                            'email' => $user_info->user_email
+                        )
+                    );
+                    
+                case 'support_action':
+                    $api_params = array(
+                        'user_name' => sanitize_text_field($post['name']),
+                        'user_email' => sanitize_email($post['email']),
+                        'subject' => sanitize_text_field($post['subject']),
+                        'desc' => sanitize_textarea_field($post['desc']),
+                    );
+                    $response = wp_remote_get(
+                        'https://wpxpo.com/wp-json/v2/support_mail', 
+                        array(
+                            'method' => 'POST',
+                            'timeout' => 120,
+                            'body' =>  $api_params
+                        )
+                    );
+                    $response_data = json_decode($response['body']);
+                    $success = ( isset($response_data->success) && $response_data->success ) ? true : false;
+
+                    return array(
+                        'success' => $success,
+                        'message' => $success ? __('New Support Ticket has been Created.', 'ultimate-post') : __('New Support Ticket is not Created Due to Some Issues.', 'ultimate-post')
+                    );
                 break;
 
-                // case 'header':
-                //     $menu_list = array(
-                //         'menu' => array(
-                //             array(
-                //                 'link' => '#home',
-                //                 'label' => __('Getting Started', 'ultimate-post'),
-                //                 'showin' => 'both',
-                //             ),
-                //             array(
-                //                 'link' => '#builder',
-                //                 'label' => __('Site Builder', 'ultimate-post'),
-                //                 'showin' => ultimate_post()->get_setting('ultp_builder') != 'false' ? 'both' : 'none',
-                //                 'showhide' => true
-                //             ),
-                //             array(
-                //                 'link' => '#templatekit',
-                //                 'label' => __('Template kits', 'ultimate-post'),
-                //                 'showin' => 'both',
-                //             ),
-                //             array(
-                //                 'link' => '#saved-templates',
-                //                 'label' => __('Saved Templates', 'ultimate-post'),
-                //                 'showin' => ultimate_post()->get_setting('ultp_templates') != 'false' ? 'both' : 'none',
-                //                 'showhide' => true
-                //             ),
-                //             array(
-                //                 'link' => '#custom-font',
-                //                 'label' => __('Custom Font', 'ultimate-post'),
-                //                 'showin' => ultimate_post()->get_setting('ultp_custom_font') != 'false' ? 'both' : 'none',
-                //                 'showhide' => true
-                //             ),
-                //             array(
-                //                 'link' => '#addons',
-                //                 'label' => __('Addons', 'ultimate-post'),
-                //                 'showin' => 'both',
-                //             ),
-                //             array(
-                //                 'link' => '#blocks',
-                //                 'label' => __('Blocks', 'ultimate-post'),
-                //                 'showin' => 'both',
-                //             ),
-                //             array(
-                //                 'link' => '#settings',
-                //                 'label' => __('Settings', 'ultimate-post'),
-                //                 'showin' => 'both',
-                //             ),
-                //             array(
-                //                 'link' => '#tutorials',
-                //                 'label' => __('Tutorials', 'ultimate-post'),
-                //                 'showin' => 'sidebar',
-                //             ),
-                //             array(
-                //                 'link' => '#license',
-                //                 'label' => __('License', 'ultimate-post'),
-                //                 'showin' => 'sidebar',
-                //             )
-                //         ),
-                //         'common' => array(
-                //             'version' => ULTP_VER
-                //         ),
-                //         'help_menu' => array(
-                //             array(
-                //                 'label' => __('Get Support', 'ultimate-post'),
-                //                 'icon' => 'dashicons-phone',
-                //                 'link' => ultimate_post()->get_premium_link('https://www.wpxpo.com/contact/', 'plugin_dir_pro')
-                //             ),
-                //             array(
-                //                 'label' => __('Welcome Guide', 'ultimate-post'),
-                //                 'icon' => 'dashicons-megaphone',
-                //                 'link' => admin_url('admin.php?page=ultp-initial-setup-wizard')
-                //             ),
-                //             array(
-                //                 'label' => __('Join Community', 'ultimate-post'),
-                //                 'icon' => 'dashicons-facebook-alt',
-                //                 'link' => 'https://www.facebook.com/groups/gutenbergpostx'
-                //             ),
-                //             array(
-                //                 'label' => __('Feature Request', 'ultimate-post'),
-                //                 'icon' => 'dashicons-email-alt',
-                //                 'link' => ultimate_post()->get_premium_link('https://www.wpxpo.com/postx/roadmap/', 'plugin_dir_pro')
-                //             ),
-                //             array(
-                //                 'label' => __('Youtube Tutorials', 'ultimate-post'),
-                //                 'icon' => 'dashicons-youtube',
-                //                 'link' => 'https://www.youtube.com/@wpxpo'
-                //             ),
-                //             array(
-                //                 'label' => __('Documentation', 'ultimate-post'),
-                //                 'icon' => 'dashicons-book',
-                //                 'link' => 'https://docs.wpxpo.com/docs/postx/'
-                //             ),
-                //             array(
-                //                 'label' => __('What’s New', 'ultimate-post'),
-                //                 'icon' => 'dashicons-edit',
-                //                 'link' => ultimate_post()->get_premium_link('https://www.wpxpo.com/category/postx/', 'plugin_dir_pro')
-                //             ),
-                //         )
-                //     );
-
-                //     return array(
-                //         'success' => true, 
-                //         'data' => apply_filters( 'postx_menu_system', $menu_list ),
-                //         'helloBar' => get_transient('ultp_helloBar'),
-                //         'status' => get_option( 'edd_ultp_license_status' ),
-                //         'expire' => get_option( 'edd_ultp_license_expire' )
-                //     );
-                // break;
                 case 'helloBarAction':
                     set_transient( 'ultp_helloBar', 'hide', 1296000);
                     return array(

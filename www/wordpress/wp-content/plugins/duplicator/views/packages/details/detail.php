@@ -26,7 +26,7 @@ $debug_on                = DUP_Settings::Get('package_debug');
 $mysqldump_on            = DUP_Settings::Get('package_mysqldump') && DUP_DB::getMySqlDumpPath();
 $mysqlcompat_on          = isset($Package->Database->Compatible) && strlen($Package->Database->Compatible);
 $mysqlcompat_on          = ($mysqldump_on && $mysqlcompat_on) ? true : false;
-$dbbuild_mode            = ($mysqldump_on) ? 'mysqldump' : 'PHP';
+$dbbuild_mode            = $package->Database->info->buildMode;
 $archive_build_mode      = ($package->Archive->Format === 'ZIP') ? 'ZipArchive (zip)' : 'DupArchive (daf)';
 $dup_install_secure_on   = isset($package->Installer->OptsSecureOn) ? $package->Installer->OptsSecureOn : 0;
 $dup_install_secure_pass = isset($package->Installer->OptsSecurePass) ? DUP_Util::installerUnscramble($package->Installer->OptsSecurePass) : '';

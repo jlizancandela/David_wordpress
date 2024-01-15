@@ -1,6 +1,10 @@
 <div class="wrap about-wrap full-width-layout qlwrap">
 
-  <h1><?php echo esc_html( QLWAPP_PLUGIN_NAME ); ?></h1>
+  <h1><?php
+
+use QuadLayers\QLWAPP\Models\Button;
+
+ echo esc_html( QLWAPP_PLUGIN_NAME ); ?></h1>
 
   <p class="about-text"><?php printf( esc_html__( 'Thanks for using %s! We will do our best to offer you the best and improved communication experience with your users.', 'wp-whatsapp-chat' ), QLWAPP_PLUGIN_NAME ); ?></p>
 
@@ -41,7 +45,7 @@ if ( isset( $submenu[ QLWAPP_DOMAIN ] ) ) {
 	  <h2 class="nav-tab-wrapper">
 		<?php
 		if ( ! isset( $button ) ) {
-		  $button_model = new \QuadLayers\QLWAPP\Models\Button();
+		  $button_model = Button::instance();
 		  $button       = $button_model->get();
 		}
 		foreach ( $submenu[ QLWAPP_DOMAIN ] as $tab ) {

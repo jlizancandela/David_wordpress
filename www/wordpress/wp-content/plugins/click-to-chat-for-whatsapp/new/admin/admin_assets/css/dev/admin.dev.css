@@ -21,7 +21,7 @@
     margin-right: auto;
     margin-left: unset;
 }
-.active .collapsible-header .dashicons {
+.active:not(.have-sub-collapsible) .collapsible-header .dashicons {
     transform: rotate(180deg);
 }
 

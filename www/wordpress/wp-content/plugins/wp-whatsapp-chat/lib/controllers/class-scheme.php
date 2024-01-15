@@ -2,6 +2,8 @@
 
 namespace QuadLayers\QLWAPP\Controllers;
 
+use QuadLayers\QLWAPP\Models\Scheme as Scheme_Model;
+
 class Scheme extends Base {
 
 	protected static $instance;
@@ -18,14 +20,14 @@ class Scheme extends Base {
 
 	public function add_panel() {
 		global $submenu;
-		$scheme_model = new \QuadLayers\QLWAPP\Models\Scheme();
+		$scheme_model = Scheme_Model::instance();
 		$scheme       = $scheme_model->get();
 		include QLWAPP_PLUGIN_DIR . '/lib/view/backend/pages/parts/header.php';
 		include QLWAPP_PLUGIN_DIR . '/lib/view/backend/pages/scheme.php';
 	}
 
 	public function ajax_qlwapp_save_scheme() {
-		$scheme_model = new \QuadLayers\QLWAPP\Models\Scheme();
+		$scheme_model = Scheme_Model::instance();
 		if ( current_user_can( 'manage_options' ) ) {
 			if ( check_ajax_referer( 'qlwapp_save_scheme', 'nonce', false ) && isset( $_REQUEST['form_data'] ) ) {
 				$form_data = array();

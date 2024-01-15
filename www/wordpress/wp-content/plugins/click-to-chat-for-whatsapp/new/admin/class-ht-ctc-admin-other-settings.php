@@ -107,10 +107,9 @@ class HT_CTC_Admin_Other_Settings {
         $options = get_option('ht_ctc_othersettings');
         $dbrow = 'ht_ctc_othersettings';
         ?>
-        <ul class="collapsible ht_ctc_analytics" data-collapsible="accordion" id="ht_ctc_analytics">
-        <li class="">
+        <ul class="collapsible" data-collapsible="accordion" id="ht_ctc_analytics">
+        <li class="active have-sub-collapsible">
         <div class="collapsible-header"><?php _e( 'Google Analytics, Facebook Pixel, Google Ads Conversion', 'click-to-chat-for-whatsapp' ); ?>
-            <span class="dashicons dashicons-arrow-down-alt2"></span>
         </div>
         <div class="collapsible-body">
         
@@ -136,6 +135,13 @@ class HT_CTC_Admin_Other_Settings {
 
 
         ?>
+        <ul class="collapsible col_google_analytics coll_active" data-coll_active="col_google_analytics" id="col_google_analytics">
+        <li class="">
+        <div class="collapsible-header">
+            <span><?php _e( 'Google Analytics', 'click-to-chat-for-whatsapp' ); ?></span>
+            <span class="dashicons dashicons-arrow-down-alt2"></span>
+        </div>
+        <div class="collapsible-body">
         <p>
             <label>
                 <input name="<?= $dbrow; ?>[g_an]" type="checkbox" value="<?= $g_an_value ?>" <?php checked( $google_analytics_checkbox, 1 ); ?> id="google_analytics" />
@@ -330,8 +336,13 @@ class HT_CTC_Admin_Other_Settings {
         </div>
 
         <p class="description"><?php _e( 'If Google Analytics installed creates an Event there', 'click-to-chat-for-whatsapp' ); ?> - <a target="_blank" href="https://holithemes.com/plugins/click-to-chat/google-analytics/"><?php _e( 'more info', 'click-to-chat-for-whatsapp' ); ?></a> </p>
-        <p class="description"><?php _e( 'Create Event form Google Tag manager (GTM)' ); ?> - <a target="_blank" href="https://holithemes.com/plugins/click-to-chat/create-event-from-google-tag-manager-using-datalayer-send-to-google-analytics/"><?php _e( 'dataLayer', 'click-to-chat-for-whatsapp' ); ?></a> </p>
+        <p class="description"><?php _e( 'Create Event from Google Tag manager (GTM)' ); ?> - <a target="_blank" href="https://holithemes.com/plugins/click-to-chat/create-event-from-google-tag-manager-using-datalayer-send-to-google-analytics/"><?php _e( 'dataLayer', 'click-to-chat-for-whatsapp' ); ?></a> </p>
         <br>
+
+        </div>
+        </li>
+        </ul>
+        
 
 
         <?php
@@ -344,6 +355,14 @@ class HT_CTC_Admin_Other_Settings {
         $fb_pixel_checkbox = ( isset( $options['fb_pixel']) ) ? esc_attr( $options['fb_pixel'] ) : '';
         
         ?>
+        <ul class="collapsible col_pixel coll_active" data-coll_active="col_pixel" id="col_pixel">
+        <li class="">
+        <div class="collapsible-header">
+            <span><?php _e( 'Pixel', 'click-to-chat-for-whatsapp' ); ?></span>
+            <span class="dashicons dashicons-arrow-down-alt2"></span>
+        </div>
+        <div class="collapsible-body">
+            
         <p>
             <label>
                 <input name="<?= $dbrow; ?>[fb_pixel]" type="checkbox" value="1" <?php checked( $fb_pixel_checkbox, 1 ); ?> id="fb_pixel" />
@@ -558,27 +577,44 @@ class HT_CTC_Admin_Other_Settings {
         <p class="description"><?php _e( 'If Facebook Pixel installed creates an Event there', 'click-to-chat-for-whatsapp' ); ?> - <a target="_blank" href="https://holithemes.com/plugins/click-to-chat/facebook-pixel/"><?php _e( 'more info', 'click-to-chat-for-whatsapp' ); ?></a> </p>
         <br>
 
+        </div>
+        </li>
+        </ul>
+
+        <?php
+            do_action('ht_ctc_ah_admin_after_fb_pixel');
+        ?>
+
+        <ul class="collapsible col_g_ads coll_active" data-coll_active="col_g_ads" id="col_g_ads">
+        <li class="">
+        <div class="collapsible-header">
+            <span><?php _e( 'Google Ads Conversion', 'click-to-chat-for-whatsapp' ); ?></span>
+            <span class="dashicons dashicons-arrow-down-alt2"></span>
+        </div>
+        <div class="collapsible-body">
+
+        <?php
+            // Google Ads gtag_report_conversion
+            $ga_ads_checkbox = ( isset( $options['ga_ads']) ) ? esc_attr( $options['ga_ads'] ) : '';
+
+            if ( ! defined( 'HT_CTC_PRO_VERSION' ) ) {
+                ?>
+                <p class="description ht_ctc_subtitle"><?php _e( 'Google Ads Conversion', 'click-to-chat-for-whatsapp' ); ?> - <a target="_blank" href="https://holithemes.com/plugins/click-to-chat/google-ads-conversion/">PRO</a></p>
+                <?php
+            }
+
+            // enable, conversion id, label
+            do_action('ht_ctc_ah_admin_google_ads');
+            
+        ?>
+        </div>
+        </li>
+        </ul>
+
         <?php
 
-        do_action('ht_ctc_ah_admin_after_fb_pixel');
 
-
-        // Google Ads gtag_report_conversion
-        $ga_ads_checkbox = ( isset( $options['ga_ads']) ) ? esc_attr( $options['ga_ads'] ) : '';
         
-        /**
-         * @updated 3.8
-         */
-
-        if ( ! defined( 'HT_CTC_PRO_VERSION' ) ) {
-            ?>
-            <p class="description ht_ctc_subtitle"><?php _e( 'Google Ads Conversion', 'click-to-chat-for-whatsapp' ); ?> - <a target="_blank" href="https://holithemes.com/plugins/click-to-chat/google-ads-conversion/">PRO</a></p>
-            <?php
-        }
-
-        // enable, conversion id, label
-        do_action('ht_ctc_ah_admin_google_ads');
-
         $analytics = ( isset( $options['analytics']) ) ? esc_attr( $options['analytics'] ) : 'all';
         $analytics_list = array(
             'all' => 'All Clicks',
@@ -594,7 +630,7 @@ class HT_CTC_Admin_Other_Settings {
 
         <br>
         <div class="analytics_count">
-            <p class="description analytics_count_message"><?php _e( 'Analytics', 'click-to-chat-for-whatsapp' ); ?>: <span class="" style="cursor:pointer; border-bottom: 1px dotted;"><?= $analytics_message ?></span></p>
+            <p class="description analytics_count_message" style="display:inline;"><?php _e( 'Analytics', 'click-to-chat-for-whatsapp' ); ?>: <span class="" style="cursor:pointer; border-bottom: 1px dotted;"><?= $analytics_message ?></span></p>
             <div class="analytics_count_select ctc_init_display_none">
                 <select name="ht_ctc_othersettings[analytics]" class="select_analytics" style="border:unset; background-color:inherit;">
                     <?php 
@@ -613,7 +649,7 @@ class HT_CTC_Admin_Other_Settings {
         
         if ( ! defined( 'HT_CTC_PRO_VERSION' ) ) {
             ?>
-            <p class="description"><span class="ga_ads_display" style="font-size: 0.7em;">Call <span style="cursor:pointer; border-bottom: 1px dotted;">gtag_report_conversion</span></span></p>
+            <p class="description"><span class="ga_ads_display" style="font-size: 0.7em;"><span style="cursor:pointer; border-bottom: 1px dotted;">gtag_report_conversion</span></span></p>
             <div class="ga_ads_checkbox" style="display:none; margin: 20px 0px 0px 20px;">
                 <p class="description">This feature requires to add JavaScript code on your website i.e. add gtag_report_conversion function</p>
                 <p>
@@ -1302,7 +1338,11 @@ class HT_CTC_Admin_Other_Settings {
         foreach ($input as $key => $value) {
 
             if ( is_array( $input[$key] ) ) {
-                $new_input[$key] = map_deep( $input[$key], 'sanitize_text_field' );
+                if ( function_exists('sanitize_textarea_field') ) {
+                    $new_input[$key] = map_deep( $input[$key], 'sanitize_textarea_field' );
+                } else {
+                    $new_input[$key] = map_deep( $input[$key], 'sanitize_text_field' );
+                }
             } else {
                 if ( 'placeholder' == $key ) {
                     if ( function_exists('sanitize_textarea_field') ) {

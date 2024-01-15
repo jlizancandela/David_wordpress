@@ -2,6 +2,8 @@
 
 namespace QuadLayers\QLWAPP\Controllers;
 
+use QuadLayers\QLWAPP\Models\Button as Button_Model;
+
 class Button extends Base {
 
 	protected static $instance;
@@ -19,7 +21,7 @@ class Button extends Base {
 
 		global $submenu;
 
-		$button_model = new \QuadLayers\QLWAPP\Models\Button();
+		$button_model = Button_Model::instance();
 		$button       = $button_model->get();
 
 		include QLWAPP_PLUGIN_DIR . '/lib/view/backend/pages/parts/header.php';
@@ -27,11 +29,14 @@ class Button extends Base {
 	}
 
 	public function ajax_qlwapp_save_button() {
-		$button_model = new \QuadLayers\QLWAPP\Models\Button();
+		$button_model = Button_Model::instance();
 		if ( current_user_can( 'manage_options' ) ) {
 			if ( check_ajax_referer( 'qlwapp_save_button', 'nonce', false ) && isset( $_REQUEST['form_data'] ) ) {
 				$form_data = array();
 				parse_str( $_REQUEST['form_data'], $form_data );
+				if ( ! isset( $form_data['timedays'] ) ) {
+					$form_data['timedays'] = array();
+				}
 				if ( is_array( $form_data ) ) {
 					$button_model->save( $form_data );
 					return parent::success_save( $form_data );

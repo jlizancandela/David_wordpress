@@ -409,11 +409,10 @@ class Post_Slider_1{
             $wraper_after .= '</div>'; //.wp-block-ultimate-post-post-slider-1
 
             wp_reset_query();
-        }else {
+        } else {
             $wraper_before .= ultimate_post()->get_no_result_found_html( $attr['notFoundMessage'] );
         }
         
         return $noAjax ? $post_loop : $wraper_before.$post_loop.$wraper_after;
     }
-
 }

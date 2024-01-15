@@ -2,6 +2,8 @@
 
 namespace QuadLayers\QLWAPP\Controllers;
 
+use QuadLayers\QLWAPP\Models\Display as Display_Model;
+
 class Display extends Base {
 
 	protected static $instance;
@@ -18,7 +20,7 @@ class Display extends Base {
 
 	public function add_panel() {
 	  global $submenu;
-	  $display_model        = new \QuadLayers\QLWAPP\Models\Display();
+	  $display_model        = Display_Model::instance();
 	  $display              = $display_model->get();
 	  $visibility_component = new \QuadLayers\QLWAPP\Models\Display_Component();
 	  $post_types           = $visibility_component->get_entries();
@@ -28,7 +30,7 @@ class Display extends Base {
 	}
 
 	public function ajax_qlwapp_save_display() {
-	  $display_model = new \QuadLayers\QLWAPP\Models\Display();
+	  $display_model = Display_Model::instance();
 		if ( current_user_can( 'manage_options' ) ) {
 			if ( check_ajax_referer( 'qlwapp_save_display', 'nonce', false ) && isset( $_REQUEST['form_data'] ) ) {
 				$form_data = array();

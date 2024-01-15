@@ -2,6 +2,26 @@
 	<form id="qlwapp_woocommerce_form" method="post" action="options.php">
 		<table class="form-table">
 			<tbody>
+			<tr>
+				<th scope="row"><?php esc_html_e( 'Position', 'wp-whatsapp-chat' ); ?></th>
+				<td>
+				<select name="position">
+					<?php foreach ( $positions as $position => $name ) : ?>
+						<option value="<?php echo esc_attr( $position ); ?>" <?php selected( $woocommerce['position'], $position ); ?>>
+							<?php echo esc_html( $name ); ?>
+						</option>
+					<?php endforeach; ?>
+				</select>
+				</td>
+				</th>
+			</tr>
+			<tr>
+				<th scope="row"><?php esc_html_e( 'Position Priority', 'wp-whatsapp-chat' ); ?></th>
+				<td>
+					<input type="number" step="5" min="-100" max="100" name="position_priority" placeholder="<?php echo esc_html( $woocommerce['position_priority'] ); ?>" value="<?php echo esc_attr( $woocommerce['position_priority'] ); ?>" />
+					<p class="description"><?php esc_html_e( 'Position priority', 'wp-whatsapp-chat' ); ?></p>
+				</td>
+			</tr>
 			<tr class="qlwapp-phone-alert <?php echo esc_attr( $woocommerce['box'] == 'yes' ? '' : 'hidden' ); ?>">
 				<th scope="row"></th>
 				<td>
@@ -88,26 +108,6 @@
 				<p class="description hidden"><small><?php esc_html_e( 'This is a premium feature', 'wp-whatsapp-chat' ); ?></small></p>
 				</td>
 				</th>
-			</tr>
-			<tr>
-				<th scope="row"><?php esc_html_e( 'Position', 'wp-whatsapp-chat' ); ?></th>
-				<td>
-				<select name="position">
-					<?php foreach ( $positions as $position => $name ) : ?>
-						<option value="<?php echo esc_attr( $position ); ?>" <?php selected( $woocommerce['position'], $position ); ?>>
-							<?php echo esc_html( $name ); ?>
-						</option>
-					<?php endforeach; ?>
-				</select>
-				</td>
-				</th>
-			</tr>
-			<tr>
-				<th scope="row"><?php esc_html_e( 'Position Priority', 'wp-whatsapp-chat' ); ?></th>
-				<td>
-					<input type="number" step="5" min="-100" max="100" name="position_priority" placeholder="<?php echo esc_html( $woocommerce['position_priority'] ); ?>" value="<?php echo esc_attr( $woocommerce['position_priority'] ); ?>" />
-					<p class="description"><?php esc_html_e( 'Position priority', 'wp-whatsapp-chat' ); ?></p>
-				</td>
 			</tr>
 			</tbody>
 		</table>

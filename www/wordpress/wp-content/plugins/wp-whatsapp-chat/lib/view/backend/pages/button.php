@@ -160,13 +160,13 @@
 				<tr>
 					<th scope="row"><?php esc_html_e( 'Animation', 'wp-whatsapp-chat' ); ?></th>
 					<td class="qlwapp-premium-field">
-						<select name="animation-name">
-							<option value="none" <?php echo selected( $button['animation-name'], 'none' ); ?>><?php esc_html_e( 'None', 'wp-whatsapp-chat' ); ?></option>
-							<option value="bounce" <?php echo selected( $button['animation-name'], 'bounce' ); ?>><?php esc_html_e( 'Bounce', 'wp-whatsapp-chat' ); ?></option>
-							<option value="flash" <?php echo selected( $button['animation-name'], 'flash' ); ?>><?php esc_html_e( 'Flash', 'wp-whatsapp-chat' ); ?></option>
-							<option value="pulse" <?php echo selected( $button['animation-name'], 'pulse' ); ?>><?php esc_html_e( 'Pulse', 'wp-whatsapp-chat' ); ?></option>
-							<option value="shakeY " <?php echo selected( $button['animation-name'], 'shakeY' ); ?>><?php esc_html_e( 'Shake Vertical', 'wp-whatsapp-chat' ); ?></option>
-							<option value="shakeX " <?php echo selected( $button['animation-name'], 'shakeX' ); ?>><?php esc_html_e( 'Shake Horizontal', 'wp-whatsapp-chat' ); ?></option>
+						<select name="animation_name">
+							<option value="none" <?php echo selected( $button['animation_name'], 'none' ); ?>><?php esc_html_e( 'None', 'wp-whatsapp-chat' ); ?></option>
+							<option value="bounce" <?php echo selected( $button['animation_name'], 'bounce' ); ?>><?php esc_html_e( 'Bounce', 'wp-whatsapp-chat' ); ?></option>
+							<option value="flash" <?php echo selected( $button['animation_name'], 'flash' ); ?>><?php esc_html_e( 'Flash', 'wp-whatsapp-chat' ); ?></option>
+							<option value="pulse" <?php echo selected( $button['animation_name'], 'pulse' ); ?>><?php esc_html_e( 'Pulse', 'wp-whatsapp-chat' ); ?></option>
+							<option value="shakeY " <?php echo selected( $button['animation_name'], 'shakeY' ); ?>><?php esc_html_e( 'Shake Vertical', 'wp-whatsapp-chat' ); ?></option>
+							<option value="shakeX " <?php echo selected( $button['animation_name'], 'shakeX' ); ?>><?php esc_html_e( 'Shake Horizontal', 'wp-whatsapp-chat' ); ?></option>
 						</select>
 						<p class="description hidden"><small><?php esc_html_e( 'This is a premium feature', 'wp-whatsapp-chat' ); ?></small></p>
 					</td>
@@ -175,7 +175,7 @@
 				<tr>
 					<th scope="row"><?php esc_html_e( 'Animation Delay', 'wp-whatsapp-chat' ); ?></th>
 					<td class="qlwapp-premium-field">
-						<input type="number" min=0 name="animation-delay" placeholder="<?php echo esc_html( $button['animation-delay'] ); ?>" value="<?php echo esc_html( $button['animation-delay'] ); ?>" />
+						<input type="number" min=0 name="animation_delay" placeholder="<?php echo esc_html( $button['animation_delay'] ); ?>" value="<?php echo esc_html( $button['animation_delay'] ); ?>" />
 						<p class="description"><small><?php esc_html_e( 'Eg. Add 1 for 1 second delay.', 'wp-whatsapp-chat' ); ?></small></p>
 						<p class="description hidden"><small><?php esc_html_e( 'This is a premium feature', 'wp-whatsapp-chat' ); ?></small></p>
 					</td>

@@ -203,51 +203,6 @@ class Functions{
         return add_query_arg( $arg, $url );
     }
 
-
-    /**
-	 * Get Width and Height of the Image
-     * 
-     * @since v.1.1.0
-	 * @return STRING | Image Size
-	 */
-    public function get_size($name = '') {
-        global $_wp_additional_image_sizes;
-        $image_size = $name ? ( isset($_wp_additional_image_sizes[$name]) ? $_wp_additional_image_sizes[$name] : array_values($_wp_additional_image_sizes)[0] ) : array_values($_wp_additional_image_sizes)[0];
-        
-        return ' width="'.$image_size['width'].'" height="'.$image_size['height'].'" ';
-    }
-
-
-    /**
-	 * Image Placeholder
-     * 
-     * @since v.1.1.0
-	 * @return STRING | Image Placeholder
-	 */
-    public function img_placeholder($type = 'small') {
-        switch ($type) {
-            case 'small':
-                return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABLAQMAAACr9CA9AAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAABZJREFUOI1jYMADmEe5o9xR7iiXQi4A4BsA388WUyMAAAAASUVORK5CYII=';
-                break;
-
-            case 'wide':
-                return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAKCAYAAADVTVykAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB9JREFUeNpi/P//P8NAAiaGAQajDhh1wKgDRh0AEGAAQTcDEcKDrpMAAAAASUVORK5CYII=';
-                break;
-
-            case 'square':
-                return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAApJREFUCJljYAAAAAIAAfRxZKYAAAAASUVORK5CYII=';
-                break;
-
-            case 'slider':
-                return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKYAAABkCAMAAAA7drv6AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////AAAAVcLTfgAAAAF0Uk5TAEDm2GYAAAAqSURBVHja7MEBDQAAAMKg909tDjegAAAAAAAAAAAAAAAAAAAAAH5NgAEAQTwAAWZtItYAAAAASUVORK5CYII=';
-                break;
-            
-            default:
-                return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYYAAADcAQMAAABOLJSDAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAACJJREFUaIHtwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAA4N8AKvgAAUFIrrEAAAAASUVORK5CYII=';
-                break;
-        }
-    }
-
     
     /**
 	 * Quick Query
@@ -549,21 +504,6 @@ class Functions{
 	 * Get Image HTML
      * 
      * @since v.1.0.0
-     * @param  | URL (STRING) | size (STRING) | class (STRING) | alt (STRING) 
-	 * @return STRING
-	 */
-    public function get_image_html($url = '', $size = 'full', $class = '', $alt = '', $lazy = '') {
-        $alt = $alt ? ' alt="'.$alt.'" ' : '';
-        $lazy_data = $lazy ? ' loading="lazy"' : '';
-        $class = $class ? ' class="'.$class.'" ' : '';
-        return '<img '.$lazy_data.$class.$alt.' src="'.$url.'" />';
-    }
-
-
-    /**
-	 * Get Image HTML
-     * 
-     * @since v.1.0.0
      * @param  | Attach ID (STRING) | size (STRING) | class (STRING) | alt (STRING) 
 	 * @return STRING
 	 */
@@ -576,84 +516,6 @@ class Functions{
         $lazy_data = $lazy ? ' loading="lazy"' : '';
         $srcset_data = $srcset ? ' srcset="'.esc_attr(wp_get_attachment_image_srcset($attach_id)).'"' : '';
         return '<img '.$srcset_data.$lazy_data.$class.$alt.' src="'.wp_get_attachment_image_url( $attach_id, $size ).'" />';
-    }
-
-    
-    /**
-	 * Setup Initial Data Set
-     * 
-     * @since v.1.0.0
-	 * @return NULL
-	 */
-    public function init_set_data() {
-        $data = get_option( 'ultp_options', array() );
-        $init_data = array(
-            'css_save_as'       => 'wp_head',
-            'preloader_style'   => 'style1',
-            'preloader_color'   => '#037fff',
-            'container_width'   => '1140',
-            'hide_import_btn'   => '',
-            'disable_image_size'=> '',
-            'disable_view_cookies' => '',
-            'disable_google_font' => '',
-            'ultp_templates'    => 'true',
-            'ultp_elementor'    => 'true',
-            'ultp_table_of_content'=> 'true',
-            'ultp_builder'      => 'true',
-            'ultp_custom_font'      => 'true',
-            'ultp_chatgpt'      => 'true',
-            'post_grid_1'       => 'yes',
-            'post_grid_2'       => 'yes',
-            'post_grid_3'       => 'yes',
-            'post_grid_4'       => 'yes',
-            'post_grid_5'       => 'yes',
-            'post_grid_6'       => 'yes',
-            'post_grid_7'       => 'yes',
-            'post_list_1'       => 'yes',
-            'post_list_2'       => 'yes',
-            'post_list_3'       => 'yes',
-            'post_list_4'       => 'yes',
-            'post_module_1'     => 'yes',
-            'post_module_2'     => 'yes',
-            'post_slider_1'     => 'yes',
-            'post_slider_2'     => 'yes',
-            'heading'           => 'yes',
-            'image'             => 'yes',
-            'taxonomy'          => 'yes',
-            'wrapper'           => 'yes',
-            'news_ticker'       => 'yes',
-            'builder_advance_post_meta' => 'yes',
-            'builder_archive_title'     => 'yes',
-            'builder_author_box'        => 'yes',
-            'builder_post_next_previous'=> 'yes',
-            'builder_post_author_meta'  => 'yes',
-            'builder_post_breadcrumb'   => 'yes',
-            'builder_post_category'     => 'yes',
-            'builder_post_comment_count'=> 'yes',
-            'builder_post_comments'     => 'yes',
-            'builder_post_content'      => 'yes',
-            'builder_post_date_meta'    => 'yes',
-            'builder_post_excerpt'      => 'yes',
-            'builder_post_featured_image'=> 'yes',
-            'builder_post_reading_time' => 'yes',
-            'builder_post_social_share' => 'yes',
-            'builder_post_tag'          => 'yes',
-            'builder_post_title'        => 'yes',
-            'builder_post_view_count'   => 'yes',
-            'save_version'      => rand(1, 1000)
-        );
-        if (empty($data)) {
-            update_option('ultp_options', $init_data);
-            $GLOBALS['ultp_settings'] = $init_data;
-        } else {
-            foreach ($init_data as $key => $single) {
-                if (!isset($data[$key])) {
-                    $data[$key] = $single;
-                }
-            }
-            update_option('ultp_options', $data);
-            $GLOBALS['ultp_settings'] = $data;
-        }
     }
 
     
@@ -707,7 +569,7 @@ class Functions{
     public function is_builder($builder = '') {
         $id = '';
         $page_id = ultimate_post()->conditions('return');
-        if ($page_id && ultimate_post()->get_setting('ultp_builder')) {
+        if ($page_id && (ultimate_post()->get_setting('ultp_builder') != 'false')) {
             $id = $page_id;
         }
         return $id;
@@ -969,7 +831,7 @@ class Functions{
                 $final = $this->get_value($data);
                 if (count($final) > 0) {
                     $query_args['post__in'] = $final;
-                    $query_args['posts_per_page'] = -1;
+                    // $query_args['posts_per_page'] = -1;
                 }
                 $query_args['ignore_sticky_posts'] = 1;
                 return $query_args;
@@ -981,7 +843,7 @@ class Functions{
                 $final = $this->get_value($data);
                 if (count($final) > 0) {
                     $query_args['post__in'] = $final;
-                    $query_args['posts_per_page'] = -1;
+                    // $query_args['posts_per_page'] = -1;
                 }
                 $query_args['ignore_sticky_posts'] = 1;
                 return $query_args;
@@ -1317,44 +1179,15 @@ class Functions{
      * @param STRING | String Name
 	 * @return STRING
 	 */
-    public function svg_icon($ultp_icons = '') {
-        if ($ultp_icons) {
-            if (file_exists(ULTP_PATH.'assets/img/iconpack/'.$ultp_icons.'.svg')) {
-                return file_get_contents(ULTP_PATH.'assets/img/iconpack/'.$ultp_icons.'.svg');
+    public function svg_icon( $ultp_icons = '' ) {
+        if ( $ultp_icons ) {
+            if ( file_exists( ULTP_PATH . 'assets/img/iconpack/' . $ultp_icons . '.svg' ) ) {
+                return file_get_contents( ULTP_PATH . 'assets/img/iconpack/' . $ultp_icons . '.svg' );
             }
             return '';
         }
         return '';
     }
-
-
-    /**
-	 * Get Excerpt Word
-     * 
-     * @since v.1.0.0
-     * @param NUMBER | Character Length
-	 * @return STRING
-	 */
-    public function excerpt_word($charlength = 200) {
-        $html = '';
-        $charlength++;
-        $excerpt = get_the_excerpt();
-        if (mb_strlen( $excerpt ) > $charlength ) {
-            $subex = mb_substr( $excerpt, 0, $charlength );
-            $exwords = explode( ' ', $subex );
-            $excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
-            if ($excut < 0 ) {
-                $html = mb_substr( $subex, 0, $excut );
-            } else {
-                $html = $subex;
-            }
-            $html .= '...';
-        } else {
-            $html = $excerpt;
-        }
-        return $html;
-    }
-
 
     /**
 	 * Get Taxonomy Lists
@@ -1368,9 +1201,9 @@ class Functions{
         $terms = get_terms( $prams, array(
            'hide_empty' => false,
         ));
-        if (!is_wp_error($terms)) {
-            foreach ($terms as $val) {
-                $data[urldecode_deep($val->slug)] = $val->name;
+        if ( ! is_wp_error( $terms ) ) {
+            foreach ( $terms as $val ) {
+                $data[ urldecode_deep( $val->slug ) ] = $val->name;
             }
         }
         return $data;
@@ -1387,9 +1220,9 @@ class Functions{
     public function builder_preview( $tax_slug, $number ) {
         $data = array();
         $term_data = get_terms( $tax_slug, array( 'hide_empty' => true, 'number' => $number, 'parent' => 0 ) );
-        if (!empty($term_data)) {
-            foreach ($term_data as $terms) {
-                $data[] = $this->get_tax_data($terms);
+        if ( ! empty( $term_data ) ) {
+            foreach ( $term_data as $terms ) {
+                $data[] = $this->get_tax_data( $terms );
             }
         }
         return $data;
@@ -1805,7 +1638,7 @@ class Functions{
                 'new' => true
             ),
             'ultp_category' => array(
-                'name' => __( 'Category', 'ultimate-post' ),
+                'name' => __( 'Taxonomy Image & Color', 'ultimate-post' ),
                 'desc' => __( 'It allows you to add category or taxonomy-specific featured images and colors to make them attractive.', 'ultimate-post' ),
                 'img' => ULTP_URL.'/assets/img/addons/category-style.svg',
                 'is_pro' => true,
@@ -2410,131 +2243,6 @@ class Functions{
         }
     }
 
-    
-    /**
-	 * Get Add Default Condition Data
-     * 
-     * @since v.2.7.0
-	 * @return ARRAY | Default Data
-	 */
-    public function builder_data() {
-        $archive_data = [
-            [
-                'label' => 'All Archive',
-                'value' => '',
-            ],
-            [
-                'label' => 'Author Archive',
-                'value' => 'author',
-                'search' => 'author###'
-            ],
-            [
-                'label' => 'Date Archive',
-                'value' => 'date',
-            ],
-            [
-                'label' => 'Search Results',
-                'value' => 'search',
-            ],
-        ];
-        $single_data = [
-            [
-                'label' => 'Front Page', 
-                'value' => 'front_page', 
-            ]
-        ];
-        $header_data = [
-            [
-                'label' => 'Entire Site',
-                'value' => 'entire_site', 
-            ],
-            [
-                'label' => 'Archive',
-                'value' => 'archive',
-            ],
-            [
-                'label' => 'Singular',
-                'value' => 'singular',
-            ]
-        ];
-        
-        $post_type = get_post_types( ['public' => true], 'objects' );
-        foreach ($post_type as $key => $type) {
-            // Post Type
-            $single_temp = [ 
-                'label' => $type->label, 
-                'value' => $type->name, 
-                'search' => 'type###'.$type->name 
-            ];
-            $archive_temp = [];
-
-            // Taxonomy
-            $taxonomy = get_object_taxonomies( $type->name, 'objects' );
-            if (!empty($taxonomy)) {
-                $single_tax = $archive_tax = [];
-                $single_tax[] = $single_temp;
-
-                $archive_temp = [ 
-                    'label' => $type->label . ' Archive', 
-                    'value' => $type->name . '_archive',
-                ];
-                // $archive_tax[] = $archive_temp;
-                foreach ($taxonomy as $key => $val) {
-                    if ($val->public) {
-                        $single_tax[] = [
-                            'label' => 'In ' . $val->label, 
-                            'value' => 'in_' . $val->name, 
-                            'search' => 'term###'.$val->name
-                        ];
-                        $archive_tax[] = [
-                            'label' => $val->label, 
-                            'value' => $val->name, 
-                            'search' => 'term###'.$val->name
-                        ];
-
-                        if ($val->hierarchical) {
-                            // Hierarchical
-                            $single_tax[] = [
-                                'label' => 'In Child ' . $val->label,
-                                'value' => 'in_' . $val->name . '_children',
-                                'search' => 'term###'.$val->name
-                            ];
-                            $archive_tax[] = [
-                                'label' => 'Direct Child ' . $val->label . ' Of',
-                                'value' => 'child_of_' . $val->name,
-                                'search' => 'term###'.$val->name
-                            ];
-                            $archive_tax[] = [
-                                'label' => 'Any Child ' . $val->label . ' Of',
-                                'value' => 'any_child_of_' . $val->name,
-                                'search' => 'term###'.$val->name
-                            ];
-                        }
-                    }
-                }
-                // Author
-                $single_tax[] = [
-                    'label' => 'Posts By Author',
-                    'value' => 'post_by_author',
-                    'search' => 'author###'
-                ];
-                $single_temp['attr'] = $single_tax;
-                $archive_temp['attr'] = $archive_tax;
-            }
-            $single_data[] = $single_temp;
-            if (!empty($archive_temp)) {
-                $archive_data[] = $archive_temp;
-            }
-        }
-
-        return [
-            'singular' => $single_data, 
-            'archive' => $archive_data,
-            'header'=> $header_data, 
-            'footer'=> $header_data
-        ];
-    }
-
     /**
 	 * Get Date Default Format
      * 
@@ -2550,20 +2258,6 @@ class Functions{
             return $format;
         }
     }
-
-    public function pro_popup_html() { ?>
-        <div class="ultp-popup-container popup-center">
-            <div class="ultp-unlock-popup ultp-unlock-modal">
-                <img src="<?php echo esc_url(ULTP_URL . '/assets/img/dashboard/unlock_super_icon.svg'); ?>" alt="lock icon">
-                <h4 class="ultp-md-heading ultp-mt25 ultp-mb25"><?php esc_html_e('Unlock 11+ Addons', 'ultimate-post'); ?></h4>
-                <div class="ultp-popup-desc">
-                    <?php esc_html_e('We’re sorry, all PostX addons are not available on the free version. Please upgrade to a PRO plan to unlock all the addons of your choice.', 'ultimate-post'); ?>
-                </div>
-                <a href="<?php echo esc_url(ultimate_post()->get_premium_link('', 'menu_addons_popup')); ?>" class="ultp-popup-planbtn ultp-btn ultp-btn-warning ultp-mt25"><?php esc_html_e('Upgrade Plan', 'ultimate-post'); ?></a>
-                <button class="ultp-popup-close"></button>
-            </div>
-        </div>
-    <?php }
 
     /**
 	 * Common Frontend and Backend CSS and JS Scripts
@@ -2606,261 +2300,7 @@ class Functions{
         return $page_post_id;
     }
 
-    /**
-	 * Get Notice Data
-     * 
-     * @since v.2.9.0
-	 * @return NULL
-	 */
-    public function get_notice_data($type = 'banner', $notice = '') {
-        $ultp_img =  ULTP_URL.'/assets/img/logo-sm.svg';
-        $is_pro_show = (ultimate_post()->is_lc_active() && get_option('edd_ultp_license_expire') != 'lifetime');
-        if ($type == 'banner') {
-            return array(
-                // array(
-                //     'key' => '',
-                //     'start' => '12-11-2023',
-                //     'end' => '18-11-2023',
-                //     'type' => 'banner',
-                //     'content' => ULTP_URL.'assets/img/dashboard_banner/frontend_submission.jpg',
-                //     'force' => true,
-                //     'url' => $this->get_premium_link('', 'dashboard_db_banner'),
-                //     'visibility' => true,
-                //     'priority' => 30
-                // ),
-                // Black Friday free
-                // array(
-                //     'key' => 'black_friday_free',
-                //     'start' => '22-11-2023',
-                //     'end' => '26-11-2023',
-                //     'type' => 'banner',
-                //     'content' => ULTP_URL.'assets/img/dashboard_banner/black_friday_free.jpg',
-                //     'force' => true,
-                //     'url' => $this->get_premium_link('', 'dashboard_db_banner'),
-                //     'visibility' => !ultimate_post()->is_lc_active(),
-                //     'priority' => 50,
-                //     'repeat_interval' => '',
-                // ),
-                 // Black Friday pro
-                // array(
-                //     'key' => 'black_friday_premium',
-                //     'start' => '22-11-2023',
-                //     'end' => '26-11-2023',
-                //     'type' => 'banner',
-                //     'content' => ULTP_URL.'assets/img/dashboard_banner/black_friday_premium.jpg',
-                //     'force' => true,
-                //     'url' => $this->get_premium_link('', 'dashboard_db_banner'),
-                //     'visibility' => $is_pro_show,
-                //     'priority' => 50,
-                //     'repeat_interval' => '',
-                // ),
-                // Cyber Monday Free 1st
-                // array(
-                //     'key' => 'cyber_monday_free',
-                //     'start' => '27-11-2023',
-                //     'end' => '01-12-2023',
-                //     'type' => 'banner',
-                //     'content' => ULTP_URL.'assets/img/dashboard_banner/cyber_monday/cyber_monday_free.jpg',
-                //     'force' => true,
-                //     'url' => $this->get_premium_link('', 'dashboard_db_banner'),
-                //     'visibility' => !ultimate_post()->is_lc_active(),
-                //     'priority' => 70,
-                //     'repeat_interval' => '',
-                // ),
-                // Cyber Monday pro 1st
-                // array(
-                //     'key' => 'cyber_monday_pro',
-                //     'start' => '27-11-2023',
-                //     'end' => '01-12-2023',
-                //     'type' => 'banner',
-                //     'content' => ULTP_URL.'assets/img/dashboard_banner/cyber_monday/cyber_monday_pro.jpg',
-                //     'force' => true,
-                //     'url' => $this->get_premium_link('', 'dashboard_db_banner'),
-                //     'visibility' => $is_pro_show,
-                //     'priority' => 70,
-                //     'repeat_interval' => '',
-                // ),
-                // Cyber Monday Free 2nd
-                // array(
-                //     'key' => 'cyber_monday_old_free',
-                //     'start' => '02-12-2023',
-                //     'end' => '08-12-2023',
-                //     'type' => 'banner',
-                //     'content' => ULTP_URL.'assets/img/dashboard_banner/cyber_monday/cyber_monday_old_free.jpg',
-                //     'force' => true,
-                //     'url' => $this->get_premium_link('', 'dashboard_db_banner'),
-                //     'visibility' => !ultimate_post()->is_lc_active(),
-                //     'priority' => 100,
-                //     'repeat_interval' => '',
-                // ),
-                // Cyber Monday pro 2nd
-                // array(
-                //     'key' => 'cyber_monday_old_pro',
-                //     'start' => '02-12-2023',
-                //     'end' => '08-12-2023',
-                //     'type' => 'banner',
-                //     'content' => ULTP_URL.'assets/img/dashboard_banner/cyber_monday/cyber_monday_old_pro.jpg',
-                //     'force' => true,
-                //     'url' => $this->get_premium_link('', 'dashboard_db_banner'),
-                //     'visibility' =>$is_pro_show,
-                //     'priority' => 100,
-                //     'repeat_interval' => '', 
-                // ),
-                // Frontend Submission
-                // array(
-                //     'key' => 'fs_notice_1st',
-                //     'start' => '21-11-2023',
-                //     'end' => '29-11-2023',
-                //     'type' => 'banner',
-                //     'content' => ULTP_URL.'assets/img/dashboard_banner/frontend_submission.jpg',
-                //     'force' => true,
-                //     'url' => $this->get_premium_link('https://www.wpxpo.com/postx/front-end-posting/', 'fs_notice_1st'),
-                //     'visibility' => true,
-                //     'priority' => 30,
-                //     'repeat_interval' => '',
-                // ),
-                // Frontend submission content 1
-                array(
-                    'key' => 'fs_notice_2nd',
-                    'start' => '10-12-2023',
-                    'end' => '15-12-2023',
-                    'type' => 'content',
-                    'url' => '',
-                    'visibility' => true,
-                    'content' => '<div class="ultp-notice">
-                        <div class="ultp-notice-container">
-                            <div class="ultp-notice-image"><img src="'.$ultp_img.'"/></div>
-                            <div class="ultp-notice-content">
-                                <div class="ultp-notice-content-header">
-                                    <div class="ultp-notice-heading">
-                                        Reviewing Content has Never Been Easier
-                                    </div>
-                                    <div class="ultp-notice-close">
-                                        <a class="ultp-ultp-pro-dismiss" href="'.esc_url( add_query_arg( 'disable_postx_notice_fs_notice_2nd', 'yes' ) ).'"><span class="dashicons dashicons-no-alt"></span></a>
-                                    </div>
-                                </div>
-                                <div class="ultp-notice-content-body">
-                                    Review and make suggestions directly from the WordPress dashboard without relying on Google Docs! 
-                                </div>
-                                <div class="ultp-link-wrap">
-                                    <a id="ultp_install_ultp" class="ultp-notice-ultp-button" href="'.$this->get_premium_link('https://www.wpxpo.com/postx/front-end-posting/', 'fs_notice_2nd').'" target="_blank" >Learn More</a>
-                                    <a id="ultp_install_ultp" href="'.esc_url( add_query_arg( 'disable_postx_notice_fs_notice_2nd', 'yes' ) ).'" class="ultp-notice-ultp-button ultp-notice-skip" >Skip</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-				    </div>',
-                    'force' => true,
-                    'priority' => 30,
-                    'repeat_interval' => '',
-                ),
-                // Frontend submission content 2
-                // array(
-                //     'key' => 'fs_notice_3rd',
-                //     'start' => '25-12-2023',
-                //     'end' => '20-12-2023',
-                //     'type' => 'content',
-                //     'url' => '',
-                //     'visibility' => true,
-                //     'content' => '<div class="ultp-notice">
-                //         <div class="ultp-notice-container">
-                //             <div class="ultp-notice-content">
-                //                 <div class="ultp-notice-content-header">
-                //                     <div class="ultp-notice-heading">
-                //                         Front End Posts Submission
-                //                     </div>
-                //                     <div class="ultp-notice-close">
-                //                         <a class="ultp-ultp-pro-dismiss" href="'.esc_url( add_query_arg( 'disable_postx_notice_fs_notice_3rd', 'yes' ) ).'"><span class="dashicons dashicons-no-alt"></span></a>
-                //                     </div>
-                //                 </div>
-                //                 <div class="ultp-notice-content-body">
-                //                     Guest Writers can now access the Gutenberg Editor from the Front End. So, they can submit their writeups - formatted and ready. All you have to do is review and publish! 
-                //                 </div>
-                //                 <a id="ultp_install_ultp" href="'.$this->get_premium_link('https://www.wpxpo.com/postx/front-end-posting/', 'fs_notice_3rd').'" class="ultp-notice-ultp-button" >Learn More</a>
-                //             </div>
-                //         </div>
-				//     </div>',
-                //     'force' => true,
-                //     'priority' => 30,
-                //     'repeat_interval' => '',
-                // ),
-                // cyber_monday_text_free
-                array(
-                    'key' => 'cyber_monday_text_free',
-                    'start' => '30-11-2023',
-                    'end' => '07-12-2023',
-                    'type' => 'content',
-                    'url' => '',
-                    'visibility' => !ultimate_post()->is_lc_active(),
-                    'content' => '<div class="ultp-notice">
-                        <div class="ultp-notice-container">
-                            <div class="ultp-notice-image"><img src="'.$ultp_img.'"/></div>
-                            <div class="ultp-notice-content">
-                                <div class="ultp-notice-content-header">
-                                    <div class="ultp-notice-heading">
-                                    🎉 Your Cyber Monday Gift! 🎉
-                                    </div>
-                                    <div class="ultp-notice-close">
-                                        <a class="ultp-ultp-pro-dismiss" href="'.esc_url( add_query_arg( 'disable_postx_notice_cyber_monday_text_free', 'yes' ) ).'"><span class="dashicons dashicons-no-alt"></span></a>
-                                    </div>
-                                </div>
-                                <div class="ultp-notice-content-body">
-                                    Enjoy Full Customization Freedom with <span style="font-weight: bold;">PostX</span>. Get Your Cyber Monday gift <span style="color:#f2704e; font-weight: bold;" >Up to 50% off</span> 
-                                </div>
-                                <div class="ultp-link-wrap">
-                                    <a id="ultp_install_ultp" target="_blank" href="'.$this->get_premium_link('', 'dashboard_db_banner').'" class="ultp-notice-ultp-button" >Grab The Deal</a>
-                                    <a id="ultp_install_ultp" href="'.esc_url( add_query_arg( 'disable_postx_notice_cyber_monday_text_free', 'yes' ) ).'" class="ultp-notice-ultp-button ultp-notice-skip" >Skip</a>
-                                </div>
-                            </div>
-                        </div>
-				    </div>',
-                    'force' => true,
-                    'priority' => 30,
-                    'repeat_interval' => '',
-                ),
-                // cyber_monday_text_pro
-                array(
-                    'key' => 'cyber_monday_text_pro',
-                    'start' => '30-11-2023',
-                    'end' => '07-12-2023',
-                    'type' => 'content',
-                    'url' => '',
-                    'visibility' => $is_pro_show,
-                    'content' => '<div class="ultp-notice">
-                        <div class="ultp-notice-container">
-                            <div class="ultp-notice-image"><img src="'.$ultp_img.'"/></div>
-                            <div class="ultp-notice-content">
-                                <div class="ultp-notice-content-header">
-                                    <div class="ultp-notice-heading">
-                                        🎉 Your Cyber Monday Gift! 🎉
-                                    </div>
-                                    <div class="ultp-notice-close">
-                                        <a class="ultp-ultp-pro-dismiss" href="'.esc_url( add_query_arg( 'disable_postx_notice_cyber_monday_text_pro', 'yes' ) ).'"><span class="dashicons dashicons-no-alt"></span></a>
-                                    </div>
-                                </div>
-                                <div class="ultp-notice-content-body">
-                                    Upgrade to a lifetime plan now and keep using PostX forever. <span style="font-weight: bold;"> Skip Renewal Hassle! <span>
-                                </div>
-                                <div class="ultp-link-wrap">
-                                    <a id="ultp_install_ultp" target="_blank" href="'.$this->get_premium_link('', 'dashboard_db_banner').'" class="ultp-notice-ultp-button" >Get 50% OFF</a>
-                                    <a id="ultp_install_ultp" href="'.esc_url( add_query_arg( 'disable_postx_notice_cyber_monday_text_pro', 'yes' ) ).'" class="ultp-notice-ultp-button ultp-notice-skip" >Skip</a>
-                                </div>
-                            </div>
-                        </div>
-				    </div>',
-                    'force' => true,
-                    'priority' => 30,
-                    'repeat_interval' => '',
-                ),
-            );
-        } else {
-            return array(
-                // 'start' => '12-2-2023', // Date format "d-m-Y" [08-02-2019]
-                // 'end' => '22-3-2023',
-                // 'content' => 'Upgrade 30% off Sale!!!'
-            );
-        }
-    }
+    
     /**
 	 * Get no Result found html
      * 

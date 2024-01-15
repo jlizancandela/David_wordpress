@@ -1,108 +1,55 @@
 <?php
-
 namespace QuadLayers\QLWAPP\Models;
 
-class WooCommerce extends Base {
+use QuadLayers\QLWAPP\Entities\WooCommerce as WooCommerce_Entity;
 
-	protected $table = 'woocommerce';
+use QuadLayers\WP_Orm\Builder\SingleRepositoryBuilder;
 
-	public function get_args() {
-		$args = array(
-			'layout'            => 'button',
-			'box'               => 'no',
-			'position'          => 'none',
-			'text'              => esc_html__( 'How can I help you?', 'wp-whatsapp-chat' ),
-			'message'           => sprintf( esc_html__( 'Hello! I\'m testing the %1$s plugin %2$s', 'wp-whatsapp-chat' ), QLWAPP_PLUGIN_NAME, QLWAPP_LANDING_URL ),
-			'icon'              => 'qlwapp-whatsapp-icon',
-			'type'              => 'phone',                 // here we define the type of button, can be 'phone' or 'group'
-			'phone'             => QLWAPP_PHONE_NUMBER,
-			'group'             => '',
-			'developer'         => 'no',
-			'rounded'           => 'yes',
-			'timefrom'          => '00:00',
-			'timeto'            => '00:00',
-			'timedays'          => array(),
-			'timezone'          => qlwapp_get_current_timezone(),
-			'visibility'        => 'readonly',
-			'timeout'           => 'readonly', /* TODO: delete */
-			'position_priority' => 10,
-			'animation-name'    => '',
-			'animation-delay'   => '',
-		);
-		return $args;
+class WooCommerce {
+
+	protected static $instance;
+	protected $repository;
+
+	public function __construct() {
+		add_filter( 'sanitize_option_qlwapp_woocommerce', 'wp_unslash' );
+		$builder = ( new SingleRepositoryBuilder() )
+		->setTable( 'qlwapp_woocommerce' )
+		->setEntity( WooCommerce_Entity::class );
+
+		$this->repository = $builder->getRepository();
 	}
 
-	public function save( $scheme = null ) {
-		return parent::save_data( $this->table, $scheme );
+	public function get_table() {
+		return $this->repository->getTable();
 	}
 
 	public function get() {
+		$entity = $this->repository->find();
 
-		$result = $this->get_all( $this->table );
-
-		// if ( isset( $result['text'] ) ) {
-		// $result['text'] = $this->replacements( $result['text'] );
-		// }
-
-		// if ( isset( $result['message'] ) ) {
-		// $result['message'] = $this->replacements( $result['message'] );
-		// }
-
-		return wp_parse_args( $result, $this->get_args() );
-	}
-
-	public function replacements( $text ) {
-
-		if ( is_product() ) {
-			$product = wc_get_product();
-			$replace = array(
-				'PRODUCT'  => $product->get_name(),
-				'SKU'      => $product->get_sku(),
-				'REGULAR'  => $this->get_regular_price( $product ),
-				'PRICE'    => $this->get_price( $product ),
-				'DISCOUNT' => $this->get_discount( $product ),
-			);
-
-			$text = array_merge( $text, $replace );
+		if ( $entity ) {
+			return $entity->getProperties();
+		} else {
+			$admin = new WooCommerce_Entity();
+			return $admin->getProperties();
 		}
-
-		return $text;
 	}
 
-	public function get_regular_price( $product ) {
-
-		$price = 'variable' === $product->get_type() ? $product->get_variation_regular_price( 'min' ) : $product->get_regular_price();
-
-		return $this->format_price( $product, $price );
-
+	public function delete_all() {
+		return $this->repository->delete();
 	}
 
+	public function save( $data ) {
+		$entity = $this->repository->create( $data );
 
-	public function get_price( $product ) {
-
-		$price = 'variable' === $product->get_type() ? $product->get_variation_price( 'min' ) : $product->get_price();
-
-		return $this->format_price( $product, $price );
-
-	}
-
-	public function get_discount( $product ) {
-
-		$regular_price = 'variable' === $product->get_type() ? $product->get_variation_regular_price( 'min' ) : $product->get_regular_price();
-		$sale_price    = 'variable' === $product->get_type() ? $product->get_variation_price( 'min' ) : $product->get_price();
-
-		$percentage = '';
-		if ( is_numeric( $regular_price ) && is_numeric( $sale_price ) && $regular_price > 0 ) {
-			$percentage = round( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 );
+		if ( $entity ) {
+			return true;
 		}
-
-		return $percentage ? "-$percentage%" : '';
-
 	}
 
-	public function format_price( $product, $price ) {
-		$string = wp_strip_all_tags( wc_price( wc_get_price_to_display( $product, array( 'price' => $price ) ) ) );
-		return str_replace( '$', '\$', $string );
-
+	public static function instance() {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new self();
+		}
+		return self::$instance;
 	}
 }

@@ -4,10 +4,11 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5b13824f71742eef3e3e96575718f7c6
+class ComposerStaticInit065250070e973aa80235a895a5c0ef66
 {
     public static $files = array (
         '3773ef3f09c37da5478d578e32b03a4b' => __DIR__ . '/../..' . '/jetpack_vendor/automattic/jetpack-assets/actions.php',
+        '017bc83cfc52756fc7b94c9b354c1ba0' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -15,6 +16,7 @@ class ComposerStaticInit5b13824f71742eef3e3e96575718f7c6
         array (
             'QuadLayers\\WP_Plugin_Table_Links\\' => 33,
             'QuadLayers\\WP_Plugin_Suggestions\\' => 33,
+            'QuadLayers\\WP_Orm\\' => 18,
             'QuadLayers\\WP_Notice_Plugin_Required\\' => 37,
             'QuadLayers\\WP_Notice_Plugin_Promote\\' => 36,
             'QuadLayers\\WP_Dashboard_Widget_News\\' => 36,
@@ -29,6 +31,10 @@ class ComposerStaticInit5b13824f71742eef3e3e96575718f7c6
         'QuadLayers\\WP_Plugin_Suggestions\\' => 
         array (
             0 => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-plugin-suggestions/src',
+        ),
+        'QuadLayers\\WP_Orm\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/franmastromarino/wp-orm/src',
         ),
         'QuadLayers\\WP_Notice_Plugin_Required\\' => 
         array (
@@ -63,6 +69,13 @@ class ComposerStaticInit5b13824f71742eef3e3e96575718f7c6
         'QuadLayers\\QLWAPP\\Controllers\\Settings' => __DIR__ . '/../..' . '/lib/controllers/class-settings.php',
         'QuadLayers\\QLWAPP\\Controllers\\Welcome' => __DIR__ . '/../..' . '/lib/controllers/class-welcome.php',
         'QuadLayers\\QLWAPP\\Controllers\\WooCommerce' => __DIR__ . '/../..' . '/lib/controllers/class-woocommerce.php',
+        'QuadLayers\\QLWAPP\\Entities\\Box' => __DIR__ . '/../..' . '/lib/entities/class-box.php',
+        'QuadLayers\\QLWAPP\\Entities\\Button' => __DIR__ . '/../..' . '/lib/entities/class-button.php',
+        'QuadLayers\\QLWAPP\\Entities\\Contact' => __DIR__ . '/../..' . '/lib/entities/class-contact.php',
+        'QuadLayers\\QLWAPP\\Entities\\Display' => __DIR__ . '/../..' . '/lib/entities/class-display.php',
+        'QuadLayers\\QLWAPP\\Entities\\Scheme' => __DIR__ . '/../..' . '/lib/entities/class-scheme.php',
+        'QuadLayers\\QLWAPP\\Entities\\Settings' => __DIR__ . '/../..' . '/lib/entities/class-settings.php',
+        'QuadLayers\\QLWAPP\\Entities\\WooCommerce' => __DIR__ . '/../..' . '/lib/entities/class-woocommerce.php',
         'QuadLayers\\QLWAPP\\Frontend' => __DIR__ . '/../..' . '/lib/class-frontend.php',
         'QuadLayers\\QLWAPP\\Models\\Base' => __DIR__ . '/../..' . '/lib/models/class-base.php',
         'QuadLayers\\QLWAPP\\Models\\Box' => __DIR__ . '/../..' . '/lib/models/class-box.php',
@@ -86,6 +99,22 @@ class ComposerStaticInit5b13824f71742eef3e3e96575718f7c6
         'QuadLayers\\WP_Notice_Plugin_Promote\\Traits\\PluginDataByFile' => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-notice-plugin-promote/src/Traits/PluginDataByFile.php',
         'QuadLayers\\WP_Notice_Plugin_Required\\Load' => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-notice-plugin-required/src/Load.php',
         'QuadLayers\\WP_Notice_Plugin_Required\\Plugin' => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-notice-plugin-required/src/Plugin.php',
+        'QuadLayers\\WP_Orm\\Builder\\CollectionRepositoryBuilder' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Builder/CollectionRepositoryBuilder.php',
+        'QuadLayers\\WP_Orm\\Builder\\SingleRepositoryBuilder' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Builder/SingleRepositoryBuilder.php',
+        'QuadLayers\\WP_Orm\\Entity\\CollectionEntity' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Entity/CollectionEntity.php',
+        'QuadLayers\\WP_Orm\\Entity\\EntityInterface' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Entity/EntityInterface.php',
+        'QuadLayers\\WP_Orm\\Entity\\SingleEntity' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Entity/SingleEntity.php',
+        'QuadLayers\\WP_Orm\\Factory\\AbstractFactory' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Factory/AbstractFactory.php',
+        'QuadLayers\\WP_Orm\\Factory\\CollectionFactory' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Factory/CollectionFactory.php',
+        'QuadLayers\\WP_Orm\\Factory\\SingleFactory' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Factory/SingleFactory.php',
+        'QuadLayers\\WP_Orm\\Mapper\\CollectionMapper' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Mapper/CollectionMapper.php',
+        'QuadLayers\\WP_Orm\\Mapper\\CollectionMapperInterface' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Mapper/CollectionMapperInterface.php',
+        'QuadLayers\\WP_Orm\\Mapper\\SingleMapper' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Mapper/SingleMapper.php',
+        'QuadLayers\\WP_Orm\\Mapper\\SingleMapperInterface' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Mapper/SingleMapperInterface.php',
+        'QuadLayers\\WP_Orm\\Repository\\CollectionRepository' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Repository/CollectionRepository.php',
+        'QuadLayers\\WP_Orm\\Repository\\CollectionRepositoryInterface' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Repository/CollectionRepositoryInterface.php',
+        'QuadLayers\\WP_Orm\\Repository\\SingleRepository' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Repository/SingleRepository.php',
+        'QuadLayers\\WP_Orm\\Repository\\SingleRepositoryInterface' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Repository/SingleRepositoryInterface.php',
         'QuadLayers\\WP_Plugin_Suggestions\\Load' => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Load.php',
         'QuadLayers\\WP_Plugin_Suggestions\\Page' => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Page.php',
         'QuadLayers\\WP_Plugin_Suggestions\\Table' => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php',
@@ -95,9 +124,9 @@ class ComposerStaticInit5b13824f71742eef3e3e96575718f7c6
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5b13824f71742eef3e3e96575718f7c6::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5b13824f71742eef3e3e96575718f7c6::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit5b13824f71742eef3e3e96575718f7c6::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit065250070e973aa80235a895a5c0ef66::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit065250070e973aa80235a895a5c0ef66::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit065250070e973aa80235a895a5c0ef66::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Duplicator 1.5.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/duplicator\n"
-"POT-Creation-Date: 2023-11-06 12:12-0600\n"
+"POT-Creation-Date: 2024-01-08 14:06-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,37 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: assets/js/javascript.php:270
+#: assets/js/duplicator/dup.util.php:21
+msgid "wait ..."
+msgstr ""
+
+#: assets/js/duplicator/dup.util.php:83
+msgid "RESPONSE SUCCESS"
+msgstr ""
+
+#: assets/js/duplicator/dup.util.php:97
+#: template/admin_pages/settings/general/general.php:323
+#: template/admin_pages/settings/general/general.php:376
+msgid "RESPONSE ERROR!"
+msgstr ""
+
+#: assets/js/duplicator/dup.util.php:106
+msgid "AJAX ERROR! "
+msgstr ""
+
+#: assets/js/duplicator/dup.util.php:106
+msgid "Ajax request error"
+msgstr ""
+
+#: assets/js/javascript.php:272
 msgid "Copied: "
 msgstr ""
 
-#: assets/js/javascript.php:270 assets/js/javascript.php:272
+#: assets/js/javascript.php:272 assets/js/javascript.php:274
 msgid "unable to copy"
 msgstr ""
 
-#: assets/js/javascript.php:276 assets/js/javascript.php:280
+#: assets/js/javascript.php:278 assets/js/javascript.php:282
 msgid "Copy to Clipboard!"
 msgstr ""
 
@@ -174,34 +196,6 @@ msgstr ""
 
 #: classes/ui/class.ui.dialog.php:90 deactivation.php:155
 msgid "Cancel"
-msgstr ""
-
-#: classes/ui/class.ui.screen.base.php:132
-msgid "<b>Need Help?</b>  Please check out these resources first:<ul><li><a href='"
-msgstr ""
-
-#: classes/ui/class.ui.screen.base.php:144 views/tools/diagnostics/main.php:45
-msgid "Support"
-msgstr ""
-
-#: classes/ui/class.ui.screen.base.php:156
-msgid "Resources"
-msgstr ""
-
-#: classes/ui/class.ui.screen.base.php:157
-msgid "Knowledge Base"
-msgstr ""
-
-#: classes/ui/class.ui.screen.base.php:158
-msgid "Full User Guide"
-msgstr ""
-
-#: classes/ui/class.ui.screen.base.php:159
-msgid "Technical FAQs"
-msgstr ""
-
-#: classes/ui/class.ui.screen.base.php:160 views/packages/main/packages.php:113
-msgid "Package Settings"
 msgstr ""
 
 #: classes/utilities/class.u.php:64
@@ -567,108 +561,108 @@ msgstr ""
 msgid "Welcome to Duplicator"
 msgstr ""
 
-#: src/Core/Bootstrap.php:250 src/Core/Bootstrap.php:475
+#: src/Core/Bootstrap.php:255 src/Core/Bootstrap.php:480
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: src/Core/Bootstrap.php:251
+#: src/Core/Bootstrap.php:256
 msgid "NEW!"
 msgstr ""
 
-#: src/Core/Bootstrap.php:255 src/Core/Bootstrap.php:256
+#: src/Core/Bootstrap.php:260 src/Core/Bootstrap.php:261
 #: views/packages/details/controller.php:67
-#: views/packages/main/s3.build.php:124 views/settings/controller.php:37
+#: views/packages/main/s3.build.php:124 views/settings/controller.php:36
 msgid "Packages"
 msgstr ""
 
-#: src/Core/Bootstrap.php:265 src/Core/Bootstrap.php:266
+#: src/Core/Bootstrap.php:270 src/Core/Bootstrap.php:271
 #: views/packages/main/packages.php:128
 msgid "Import"
 msgstr ""
 
-#: src/Core/Bootstrap.php:276 src/Core/Bootstrap.php:277
+#: src/Core/Bootstrap.php:281 src/Core/Bootstrap.php:282
 msgid "Schedules"
 msgstr ""
 
-#: src/Core/Bootstrap.php:287 src/Core/Bootstrap.php:288
+#: src/Core/Bootstrap.php:292 src/Core/Bootstrap.php:293
 #: template/mocks/storage/storage.php:59 views/packages/details/detail.php:276
-#: views/packages/main/s1.setup2.php:103 views/settings/controller.php:43
+#: views/packages/main/s1.setup2.php:103 views/settings/controller.php:42
 msgid "Storage"
 msgstr ""
 
-#: src/Core/Bootstrap.php:296 src/Core/Bootstrap.php:297
-#: views/tools/controller.php:22
+#: src/Core/Bootstrap.php:301 src/Core/Bootstrap.php:302
+#: views/tools/controller.php:21
 msgid "Tools"
 msgstr ""
 
-#: src/Core/Bootstrap.php:307 src/Core/Bootstrap.php:308
+#: src/Core/Bootstrap.php:312 src/Core/Bootstrap.php:313
 #: template/admin_pages/settings/general/general.php:215
-#: views/settings/controller.php:24
+#: views/settings/controller.php:23
 msgid "Settings"
 msgstr ""
 
-#: src/Core/Bootstrap.php:317
+#: src/Core/Bootstrap.php:322
 msgid "About Duplicator"
 msgstr ""
 
-#: src/Core/Bootstrap.php:318 template/admin_pages/about_us/tabs.php:17
+#: src/Core/Bootstrap.php:323 template/admin_pages/about_us/tabs.php:17
 msgid "About Us"
 msgstr ""
 
-#: src/Core/Bootstrap.php:495
+#: src/Core/Bootstrap.php:500
 msgid "Manage Packages"
 msgstr ""
 
-#: src/Core/Bootstrap.php:496 views/settings/license.php:11
+#: src/Core/Bootstrap.php:501 views/settings/license.php:11
 msgid "Manage"
 msgstr ""
 
-#: src/Core/MigrationMng.php:238
+#: src/Core/MigrationMng.php:242
 msgid "NOTICE: Safe mode (Basic) was enabled during install, be sure to re-enable all your plugins."
 msgstr ""
 
-#: src/Core/MigrationMng.php:241
+#: src/Core/MigrationMng.php:245
 msgid "NOTICE: Safe mode (Advanced) was enabled during install, be sure to re-enable all your plugins."
 msgstr ""
 
-#: src/Core/MigrationMng.php:319
+#: src/Core/MigrationMng.php:323
 #, php-format
 msgid "Installer file <b>%s</b> removed for security reasons"
 msgstr ""
 
-#: src/Core/MigrationMng.php:324
+#: src/Core/MigrationMng.php:328
 #, php-format
 msgid "Can't remove installer file <b>%s</b>, please remove it for security reasons"
 msgstr ""
 
-#: src/Core/MigrationMng.php:335
+#: src/Core/MigrationMng.php:339
 #, php-format
 msgid "Installer file <b>%s</b> renamed with HASH"
 msgstr ""
 
-#: src/Core/MigrationMng.php:341
+#: src/Core/MigrationMng.php:345
 #, php-format
 msgid "Can't rename installer file <b>%s</b> with HASH, please remove it for security reasons"
 msgstr ""
 
-#: src/Core/MigrationMng.php:373
+#: src/Core/MigrationMng.php:378
 msgid "Original files folder moved in installer backup directory"
 msgstr ""
 
-#: src/Core/MigrationMng.php:378
+#: src/Core/MigrationMng.php:383
 #, php-format
 msgid "Can't move %s to %s"
 msgstr ""
 
-#: src/Core/MigrationMng.php:395
+#: src/Core/MigrationMng.php:400
 msgid "Installer log"
 msgstr ""
 
-#: src/Core/MigrationMng.php:396
+#: src/Core/MigrationMng.php:401
 msgid "Installer boot log"
 msgstr ""
 
-#: src/Core/MigrationMng.php:397
+#: src/Core/MigrationMng.php:402
 msgid "Original files folder"
 msgstr ""
 
@@ -1593,11 +1587,6 @@ msgstr ""
 msgid "AJAX error encountered when resetting packages. Please see %1$sthis FAQ entry%2$s for possible resolutions."
 msgstr ""
 
-#: template/admin_pages/settings/general/general.php:323
-#: template/admin_pages/settings/general/general.php:376
-msgid "RESPONSE ERROR!"
-msgstr ""
-
 #: template/admin_pages/settings/general/general.php:366
 msgid "Packages successfully reset"
 msgstr ""
@@ -1719,7 +1708,7 @@ msgstr ""
 msgid "Create Your First Package"
 msgstr ""
 
-#: template/admin_pages/welcome/footer.php:34
+#: template/admin_pages/welcome/footer.php:34 template/parts/help/main.php:243
 msgid "Upgrade to Duplicator Pro"
 msgstr ""
 
@@ -2214,6 +2203,38 @@ msgstr ""
 msgid "The <b>Media Only</b> and <b>Custom</b> options are not included in Duplicator Lite. To enable advanced options please %1$supgrade to Pro%2$s."
 msgstr ""
 
+#: template/parts/help/main.php:206
+msgid "Search"
+msgstr ""
+
+#: template/parts/help/main.php:208
+msgid "No results found"
+msgstr ""
+
+#: template/parts/help/main.php:212
+msgid "Related Articles"
+msgstr ""
+
+#: template/parts/help/main.php:222
+msgid "View Documentation"
+msgstr ""
+
+#: template/parts/help/main.php:224
+msgid "Browse documentation, reference material, and tutorials for Duplicator."
+msgstr ""
+
+#: template/parts/help/main.php:231
+msgid "View All Documentation"
+msgstr ""
+
+#: template/parts/help/main.php:236
+msgid "Get Support"
+msgstr ""
+
+#: template/parts/help/main.php:237
+msgid "Upgrade to Duplicator Pro to access our world class customer support."
+msgstr ""
+
 #: template/parts/notice-bar.php:45
 #, php-format
 msgid "<strong>You're using Duplicator Lite.</strong> To unlock more features consider <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\">upgrading to Pro</a>"
@@ -2245,8 +2266,8 @@ msgstr ""
 msgid "Invalid Package ID request.  Please try again!"
 msgstr ""
 
-#: views/packages/details/detail.php:92 views/settings/controller.php:31
-#: views/tools/controller.php:25 views/tools/diagnostics/inc.settings.php:35
+#: views/packages/details/detail.php:92 views/settings/controller.php:30
+#: views/tools/controller.php:24 views/tools/diagnostics/inc.settings.php:35
 msgid "General"
 msgstr ""
 
@@ -2555,11 +2576,15 @@ msgstr ""
 msgid "Get Help"
 msgstr ""
 
-#: views/packages/main/packages.php:120 views/tools/controller.php:26
+#: views/packages/main/packages.php:113
+msgid "Package Settings"
+msgstr ""
+
+#: views/packages/main/packages.php:120 views/tools/controller.php:25
 msgid "Templates"
 msgstr ""
 
-#: views/packages/main/packages.php:132 views/tools/controller.php:27
+#: views/packages/main/packages.php:132 views/tools/controller.php:26
 msgid "Recovery"
 msgstr ""
 
@@ -2829,7 +2854,7 @@ msgid "MySQL version 5.0+ or better is required and the PHP MySQLi extension (no
 msgstr ""
 
 #: views/packages/main/s1.setup1.php:213
-#: views/tools/diagnostics/inc.data.php:26
+#: views/tools/diagnostics/inc.data.php:25
 msgid "more info"
 msgstr ""
 
@@ -3543,7 +3568,6 @@ msgid "The database size represents only the included tables. The process for ga
 msgstr ""
 
 #: views/packages/main/s2.scan3.php:426 views/packages/main/s3.build.php:326
-#: views/packages/screen.php:65
 msgid "Overview"
 msgstr ""
 
@@ -4110,22 +4134,6 @@ msgstr ""
 msgid "See Package Log For Complete Details"
 msgstr ""
 
-#: views/packages/screen.php:76
-msgid "<b><i class='fa fa-archive'></i> Packages » All</b><br/> The 'Packages' section is the main interface for managing all the packages that have been created.  A Package consists of two core files, the 'archive.zip' and the 'installer.php' file.  The archive file is a zip file containing all your WordPress files and a copy of your WordPress database.  The installer file is a php file that when browsed to via a web browser presents a wizard that redeploys/installs the website by extracting the archive file and installing the database.   To create a package, click the 'Create New' button and follow the prompts. <br/><br/><b><i class='fa fa-download'></i> Downloads</b><br/>To download the package files click on the Installer and Archive buttons after creating a package.  The archive file will have a copy of the installer inside of it named installer-backup.php in case the original installer file is lost.  To see the details of a package click on the <i class='fa fa-archive'></i> details button.<br/><br/><b><i class='far fa-file-archive'></i> Archive Types</b><br/>An archive file can be saved as either a .zip file or .daf file.  A zip file is a common archive format used to compress and group files.  The daf file short for 'Duplicator Archive Format' is a custom format used specifically  for working with larger packages and scale-ability issues on many shared hosting platforms.  Both formats work very similar.  The main difference is that the daf file can only be extracted using the installer.php file or the <a href='"
-msgstr ""
-
-#: views/packages/screen.php:99
-msgid "<b>Packages New » 1 Setup</b> <br/>The setup step allows for optional filtered directory paths, files, file extensions and database tables.  To filter specific system files, click the 'Enable File Filters' checkbox and add the full path of the file or directory, followed by a semicolon.  For a file extension add the name (i.e. 'zip') followed by a semicolon. <br/><br/>To exclude a database table, check the box labeled 'Enable Table Filters' and check the table name to exclude. To include only a copy of your database in the archive file check the box labeled 'Archive Only the Database'.  The installer.php file can optionally be pre-filled with data at install time but is not required.  <br/><br/>"
-msgstr ""
-
-#: views/packages/screen.php:133
-msgid "<b>Packages » 3 Build</b> <br/>The final step in the build process where the installer script and archive of the website can be downloaded.   To start the install process follow these steps: <ol><li>Download the installer.php and archive.zip files to your local computer.</li><li>For localhost installs be sure you have PHP, Apache & MySQL installed on your local computer with software such as XAMPP, Instant WordPress or MAMP for MAC. Place the package.zip and installer.php into any empty directory under your webroot then browse to the installer.php via your web browser to launch the install wizard.</li><li>For remote installs use FTP or cPanel to upload both the archive.zip and installer.php to your hosting provider. Place the files in a new empty directory under your host's webroot accessible from a valid URL such as http://your-domain/your-wp-directory/installer.php to launch the install wizard. On some hosts the root directory will be a something like public_html -or- www.  If your're not sure contact your hosting provider. </li></ol>For complete instructions see:<br/><a href='"
-msgstr ""
-
-#: views/packages/screen.php:151
-msgid "<b>Packages » Details</b> <br/>The details view will give you a full break-down of the package including any errors that may have occured during the install. <br/><br/>"
-msgstr ""
-
 #: views/parts/migration-almost-complete.php:15
 msgid "Restore Backup Almost Complete!"
 msgstr ""
@@ -4250,11 +4258,11 @@ msgstr ""
 msgid "LinkedIn"
 msgstr ""
 
-#: views/settings/controller.php:49
+#: views/settings/controller.php:48
 msgid "Access"
 msgstr ""
 
-#: views/settings/controller.php:55
+#: views/settings/controller.php:54
 msgid "License"
 msgstr ""
 
@@ -4329,11 +4337,11 @@ msgstr ""
 msgid "Please contact the host or server administrator to enable this feature."
 msgstr ""
 
-#: views/settings/packages.php:125 views/tools/diagnostics/logging.php:183
+#: views/settings/packages.php:125 views/tools/diagnostics/logging.php:182
 msgid "Host Recommendation:"
 msgstr ""
 
-#: views/settings/packages.php:126 views/tools/diagnostics/logging.php:184
+#: views/settings/packages.php:126 views/tools/diagnostics/logging.php:183
 msgid "Duplicator recommends going with the high performance pro plan or better from our recommended list"
 msgstr ""
 
@@ -4594,60 +4602,36 @@ msgstr ""
 msgid "Save Storage Settings"
 msgstr ""
 
-#: views/tools/diagnostics/inc.data.php:11
-msgid "Stored Data"
-msgstr ""
-
-#: views/tools/diagnostics/inc.data.php:16
+#: views/tools/diagnostics/inc.data.php:12
 msgid "Data Cleanup"
 msgstr ""
 
-#: views/tools/diagnostics/inc.data.php:21
+#: views/tools/diagnostics/inc.data.php:20
 msgid "Remove Installation Files"
 msgstr ""
 
-#: views/tools/diagnostics/inc.data.php:25
+#: views/tools/diagnostics/inc.data.php:24
 msgid "Removes all reserved installer files."
 msgstr ""
 
-#: views/tools/diagnostics/inc.data.php:30
+#: views/tools/diagnostics/inc.data.php:29
 msgid "Clicking on the 'Remove Installation Files' button will attempt to remove the installer files used by Duplicator.  These files should not be left on production systems for security reasons. Below are the files that should be removed."
 msgstr ""
 
-#: views/tools/diagnostics/inc.data.php:45
+#: views/tools/diagnostics/inc.data.php:44
 msgid "Clear Build Cache"
 msgstr ""
 
-#: views/tools/diagnostics/inc.data.php:48
+#: views/tools/diagnostics/inc.data.php:47
 msgid "Removes all build data from:"
 msgstr ""
 
-#: views/tools/diagnostics/inc.data.php:53
-msgid "Options Values"
-msgstr ""
-
-#: views/tools/diagnostics/inc.data.php:87
-msgid "Delete Option?"
-msgstr ""
-
-#: views/tools/diagnostics/inc.data.php:88
-msgid "Delete the option value just selected?"
-msgstr ""
-
-#: views/tools/diagnostics/inc.data.php:89
-msgid "Removing Option, Please Wait..."
-msgstr ""
-
-#: views/tools/diagnostics/inc.data.php:94
+#: views/tools/diagnostics/inc.data.php:59
 msgid "Clear Build Cache?"
 msgstr ""
 
-#: views/tools/diagnostics/inc.data.php:95
+#: views/tools/diagnostics/inc.data.php:60
 msgid "This process will remove all build cache files.  Be sure no packages are currently building or else they will be cancelled."
-msgstr ""
-
-#: views/tools/diagnostics/inc.data.php:107
-msgid "Delete the option value"
 msgstr ""
 
 #: views/tools/diagnostics/inc.phpinfo.php:26
@@ -4863,65 +4847,53 @@ msgstr ""
 msgid "Build cache removed."
 msgstr ""
 
-#: views/tools/diagnostics/information.php:62
-msgid "Plugin settings reset."
-msgstr ""
-
-#: views/tools/diagnostics/information.php:65
-msgid "View state settings reset."
-msgstr ""
-
-#: views/tools/diagnostics/information.php:68
-msgid "Active package settings reset."
-msgstr ""
-
-#: views/tools/diagnostics/logging.php:169
+#: views/tools/diagnostics/logging.php:168
 msgid "Log file not found or unreadable"
 msgstr ""
 
-#: views/tools/diagnostics/logging.php:170
+#: views/tools/diagnostics/logging.php:169
 msgid "Try to create a package, since no log files were found in the snapshots directory with the extension *.log"
 msgstr ""
 
-#: views/tools/diagnostics/logging.php:171
+#: views/tools/diagnostics/logging.php:170
 msgid "Reasons for log file not showing"
 msgstr ""
 
-#: views/tools/diagnostics/logging.php:172
+#: views/tools/diagnostics/logging.php:171
 msgid "The web server does not support returning .log file extentions"
 msgstr ""
 
-#: views/tools/diagnostics/logging.php:173
+#: views/tools/diagnostics/logging.php:172
 msgid "The snapshots directory does not have the correct permissions to write files.  Try setting the permissions to 755"
 msgstr ""
 
-#: views/tools/diagnostics/logging.php:174
+#: views/tools/diagnostics/logging.php:173
 msgid "The process that PHP runs under does not have enough permissions to create files.  Please contact your hosting provider for more details"
 msgstr ""
 
-#: views/tools/diagnostics/logging.php:190
+#: views/tools/diagnostics/logging.php:189
 #, php-format
 msgid "Consider our recommended %1$shost list%2$s if you’re unhappy with your current provider"
 msgstr ""
 
-#: views/tools/diagnostics/logging.php:200
-#: views/tools/diagnostics/logging.php:205
+#: views/tools/diagnostics/logging.php:199
+#: views/tools/diagnostics/logging.php:204
 msgid "Options"
 msgstr ""
 
-#: views/tools/diagnostics/logging.php:207
+#: views/tools/diagnostics/logging.php:206
 msgid "Refresh"
 msgstr ""
 
-#: views/tools/diagnostics/logging.php:210
+#: views/tools/diagnostics/logging.php:209
 msgid "Auto Refresh"
 msgstr ""
 
-#: views/tools/diagnostics/logging.php:216
+#: views/tools/diagnostics/logging.php:215
 msgid "Package Logs"
 msgstr ""
 
-#: views/tools/diagnostics/logging.php:217
+#: views/tools/diagnostics/logging.php:216
 msgid "Top 20"
 msgstr ""
 
@@ -4931,6 +4903,10 @@ msgstr ""
 
 #: views/tools/diagnostics/main.php:44
 msgid "Logs"
+msgstr ""
+
+#: views/tools/diagnostics/main.php:45
+msgid "Support"
 msgstr ""
 
 #: views/tools/diagnostics/support.php:36

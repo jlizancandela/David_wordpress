@@ -1,21 +1,55 @@
 <?php
-
-
 namespace QuadLayers\QLWAPP\Models;
 
-class Display extends Base {
+use QuadLayers\QLWAPP\Entities\Display as Display_Entity;
 
-	protected $table = 'display';
+use QuadLayers\WP_Orm\Builder\SingleRepositoryBuilder;
 
-	// Entries and Taxonomies = array of Display_Component
-	public function get_args() {
-		$display_component_model = new Display_Component();
+class Display {
 
-		return $display_component_model->get_args();
+	protected static $instance;
+	protected $repository;
+
+	public function __construct() {
+		add_filter( 'sanitize_option_qlwapp_display', 'wp_unslash' );
+		$builder = ( new SingleRepositoryBuilder() )
+		->setTable( 'qlwapp_display' )
+		->setEntity( Display_Entity::class );
+
+		$this->repository = $builder->getRepository();
 	}
 
-	public function save( $display_data = null ) {
-		return parent::save_data( $this->table, $display_data );
+	public function get_table() {
+		return $this->repository->getTable();
 	}
 
+	public function get() {
+		$entity = $this->repository->find();
+
+		if ( $entity ) {
+			return $entity->getProperties();
+		} else {
+			$admin = new Display_Entity();
+			return $admin->getProperties();
+		}
+	}
+
+	public function delete_all() {
+		return $this->repository->delete();
+	}
+
+	public function save( $data ) {
+		$entity = $this->repository->create( $data );
+
+		if ( $entity ) {
+			return true;
+		}
+	}
+
+	public static function instance() {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new self();
+		}
+		return self::$instance;
+	}
 }

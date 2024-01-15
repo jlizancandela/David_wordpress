@@ -1,29 +1,26 @@
 <?php
 namespace ULTP\blocks;
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
-class News_Ticker{
+class News_Ticker {
+    
     public function __construct() {
-        add_action('init', array($this, 'register'));
+        add_action( 'init', array( $this, 'register' ) );
     }
+
     public function get_attributes() {
         return array(
             'blockId' => '',
             'previewImg' => '',
-            
-            //--------------------------
-            //      Label Style
-            //--------------------------
+            // Label Style
             'tickLabelColor' => '#fff',
             'tickLabelBg' => '#1974d2',
             'tickLabelTypo' => (object)['openTypography'=>1,'size'=>(object)['lg'=>'16', 'unit'=>'px'], 'spacing'=>(object)[ 'lg'=>'0', 'unit'=>'px'], 'height'=>(object)[ 'lg'=>'27', 'unit'=>'px'],'decoration'=>'none','transform' => '','family'=>'','weight'=>'500'],
             'tickLabelPadding' => '15',
             'tickLabelSpace' => (object)['lg'=>'160'],
             'tickShapeStyle' => 'normal',
-            //--------------------------
-            //      Ticker body  Style
-            //--------------------------
+            // Ticker body  Style
             'tickerContentHeight' => '45',
             'tickBodyColor' => '#444',
             'tickBodyHovColor' => '#7d7d7d',
@@ -38,18 +35,14 @@ class News_Ticker{
             'tickImgSpace' => '10',
             'tickImgRadius' => (object)['lg' =>(object)['top' => "30",'bottom' => "30",'left' => "30",'right' => "30", 'unit' =>'px']],
             'tickBodySpace' => (object)['lg'=>'21'],
-            //--------------------------
-            //      body time badge style
-            //--------------------------
+            // Body Time Badge Style
             'tickTimeBadge' => 'Time Badge',
             'timeBadgeColor' => '#fff',
             'timeBadgeBg' => (object)['openColor' => 1, 'type' => 'color', 'color' => '#444'],
             'timeBadgeTypo' => (object)['openTypography'=>1,'size'=>(object)['lg'=>'12', 'unit'=>'px'], 'spacing'=>(object)[ 'lg'=>'0', 'unit'=>'px'], 'height'=>(object)[ 'lg'=>'16', 'unit'=>'px'],'decoration'=>'none','transform' => '','family'=>'','weight'=>'500'],
             'timeBadgeRadius' => (object)['lg' =>(object)['top' => "100",'bottom' => "100",'left' => "100",'right' => "100", 'unit' =>'px']],
             'timeBadgePadding' => (object)['lg'=>(object)['top'=>3,'bottom'=>3, 'left'=>6, 'right'=>6, 'unit'=>'px']],
-            //--------------------------
-            //      Icon Navigator 
-            //--------------------------
+            // Icon Navigator
             'TickNavStyle' => 'nav1',
             'TickNavIconStyle' => 'Angle2',
             'TickNavColor' => '#fff',
@@ -61,11 +54,8 @@ class News_Ticker{
             'PauseColor' => '#fff',
             'PauseHovColor' => '#d0d0d0f4',
             'PauseBg' => (object)['openColor' => 1, 'type' => 'color', 'color' => '#2163ff'],
-            
             'PauseHovBg' => (object)['openColor' => 1, 'type' => 'color', 'color' => '#53a0ff'],
-            //--------------------------
-            //      Query Setting
-            //--------------------------
+            // Query Setting
             'queryQuick' => '',
             'queryNumPosts' => (object)['lg'=> 4],
             'queryNumber' => [ // for compatibility since v.2.5.4
@@ -79,11 +69,6 @@ class News_Ticker{
             'queryOrderBy' => 'date',
             'metaKey' => 'custom_meta_key',
             'queryOrder' => 'desc',
-            // Include Remove from Version 2.5.4
-            // 'queryInclude' => [
-            //     'type' => 'string',
-            //     'default' => '',
-            // ],
             'queryExclude' => '',
             'queryAuthor' => '[]',
             'queryOffset' => '0',
@@ -93,9 +78,7 @@ class News_Ticker{
             'queryUnique' => '',
             'queryPosts' => '[]',
             'queryCustomPosts' => '[]',
-            //--------------------------
-            //      General Setting
-            //--------------------------
+            // General Setting
             'tickerType' => 'vertical',
             'tickerPositionEna' => false,
             'tickerPosition' => 'up',
@@ -113,15 +96,9 @@ class News_Ticker{
             'tickerAnimation' => 'slide',
             'typeAnimation' => 'fadein',
             'openInTab' => false,
-
-            //--------------------------
-            //      Heading Setting/Style
-            //--------------------------
+            // Heading Setting/Style
             'headingText' => 'News Ticker',
-
-            //--------------------------
-            //  Advanced
-            //--------------------------
+            // Advanced
             'advanceId' => '',
             'advanceZindex' => '',
             'wrapMargin' => (object)['lg' =>(object)['top' => '','bottom' => '', 'unit' =>'px']],
@@ -146,16 +123,16 @@ class News_Ticker{
             array(
                 'editor_script' => 'ultp-blocks-editor-script',
                 'editor_style'  => 'ultp-blocks-editor-css',
-                'render_callback' => array($this, 'content')
+                'render_callback' => array( $this, 'content' )
             )
         );
     }
 
-    public function content($attr, $noAjax) {
-        $attr = wp_parse_args($attr, $this->get_attributes());
+    public function content( $attr, $noAjax ) {
+        $attr = wp_parse_args( $attr, $this->get_attributes() );
         global $unique_ID;
 
-        if (!$noAjax) {
+        if ( ! $noAjax ) {
             $paged = is_front_page() ? get_query_var('page') : get_query_var('paged');
             $attr['paged'] = $paged ? $paged : 1;
         }
@@ -166,21 +143,22 @@ class News_Ticker{
 
         $attr['queryNumber'] = ultimate_post()->get_post_number(4, $attr['queryNumber'], $attr['queryNumPosts']);
         $recent_posts = new \WP_Query( ultimate_post()->get_query( $attr ) );
-        $arrowLeft = "";
-        $arrowRight = "";
-        if ($attr['TickNavIconStyle'] != "icon2") {
+        
+        $arrowLeft = '';
+        $arrowRight = '';
+        if ( $attr['TickNavIconStyle'] != "icon2" ) {
             $arrowLeft .=  ultimate_post()->svg_icon('left'.$attr['TickNavIconStyle']);
             $arrowRight .= ultimate_post()->svg_icon('right'.$attr['TickNavIconStyle']);
         }
 
 
-        if ($recent_posts->have_posts()) {
+        if ( $recent_posts->have_posts() ) {
             $wraper_before .= '<div '.($attr['advanceId']?'id="'.$attr['advanceId'].'" ':'').' class="wp-block-ultimate-post-'.$block_name.' ultp-block-'.$attr["blockId"].''.(isset($attr["className"])?' '.$attr["className"]:'').'">';
-            $wraper_before .= '<div class="ultp-block-wrapper ultp-news-sticky">';
+                $wraper_before .= '<div class="ultp-block-wrapper ultp-news-sticky">';
                     $wraper_before .= '<div class="ultp-block-items-wrap">';
 
                         $post_loop .= '<div class="ultp-news-ticker-'.$attr['TickNavStyle'].' ultp-nav-'.$attr['TickNavIconStyle'].'  ultp-newsTicker-wrap ultp-newstick-'.$attr['tickerType'].' ">';
-                            if ($attr['tickerHeading'] && $attr['headingText']) {
+                            if ( $attr['tickerHeading'] && $attr['headingText'] ) {
                                 $post_loop .= '<div class="ultp-news-ticker-label">'.$attr['headingText'].'</div>';
                             }
 
@@ -191,17 +169,17 @@ class News_Ticker{
                                     $post_id        = get_the_ID();
                                     $title          = get_the_title( $post_id );
                                     $titlelink      = get_permalink( $post_id );
-                                    if ($attr['queryUnique']) {
+                                    if ( $attr['queryUnique'] ) {
                                         $unique_ID[$attr['queryUnique']][] = $post_id;
                                     }
                                     $typeStyle = $style = '';
-                                    if ($attr['tickerType'] != 'marquee' && $attr['tickerType'] != 'typewriter' && $attr['tickerAnimation'] == "fadeout") {
+                                    if ( $attr['tickerType'] != 'marquee' && $attr['tickerType'] != 'typewriter' && $attr['tickerAnimation'] == "fadeout" ) {
                                         $style .= 'animation-delay:'.($speed - 1000).'ms';
                                     }
-                                    if ($attr['tickerType'] == 'typewriter' && $attr['typeAnimation'] == "fadeout") {
+                                    if ( $attr['tickerType'] == 'typewriter' && $attr['typeAnimation'] == "fadeout" ) {
                                         $style .= 'animation-delay:'.($speed - 1000).'ms';
                                     }
-                                    if ($attr['tickerType'] == 'typewriter') {
+                                    if ( $attr['tickerType'] == 'typewriter' ) {
                                         $typeStyle .= ' animation-duration:'.($speed - 1000).'ms';
                                     }
                                     $post_loop .= '<li style='.$style.'>';
@@ -221,7 +199,7 @@ class News_Ticker{
                                 $post_loop .= '</ul>';
                             $post_loop .= '</div>';
 
-                            if ($attr['navControlToggle'] &&  $attr['TickNavStyle']  ) {
+                            if ( $attr['navControlToggle'] &&  $attr['TickNavStyle'] ) {
                                 $post_loop .= '<div class="ultp-news-ticker-controls ultp-news-ticker-vertical-controls">';
                                         $post_loop .= '<button aria-label="'.__("Show Previous Post", "ultimate-post").'" class="ultp-news-ticker-arrow ultp-news-ticker-prev prev">'.$arrowLeft.'</button>';
                                         if ($attr['controlToggle'] && ( $attr['TickNavStyle']  == "nav1" ||  $attr['TickNavStyle']  == "nav3" ||  $attr['TickNavStyle']  == "nav4" )) {

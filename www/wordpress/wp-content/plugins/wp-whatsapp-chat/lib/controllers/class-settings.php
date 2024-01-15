@@ -2,6 +2,8 @@
 
 namespace QuadLayers\QLWAPP\Controllers;
 
+use QuadLayers\QLWAPP\Models\Settings as Settings_Model;
+
 class Settings extends Base {
 
 	protected static $instance;
@@ -18,7 +20,7 @@ class Settings extends Base {
 	public function add_panel() {
 		global $submenu;
 
-		$settings_model = new \QuadLayers\QLWAPP\Models\Settings();
+		$settings_model = Settings_Model::instance();
 		$settings       = $settings_model->get();
 
 		include QLWAPP_PLUGIN_DIR . '/lib/view/backend/pages/parts/header.php';
@@ -26,7 +28,7 @@ class Settings extends Base {
 	}
 
 	public function ajax_qlwapp_save_settings() {
-		$settings_model = new \QuadLayers\QLWAPP\Models\Settings();
+		$settings_model = Settings_Model::instance();
 		if ( current_user_can( 'manage_options' ) ) {
 			if ( check_ajax_referer( 'qlwapp_save_settings', 'nonce', false ) && isset( $_REQUEST['form_data'] ) ) {
 				$form_data = array();
