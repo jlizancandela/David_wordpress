@@ -1,0 +1,28 @@
+
+#!/bin/bash
+
+case "$1" in
+  "install")
+    sudo chmod -R 777 www
+    docker compose up -d
+    ;;
+  "start")
+    sudo chmod -R 777 www
+    docker compose start
+    ;;
+  "basedump")
+    now=$(date +"%m_%d_%Y_%S")
+    docker exec docker-lamp-db-1 /usr/bin/mysqldump -u root --password=test wordpress > "copia_$now.sql"
+    ;;
+  "stop")
+    now=$(date +"%m_%d_%Y_%S")
+    docker exec docker-lamp-db-1 /usr/bin/mysqldump -u root --password=test wordpress > "copia_$now.sql"
+    docker compose stop
+    ;;
+  "remove")
+    docker compose down
+    ;;
+  *)
+    echo "Opción no válida"
+    ;;
+esac
