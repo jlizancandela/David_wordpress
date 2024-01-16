@@ -640,7 +640,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
             /**
-             * ht_ctc_sidebar_contat - not added, as it may cause view distraction..
+             * ht_ctc_sidebar_contat, .. - not added, as it may cause view distraction..
              */
             var collapsible_list = [
                 'ht_ctc_s1',

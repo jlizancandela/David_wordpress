@@ -96,7 +96,7 @@
 .options .submit {
     position: sticky !important;
     bottom: 1px;
-    float: right;
+    /* float: right; */
     z-index: 9;
 }
 

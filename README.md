@@ -1,31 +1,40 @@
-Watch the video 👇
+### Descripción del Proyecto
 
-[![Watch the video](https://img.youtube.com/vi/v-r_12oezds/maxresdefault.jpg)](https://youtu.be/v-r_12oezds)
+Bienvenido al repositorio de mi proyecto, una página web dedicada a un podólogo, desarrollada con WordPress y desplegada en un entorno de servidor gestionado mediante Docker Compose.
 
-# docker-lamp
+### Tecnologías Utilizadas
 
-Docker with Apache, MySQL 8.0, PHPMyAdmin and PHP.
+- **WordPress**: Plataforma de gestión de contenido (CMS) flexible y fácil de usar.
+- **Docker Compose**: Herramienta para definir y gestionar aplicaciones Docker multi-contenedor.
 
-I use docker-compose as an orchestrator. To run these containers:
+### Configuración del Servidor
 
-```
-docker-compose up -d
-```
+El servidor de esta aplicación está configurado utilizando el proyecto de Docker Compose proporcionado por [jersonmartinez/docker-lamp](https://github.com/jersonmartinez/docker-lamp). Este proyecto facilita la creación y gestión de un entorno LAMP (Linux, Apache, MySQL, PHP) mediante contenedores Docker.
 
-Open phpmyadmin at [http://127.0.0.1:8000](http://127.0.0.1:8000)
-Open web browser to look at a simple php example at [http://127.0.0.1:80](http://127.0.0.1:80)
+### Instrucciones de Uso
 
-Clone YourProject on `www/` and then, open web [http://127.0.0.1/YourProject](http://127.0.0.1/YourProject)
+1. Clona este repositorio a tu máquina local.
+   ```bash
+   git clone https://github.com/jlizancandela/David_wordpress.git
+   ```
 
-Run MySQL client:
+2. Accede al directorio del proyecto.
+   ```bash
+   cd David_wordpress
+   ```
 
-- `docker-compose exec db mysql -u root -p` 
+3. Inicia los contenedores con Docker Compose.
+   ```bash
+   docker-compose up -d
+   ```
+4. Carga la copia de seguridad de la base datos "wordpress (1).sql.gz" en phpmyadmin puerto (8000).
 
-Infrastructure as code!
+5. Visita tu aplicación en el navegador a través de la dirección local.
 
-You can read this a Spanish article in Crashell platform: [Apache, PHP, MySQL y PHPMyAdmin con Docker LAMP](https://www.crashell.com/estudio/apache_php_mysql_y_phpmyadmin_con_docker_lamp).
+### Agradecimientos
 
+Quisiera expresar mi agradecimiento a [jersonmartinez](https://github.com/jersonmartinez) por proporcionar la configuración de Docker Compose que ha facilitado la implementación y gestión del servidor para este proyecto.
 
-### Infrastructure model
+¡Espero que encuentres útil y fácil de utilizar esta aplicación! Si tienes alguna pregunta o sugerencia, no dudes en abrir un problema o contribuir al proyecto.
 
-![Infrastructure model](.infragenie/infrastructure_model.png)
+¡Gracias por tu interés en este proyecto!

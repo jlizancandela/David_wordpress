@@ -14,14 +14,13 @@
         // is_mobile yes/no,  desktop > 1024 
         var is_mobile = (typeof screen.width !== "undefined" && screen.width > 1024) ? "no" : "yes";
 
+        var demo_var = (window.ht_ctc_admin_demo_var) ? window.ht_ctc_admin_demo_var : {};
+        console.log(demo_var);
 
         function display_styles() {
 
             // var style = $('.chat_select_style').val();
             // $('.ctc_demo_style_' + style + '').show();
-
-            var demo_var = (window.ht_ctc_admin_demo_var) ? window.ht_ctc_admin_demo_var : {};
-            console.log(demo_var);
 
             /**
              * pages: ..all ctc page..
@@ -45,13 +44,9 @@
                     var site = (demo_var.site) ? demo_var.site : '';
                     console.log(pre_filled);
                     pre_filled = pre_filled.replaceAll('%', '%25');
-                    console.log(pre_filled);
                     pre_filled = pre_filled.replaceAll('{site}', site);
-                    console.log(pre_filled);
                     pre_filled = pre_filled.replaceAll('{url}', url);
-                    console.log(pre_filled);
                     pre_filled = pre_filled.replaceAll('{title}', post_title);
-                    console.log(pre_filled);
                     pre_filled = pre_filled.replace(/\[url]/gi, url);
                     console.log(pre_filled);
                     // pre_filled = encodeURIComponent(pre_filled);
@@ -113,10 +108,12 @@
                     // no demo: if number is empty
                     console.log(demo_var.m1);
                     ctc_demo_messages(demo_var.m1);
+                    // default_position();
                 } else if ('_self' == url_target) {
                     // no demo: if url target is _self
                     console.log(demo_var.m2);
                     ctc_demo_messages(demo_var.m2);
+                    // default_position();
                 } else {
                     window.open(base_url, url_target, specs);
                 }
@@ -144,7 +141,7 @@
                             'text-decoration': 'underline',
                             'font-weight': 'bold',
                         });
-                    }, 5000);
+                    }, 4000);
                 });
 
                 // on change, input (some filed to update on change only and some on input, ..)
@@ -200,10 +197,19 @@
                             collapse = 'close';
                         } catch (e) { }
                     }
+
+                    // on click .ht-ctc-admin-sidebar .collapsible - hide demo.
+                    $('.ht-ctc-admin-sidebar .collapsible').on('click', function () {
+                        console.log('collapsible clicked');
+                        $('.ctc_demo_style').hide();
+                        hide_bottom_right_descriptions();
+                        collapse = 'open';
+                    });
+                    
                     
                     // description at bottom right.
                     hide_bottom_right_descriptions();
-                    $('.ctc_menu_at_demo').show();
+                    $('.ctc_ad_links').show();
                 }
 
                 // position on chanage .ctc_demo_position
@@ -214,6 +220,17 @@
                     position_update();
                 });
                 
+                // try catch..
+                // $(.ht-ctc-admin-sidebar .collapsible).collapsible({
+                //     onOpenEnd() {
+                //         console.log(e + ' open');
+                //         ctc_setItem('col_' + e, 'open');
+                //     },
+                //     onCloseEnd() {
+                //         console.log(e + ' close');
+                //         ctc_setItem('col_' + e, 'close');
+                //     }
+                // });
 
                 /**
                  * position update. on change.
@@ -270,8 +287,15 @@
                     main_page_update();
                     hide_bottom_right_descriptions();
 
+                    // when position is updated. remove menu links at demo. (to not over write the position))  
+                    $('.ctc_menu_at_demo .ctc_ad_links').remove();
+
+
                 }
 
+                /**
+                 * call to action position..
+                 */
                 function update_call_to_action_order() {
                     console.log('update_call_to_action_order()');
 
@@ -306,12 +330,8 @@
                         // remove class name left and add right
                         $('.ctc_s_5 .s5_content ').removeClass('left').addClass('right');
 
-                        $('.ctc_s_7_1 .ctc_cta').css({ 'order': '0', 'padding-left': '21px', 'padding-right': '0px' });
-
+                        $('.ctc_s_7_1 .ctc_cta').css({ 'order':'0', 'padding-left': '21px', 'padding-right': '0px' });
                     }
-                    
-
-
 
                 }
 
@@ -320,7 +340,7 @@
 
 
             /**
-             * page: other settings page
+             * page: other settings
              *  animations
              *  notification badge
              */
@@ -439,8 +459,13 @@
                 $('.notification_badge').on("change", function (e) {
                     n_b();
                     n_b_position();
+                    n_b_border();
                 });
 
+                $('.notification_border_color_field .wp-picker-container').on("click", function (e) {
+                    console.log('notification_border_color_field');
+                    n_b_border();
+                });
 
                 function n_b() {
                     console.log('on change n_b');
@@ -456,20 +481,21 @@
                         var text_color = $('.field_notification_text_color').val();
                         // console.log(text_color);
                         $('.ctc_ad_badge').css('color', text_color);
-
-                        var border_color = $('.field_notification_border_color').val();
-                        // console.log(border_color);
-                        if ('' !== border_color) {
-                            border = '2px solid ' + border_color;
-                        } else {
-                            border = 'none';
-                        }
-                        $('.ctc_ad_badge').css('border', border);
-
                     } else {
                         is_nb = 'no';
                         $('.ctc_ad_notification').hide();
                     }
+                }
+
+                function n_b_border() {
+                    var border_color = $('.field_notification_border_color').val();
+                    // console.log(border_color);
+                    if ('' !== border_color) {
+                        border = '2px solid ' + border_color;
+                    } else {
+                        border = 'none';
+                    }
+                    $('.ctc_ad_badge').css('border', border);
                 }
 
                 // notification badge position specific to each style
@@ -779,6 +805,7 @@
                 // ctc_no_demo_notice
                 $('.ctc_no_demo_notice').hide().fadeIn(500);
 
+                // auto hide after 5 sec
                 no_demo_timeoutId = setTimeout(() => {
                     $('.ctc_no_demo_notice').hide(120);
                 }, 5000);
@@ -798,7 +825,7 @@
 
                 clearTimeout(demo_notice_timeoutId);
 
-                $('.ctc_menu_at_demo').hide();
+                $('.ctc_ad_links').hide();
                 $('.ctc_demo_messages').html(m);
 
                 // ctc_demo_messages
@@ -806,7 +833,7 @@
 
                 demo_notice_timeoutId = setTimeout(() => {
                     $('.ctc_demo_messages').hide(120);
-                        $('.ctc_menu_at_demo').show(120);
+                        $('.ctc_ad_links').show(120);
                 }, 9000);
             }
 
@@ -816,9 +843,20 @@
              */
             function hide_bottom_right_descriptions() {
                 $('.ctc_demo_messages').hide();
-                $('.ctc_menu_at_demo').hide();
+                $('.ctc_ad_links').hide();
                 $('.ctc_no_demo_notice').hide();
             }
+
+            // function default_position() {
+            //     console.log('default_position');
+            //     // default position
+            //     $('.ctc_demo_load').css({
+            //         "top": "unset",
+            //         "left": "unset",
+            //         "bottom": "50px",
+            //         "right": "50px"
+            //     });
+            // }
 
 
             // cta hover effects (todo:l only that style..)

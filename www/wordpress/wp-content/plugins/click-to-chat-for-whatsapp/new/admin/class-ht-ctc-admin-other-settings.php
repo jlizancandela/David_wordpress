@@ -956,11 +956,12 @@ class HT_CTC_Admin_Other_Settings {
         </div>
 
         <!-- notification_border_color -->
+        <!-- todo:l better to add border color by default.. (if enabled dispay with border color) -->
         <div class="row notification_settings notification_border_color">
             <div class="col s6">
                 <p><?php _e( 'Add border Color', 'click-to-chat-for-whatsapp' ); ?></p>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s6 notification_border_color_field">
                 <input class="ht-ctc-color field_notification_border_color" name="<?= $dbrow; ?>[notification_border_color]" value="<?= $notification_border_color ?>" type="text" data-update-type='border-color' data-update-selector='.ctc_ad_badge'>
             </div>
         </div>

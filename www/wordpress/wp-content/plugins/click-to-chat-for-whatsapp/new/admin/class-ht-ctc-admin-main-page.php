@@ -102,48 +102,7 @@ class HT_CTC_Admin_Main_Page {
     public function chat_settings_section_cb() {
         ?>
         <h1 id="chat_settings">Click to Chat - Chat Settings </h1>
-
-        <?php
-        $is_live_preview = 'no';
-        $is_live_preview = apply_filters( 'ht_ctc_fh_is_live_preview', $is_live_preview );
-
-        $customize_styles_url = admin_url( 'admin.php?page=click-to-chat-customize-styles' );
-        $other_settings_url = admin_url( 'admin.php?page=click-to-chat-other-settings' );
-
-
-        if ( $is_live_preview == 'yes' ) {
-            ?>
-            
-            <details style="">
-                <summary class="description" style="cursor:pointer;">Admin Live preview: <strong>Active</strong></summary>
-                <p class="description" style="margin:12px;">
-                    <span class="description">Admin live preview on change: <a href="#row_number">Number</a>, <a href="#row_call_to_action">Call to Action</a>, <a href="#row_styles">Styles</a>, <a target="_blank" href="<?= $customize_styles_url ?>">Customize styles</a>, <a target="_blank" href="<?= $other_settings_url ?>#ht_ctc_animations">Animations</a>, <a target="_blank" href="<?= $other_settings_url ?>#ht_ctc_notification">Notification badge</a></span> - <a target="_blank" href="https://holithemes.com/plugins/click-to-chat/admin-live-preview/" style="text-decoration:underline;">more info</a>
-                </p>
-                <p class="description" style="margin: 0px 12px;">
-                    <a href="<?= admin_url( 'admin.php?page=click-to-chat' ); ?>&demo=deactive" class="btn btn-small">Deactivate</a>
-                </p>
-            </details>
-            <?php
-        } else if ( $is_live_preview == 'no' ) {
-            ?>
-
-            <details style="">
-                <summary class="description" style="cursor:pointer;">Admin Live preview</summary>
-                <p class="description" style="margin:12px;">
-                    Activate to live preview the changes in the admin panel. <br>
-                    <span class="description">(Call to Action, Styles, Customize styles, Animations, Notification badge)</span> - <a target="_blank" href="https://holithemes.com/plugins/click-to-chat/admin-live-preview/">more info</a>
-                </p>
-                <p class="description" style="margin: 0px 12px;">
-                    <a href="<?= admin_url( 'admin.php?page=click-to-chat' ); ?>&demo=active" class="btn btn-small">Activate Live Preview</a>
-                </p>
-            </details>
-
-
-            <?php
-        }
-
-
-        ?>
+        
         <?php
         do_action('ht_ctc_ah_admin' );
     }
@@ -495,15 +454,6 @@ class HT_CTC_Admin_Main_Page {
             $woo_link = admin_url( 'admin.php?page=click-to-chat-woocommerce' );
         } else {
             $woo_text = "(Only if WooCommerce plugin is Active)";
-        }
-
-        $is_live_preview = 'no';
-        $is_live_preview = apply_filters( 'ht_ctc_fh_is_live_preview', $is_live_preview );
-
-        if ('yes' == $is_live_preview) {
-            ?>
-            <input type="hidden" name="ht_ctc_chat_options[admin_demo]" value="1">
-            <?php
         }
 
         ?>

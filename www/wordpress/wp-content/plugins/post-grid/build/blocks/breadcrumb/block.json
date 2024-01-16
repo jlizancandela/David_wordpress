@@ -146,7 +146,7 @@
           "showLabel": true,
           "showSeparator": true,
           "showIcon": false,
-          "iconPositon": "beforeLabel"
+          "iconPosition": "beforeLabel"
         },
         "styles": {
           "color": {
@@ -216,6 +216,18 @@
             "styles": {}
           }
         ]
+      }
+    },
+    "utmTracking": {
+      "type": "object",
+      "default": {
+        "enable": false,
+        "id": "",
+        "source": "",
+        "medium": "",
+        "campaign": "",
+        "term": "",
+        "content": ""
       }
     },
     "schema": {

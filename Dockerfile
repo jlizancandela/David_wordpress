@@ -4,6 +4,12 @@ RUN docker-php-ext-install mysqli
 # Include alternative DB driver
 # RUN docker-php-ext-install pdo
 # RUN docker-php-ext-install pdo_mysql
+
+RUN apt-get update && apt-get install -y \
+    libmagickwand-dev --no-install-recommends \
+    && pecl install imagick \
+    && docker-php-ext-enable imagick
+
 RUN apt-get update \
     && apt-get install -y sendmail libpng-dev \
     && apt-get install -y libzip-dev \

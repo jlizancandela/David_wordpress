@@ -440,7 +440,7 @@ class HT_CTC_Admin_Greetings {
                         <div class="sidebar-content">
                             <div class="col s12 m8 l12 xl12">
                                 <div class="row">
-                                    <ul class="collapsible popout ht_ctc_sidebar_contat">
+                                    <ul class="collapsible popout ht_ctc_sidebar_greetings">
                                         <li class="active">
                                             <div class="collapsible-header"><?php _e( 'PRO', 'click-to-chat-for-whatsapp' ); ?></div>	
                                             <div class="collapsible-body">

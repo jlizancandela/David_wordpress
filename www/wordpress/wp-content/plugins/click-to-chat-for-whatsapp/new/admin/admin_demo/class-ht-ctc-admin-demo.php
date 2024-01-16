@@ -11,6 +11,30 @@
  *  - s1. front end looks like theme button
  *  - for some styles the default view may need to change. like hover effects, .. 
  * 
+ * class names added to settings pages for demo purpose:
+ * .ctc_no_demo - to display no demo notification
+ * .ctc_demo_style
+ * .ctc_ad_main_page_on_change_style
+ * .ctc_ad_main_page_on_change_input
+ * .ctc_ad_main_page_on_change_input_update_var
+ * .ctc_demo_position - positions: bottom_top, right_left, side_1_value, side_2_value
+ * .ctc_an_demo_btn
+ * .ctc_ee_demo_btn
+ * .ctc_demo_style
+ * .ctc_oninput
+ *      attributes - data-update-type
+ *                 - data-update-type-2
+ *                 - data-update-selector
+ * 
+ * 
+ * class names at demo:
+ * ctc_demo_style ctc_demo_style_${style}
+ * ctc_demo_load
+ * 
+ * 
+ * direct class names used for demo:
+ * .ht-ctc-admin-sidebar .collapsible
+ * 
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
@@ -20,22 +44,13 @@ class HT_CTC_Admin_Demo {
 
     // _get
     public $get_page = '';
-    public $load_demo = 'no';
+
+    // by default load demo
+    public $load_demo = 'yes';
 
     public function __construct() {
         $this->hooks();
     }
-
-    // is_live_preview. callback function for filter hook: ht_ctc_fh_is_live_preview
-    public function is_live_preview() {
-
-        if ( isset($this->load_demo) && 'yes' == $this->load_demo ) {
-            return 'yes';
-        }
-
-        return 'no';
-    }
-
 
     public function hooks() {
 
@@ -45,122 +60,121 @@ class HT_CTC_Admin_Demo {
             return;
         }
 
-
-
         /**
-         * admin demo: active, activating, deactivating 
-         * 
          * check if admin demo is active
          * retun if not active
          * 
-         * As the new feature, admin demo can active from user side.
+         * to deactivate from user side:
+         *  -> if _GET have &demo=deactive
+         *  set ht_ctc_admin_demo_active to yes
          * 
-         * active from user side?
+         * to active from user side:
          *  -> if _GET have &demo=active 
-         *      then activate demo only for that page load and adds input filed - ht_ctc_chat_options[admin_demo]
-         *      and is user saved settings. then later no need to add &demo=active
-         * or
-         *  -> ht_ctc_chat_options[admin_demo] is set AND ht_ctc_admin_demo_active is set to yes
-         * 
-         * Disable admin demo?
-         *  if _GET have &demo=deactive
-         *      it will set to ht_ctc_admin_demo_active to no
-         *      and if user save change then ht_ctc_chat_options[admin_demo] will be removed.
+         *  set ht_ctc_admin_demo_active to no
          */
         if ( 'click-to-chat' == $this->get_page  || 'click-to-chat-other-settings' == $this->get_page || 'click-to-chat-customize-styles' == $this->get_page) {
             
             // check if admin demo is active.. (added inside to run only in ctc admin pages..)
-            $demo_active = get_option( 'ht_ctc_admin_demo_active', 'no' );
-
-            if ( 'yes' == $demo_active ) {
-                $options = get_option('ht_ctc_chat_options');
-                if (is_array($options)  && isset($options['admin_demo'])) {
-                    $this->load_demo = 'yes';
-                }
-            }
+            $demo_active = get_option( 'ht_ctc_admin_demo_active');
 
             // check if demo is activating or deactivating..
             if ( isset($_GET['demo']) && 'active' == $_GET['demo'] ) {
-
-                /** 
-                 * set to load admin demo for this page. as 'active' == $_GET['demo']
-                 * 
-                 * now if user save settings, then next time load with out _GET demo. 
-                 * i.e. if there is no issue and user saved settings, then ht_ctc_chat_options[admin_demo] will save to db.
-                 */
-
+                $this->load_demo = 'yes';
                 // add option to db
                 update_option( 'ht_ctc_admin_demo_active', 'yes' );
-                $this->load_demo = 'yes';
             } else if ( isset($_GET['demo']) && 'deactive' == $_GET['demo'] ) {
                 $this->load_demo = 'no';
                 // add option to db
                 update_option( 'ht_ctc_admin_demo_active', 'no' );
+            } else {
+                // not activating or deactivating.. check if admin demo already deactived...
+                if ( 'no' == $demo_active ) {
+                    $this->load_demo = 'no';
+                }
             }
 
-            // filter hook.
-            if ( method_exists($this, 'is_live_preview') ) {
-                add_filter( 'ht_ctc_fh_is_live_preview', [$this, 'is_live_preview'] );
-            }
-            
-            
         }
+
 
         // return if load_demo is no
         if ( 'no' == $this->load_demo ) {
             return;
         }
 
-
-
-
-
-
         // below this only run if admin demo is active.. (i.e. user activated demo from user side and only in click to chat admin pages..)
 
 
         if ( 'click-to-chat' == $this->get_page || 'click-to-chat-other-settings' == $this->get_page || 'click-to-chat-customize-styles' == $this->get_page ) {
-            // load styles
+            
+            // load styles (widgets)
             add_action('admin_footer', [$this, 'load_styles']);
-
+            
             // enqueue scripts
             add_action('admin_enqueue_scripts', [$this, 'enqueue_scripts']);
+            
+            // enqueue styles at bottom of the page
+            add_action('admin_footer', [$this, 'load_css_bottom']);
 
-            // other settings page
-            if ( 'click-to-chat-other-settings' == $this->get_page ) {
-                // load animations
-                add_action('admin_footer', [$this, 'load_animations']);
-            }
+            // // other settings page
+            // if ( 'click-to-chat-other-settings' == $this->get_page ) {
+            // }
 
-            // customize styles page
-            if ( 'click-to-chat-customize-styles' == $this->get_page ) {
-                
-            }
+            // // customize styles page
+            // if ( 'click-to-chat-customize-styles' == $this->get_page ) {
+            // }
 
-            add_action('admin_footer', [$this, 'demo_messages']);
-
-            // no live demo note
-            add_action('admin_footer', [$this, 'no_live_demo']);
         }
 
     }
 
+    // enqueue scripts
     public function enqueue_scripts() {
 
         $os = get_option('ht_ctc_othersettings');
 
         $js = 'admin-demo.js';
-        $css = 'admin-demo.css';
+        
         
         if ( isset($os['debug_mode']) || (isset($_GET) && isset($_GET['debug'])) ) {
             $js = 'dev/admin-demo.dev.js';
-            $css = 'dev/admin-demo.dev.css';
+        }
+        
+        global $wp_version;
+
+        $args = true;
+
+        // if wp version is not null and is greater than 6.3
+        if ( !$wp_version && version_compare( $wp_version, '6.3', '>=' ) ) {
+            $args = array(
+                'in_footer' => true,
+                'strategy' => 'defer',
+            );
         }
 
-        wp_enqueue_style( 'ht-ctc-admin-demo-css', plugins_url( "new/admin/admin_demo/$css", HT_CTC_PLUGIN_FILE ), '', HT_CTC_VERSION );
-        wp_enqueue_script( 'ht-ctc-admin-demo-js', plugins_url( "new/admin/admin_demo/$js", HT_CTC_PLUGIN_FILE ), ['jquery'], HT_CTC_VERSION, true );
+        wp_enqueue_script( 'ht-ctc-admin-demo-js', plugins_url( "new/admin/admin_demo/$js", HT_CTC_PLUGIN_FILE ), ['jquery'], HT_CTC_VERSION, $args );
         
         $this->admin_demo_var();
+    }
+    
+    // enqueue styles at bottom of the page
+    function load_css_bottom() {
+
+        $os = get_option('ht_ctc_othersettings');
+
+        $css = 'admin-demo.css';
+        $animation_css = 'admin-demo-animations.css';
+
+        if ( isset($os['debug_mode']) || (isset($_GET) && isset($_GET['debug'])) ) {
+            $css = 'dev/admin-demo.dev.css';
+            $animation_css = 'dev/admin-demo-animations.dev.css';
+        }
+        
+        wp_enqueue_style( 'ht-ctc-admin-demo-css', plugins_url( "new/admin/admin_demo/$css", HT_CTC_PLUGIN_FILE ), '', HT_CTC_VERSION );
+
+        // other settings page
+        if ( 'click-to-chat-other-settings' == $this->get_page ) {
+            wp_enqueue_style( 'ht-ctc-admin-demo-animations-css', plugins_url( "new/admin/admin_demo/$animation_css", HT_CTC_PLUGIN_FILE ), '', HT_CTC_VERSION );
+        }
     }
 
     function admin_demo_var() {
@@ -203,6 +217,9 @@ class HT_CTC_Admin_Demo {
 
     /**
      * load styles..
+     * 
+     * main page: load all styles
+     * other settings: load only desktop selected style
      * 
      */
     public function load_styles() {
@@ -269,82 +286,27 @@ class HT_CTC_Admin_Demo {
         ?>
         </div>
 
-        <div class="ctc_menu_at_demo ctc_init_display_none" style="position:fixed; bottom:4px; right:4px; z-index:99999999;">
-            <p class="description ctc_ad_links"><a target="_blank" href="<?= $cs_link ?>" class="ctc_cs_link">Customize Styles</a> | <a target="_blank" href="<?= $os_link ?>">Animations, Notification badge</a></p>
+        <?php
+        /**
+         * ctc_menu_at_demo
+         *  .ctc_ad_links - displays customize styles and other settings links
+         *  .ctc_no_demo_notice - displays no demo notice for some features - e..g. customize styles . s1 add icon, ...
+         *  .ctc_demo_messages - displays demo messages - e.g. for no demo for click, same tab., ..
+         */
+        ?>
+        <div class="ctc_menu_at_demo" style="position:fixed; bottom:4px; right:4px; z-index:99999999;">
+            <p class="description ctc_ad_links ctc_init_display_none">
+                <a target="_blank" href="<?= $cs_link ?>" class="ctc_cs_link">Customize Styles</a> | <a target="_blank" href="<?= $os_link ?>">Animations, Notification badge</a>
+            </p>
+            <a href="https://holithemes.com/plugins/click-to-chat/admin-live-preview-messages/#no-live-preview/" target="_blank" class="description ctc_no_demo_notice ctc_init_display_none">No live demo for this feature</a>
+            <!-- todo:l finish how the demo messages will work.. -->
+            <a href="https://holithemes.com/plugins/click-to-chat/admin-live-preview-messages/" target="_blank" class="description ctc_demo_messages ctc_init_display_none"></a>
         </div>
         <?php
 
     }
 
-    public function load_animations() {
 
-        include_once HT_CTC_PLUGIN_DIR .'new/inc/commons/class-ht-ctc-animations.php';
-        $animations = new HT_CTC_Animations();
-
-
-        /**
-         * 'From Corner' - handle from js..
-         * 'From Center' - center
-         */
-        $entry_an_list = [
-            'center',
-            // 'bounceIn',
-            // 'bounceInDown',
-            // 'bounceInUP',
-            // 'bounceInLeft',
-            // 'bounceInRight',
-        ];
-
-        $an_duration = '1s';
-        $an_delay = "0s";
-        $an_itr = '1';
-
-        foreach ($entry_an_list as $entry) {
-            $animations->entry( $entry, $an_duration, $an_delay, $an_itr );
-        }
-
-
-
-        $an_list = [
-            'bounce',
-            'flash',
-            'pulse',
-            'heartBeat',
-            'flip',
-        ];
-
-        $an_duration = '1s';
-        $an_delay = '';
-        $an_delay = '';
-        $an_itr = '1';
-
-        foreach ($an_list as $an_type) {
-            $animations->animations( $an_type, $an_duration, $an_delay, $an_itr );
-        }
-
-
-
-    }
-
-    /**
-     * no live demo notice
-     * 
-     * todo:l at docs add content.. to reset the settings, we can check delete settings and deactivate, uninstall and install, activate again..
-     */
-    public function no_live_demo() {
-        ?>
-        <a href="https://holithemes.com/plugins/click-to-chat/admin-live-preview-messages/#no-live-preview/" target="_blank" class="description ctc_no_demo_notice" style="display:none; position:fixed; bottom:5px; right:5px;z-index:9;">No live demo for this feature</a>
-        <?php
-    }
-
-    // demo_messages
-    // todo:l finish how the demo messages will work..
-    public function demo_messages() {
-        ?>
-        <a href="https://holithemes.com/plugins/click-to-chat/admin-live-preview-messages/" target="_blank" class="description ctc_demo_messages" style="display:none; position:fixed; bottom:5px; right:5px;z-index:9;"></a>
-        <?php
-    }
-    
 
 
 }
