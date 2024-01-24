@@ -63,7 +63,7 @@
 				<th scope="row"><?php esc_html_e( 'Phone', 'wp-whatsapp-chat' ); ?></th>
 				<td>
 				<input type="text" name="phone" placeholder="" value="<?php echo esc_attr( $woocommerce['phone'] ); ?>" class="qlwapp-input <?php echo esc_attr( $woocommerce['box'] == 'yes' ? 'disabled' : '' ); ?>" required="required" />
-				<p class="description"><?php esc_html_e( 'Full phone number in international format. Only nnumbers.', 'wp-whatsapp-chat' ); ?></p>
+				<p class="description"><?php esc_html_e( 'Full phone number in international format. Only numbers.', 'wp-whatsapp-chat' ); ?></p>
 				</td>
 			</tr>
 			<tr>

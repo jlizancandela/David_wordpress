@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Click To Chat App - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-30 17:51:51+0000\n"
+"PO-Revision-Date: 2024-01-19 18:57:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,40 +11,40 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: Plugins - Click To Chat App - Stable (latest release)\n"
 
-#: lib/controllers/class-woocommerce.php:68
+#: lib/controllers/class-woocommerce.php:73
 #: lib/view/backend/pages/button.php:164
 msgid "None"
 msgstr "Ninguno"
 
-#: lib/controllers/class-woocommerce.php:69
+#: lib/controllers/class-woocommerce.php:74
 msgid "Before \"Add To Cart\" form"
 msgstr "Antes del formulario «Añadir al carrito»"
 
-#: lib/controllers/class-woocommerce.php:70
+#: lib/controllers/class-woocommerce.php:75
 msgid "Before \"Add To Cart\" button"
 msgstr "Antes del botón «Añadir al carrito»"
 
-#: lib/controllers/class-woocommerce.php:71
+#: lib/controllers/class-woocommerce.php:76
 msgid "After \"Add To Cart\" button"
 msgstr "Después del botón «Añadir al carrito»"
 
-#: lib/controllers/class-woocommerce.php:72
+#: lib/controllers/class-woocommerce.php:77
 msgid "After \"Add To Cart\" form"
 msgstr "Después del formulario «Añadir al carrito»"
 
-#: lib/controllers/class-woocommerce.php:73
+#: lib/controllers/class-woocommerce.php:78
 msgid "After \"Additional information\""
 msgstr "Después de «Información adicional»"
 
-#: lib/view/backend/pages/woocommerce.php:53
+#: lib/view/backend/pages/woocommerce.php:73
 msgid "Message that will automatically appear in the text field of a chat."
 msgstr "Mensaje que aparecerá automáticamente en el campo de texto de un chat."
 
-#: lib/view/backend/pages/woocommerce.php:106
+#: lib/view/backend/pages/woocommerce.php:19
 msgid "Position Priority"
 msgstr "Prioridad de la posición"
 
-#: lib/view/backend/pages/woocommerce.php:109
+#: lib/view/backend/pages/woocommerce.php:22
 msgid "Position priority"
 msgstr "Prioridad de la posición"
 
@@ -56,7 +56,7 @@ msgid "You can use this vars:"
 msgstr "Puedes usar estas variables:"
 
 #: lib/view/backend/pages/button.php:29
-#: lib/view/backend/pages/woocommerce.php:10
+#: lib/view/backend/pages/woocommerce.php:30
 msgid "Contact box is enabled. Please set the contact phone number in the <a href=\"%s\">contacts tab</a>"
 msgstr "La caja de contacto está activada. Por favor, establece el número de teléfono de contacto en la <a href=\"%s\">pestaña de contactos</a>"
 
@@ -66,13 +66,13 @@ msgid "In pixels"
 msgstr "En píxeles"
 
 #: lib/view/backend/pages/button.php:70
-#: lib/view/backend/pages/woocommerce.php:39
+#: lib/view/backend/pages/woocommerce.php:59
 msgid "Customize your button text."
 msgstr "Personaliza el texto de tu botón."
 
 #: lib/view/backend/pages/button.php:89
-#: lib/view/backend/pages/woocommerce.php:46
-msgid "Full phone number in international format. Only nnumbers."
+#: lib/view/backend/pages/woocommerce.php:66
+msgid "Full phone number in international format. Only numbers."
 msgstr "Número de teléfono completo en formato internacional. Solo números."
 
 #: jetpack_vendor/quadlayers/wp-dashboard-widget-news/src/Load.php:148
@@ -112,12 +112,12 @@ msgstr "Familia de la fuente"
 msgid "Social Chat"
 msgstr "Social Chat"
 
-#: lib/controllers/class-scheme.php:16
+#: lib/controllers/class-scheme.php:18
 msgid "Scheme"
 msgstr "Scheme"
 
-#: lib/models/class-button.php:15 lib/models/class-contact.php:25
-#: lib/models/class-woocommerce.php:15
+#: lib/entities/class-button.php:29 lib/entities/class-contact.php:32
+#: lib/entities/class-woocommerce.php:30
 msgid "Hello! I'm testing the %1$s plugin %2$s"
 msgstr "¡Hola! Estoy probando el plugin %1$s %2$s"
 
@@ -147,49 +147,49 @@ msgstr "En milisegundos"
 
 #: lib/view/backend/pages/button.php:140
 #: lib/view/backend/pages/modals/contact/panel-contact.php:87
-#: lib/view/backend/pages/woocommerce.php:86
+#: lib/view/backend/pages/woocommerce.php:106
 msgid "Saturday"
 msgstr "Sábado"
 
 #: lib/view/backend/pages/button.php:139
 #: lib/view/backend/pages/modals/contact/panel-contact.php:86
-#: lib/view/backend/pages/woocommerce.php:85
+#: lib/view/backend/pages/woocommerce.php:105
 msgid "Friday"
 msgstr "Viernes"
 
 #: lib/view/backend/pages/button.php:138
 #: lib/view/backend/pages/modals/contact/panel-contact.php:85
-#: lib/view/backend/pages/woocommerce.php:84
+#: lib/view/backend/pages/woocommerce.php:104
 msgid "Thursday"
 msgstr "Jueves"
 
 #: lib/view/backend/pages/button.php:137
 #: lib/view/backend/pages/modals/contact/panel-contact.php:84
-#: lib/view/backend/pages/woocommerce.php:83
+#: lib/view/backend/pages/woocommerce.php:103
 msgid "Wednesday"
 msgstr "Miércoles"
 
 #: lib/view/backend/pages/button.php:136
 #: lib/view/backend/pages/modals/contact/panel-contact.php:83
-#: lib/view/backend/pages/woocommerce.php:82
+#: lib/view/backend/pages/woocommerce.php:102
 msgid "Tuesday"
 msgstr "Martes"
 
 #: lib/view/backend/pages/button.php:135
 #: lib/view/backend/pages/modals/contact/panel-contact.php:82
-#: lib/view/backend/pages/woocommerce.php:81
+#: lib/view/backend/pages/woocommerce.php:101
 msgid "Monday"
 msgstr "Lunes"
 
 #: lib/view/backend/pages/button.php:134
 #: lib/view/backend/pages/modals/contact/panel-contact.php:81
-#: lib/view/backend/pages/woocommerce.php:80
+#: lib/view/backend/pages/woocommerce.php:100
 msgid "Sunday"
 msgstr "Domingo"
 
 #: lib/view/backend/pages/button.php:131
 #: lib/view/backend/pages/modals/contact/panel-contact.php:79
-#: lib/view/backend/pages/woocommerce.php:77
+#: lib/view/backend/pages/woocommerce.php:97
 msgid "Available days"
 msgstr "Días disponibles"
 
@@ -207,8 +207,8 @@ msgstr "Mensaje por defecto enviado al número de contacto."
 msgid "Welcome message sent to the user in the chat box."
 msgstr "Mensaje de bienvenida enviado al usuario en la caja de chat."
 
-#: compatibility/old.php:140 lib/controllers/class-contact.php:44
-#: lib/controllers/class-contact.php:59 lib/controllers/class-display.php:52
+#: compatibility/old.php:146 lib/controllers/class-contact.php:46
+#: lib/controllers/class-contact.php:61 lib/controllers/class-display.php:54
 #: lib/view/backend/pages/display.php:40 lib/view/backend/pages/display.php:79
 #: lib/view/backend/pages/display.php:146
 msgid "All"
@@ -240,7 +240,7 @@ msgstr "Contacto"
 msgid "Please, reload page"
 msgstr "Por favor, recarga la página"
 
-#: lib/view/backend/pages/parts/header.php:8
+#: lib/view/backend/pages/parts/header.php:12
 msgid "Purchase"
 msgstr "Comprar"
 
@@ -300,22 +300,22 @@ msgstr "¡Guardado correctamente!"
 msgid "Access denied"
 msgstr "Acceso denegado"
 
-#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:165
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:175
 msgctxt "Plugin Installer"
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:163
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:173
 msgctxt "Plugin Installer"
 msgid "Popular"
 msgstr "Populares"
 
-#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:162
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:172
 msgctxt "Plugin Installer"
 msgid "Featured"
 msgstr "Destacado"
 
-#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:160
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:170
 msgctxt "Plugin Installer"
 msgid "Beta Testing"
 msgstr "Pruebas beta"
@@ -323,21 +323,21 @@ msgstr "Pruebas beta"
 #: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Page.php:78
 #: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Page.php:93
 #: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Page.php:94
-#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/view/suggestions.php:47
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/view/suggestions.php:50
 msgid "Suggestions"
 msgstr "Sugerencias"
 
-#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:164
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:174
 msgctxt "Plugin Installer"
 msgid "Recommended"
 msgstr "Recomendados"
 
-#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:157
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php:167
 msgid "Search Results"
 msgstr "Resultados de búsqueda"
 
 #: lib/view/backend/pages/modals/contact/panel-info.php:24
-#: lib/view/backend/pages/parts/header.php:10
+#: lib/view/backend/pages/parts/header.php:14
 #: vendor_packages/wp-plugin-table-links.php:23
 msgid "Documentation"
 msgstr "Documentación"
@@ -356,7 +356,7 @@ msgid "Edit"
 msgstr "Editar"
 
 #: lib/view/backend/pages/button.php:126
-#: lib/view/backend/pages/woocommerce.php:72
+#: lib/view/backend/pages/woocommerce.php:92
 msgid "Hide button if the user is out of the available hours."
 msgstr "Ocultar el botón si el usuario está fuera de las horas disponibles."
 
@@ -378,7 +378,7 @@ msgstr "No mostrar el botón"
 
 #: lib/view/backend/pages/button.php:121 lib/view/backend/pages/contacts.php:34
 #: lib/view/backend/pages/modals/contact/panel-contact.php:61
-#: lib/view/backend/pages/woocommerce.php:67
+#: lib/view/backend/pages/woocommerce.php:87
 msgid "Timezone"
 msgstr "Zona horaria"
 
@@ -388,21 +388,21 @@ msgstr "Mostrar el botón como solo de lectura"
 
 #: lib/view/backend/pages/button.php:115
 #: lib/view/backend/pages/modals/contact/panel-contact.php:54
-#: lib/view/backend/pages/woocommerce.php:61
+#: lib/view/backend/pages/woocommerce.php:81
 msgid "To"
 msgstr "Para"
 
 #: lib/view/backend/pages/button.php:113
-#: lib/view/backend/pages/woocommerce.php:59
+#: lib/view/backend/pages/woocommerce.php:79
 msgid "From"
 msgstr "De"
 
 #: lib/view/backend/pages/button.php:111
-#: lib/view/backend/pages/woocommerce.php:57
+#: lib/view/backend/pages/woocommerce.php:77
 msgid "Schedule"
 msgstr "Programar"
 
-#: lib/models/class-box.php:25
+#: lib/entities/class-box.php:23
 msgid "Write a response"
 msgstr "Escribe una respuesta"
 
@@ -414,12 +414,12 @@ msgstr "Escribe un texto de respuesta."
 msgid "Response"
 msgstr "Respuesta"
 
-#: lib/controllers/class-settings.php:15
+#: lib/controllers/class-settings.php:17
 #: vendor_packages/wp-plugin-table-links.php:8
 msgid "Settings"
 msgstr "Ajustes"
 
-#: lib/models/class-button.php:14 lib/models/class-woocommerce.php:14
+#: lib/entities/class-button.php:28 lib/entities/class-woocommerce.php:29
 msgid "How can I help you?"
 msgstr "¿Cómo puedo ayudarte?"
 
@@ -462,16 +462,16 @@ msgid "Upload"
 msgstr "Subir"
 
 #. Author of the plugin
-#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/view/suggestions.php:79
-#: lib/view/backend/pages/parts/header.php:31
+#: jetpack_vendor/quadlayers/wp-plugin-suggestions/src/view/suggestions.php:82
+#: lib/view/backend/pages/parts/header.php:35
 msgid "QuadLayers"
 msgstr "QuadLayers"
 
-#: lib/controllers/class-display.php:16
+#: lib/controllers/class-display.php:18
 msgid "Display"
 msgstr "Mostrar"
 
-#: lib/controllers/class-box.php:15 lib/view/backend/pages/button.php:16
+#: lib/controllers/class-box.php:18 lib/view/backend/pages/button.php:16
 msgid "Box"
 msgstr "Caja"
 
@@ -480,12 +480,12 @@ msgid "Welcome"
 msgstr "Bienvenido"
 
 #: lib/view/backend/pages/button.php:57
-#: lib/view/backend/pages/woocommerce.php:26
+#: lib/view/backend/pages/woocommerce.php:46
 msgid "Icon"
 msgstr "Icono"
 
 #: lib/view/backend/pages/button.php:67
-#: lib/view/backend/pages/woocommerce.php:36
+#: lib/view/backend/pages/woocommerce.php:56
 msgid "Text"
 msgstr "Texto"
 
@@ -510,17 +510,17 @@ msgid "Middle Left"
 msgstr "Centrado a la izquierda"
 
 #: lib/view/backend/pages/button.php:45
-#: lib/view/backend/pages/woocommerce.php:93
+#: lib/view/backend/pages/woocommerce.php:6
 msgid "Position"
 msgstr "Posición"
 
 #: lib/view/backend/pages/button.php:39
-#: lib/view/backend/pages/woocommerce.php:20
+#: lib/view/backend/pages/woocommerce.php:40
 msgid "Remove rounded border"
 msgstr "Quitar el borde redondeado"
 
 #: lib/view/backend/pages/button.php:35
-#: lib/view/backend/pages/woocommerce.php:16
+#: lib/view/backend/pages/woocommerce.php:36
 msgid "Rounded"
 msgstr "Redondeado"
 
@@ -532,7 +532,7 @@ msgstr "Cambiar el diseño del botón."
 msgid "Bubble"
 msgstr "Burbuja"
 
-#: lib/controllers/class-button.php:15 lib/view/backend/pages/button.php:9
+#: lib/controllers/class-button.php:17 lib/view/backend/pages/button.php:9
 msgid "Button"
 msgstr "Botón"
 
@@ -545,7 +545,7 @@ msgstr "Diseño"
 msgid "Submit ticket"
 msgstr "Enviar un ticket"
 
-#: lib/models/class-contact.php:24 lib/view/backend/pages/welcome.php:33
+#: lib/entities/class-contact.php:31 lib/view/backend/pages/welcome.php:33
 #: vendor_packages/wp-plugin-table-links.php:18
 msgid "Support"
 msgstr "Soporte"
@@ -567,7 +567,7 @@ msgstr "Chat"
 #: lib/view/backend/pages/button.php:86 lib/view/backend/pages/contacts.php:28
 #: lib/view/backend/pages/modals/contact/panel-contact.php:23
 #: lib/view/backend/pages/modals/contact/panel-contact.php:33
-#: lib/view/backend/pages/woocommerce.php:43
+#: lib/view/backend/pages/woocommerce.php:63
 msgid "Phone"
 msgstr "Teléfono"
 
@@ -575,7 +575,7 @@ msgstr "Teléfono"
 msgid "Avatar"
 msgstr "Avatar"
 
-#: lib/controllers/class-contact.php:20
+#: lib/controllers/class-contact.php:22
 msgid "Contacts"
 msgstr "Contactos"
 
@@ -672,7 +672,7 @@ msgstr "Etiqueta"
 #: lib/view/backend/pages/modals/contact/panel-contact-chat.php:3
 #: lib/view/backend/pages/modals/contact/panel-contact.php:93
 #: lib/view/backend/pages/scheme.php:62
-#: lib/view/backend/pages/woocommerce.php:50
+#: lib/view/backend/pages/woocommerce.php:70
 msgid "Message"
 msgstr "Mensaje"
 
@@ -706,10 +706,10 @@ msgstr "https://quadlayers.com"
 #: lib/view/backend/pages/scheme.php:72 lib/view/backend/pages/scheme.php:79
 #: lib/view/backend/pages/scheme.php:95 lib/view/backend/pages/scheme.php:102
 #: lib/view/backend/pages/scheme.php:109
-#: lib/view/backend/pages/woocommerce.php:30
-#: lib/view/backend/pages/woocommerce.php:63
-#: lib/view/backend/pages/woocommerce.php:73
-#: lib/view/backend/pages/woocommerce.php:88
+#: lib/view/backend/pages/woocommerce.php:50
+#: lib/view/backend/pages/woocommerce.php:83
+#: lib/view/backend/pages/woocommerce.php:93
+#: lib/view/backend/pages/woocommerce.php:108
 msgid "This is a premium feature"
 msgstr "Esta es una característica premium"
 
@@ -733,7 +733,7 @@ msgstr "Te permite establecer un mensaje personalizado para cada agente que se m
 msgid "If you want to get in touch with other %s users or be aware of our promotional discounts join our community now."
 msgstr "Si deseas ponerse en contacto con otros usuarios de %s o conocer nuestros descuentos promocionales, únete a nuestra comunidad ahora."
 
-#: lib/view/backend/pages/parts/header.php:5
+#: lib/view/backend/pages/parts/header.php:9
 msgid "Thanks for using %s! We will do our best to offer you the best and improved communication experience with your users."
 msgstr "¡Gracias por utilizar %s! Haremos todo lo posible para ofrecerte la mejor experiencia de comunicación con tus usuarios."
 
@@ -754,17 +754,17 @@ msgid "Lastname"
 msgstr "Apellidos"
 
 #: lib/view/backend/pages/button.php:60
-#: lib/view/backend/pages/woocommerce.php:29
+#: lib/view/backend/pages/woocommerce.php:49
 msgid "Add Icon"
 msgstr "Añadir un icono"
 
 #: lib/view/backend/pages/button.php:41
-#: lib/view/backend/pages/woocommerce.php:22
+#: lib/view/backend/pages/woocommerce.php:42
 msgid "Add rounded border to the button."
 msgstr "Añadir un borde redondeado al botón."
 
 #: lib/view/backend/pages/button.php:38
-#: lib/view/backend/pages/woocommerce.php:19
+#: lib/view/backend/pages/woocommerce.php:39
 msgid "Add rounded border"
 msgstr "Añadir un borde redondeado"
 
@@ -776,7 +776,7 @@ msgstr "Si tienes alguna duda o si encuentras algún problema, no dudes en conta
 msgid "Thank you for choosing our %s plugin for WordPress! Here you can see our demo and a description about the features we offer in the premium version."
 msgstr "¡Gracias por elegir nuestro plugin %s para WordPress! Aquí puedes ver nuestra demostración y una descripción de las características que ofrecemos en la versión premium."
 
-#: lib/view/backend/pages/parts/header.php:9
+#: lib/view/backend/pages/parts/header.php:13
 #: lib/view/backend/pages/welcome.php:26
 msgid "Demo"
 msgstr "Demostración"
