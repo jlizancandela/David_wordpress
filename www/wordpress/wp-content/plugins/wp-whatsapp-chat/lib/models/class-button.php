@@ -34,8 +34,6 @@ class Button {
 			$result = $admin->getProperties();
 		}
 
-		// $result['message'] = stripslashes( $result['message'] );
-
 		if ( ! is_admin() ) {
 			$result['text']    = qlwapp_replacements_vars( $result['text'] );
 			$result['message'] = qlwapp_replacements_vars( $result['message'] );
@@ -49,9 +47,7 @@ class Button {
 	}
 
 	public function save( $data ) {
-		error_log( 'data: ' . json_encode( $data, JSON_PRETTY_PRINT ) );
 		$entity = $this->repository->create( $this->sanitize( $data ) );
-		error_log( 'sanitize: ' . json_encode( $this->sanitize( $data ), JSON_PRETTY_PRINT ) );
 
 		if ( $entity ) {
 			return true;

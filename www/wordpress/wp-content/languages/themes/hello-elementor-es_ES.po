@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Themes - Hello Elementor package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-27 11:21:49+0000\n"
+"PO-Revision-Date: 2024-01-25 06:38:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,6 +20,25 @@ msgstr "Hello Elementor es un tema para WordPress ligero y minimalista creado es
 #, gp-priority: high
 msgid "Hello Elementor"
 msgstr "Hello Elementor"
+
+#: includes/settings/settings-footer.php:524
+#: includes/settings/settings-header.php:546
+msgid "Elementor Pro"
+msgstr "Elementor Pro"
+
+#: includes/settings/settings-footer.php:514
+#: includes/settings/settings-header.php:536
+msgid "Get Elementor Pro"
+msgstr "Obtener Elementor Pro"
+
+#: includes/customizer/customizer-action-links.php:57
+#: includes/customizer/customizer-action-links.php:76
+#: includes/customizer/customizer-action-links.php:86
+#: includes/customizer/customizer-action-links.php:96
+#: assets/js/hello-admin.js:172 assets/js/hello-admin.js:180
+#: assets/js/hello-admin.js:188 assets/js/hello-admin.js:196
+msgid "Elementor"
+msgstr "Elementor"
 
 #: includes/settings/settings-header.php:23
 msgid "Hello Theme Header"
@@ -43,45 +62,39 @@ msgstr "Aprender más"
 msgid "Customize and style the builtin Hello Theme’s cross-site header & footer from the Elementor \"Site Settings\" panel."
 msgstr "Personaliza y da estilo a la cabecera y al pie de página integrados en el tema Hello desde el panel \"Ajustes del sitio\" de Elementor."
 
-#: includes/customizer/customizer-action-links.php:95
-#: assets/js/hello-admin.js:194 assets/js/hello-admin.js:185
-#: assets/js/hello-admin.min.js:185
+#: includes/customizer/customizer-action-links.php:99
+#: assets/js/hello-admin.js:199
 msgid "Start Designing"
 msgstr "Empieza a diseñar"
 
-#: includes/customizer/customizer-action-links.php:94
-#: assets/js/hello-admin.js:193 assets/js/hello-admin.js:184
-#: assets/js/hello-admin.min.js:184
+#: includes/customizer/customizer-action-links.php:98
+#: assets/js/hello-admin.js:198
 msgid "Customize your cross-site header & footer from Elementor’s \"Site Settings\" panel."
 msgstr "Personaliza la cabecera y el pie de página de tu web desde el panel \"Ajustes del sitio\" de Elementor."
 
-#: includes/customizer/customizer-action-links.php:93
-#: assets/js/hello-admin.js:192 assets/js/hello-admin.js:183
-#: assets/js/hello-admin.min.js:183
+#: includes/customizer/customizer-action-links.php:97
+#: assets/js/hello-admin.js:197
 msgid "Style cross-site header & footer"
 msgstr "Estilos de la cabecera y el pie de página de todo el sitio"
 
-#: includes/customizer/customizer-action-links.php:86
+#: includes/customizer/customizer-action-links.php:89
+#: assets/js/hello-admin.js:191
 msgid "Activate header & footer experiment"
 msgstr "Activar experimento de cabecera y pie de página"
 
-#: includes/customizer/customizer-action-links.php:85
-#: assets/js/hello-admin.js:186 assets/js/hello-admin.js:176
-#: assets/js/hello-admin.min.js:176
+#: includes/customizer/customizer-action-links.php:88
+#: assets/js/hello-admin.js:190
 msgid "Design your cross-site header & footer from Elementor’s \"Site Settings\" panel."
 msgstr "Personaliza la cabecera y el pie de página de tu web desde el panel «Ajustes del sitio» de Elementor."
 
-#: includes/customizer/customizer-action-links.php:84
-#: assets/js/hello-admin.js:185 assets/js/hello-admin.js:175
-#: assets/js/hello-admin.min.js:175
+#: includes/customizer/customizer-action-links.php:87
+#: assets/js/hello-admin.js:189
 msgid "Style using Elementor"
 msgstr "Crea estilos usando Elementor"
 
-#: includes/customizer/customizer-action-links.php:58
-#: includes/customizer/customizer-action-links.php:76
-#: assets/js/hello-admin.js:172 assets/js/hello-admin.js:179
-#: assets/js/hello-admin.js:160 assets/js/hello-admin.js:168
-#: assets/js/hello-admin.min.js:160 assets/js/hello-admin.min.js:168
+#: includes/customizer/customizer-action-links.php:59
+#: includes/customizer/customizer-action-links.php:78
+#: assets/js/hello-admin.js:174 assets/js/hello-admin.js:182
 msgid "Create cross-site header & footer using Elementor."
 msgstr "Crea cabeceras y pies de página de todo el sitio con Elementor."
 
@@ -105,10 +118,8 @@ msgstr "El tema Hello es un tema de inicio ligero que funciona perfectamente con
 msgid "Theme Settings"
 msgstr "Ajustes del tema"
 
-#: includes/settings-functions.php:18 assets/js/hello-admin.js:139
-#: assets/js/hello-admin.js:229 assets/js/hello-admin.js:129
-#: assets/js/hello-admin.js:207 assets/js/hello-admin.min.js:129
-#: assets/js/hello-admin.min.js:207
+#: includes/settings-functions.php:18 assets/js/hello-admin.js:140
+#: assets/js/hello-admin.js:234
 msgid "Hello Theme Settings"
 msgstr "Ajustes del tema Hello"
 
@@ -119,12 +130,12 @@ msgstr "Ajustes del tema Hello"
 msgid "Go to <a href=\"%s\">Site Identity</a> to manage your site's title"
 msgstr "Ve a <a href=\"%s\">Identidad del sitio</a> para gestionar el título de tu sitio"
 
-#: includes/admin-functions.php:136
+#: includes/admin-functions.php:137
 msgid "Explore Elementor Site Builder Plugin"
 msgstr "Explora el plugin maquetador de páginas Elementor"
 
-#: includes/settings/settings-footer.php:517
-#: includes/settings/settings-header.php:539
+#: includes/settings/settings-footer.php:518
+#: includes/settings/settings-header.php:540
 msgid "Upgrade"
 msgstr "Actualizar"
 
@@ -132,15 +143,15 @@ msgstr "Actualizar"
 msgid "Skip to content"
 msgstr "Ir al contenido"
 
-#: includes/settings/settings-header.php:548
+#: includes/settings/settings-header.php:550
 msgid "Create Header"
 msgstr "Crear una cabecera"
 
-#: includes/settings/settings-header.php:545
+#: includes/settings/settings-header.php:547
 msgid "Create a custom header with the Theme Builder"
 msgstr "Crear una cabecera personalizada con el maquetador de temas"
 
-#: includes/settings/settings-header.php:536
+#: includes/settings/settings-header.php:537
 msgid "Create a custom header with multiple options"
 msgstr "Crear una cabecera personalizada con múltiples opciones"
 
@@ -178,25 +189,25 @@ msgstr "Horizontal"
 msgid "Menu Layout"
 msgstr "Diseño del menú"
 
-#: includes/settings/settings-footer.php:526
+#: includes/settings/settings-footer.php:528
 msgid "Create Footer"
 msgstr "Crear un pie de página"
 
-#: includes/settings/settings-footer.php:524
-#: includes/settings/settings-header.php:546
+#: includes/settings/settings-footer.php:526
+#: includes/settings/settings-header.php:548
 msgid "With the Theme Builder you can jump directly into each part of your site"
 msgstr "Con el maquetador de temas, puedes saltar directamente a cada parte de tu sitio"
 
-#: includes/settings/settings-footer.php:523
+#: includes/settings/settings-footer.php:525
 msgid "Create a custom footer with the Theme Builder"
 msgstr "Crear un pie de página personalizado con el maquetador de temas"
 
-#: includes/settings/settings-footer.php:515
-#: includes/settings/settings-header.php:537
+#: includes/settings/settings-footer.php:516
+#: includes/settings/settings-header.php:538
 msgid "Upgrade to Elementor Pro and enjoy free design and many more features"
 msgstr "Actualiza a Elementor Pro y disfruta del diseño gratuito y de muchas más características"
 
-#: includes/settings/settings-footer.php:514
+#: includes/settings/settings-footer.php:515
 msgid "Create a custom footer with multiple options"
 msgstr "Crear un pie de página personalizado con múltiples opciones"
 
@@ -387,7 +398,7 @@ msgstr "Logotipo del sitio"
 msgid "Hello Theme Header & Footer"
 msgstr "Cabecera y pie de página del tema Hello"
 
-#: includes/admin-functions.php:131
+#: includes/admin-functions.php:132
 msgid "Get Elementor"
 msgstr "Obtener Elementor"
 
@@ -399,25 +410,21 @@ msgstr "Pie de página"
 msgid "Header"
 msgstr "Cabecera"
 
-#: includes/admin-functions.php:134
+#: includes/admin-functions.php:135
 msgid "Thanks for installing the Hello Theme!"
 msgstr "¡Gracias por instalar el tema Hello!"
 
 #: includes/admin-functions.php:51
-#: includes/customizer/customizer-action-links.php:57
-#: includes/customizer/customizer-action-links.php:59
-#: assets/js/hello-admin.js:171 assets/js/hello-admin.js:173
-#: assets/js/hello-admin.js:159 assets/js/hello-admin.js:161
-#: assets/js/hello-admin.min.js:159 assets/js/hello-admin.min.js:161
+#: includes/customizer/customizer-action-links.php:58
+#: includes/customizer/customizer-action-links.php:60
+#: assets/js/hello-admin.js:173 assets/js/hello-admin.js:175
 msgid "Install Elementor"
 msgstr "Instalar Elementor"
 
 #: includes/admin-functions.php:42
-#: includes/customizer/customizer-action-links.php:75
 #: includes/customizer/customizer-action-links.php:77
-#: assets/js/hello-admin.js:178 assets/js/hello-admin.js:180
-#: assets/js/hello-admin.js:167 assets/js/hello-admin.js:169
-#: assets/js/hello-admin.min.js:167 assets/js/hello-admin.min.js:169
+#: includes/customizer/customizer-action-links.php:79
+#: assets/js/hello-admin.js:181 assets/js/hello-admin.js:183
 msgid "Activate Elementor"
 msgstr "Activar Elementor"
 

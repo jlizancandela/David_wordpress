@@ -124,12 +124,13 @@ class Contact {
 		$entities     = $this->repository->findAll();
 
 		if ( ! $entities ) {
-			$default             = array();
-			$default[0]          = $this->get_args();
-			$default[0]['order'] = 1;
-			$default[0]['phone'] = qlwapp_format_phone( $button['phone'] );
-			$contact             = $this->create( $default[0] );
-			$default[0]['id']    = $contact['id'];
+			$default               = array();
+			$default[0]            = $this->get_args();
+			$default[0]['order']   = 1;
+			$default[0]['message'] = $button['message'];
+			$default[0]['phone']   = qlwapp_format_phone( $button['phone'] );
+			$contact               = $this->create( $default[0] );
+			$default[0]['id']      = $contact['id'];
 
 			if ( ! is_admin() ) {
 				$default[0]['message'] = qlwapp_replacements_vars( $default[0]['message'] );

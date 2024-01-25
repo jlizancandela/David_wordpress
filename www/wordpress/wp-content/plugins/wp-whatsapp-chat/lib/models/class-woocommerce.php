@@ -25,13 +25,21 @@ class WooCommerce {
 
 	public function get() {
 		$entity = $this->repository->find();
+		$result = null;
 
 		if ( $entity ) {
-			return $entity->getProperties();
+			$result = $entity->getProperties();
 		} else {
-			$admin = new WooCommerce_Entity();
-			return $admin->getProperties();
+			$admin  = new WooCommerce_Entity();
+			$result = $admin->getProperties();
 		}
+
+		if ( ! is_admin() ) {
+			$result['text']    = qlwapp_replacements_vars( $result['text'] );
+			$result['message'] = qlwapp_replacements_vars( $result['message'] );
+		}
+
+		return $result;
 	}
 
 	public function delete_all() {

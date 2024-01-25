@@ -85,7 +85,7 @@
 				<tr class="<?php echo $button['type'] != 'phone' ? 'hidden' : ''; ?>">
 					<th scope="row"><?php esc_html_e( 'Phone', 'wp-whatsapp-chat' ); ?></th>
 					<td>
-						<input type="text" name="phone" placeholder="" value="<?php echo esc_attr( $button['phone'] ); ?>" class="qlwapp-input <?php echo esc_attr( $button['box'] == 'yes' ? 'disabled' : '' ); ?>" />
+						<input type="text" name="phone" placeholder="" value="<?php echo esc_attr( $button['phone'] ); ?>" class="qlwapp-input" <?php echo esc_attr( $button['box'] == 'yes' ? 'readonly' : '' ); ?>/>
 						<p class="description"><?php esc_html_e( 'Full phone number in international format. Only numbers.', 'wp-whatsapp-chat' ); ?></p>
 					</td>
 				</tr>
@@ -93,7 +93,7 @@
 				<tr class="<?php echo $button['type'] != 'group' ? 'hidden' : ''; ?>">
 					<th scope="row"><?php esc_html_e( 'Group', 'wp-whatsapp-chat' ); ?></th>
 					<td>
-						<input type="text" name="group" placeholder="" value="<?php echo esc_attr( $button['group'] ); ?>" class="qlwapp-input <?php echo esc_attr( $button['box'] == 'yes' ? 'disabled' : '' ); ?>" />
+						<input type="text" name="group" placeholder="" value="<?php echo esc_attr( $button['group'] ); ?>" class="qlwapp-input" <?php echo esc_attr( $button['box'] == 'yes' ? 'readonly' : '' ); ?>/>
 						<p class="description"><?php esc_html_e( '(This is a premium feature)', 'wp-whatsapp-chat' ); ?></p>
 					</td>
 				</tr>
@@ -101,7 +101,7 @@
 				<tr>
 					<th scope="row"><?php esc_html_e( 'Message', 'wp-whatsapp-chat' ); ?></th>
 					<td>
-						<textarea class="<?php echo $button['type'] == 'group' ? 'disabled' : ''; ?>" maxlength="500" style="width:75%;height:50px;padding:8px;" name="message" placeholder="<?php echo esc_html( $button['message'] ); ?>"><?php echo esc_html( trim( $button['message'] ) ); ?></textarea>
+						<textarea class="<?php echo $button['type'] == 'group' ? 'disabled' : ''; ?>" maxlength="500" style="width:75%;height:50px;padding:8px;" name="message" placeholder="<?php echo esc_html( $button['message'] ); ?>" <?php echo esc_attr( $button['box'] == 'yes' ? 'readonly' : '' ); ?>><?php echo esc_html( trim( $button['message'] ) ); ?></textarea>
 						<p class="description"><?php esc_html_e( 'Message that will automatically appear in the text field of a chat.:', 'wp-whatsapp-chat' ); ?></p>
 						<p class="description"><?php esc_html_e( 'You can use this vars:', 'wp-whatsapp-chat' ); ?><small><code><?php echo esc_html( qlwapp_get_replacements_text() ); ?></code></small></p>
 					</td>

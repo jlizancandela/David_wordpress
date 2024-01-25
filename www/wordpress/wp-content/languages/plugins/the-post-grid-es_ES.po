@@ -1,0 +1,386 @@
+# Translation of Plugins - The Post Grid – Shortcode, Gutenberg Blocks and Elementor Addon for Post Grid - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - The Post Grid – Shortcode, Gutenberg Blocks and Elementor Addon for Post Grid - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-11-26 03:54:54+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.11\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - The Post Grid – Shortcode, Gutenberg Blocks and Elementor Addon for Post Grid - Stable (latest release)\n"
+
+#: app/Helpers/Options.php:764
+#: app/Widgets/elementor/rtTPGElementorHelper.php:3532
+msgid "Link Target"
+msgstr "Destino del enlace"
+
+#: app/Controllers/AjaxController.php:177 app/Models/Field.php:453
+msgid "No Taxonomy found"
+msgstr "No se han encontrado taxonomías."
+
+#: app/Helpers/Options.php:1730
+msgid "Get Pro Version"
+msgstr "¡Obtén la versión Pro!"
+
+#: app/Controllers/Admin/MetaController.php:209
+msgid "Get Support"
+msgstr "Obtener soporte"
+
+#: resources/settings/settings.php:49
+msgid "Other Settings"
+msgstr "Otros ajustes"
+
+#: app/Controllers/Admin/MetaController.php:196
+msgid "Get started by spending some time with the documentation we included step by step process with screenshots with video."
+msgstr "Empieza pasando un tiempo con la documentación que incluimos con el proceso paso a paso, con capturas de pantalla con vídeo."
+
+#: app/Controllers/Admin/MetaController.php:174
+msgid "Update Pro To Get More Features"
+msgstr "Actualiza a la versión Pro para conseguir más características"
+
+#: app/Helpers/Options.php:1478
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2612
+msgid "Full Content"
+msgstr "Contenido completo"
+
+#: app/Helpers/Options.php:1475
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2607
+msgid "Word"
+msgstr "Palabra"
+
+#: app/Helpers/Options.php:1474
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2606
+msgid "Character"
+msgstr "Carácter"
+
+#: app/Controllers/Admin/AdminAjaxController.php:1226
+#: app/Controllers/AjaxController.php:108
+#: app/Controllers/AjaxController.php:142
+msgid "Session Error !!"
+msgstr "¡Error de sesión!"
+
+#: app/Helpers/Options.php:1007
+msgid "Title tag"
+msgstr "Etiqueta del título"
+
+#: app/Helpers/Options.php:1146
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2618
+msgid "Excerpt Type"
+msgstr "Tipo de extracto"
+
+#: app/Helpers/Options.php:1140
+msgid "Excerpt limit"
+msgstr "Límite del extracto"
+
+#: app/Helpers/Options.php:1020
+msgid "Title limit type"
+msgstr "Tipo de límite del título"
+
+#: app/Helpers/Options.php:1015
+msgid "Title limit"
+msgstr "Límite del título"
+
+#: app/Helpers/Options.php:602
+msgid "Show all text"
+msgstr "Mostrar todo el texto"
+
+#: app/Helpers/Options.php:1153
+msgid "Excerpt more text"
+msgstr "Texto «más» del extracto"
+
+#: app/Helpers/Options.php:1129 app/Helpers/Options.php:1167
+#: app/Helpers/Options.php:1264 app/Helpers/Options.php:1328
+#: app/Helpers/Options.php:1368
+msgid "Leave it blank for default"
+msgstr "Déjalo en blanco para el valor por defecto"
+
+#: app/Controllers/Admin/MetaController.php:146
+msgid "Layout Preview"
+msgstr "Vista previa del diseño"
+
+#: app/Helpers/Options.php:1016
+msgid "Title limit only integer number is allowed, Leave it blank for full title."
+msgstr "El límite del título solo permite números enteros. Déjalo en blanco para el título completo."
+
+#: app/Helpers/Options.php:107
+msgid "Script After item load"
+msgstr "Script después de la carga del elemento"
+
+#: app/Helpers/Options.php:100
+msgid "Script before item load"
+msgstr "Script antes de la carga del elemento"
+
+#: app/Helpers/Options.php:114
+msgid "After Loaded script"
+msgstr "Después de la carga del script"
+
+#: app/Controllers/ShortcodeController.php:1318
+msgid "No shortCode found"
+msgstr "Shorcode no encontrado"
+
+#: app/Widgets/TPGWidget.php:69
+msgid "Select post grid"
+msgstr "Seleccionar la cuadrícula de entradas"
+
+#: app/Widgets/TPGWidget.php:64
+msgid "Title:"
+msgstr "Título:"
+
+#: app/Widgets/TPGWidget.php:28
+msgid "Display the post grid."
+msgstr "Muestra la cuadrícula de entradas."
+
+#: app/Helpers/Options.php:1098
+msgid "Image column"
+msgstr "Columna de imagen"
+
+#: app/Controllers/Admin/AdminAjaxController.php:94
+#: app/Controllers/ShortcodeController.php:152 app/Helpers/Options.php:1602
+#: app/Widgets/elementor/rtTPGElementorHelper.php:3292
+#: app/Widgets/elementor/rtTPGElementorHelper.php:3322
+#: app/Widgets/elementor/rtTPGElementorHelper.php:5310
+msgid "Read More"
+msgstr "Leer más"
+
+#: app/Helpers/Options.php:470 app/Helpers/Options.php:1604
+#: app/Widgets/elementor/rtTPGElementorHelper.php:221
+#: app/Widgets/elementor/rtTPGElementorHelper.php:378
+#: app/Widgets/elementor/rtTPGElementorHelper.php:3243
+msgid "Author"
+msgstr "Autor"
+
+#: app/Helpers/Options.php:1605 assets/elementor/main.js:242
+#: assets/elementor/main.js:236
+msgid "Categories"
+msgstr "Categorías"
+
+#: app/Helpers/Options.php:86 app/Helpers/Options.php:1600
+#: app/Helpers/Options.php:1633
+#: app/Widgets/elementor/rtTPGElementorHelper.php:222
+#: app/Widgets/elementor/rtTPGElementorHelper.php:379
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2024
+#: app/Widgets/elementor/widgets/section-title.php:102
+#: resources/settings/sc-settings.php:32
+msgid "Title"
+msgstr "Título"
+
+#: app/Helpers/Options.php:1601 app/Helpers/Options.php:1635
+#: resources/settings/sc-settings.php:50
+msgid "Excerpt"
+msgstr "Extracto"
+
+#: app/Helpers/Options.php:1606
+#: app/Widgets/elementor/rtTPGElementorHelper.php:3255
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: app/Helpers/Options.php:1603
+#: app/Widgets/elementor/rtTPGElementorHelper.php:1778
+msgid "Post Date"
+msgstr "Fecha de la entrada"
+
+#: app/Helpers/Options.php:1461
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2170
+msgid "First Image from content"
+msgstr "Primera imagen del contenido"
+
+#: app/Helpers/Options.php:886 app/Helpers/Options.php:1460
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2169
+msgid "Feature Image"
+msgstr "Imagen destacada"
+
+#: app/Helpers/Options.php:714
+msgid "If value of Limit setting is not blank (empty), this value should be smaller than Limit value."
+msgstr "Si el valor de los ajustes del Límite no está en blanco (vacío), este valor debería ser menor que el valor del Límite."
+
+#: app/Helpers/Options.php:433
+msgid "List of post IDs to hide (comma-separated values, for example: 1,2,3)"
+msgstr "Lista de los ID de las entradas a ocultar (valores separados por comas, por ejemplo: 1,2,3)"
+
+#: app/Helpers/Options.php:426
+msgid "List of post IDs to show (comma-separated values, for example: 1,2,3)"
+msgstr "Lista de los ID de las entradas a mostrar (valores separados por comas, por ejemplo: 1,2,3)"
+
+#: app/Helpers/Options.php:1607
+msgid "Comment count"
+msgstr "Recuento de comentarios"
+
+#. Author URI of the plugin
+msgid "https://radiustheme.com/"
+msgstr "https://radiustheme.com/"
+
+#. Author of the plugin
+msgid "RadiusTheme"
+msgstr "RadiusTheme"
+
+#. Description of the plugin
+msgid "Fast & Easy way to display WordPress post in Grid, List & Isotope view ( filter by category, tag, author..)  without a single line of coding."
+msgstr "La manera rápida y fácil de mostrar entradas de WordPress en una vista de cuadrícula, lista e isótopos (filtro por categoría, etiqueta, autor...), sin una sola línea de código."
+
+#: app/Controllers/Admin/MetaController.php:155
+#: app/Controllers/Admin/MetaController.php:195
+#: resources/settings/settings.php:21
+msgid "Documentation"
+msgstr "Documentación"
+
+#: app/Controllers/Admin/AdminAjaxController.php:1152
+#: app/Controllers/Blocks/GridHoverLayout.php:186
+#: app/Controllers/Blocks/GridLayout.php:176
+#: app/Controllers/Blocks/ListLayout.php:167
+#: app/Controllers/ShortcodeController.php:917
+#: app/Widgets/elementor/widgets/grid-hover-layout-archive.php:266
+#: app/Widgets/elementor/widgets/grid-hover-layout.php:286
+#: app/Widgets/elementor/widgets/grid-layout-archive.php:263
+#: app/Widgets/elementor/widgets/grid-layout.php:290
+#: app/Widgets/elementor/widgets/list-layout-archive.php:261
+#: app/Widgets/elementor/widgets/list-layout.php:278
+#: app/Widgets/elementor/widgets/slider-layout-archive.php:323
+#: app/Widgets/elementor/widgets/slider-layout-archive.php:384
+#: app/Widgets/elementor/widgets/slider-layout.php:312
+#: app/Widgets/elementor/widgets/slider-layout.php:387
+msgid "No post found"
+msgstr "No se ha encontrado ninguna entrada"
+
+#: resources/settings/settings.php:20
+msgid "General settings"
+msgstr "Configuración Principal"
+
+#: resources/settings/settings.php:19
+msgid "The Post Grid Settings"
+msgstr "Ajustes de The Post Grid"
+
+#: app/Controllers/Admin/AdminAjaxController.php:95
+#: app/Controllers/ShortcodeController.php:153 app/Helpers/Options.php:597
+#: app/Helpers/Options.php:603
+msgid "Show all"
+msgstr "Mostrar todos"
+
+#: app/Controllers/Admin/MetaController.php:279
+msgid "Layout Settings"
+msgstr "Configuración de ubicación"
+
+#: app/Controllers/Admin/MetaController.php:285 app/Helpers/Options.php:920
+#: app/Helpers/Options.php:969
+msgid "Style"
+msgstr "Estilo"
+
+#: app/Controllers/Admin/MetaController.php:137
+msgid "Short Code Generator"
+msgstr "Generador de shortcodes"
+
+#: app/Widgets/elementor/rtTPGElementorHelper.php:45
+msgid "Post Source"
+msgstr "Origen de la entrada"
+
+#: app/Controllers/Admin/MetaController.php:283 app/Helpers/Options.php:830
+#: app/Widgets/elementor/rtTPGElementorHelper.php:1690
+msgid "Field Selection"
+msgstr "Selección del campo"
+
+#: app/Controllers/Admin/MetaController.php:57
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: app/Controllers/Admin/MetaController.php:281
+#: app/Controllers/Admin/SettingsController.php:192
+#: app/Controllers/Admin/SettingsController.php:193
+msgid "Settings"
+msgstr "Configurar"
+
+#: app/Controllers/Admin/PostTypeController.php:49
+msgid "All Grids"
+msgstr "Todas las cuadrículas"
+
+#. Plugin Name of the plugin
+#: app/Controllers/Admin/PostTypeController.php:46
+#: app/Controllers/Admin/PostTypeController.php:47
+#: app/Controllers/BlocksController.php:137
+#: app/Controllers/ElementorController.php:284
+#: app/Widgets/ElementorWidget.php:28 app/Widgets/ElementorWidget.php:43
+#: app/Widgets/TPGWidget.php:31
+msgid "The Post Grid"
+msgstr "The Post Grid"
+
+#: app/Controllers/AjaxController.php:314
+msgid "No shortCode found."
+msgstr "Shortcode no encontrado."
+
+#: app/Controllers/Admin/PostTypeController.php:52
+msgid "New Post Grid"
+msgstr "Nueva cuadrícula de entradas"
+
+#: app/Controllers/Admin/PostTypeController.php:51
+msgid "Edit Post Grid"
+msgstr "Editar la cuadrícula de entradas"
+
+#: app/Controllers/Admin/PostTypeController.php:54
+msgid "Search Post Grids"
+msgstr "Buscar cuadrículas de entradas"
+
+#: app/Controllers/Admin/PostTypeController.php:55
+msgid "No Post Grids found"
+msgstr "Cuadrículas de entradas no encontradas"
+
+#: app/Controllers/Admin/PostTypeController.php:56
+msgid "No Post Grids found in Trash"
+msgstr "Cuadrículas de entradas no encontradas en la papelera"
+
+#: app/Controllers/Admin/PostTypeController.php:48
+msgid "Add New Grid"
+msgstr "Añadir una nueva cuadrícula"
+
+#: app/Controllers/Admin/PostTypeController.php:50
+msgid "Add New Post Grid"
+msgstr "Añadir una nueva cuadrícula de entradas"
+
+#: app/Controllers/Admin/PostTypeController.php:53
+msgid "View Post Grid"
+msgstr "Ver la cuadrícula de entradas"
+
+#: app/Controllers/AjaxController.php:137
+msgid "Settings successfully updated"
+msgstr "Configuración actualizada con éxito"
+
+#: app/Controllers/AjaxController.php:303 app/Helpers/Options.php:921
+#: app/Helpers/Options.php:932 app/Helpers/Options.php:955
+#: app/Helpers/Options.php:970 app/Helpers/Options.php:994
+#: app/Helpers/Options.php:1037 app/Helpers/Options.php:1053
+#: app/Helpers/Options.php:1117 app/Helpers/Options.php:1173
+#: app/Helpers/Options.php:1386
+#: app/Widgets/elementor/rtTPGElementorHelper.php:859
+#: app/Widgets/elementor/rtTPGElementorHelper.php:891
+#: app/Widgets/elementor/rtTPGElementorHelper.php:1105
+#: app/Widgets/elementor/rtTPGElementorHelper.php:1442
+#: app/Widgets/elementor/rtTPGElementorHelper.php:1464
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2349
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2368
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2463
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2508
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2533
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2547
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2715
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2775
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2902
+#: app/Widgets/elementor/rtTPGElementorHelper.php:2993
+#: app/Widgets/elementor/rtTPGElementorHelper.php:4043
+#: app/Widgets/elementor/rtTPGElementorHelper.php:4396
+#: app/Widgets/elementor/rtTPGElementorHelper.php:4412
+#: app/Widgets/elementor/rtTPGElementorHelper.php:4553
+#: app/Widgets/elementor/rtTPGElementorHelper.php:7485
+#: app/Widgets/elementor/rtTPGElementorHelper.php:7539
+#: app/Widgets/elementor/rtTPGElementorHelper.php:8531
+#: app/Widgets/elementor/widgets/category-block.php:449
+msgid "Default"
+msgstr "Por defecto:"
+
+#: app/Controllers/AjaxController.php:180
+#: app/Controllers/AjaxController.php:213
+#: app/Controllers/AjaxController.php:267
+msgid "Security error"
+msgstr "Error de seguridad"
+
+#: app/Controllers/AjaxController.php:301
+msgid "Select Short code"
+msgstr "Seleccionar el shortcode"
