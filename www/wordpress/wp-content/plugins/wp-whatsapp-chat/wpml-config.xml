@@ -5,7 +5,7 @@
                 <key name="header"></key>
                 <key name="footer"></key>
                 <key name="response"></key>
-            </key> 
+            </key>
             <key name="button">
                 <key name="text"></key>
                 <key name="phone"></key>
@@ -19,6 +19,23 @@
                     <key name="phone"></key>
                     <key name="message"></key>
                 </key>
+            </key>
+        </key>
+        <key name="qlwapp_box">
+            <key name="header"></key>
+            <key name="footer"></key>
+            <key name="response"></key>
+        </key>
+        <key name="qlwapp_button">
+            <key name="text"></key>
+            <key name="phone"></key>
+            <key name="message"></key>
+        </key>
+        <key name="qlwapp_contacts">
+            <key name="*">
+                <key name="label"></key>
+                <key name="phone"></key>
+                <key name="message"></key>
             </key>
         </key>
     </admin-texts>

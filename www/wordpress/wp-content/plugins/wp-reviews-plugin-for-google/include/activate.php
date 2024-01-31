@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') or die('No script kiddies please!');
 require_once(ABSPATH . 'wp-admin' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'upgrade.php');
 global $wpdb;
 $wpdb->hide_errors();
@@ -24,12 +25,12 @@ return trim($ti_db_schema[ $tableName ]);
 }, $notCreatedTables);
 $preStyle = 'background: #eee; padding: 10px 20px; word-wrap: break-word; white-space: pre-wrap';
 wp_die(
-'<strong>' . self::___('Plugin activation is failed because the required database tables could not created!') . '</strong><br /><br />' .
-self::___('We got the following error from %s:', [ self::___('database') ]) .
+'<strong>' . __('Plugin activation is failed because the required database tables could not created!', 'trustindex-plugin') . '</strong><br /><br />' .
+sprintf(__('We got the following error from %s:', 'trustindex-plugin'),  __('database', 'trustindex-plugin')) .
 '<pre style="'. $preStyle .'">'. $mysqlError .'</pre>' .
-'<strong>' . self::___('Run the following SQL codes in your database administration interface (e.g. PhpMyAdmin) to create the tables or contact your system administrator:') . '</strong>' .
+'<strong>' . __('Run the following SQL codes in your database administration interface (e.g. PhpMyAdmin) to create the tables or contact your system administrator:', 'trustindex-plugin') . '</strong>' .
 '<pre style="'. $preStyle .'">' . implode('</pre><pre style="'. $preStyle .'">', $sqlsToRun) . '</pre>' .
-'<strong>' . self::___('Then try activate the plugin again.') . '</strong>'
+'<strong>' . __('Then try activate the plugin again.', 'trustindex-plugin') . '</strong>'
 );
 }
 update_option($this->get_option_name('active'), '1');

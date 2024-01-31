@@ -3,9 +3,9 @@
 <div class="ti-box ti-preview-boxes">
 <div class="ti-box-inner">
 <div class="ti-box-header ti-box-header-normal">
-<?php echo $pluginManager::___('Example Widget'); ?>:
-<strong><?php echo esc_html($pluginManager::___($pluginManager::$widget_templates['templates'][4]['name'])); ?></strong>
- (<?php echo esc_html($pluginManager::___($pluginManager::$widget_styles['light-background']['name'])); ?>)
+<?php echo __('Example Widget', 'trustindex-plugin'); ?>:
+<strong><?php echo esc_html(__($pluginManager::$widget_templates['templates'][4]['name'], 'trustindex-plugin')); ?></strong>
+ (<?php echo esc_html(__($pluginManager::$widget_styles['light-background']['name'], 'trustindex-plugin')); ?>)
 </div>
 <div class="preview"><?php echo $pluginManagerInstance->get_trustindex_widget('2d9bf9019f8d93ad1430e9135'); ?></div>
 </div>
@@ -51,9 +51,9 @@ $className = 'ti-half-width';
 <div class="ti-box ti-preview-boxes" data-layout-id="<?php echo esc_attr($layout); ?>" data-set-id="<?php echo esc_attr($style); ?>">
 <div class="ti-box-inner">
 <div class="ti-box-header ti-box-header-normal">
-<?php echo $pluginManager::___('Example Widget'); ?>:
-<strong><?php echo esc_html($pluginManager::___($template['name'])); ?></strong>
- (<?php echo esc_html($pluginManager::___($pluginManager::$widget_styles[ $style ]['name'])); ?>)
+<?php echo __('Example Widget', 'trustindex-plugin'); ?>:
+<strong><?php echo esc_html(__($template['name'], 'trustindex-plugin')); ?></strong>
+ (<?php echo esc_html(__($pluginManager::$widget_styles[ $style ]['name'], 'trustindex-plugin')); ?>)
 </div>
 <div class="preview"><?php echo $pluginManagerInstance->get_noreg_list_reviews(null, true, $layout, $style, true, true, true); ?></div>
 </div>

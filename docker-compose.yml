@@ -25,6 +25,8 @@ services:
             - db
         networks:
             - default
+        environment:
+          UPLOAD_LIMIT: 64M
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         links: 

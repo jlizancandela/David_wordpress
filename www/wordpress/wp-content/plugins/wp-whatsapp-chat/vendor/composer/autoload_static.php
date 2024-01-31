@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit065250070e973aa80235a895a5c0ef66
+class ComposerStaticInitbe78b1ade6c719abb71188f2215257fc
 {
     public static $files = array (
         '3773ef3f09c37da5478d578e32b03a4b' => __DIR__ . '/../..' . '/jetpack_vendor/automattic/jetpack-assets/actions.php',
@@ -15,7 +15,6 @@ class ComposerStaticInit065250070e973aa80235a895a5c0ef66
         'Q' => 
         array (
             'QuadLayers\\WP_Plugin_Table_Links\\' => 33,
-            'QuadLayers\\WP_Plugin_Suggestions\\' => 33,
             'QuadLayers\\WP_Orm\\' => 18,
             'QuadLayers\\WP_Notice_Plugin_Required\\' => 37,
             'QuadLayers\\WP_Notice_Plugin_Promote\\' => 36,
@@ -27,10 +26,6 @@ class ComposerStaticInit065250070e973aa80235a895a5c0ef66
         'QuadLayers\\WP_Plugin_Table_Links\\' => 
         array (
             0 => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-plugin-table-links/src',
-        ),
-        'QuadLayers\\WP_Plugin_Suggestions\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-plugin-suggestions/src',
         ),
         'QuadLayers\\WP_Orm\\' => 
         array (
@@ -57,18 +52,29 @@ class ComposerStaticInit065250070e973aa80235a895a5c0ef66
         'Automattic\\Jetpack\\Composer\\Plugin' => __DIR__ . '/..' . '/automattic/jetpack-composer-plugin/src/class-plugin.php',
         'Automattic\\Jetpack\\Constants' => __DIR__ . '/../..' . '/jetpack_vendor/automattic/jetpack-constants/src/class-constants.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'QuadLayers\\QLWAPP\\Backend' => __DIR__ . '/../..' . '/lib/class-backend.php',
-        'QuadLayers\\QLWAPP\\Controllers\\Base' => __DIR__ . '/../..' . '/lib/controllers/class-base.php',
-        'QuadLayers\\QLWAPP\\Controllers\\Box' => __DIR__ . '/../..' . '/lib/controllers/class-box.php',
-        'QuadLayers\\QLWAPP\\Controllers\\Button' => __DIR__ . '/../..' . '/lib/controllers/class-button.php',
-        'QuadLayers\\QLWAPP\\Controllers\\Contact' => __DIR__ . '/../..' . '/lib/controllers/class-contact.php',
-        'QuadLayers\\QLWAPP\\Controllers\\Display' => __DIR__ . '/../..' . '/lib/controllers/class-display.php',
-        'QuadLayers\\QLWAPP\\Controllers\\Display_Services' => __DIR__ . '/../..' . '/lib/controllers/class-display-services.php',
-        'QuadLayers\\QLWAPP\\Controllers\\Premium' => __DIR__ . '/../..' . '/lib/controllers/class-premium.php',
-        'QuadLayers\\QLWAPP\\Controllers\\Scheme' => __DIR__ . '/../..' . '/lib/controllers/class-scheme.php',
-        'QuadLayers\\QLWAPP\\Controllers\\Settings' => __DIR__ . '/../..' . '/lib/controllers/class-settings.php',
-        'QuadLayers\\QLWAPP\\Controllers\\Welcome' => __DIR__ . '/../..' . '/lib/controllers/class-welcome.php',
-        'QuadLayers\\QLWAPP\\Controllers\\WooCommerce' => __DIR__ . '/../..' . '/lib/controllers/class-woocommerce.php',
+        'QuadLayers\\QLWAPP\\Api\\Admin_Menu_Routes_Library' => __DIR__ . '/../..' . '/lib/api/class-admin-menu-routes-library.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Base' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/class-base.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Box\\Get' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/box/class-get.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Box\\Post' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/box/class-post.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Button\\Get' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/button/class-get.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Button\\Post' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/button/class-post.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Contacts\\Create' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/contacts/class-create.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Contacts\\Delete' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/contacts/class-delete.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Contacts\\Edit' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/contacts/class-edit.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Contacts\\Get' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/contacts/class-get.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Display\\Get' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/display/class-get.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Display\\Post' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/display/class-post.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Scheme\\Get' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/scheme/class-get.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Scheme\\Post' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/scheme/class-post.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Settings\\Get' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/settings/class-get.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\Settings\\Post' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/settings/class-post.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\WooCommerce\\Get' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/woocommerce/class-get.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Admin_Menu\\WooCommerce\\Post' => __DIR__ . '/../..' . '/lib/api/rest/admin-menu/woocommerce/class-post.php',
+        'QuadLayers\\QLWAPP\\Api\\Rest\\Route' => __DIR__ . '/../..' . '/lib/api/rest/interface-route.php',
+        'QuadLayers\\QLWAPP\\Controllers\\Admin_Menu' => __DIR__ . '/../..' . '/lib/controllers/class-admin-menu.php',
+        'QuadLayers\\QLWAPP\\Controllers\\Admin_Menu_WooCommerce' => __DIR__ . '/../..' . '/lib/controllers/class-admin-menu-woocommerce.php',
+        'QuadLayers\\QLWAPP\\Controllers\\Components' => __DIR__ . '/../..' . '/lib/controllers/class-components.php',
+        'QuadLayers\\QLWAPP\\Controllers\\Helpers' => __DIR__ . '/../..' . '/lib/controllers/class-helpers.php',
         'QuadLayers\\QLWAPP\\Entities\\Box' => __DIR__ . '/../..' . '/lib/entities/class-box.php',
         'QuadLayers\\QLWAPP\\Entities\\Button' => __DIR__ . '/../..' . '/lib/entities/class-button.php',
         'QuadLayers\\QLWAPP\\Entities\\Contact' => __DIR__ . '/../..' . '/lib/entities/class-contact.php',
@@ -77,18 +83,18 @@ class ComposerStaticInit065250070e973aa80235a895a5c0ef66
         'QuadLayers\\QLWAPP\\Entities\\Settings' => __DIR__ . '/../..' . '/lib/entities/class-settings.php',
         'QuadLayers\\QLWAPP\\Entities\\WooCommerce' => __DIR__ . '/../..' . '/lib/entities/class-woocommerce.php',
         'QuadLayers\\QLWAPP\\Frontend' => __DIR__ . '/../..' . '/lib/class-frontend.php',
-        'QuadLayers\\QLWAPP\\Models\\Base' => __DIR__ . '/../..' . '/lib/models/class-base.php',
+        'QuadLayers\\QLWAPP\\Helpers' => __DIR__ . '/../..' . '/lib/class-helpers.php',
         'QuadLayers\\QLWAPP\\Models\\Box' => __DIR__ . '/../..' . '/lib/models/class-box.php',
         'QuadLayers\\QLWAPP\\Models\\Button' => __DIR__ . '/../..' . '/lib/models/class-button.php',
-        'QuadLayers\\QLWAPP\\Models\\Chat' => __DIR__ . '/../..' . '/lib/models/class-chat.php',
-        'QuadLayers\\QLWAPP\\Models\\Contact' => __DIR__ . '/../..' . '/lib/models/class-contact.php',
+        'QuadLayers\\QLWAPP\\Models\\Contacts' => __DIR__ . '/../..' . '/lib/models/class-contacts.php',
         'QuadLayers\\QLWAPP\\Models\\Display' => __DIR__ . '/../..' . '/lib/models/class-display.php',
-        'QuadLayers\\QLWAPP\\Models\\Display_Component' => __DIR__ . '/../..' . '/lib/models/class-display-component.php',
-        'QuadLayers\\QLWAPP\\Models\\License' => __DIR__ . '/../..' . '/lib/models/class-license.php',
         'QuadLayers\\QLWAPP\\Models\\Scheme' => __DIR__ . '/../..' . '/lib/models/class-scheme.php',
         'QuadLayers\\QLWAPP\\Models\\Settings' => __DIR__ . '/../..' . '/lib/models/class-settings.php',
         'QuadLayers\\QLWAPP\\Models\\WooCommerce' => __DIR__ . '/../..' . '/lib/models/class-woocommerce.php',
         'QuadLayers\\QLWAPP\\Plugin' => __DIR__ . '/../..' . '/lib/class-plugin.php',
+        'QuadLayers\\QLWAPP\\Services\\Entity_Options' => __DIR__ . '/../..' . '/lib/services/class-entity-options.php',
+        'QuadLayers\\QLWAPP\\Services\\Entity_Visibility' => __DIR__ . '/../..' . '/lib/services/class-entity-visibility.php',
+        'QuadLayers\\QLWAPP\\WooCommerce' => __DIR__ . '/../..' . '/lib/class-woocommerce.php',
         'QuadLayers\\WP_Dashboard_Widget_News\\Load' => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-dashboard-widget-news/src/Load.php',
         'QuadLayers\\WP_Notice_Plugin_Promote\\Load' => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-notice-plugin-promote/src/Load.php',
         'QuadLayers\\WP_Notice_Plugin_Promote\\PluginByFile' => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-notice-plugin-promote/src/PluginByFile.php',
@@ -115,18 +121,15 @@ class ComposerStaticInit065250070e973aa80235a895a5c0ef66
         'QuadLayers\\WP_Orm\\Repository\\CollectionRepositoryInterface' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Repository/CollectionRepositoryInterface.php',
         'QuadLayers\\WP_Orm\\Repository\\SingleRepository' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Repository/SingleRepository.php',
         'QuadLayers\\WP_Orm\\Repository\\SingleRepositoryInterface' => __DIR__ . '/..' . '/franmastromarino/wp-orm/src/Repository/SingleRepositoryInterface.php',
-        'QuadLayers\\WP_Plugin_Suggestions\\Load' => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Load.php',
-        'QuadLayers\\WP_Plugin_Suggestions\\Page' => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Page.php',
-        'QuadLayers\\WP_Plugin_Suggestions\\Table' => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-plugin-suggestions/src/Table.php',
         'QuadLayers\\WP_Plugin_Table_Links\\Load' => __DIR__ . '/../..' . '/jetpack_vendor/quadlayers/wp-plugin-table-links/src/Load.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit065250070e973aa80235a895a5c0ef66::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit065250070e973aa80235a895a5c0ef66::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit065250070e973aa80235a895a5c0ef66::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitbe78b1ade6c719abb71188f2215257fc::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitbe78b1ade6c719abb71188f2215257fc::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitbe78b1ade6c719abb71188f2215257fc::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -1,8 +1,8 @@
 <?php
 namespace QuadLayers\QLWAPP\Entities;
 
-use QuadLayers\QLWAPP\Models\Display_Component;
 use QuadLayers\WP_Orm\Entity\SingleEntity;
+use QuadLayers\QLWAPP\Services\Entity_Options;
 
 class Display extends SingleEntity {
 	public $devices;
@@ -12,7 +12,10 @@ class Display extends SingleEntity {
 
 
 	public function __construct() {
-		$args = Display_Component::instance()->get_args();
+
+		$entity_options = Entity_Options::instance();
+
+		$args = $entity_options->get_args();
 
 		$this->devices    = $args['devices'];
 		$this->entries    = $args['entries'];

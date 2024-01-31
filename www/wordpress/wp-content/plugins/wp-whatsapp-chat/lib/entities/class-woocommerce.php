@@ -4,26 +4,26 @@ namespace QuadLayers\QLWAPP\Entities;
 use QuadLayers\WP_Orm\Entity\SingleEntity;
 
 class WooCommerce extends SingleEntity {
-	public $layout   = 'button';
-	public $box      = 'no';
-	public $position = 'none';
-	public $text;
-	public $message;
-	public $icon      = 'qlwapp-whatsapp-icon';
-	public $type      = 'phone';
-	public $phone     = QLWAPP_PHONE_NUMBER;
-	public $group     = '';
-	public $developer = 'no';
-	public $rounded   = 'yes';
-	public $timefrom  = '00:00';
-	public $timeto    = '00:00';
-	public $timedays  = array();
-	public $timezone;
+	public $layout            = 'button';
+	public $box               = 'no';
+	public $position          = 'none';
+	public $text              = '';
+	public $message           = '';
+	public $icon              = 'qlwapp-whatsapp-icon';
+	public $type              = 'phone';
+	public $phone             = QLWAPP_PHONE_NUMBER;
+	public $group             = '';
+	public $developer         = 'no';
+	public $rounded           = 'yes';
+	public $timefrom          = '00:00';
+	public $timeto            = '00:00';
+	public $timedays          = array();
+	public $timezone          = '';
 	public $visibility        = 'readonly';
 	public $timeout           = 'readonly';
-	public $position_priority = 10;
 	public $animation_name    = '';
 	public $animation_delay   = '';
+	public $position_priority = 10;
 
 	public function __construct() {
 		$this->text     = esc_html__( 'How can I help you?', 'wp-whatsapp-chat' );

@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') or die('No script kiddies please!');
 foreach ($this->get_option_names() as $optName) {
 delete_option($this->get_option_name($optName));
 }

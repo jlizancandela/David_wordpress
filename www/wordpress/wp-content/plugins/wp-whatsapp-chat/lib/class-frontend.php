@@ -1,11 +1,12 @@
 <?php
 namespace QuadLayers\QLWAPP;
 
-use QuadLayers\QLWAPP\Models\Box;
-use QuadLayers\QLWAPP\Models\Button;
-use QuadLayers\QLWAPP\Models\Display;
-use QuadLayers\QLWAPP\Models\Scheme;
-use QuadLayers\QLWAPP\Models\Contact;
+use QuadLayers\QLWAPP\Models\Box as Models_Box;
+use QuadLayers\QLWAPP\Models\Button as Models_Button;
+use QuadLayers\QLWAPP\Models\Display as Models_Display;
+use QuadLayers\QLWAPP\Models\Scheme as Models_Scheme;
+use QuadLayers\QLWAPP\Models\Contacts as Models_Contacts;
+use QuadLayers\QLWAPP\Services\Entity_Visibility;
 
 class Frontend {
 
@@ -28,32 +29,26 @@ class Frontend {
 
 		if ( is_file( $file = apply_filters( 'qlwapp_box_template', QLWAPP_PLUGIN_DIR . 'templates/box.php' ) ) ) {
 
-			$box_model       = Box::instance();
-			$contact_model   = Contact::instance();
-			$button_model    = Button::instance();
-			$display_model   = Display::instance();
-			$display_service = new Controllers\Display_Services();
+			$models_box        = Models_Box::instance();
+			$models_contacts   = Models_Contacts::instance();
+			$models_button     = Models_Button::instance();
+			$models_display    = Models_Display::instance();
+			$entity_visibility = $display_service = Entity_Visibility::instance();
 
-			$contacts = $contact_model->get_contacts_reorder();
-			$display  = $display_model->get();
-			$button   = array();
-			$box      = $box_model->get();
-
-			// Compatibility
-			foreach ( $button_model->get() as $key => $value ) {
-				$button[ $key ]                          = $value;
-				$button[ str_replace( '_', '-', $key ) ] = $value;
-			}
+			$contacts = $models_contacts->get_contacts_reorder();
+			$display  = $models_display->get();
+			$button   = $models_button->get();
+			$box      = $models_box->get();
 
 			include_once $file;
 		}
 	}
 
 	public function add_frontend_css() {
-		$scheme_model = Scheme::instance();
-		$scheme       = $scheme_model->get();
-		$button_model = Button::instance();
-		$button       = $button_model->get();
+		$models_scheme = Models_Scheme::instance();
+		$models_button = Models_Button::instance();
+		$scheme        = $models_scheme->get();
+		$button        = $models_button->get();
 		?>
 			<style>
 				:root {
@@ -93,18 +88,18 @@ class Frontend {
 
 	public function box_display1( $show ) {
 		global $wp_query;
-		$display_model = Display::instance();
-		$display       = $display_model->get();
+		$models_display = Models_Display::instance();
+		$display        = $models_display->get();
 		if ( is_customize_preview() ) {
 			return true;
 		}
-		$display_service = new Controllers\Display_Services();
-		return $display_service->is_show_view( $display );
+		$entity_visibility = Entity_Visibility::instance();
+		return $entity_visibility->is_show_view( $display );
 	}
 
 	public function do_shortcode( $atts, $content = null ) {
-		$button_model = Button::instance();
-		$button       = $button_model->get();
+		$models_button = Models_Button::instance();
+		$button        = $models_button->get();
 
 		$atts = wp_parse_args( $atts, $button );
 
@@ -133,11 +128,11 @@ class Frontend {
 			return;
 		}
 
-		$display_model   = Display::instance();
-		$display         = $display_model->get();
-		$display_service = new Controllers\Display_Services();
+		$models_display    = Models_Display::instance();
+		$display           = $models_display->get();
+		$entity_visibility = Entity_Visibility::instance();
 
-		if ( ! is_admin() && $display_service->is_show_view( $display ) ) {
+		if ( ! is_admin() && $entity_visibility->is_show_view( $display ) ) {
 			do_action( 'qlwapp_load' );
 		}
 	}

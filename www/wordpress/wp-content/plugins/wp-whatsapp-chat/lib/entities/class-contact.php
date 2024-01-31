@@ -2,7 +2,7 @@
 namespace QuadLayers\QLWAPP\Entities;
 
 use QuadLayers\WP_Orm\Entity\CollectionEntity;
-use QuadLayers\QLWAPP\Models\Display_Component;
+use QuadLayers\QLWAPP\Services\Entity_Options;
 
 class Contact extends CollectionEntity {
 	public static $primaryKey = 'id'; //phpcs:ignore
@@ -32,8 +32,8 @@ class Contact extends CollectionEntity {
 		$this->message  = sprintf( esc_html__( 'Hello! I\'m testing the %1$s plugin %2$s', 'wp-whatsapp-chat' ), QLWAPP_PLUGIN_NAME, QLWAPP_LANDING_URL );
 		$this->timezone = qlwapp_get_current_timezone();
 
-		$display_component_model = new Display_Component();
+		$entity_options = Entity_Options::instance();
 
-		$this->display = $display_component_model->get_args();
+		$this->display = $entity_options->get_args();
 	}
 }

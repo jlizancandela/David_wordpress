@@ -44,7 +44,7 @@ else if ($trustindex_pm_google->is_noreg_linked()) {
 echo $trustindex_pm_google->get_noreg_list_reviews();
 }
 else {
-echo $trustindex_pm_google->error_box_for_admins(TrustindexPlugin_google::___("Please fill out <strong>all the required fields</strong> in the <a href='%s'>widget settings</a> page", [ admin_url('admin.php?page='.$trustindex_pm_google->get_plugin_slug().'/settings.php') ]));
+echo $trustindex_pm_google->error_box_for_admins(sprintf(__("Please fill out <strong>all the required fields</strong> in the <a href='%s'>widget settings</a> page", 'trustindex-plugin'),  admin_url('admin.php?page='.$trustindex_pm_google->get_plugin_slug().'/settings.php')));
 }
 echo $after_widget;
 }
@@ -61,7 +61,7 @@ $selectedWidgetId = isset($instance['ti-widget-ID']) ? esc_attr($instance['ti-wi
 <div class="trustindex-widget-admin">
 <?php if ($trustindex_pm_google->is_trustindex_connected()): ?>
 <?php if ($tiWidgets): ?>
-<h2><?php echo TrustindexPlugin_google::___('Your saved widgets'); ?></h2>
+<h2><?php echo __('Your saved widgets', 'trustindex-plugin'); ?></h2>
 <?php foreach ($tiWidgets as $wc): ?>
 <p><strong><?php echo esc_html($wc['name']); ?>:</strong></p>
 <p>
@@ -75,22 +75,22 @@ $selectedWidgetId = isset($instance['ti-widget-ID']) ? esc_attr($instance['ti-wi
 <?php endforeach; ?>
 <?php else: ?>
 <?php echo TrustindexPlugin_google::get_alertbox('warning',
-TrustindexPlugin_google::___('You have no widget saved!') . ' '
-. "<a target='_blank' href='" . "https://admin.trustindex.io/" . "widget'>". TrustindexPlugin_google::___("Let's go, create amazing widgets for free!")."</a>"
+__('You have no widget saved!', 'trustindex-plugin') . ' '
+. "<a target='_blank' href='" . "https://admin.trustindex.io/" . "widget'>". __("Let's go, create amazing widgets for free!", 'trustindex-plugin')."</a>"
 ); ?>
 <?php endif; ?>
 <?php foreach ($this->widget_fields as $fname => $fparams): ?>
 <div class="form-group">
 <div class="col-sm-12">
 <label class="<?php if (isset($this->errors[ $fname ])):?>text-danger<?php endif; ?>">
-<?php echo TrustindexPlugin_google::___($fparams['name']); ?> <?php if ($fparams['required']): ?><strong class="text-danger">*</strong><?php endif; ?>
+<?php echo $fparams['name']; ?> <?php if ($fparams['required']): ?><strong class="text-danger">*</strong><?php endif; ?>
 <?php if ($fparams['help-icon']): ?>
-<?php echo TrustindexPlugin_google::___($fparams['help-icon']); ?>
+<?php echo $fparams['help-icon']; ?>
 <?php endif; ?>
 </label>
 <input
 type="text"
-placeholder="<?php echo TrustindexPlugin_google::___($fparams['placeholder']); ?>"
+placeholder="<?php echo $fparams['placeholder']; ?>"
 id="<?php echo $this->get_field_id($fname); ?>"
 name="<?php echo $this->get_field_name($fname); ?>"
 value="<?php echo isset($instance[ $fname ]) ? esc_attr($instance[ $fname ]) : $fparams['default']; ?>"
@@ -98,7 +98,7 @@ class="form-control"
 <?php if ($fparams['required']): ?>required="required"<?php endif; ?>
 />
 <?php if ($fparams['help']): ?>
-<small class="text-muted"><?php echo TrustindexPlugin_google::___($fparams['help']); ?></small>
+<small class="text-muted"><?php echo $fparams['help']; ?></small>
 <?php endif; ?>
 </div>
 </div>
@@ -112,9 +112,9 @@ Check our portal, <a href="<?php echo 'https://admin.trustindex.io/'; ?>widget" 
 </div>
 <?php else: ?>
 <?php echo TrustindexPlugin_google::get_alertbox('warning',
-TrustindexPlugin_google::___('You have not set up your Trustindex account yet!') . ' ' .
-TrustindexPlugin_google::___('You can only list 10 reviews without it.') . '<br>'
-. TrustindexPlugin_google::___("Go to <a href='%s'>plugin setup page</a> to complete the one-step setup guide and enjoy the full functionalization!", [ admin_url('admin.php?page='.$trustindex_pm_google->get_plugin_slug().'/settings.php&tab=setup_trustindex') ])
+__('You have not set up your Trustindex account yet!', 'trustindex-plugin') . ' ' .
+__('You can only list 10 reviews without it.', 'trustindex-plugin') . '<br>'
+. sprintf(__("Go to <a href='%s'>plugin setup page</a> to complete the one-step setup guide and enjoy the full functionalization!", 'trustindex-plugin'),  admin_url('admin.php?page='.$trustindex_pm_google->get_plugin_slug().'/settings.php&tab=setup_trustindex'))
 ); ?>
 <?php endif; ?>
 </div>

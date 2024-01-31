@@ -1,14 +1,18 @@
 <?php
 
-use QuadLayers\QLWAPP\Models\Box;
-use QuadLayers\QLWAPP\Models\Button;
-use QuadLayers\QLWAPP\Models\Display;
-use QuadLayers\QLWAPP\Models\Scheme;
-use QuadLayers\QLWAPP\Models\Contact;
+use QuadLayers\QLWAPP\Models\Box as Models_Box;
+use QuadLayers\QLWAPP\Models\Button as Models_Button;
+use QuadLayers\QLWAPP\Models\Display as Models_Display;
+use QuadLayers\QLWAPP\Models\Scheme as Models_Scheme;
+use QuadLayers\QLWAPP\Models\Contacts as Models_Contacts;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
+
+require_once 'class-base.php';
+require_once 'class-contact.php';
+require_once 'class-display-services.php';
 
 if ( class_exists( 'QLWAPP_PRO' ) ) {
 	$old = QLWAPP_PRO::instance();
@@ -28,7 +32,7 @@ if ( ! function_exists( 'str_contains' ) ) {
  */
 add_filter(
 	'option_qlwapp',
-	function( $qlwapp ) {
+	function ( $qlwapp ) {
 
 		// Replace old phone number with new phone
 		if ( isset( $qlwapp['button']['phone'] ) && '12019713894' == $qlwapp['button']['phone'] ) {
@@ -202,22 +206,18 @@ class QLWAPP_Compatibility {
 		$qlwapp = array();
 
 		// models
-		$license_model = new QuadLayers\QLWAPP\Models\License();
-		$button_model  = Button::instance();
-		$box_model     = Box::instance();
-		$contact_model = Contact::instance();
-		$chat_model    = new QuadLayers\QLWAPP\Models\Chat();
-		$display_model = Display::instance();
-		$scheme_model  = Scheme::instance();
+		$models_button   = Models_Button::instance();
+		$models_box      = Models_Box::instance();
+		$models_contacts = Models_Contacts::instance();
+		$models_display  = Models_Display::instance();
+		$models_scheme   = Models_Scheme::instance();
 
 		// objects
-		$qlwapp['button']   = $button_model->get();
-		$qlwapp['box']      = $box_model->get();
-		$qlwapp['contacts'] = $contact_model->get_contacts_reorder();
-		$qlwapp['chat']     = $chat_model->get();
-		$qlwapp['display']  = $display_model->get();
-		$qlwapp['license']  = $license_model->get();
-		$qlwapp['scheme']   = $scheme_model->get();
+		$qlwapp['button']   = $models_button->get();
+		$qlwapp['box']      = $models_box->get();
+		$qlwapp['contacts'] = $models_contacts->get_contacts_reorder();
+		$qlwapp['display']  = $models_display->get();
+		$qlwapp['scheme']   = $models_scheme->get();
 
 		if ( ! is_admin() ) {
 			if ( isset( $qlwapp['button']['phone'] ) ) {
@@ -231,7 +231,7 @@ class QLWAPP_Compatibility {
 		if ( isset( $qlwapp['contacts'] ) ) {
 			if ( count( $qlwapp['contacts'] ) ) {
 				foreach ( $qlwapp['contacts'] as $id => $c ) {
-					$qlwapp['contacts'][ $id ] = wp_parse_args( $c, $contact_model->get_args() );
+					$qlwapp['contacts'][ $id ] = wp_parse_args( $c, $models_contacts->get_args() );
 
 					if ( ! is_admin() ) {
 						if ( ! empty( $qlwapp['contacts'][ $id ]['phone'] ) ) {
@@ -271,43 +271,43 @@ class QLWAPP_Compatibility {
 		// Compatibility Since Version 7.2.0
 		add_filter(
 			'default_option_qlwapp_box',
-			function() {
+			function () {
 				return $this->previous_versions_qlwapp( 'box' );
 			}
 		);
 		add_filter(
 			'default_option_qlwapp_button',
-			function() {
+			function () {
 				return $this->previous_versions_qlwapp( 'button' );
 			}
 		);
 		add_filter(
 			'default_option_qlwapp_display',
-			function() {
+			function () {
 				return $this->previous_versions_qlwapp( 'display' );
 			}
 		);
 		add_filter(
 			'default_option_qlwapp_scheme',
-			function() {
+			function () {
 				return $this->previous_versions_qlwapp( 'scheme' );
 			}
 		);
 		add_filter(
 			'default_option_qlwapp_settings',
-			function() {
+			function () {
 				return $this->previous_versions_qlwapp( 'settings' );
 			}
 		);
 		add_filter(
 			'default_option_qlwapp_woocommerce',
-			function() {
+			function () {
 				return $this->previous_versions_qlwapp( 'woocommerce' );
 			}
 		);
 		add_filter(
 			'default_option_qlwapp_contacts',
-			function() {
+			function () {
 				return $this->previous_versions_qlwapp( 'contacts' );
 			}
 		);

@@ -6,7 +6,7 @@ if ( class_exists( 'QuadLayers\\WP_Plugin_Table_Links\\Load' ) ) {
 		array(
 			array(
 				'text' => esc_html__( 'Settings', 'wp-whatsapp-chat' ),
-				'url'  => admin_url( 'admin.php?page=qlwapp' ),
+				'url'  => admin_url( 'admin.php?page=wp-whatsapp-chat' ),
 				'target' => '_self',
 			),
 			array(

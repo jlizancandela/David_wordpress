@@ -2,23 +2,23 @@
 
 namespace QuadLayers\QLWAPP;
 
+use QuadLayers\QLWAPP\Api\Admin_Menu_Routes_Library;
+
 final class Plugin {
 
 	protected static $instance;
 
 	private function __construct() {
 		load_plugin_textdomain( 'wp-whatsapp-chat', false, QLWAPP_PLUGIN_DIR . '/languages/' );
+		Admin_Menu_Routes_Library::instance();
+		Controllers\Helpers::instance();
+		Controllers\Components::instance();
+		Controllers\Admin_Menu::instance();
+		Controllers\Admin_Menu_WooCommerce::instance();
 		Frontend::instance();
-		Backend::instance();
+		WooCommerce::instance();
 		add_action( 'admin_footer', array( __CLASS__, 'add_premium_css' ) );
 		do_action( 'qlwapp_init' );
-	}
-
-	public static function is_min() {
-		return;
-		if ( ! defined( 'SCRIPT_DEBUG' ) || ! SCRIPT_DEBUG ) {
-			return '.min';
-		}
 	}
 
 	public static function add_premium_css() {
@@ -41,7 +41,6 @@ final class Plugin {
 		}
 		return self::$instance;
 	}
-
 }
 
 Plugin::instance();

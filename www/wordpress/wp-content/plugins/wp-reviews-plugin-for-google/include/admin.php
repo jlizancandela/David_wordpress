@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') or die('No script kiddies please!');
 if (!current_user_can('edit_pages')) {
 die('The account you are logged in to does not have permission to access this page.');
 }
@@ -97,7 +98,7 @@ $selectedTab = $tabs[0]['slug'];
 <?php if (isset($assetCheckJs) && isset($assetCheckCssFile)): ?>
 <div id="ti-assets-error" class="notice notice-warning" style="display: none; margin-left: 0; margin-right: 0; padding-bottom: 9px">
 <p>
-<?php echo $pluginManager::___('For some reason, the <strong>CSS</strong> file required to run the plugin was not loaded.<br />One of your plugins is probably causing the problem.'); ?>
+<?php echo wp_kses_post(__('For some reason, the <strong>CSS</strong> file required to run the plugin was not loaded.<br />One of your plugins is probably causing the problem.', 'trustindex-plugin')); ?>
 </p>
 </div>
 <script type="text/javascript">
@@ -107,8 +108,8 @@ let loadedCount = 0;
 let jsFiles = [
 <?php foreach ($assetCheckJs as $id => $file): ?>
 {
-url: '<?php echo $pluginManagerInstance->get_plugin_file_url($file); ?>',
-id: '<?php echo $id; ?>'
+url: '<?php echo esc_attr($pluginManagerInstance->get_plugin_file_url($file)); ?>',
+id: '<?php echo esc_attr($id); ?>'
 },
 <?php endforeach; ?>
 ];
@@ -122,14 +123,14 @@ else {
 element.type = 'text/css';
 element.rel = 'stylesheet';
 element.href = url;
-element.id = '<?php echo $assetCheckCssId; ?>-css';
+element.id = '<?php echo esc_html($assetCheckCssId); ?>-css';
 }
 document.head.appendChild(element);
 element.addEventListener('load', function() { callback(true); });
 element.addEventListener('error', function() { callback(false); });
 };
 let isCSSExists = function() {
-let link = document.getElementById('<?php echo $assetCheckCssId; ?>-css');
+let link = document.getElementById('<?php echo esc_html($assetCheckCssId); ?>-css');
 return link && Boolean(link.sheet);
 };
 let isJSExists = function(id) {
@@ -149,7 +150,7 @@ warningBox.querySelector('p strong').innerHTML = notLoaded.join(', ');
 }
 }
 if (!isCSSExists()) {
-addElement('link', '<?php echo $pluginManagerInstance->get_plugin_file_url($assetCheckCssFile); ?>', function(success) {
+addElement('link', '<?php echo esc_attr($pluginManagerInstance->get_plugin_file_url($assetCheckCssFile)); ?>', function(success) {
 loadedCount++;
 if (!success) {
 notLoaded.push('CSS');
@@ -184,36 +185,36 @@ loadedCount++;
 <?php foreach ($tabs as $tab): ?>
 <a
 class="ti-nav-item<?php if ($selectedTab === $tab['slug']): ?> ti-active<?php endif; ?><?php if ($tab['place'] === 'right'): ?> ti-right<?php endif; ?>"
-href="<?php echo esc_url(admin_url('admin.php?page='. esc_attr($_GET['page']) .'&tab='. esc_attr($tab['slug']))); ?>"
+href="<?php echo esc_url(admin_url('admin.php?page='. esc_attr(sanitize_text_field($_GET['page'])) .'&tab='. esc_attr($tab['slug']))); ?>"
 >
 <?php echo esc_html($tab['name']); ?>
 <?php if (isset($newBadgeTabs) && in_array($tab['slug'], $newBadgeTabs)): ?>
-<span class="ti-new-badge"><?php echo $pluginManager::___('new'); ?></span>
+<span class="ti-new-badge"><?php echo esc_html(__('new', 'trustindex-plugin')); ?></span>
 <?php endif; ?>
 </a>
 <?php endforeach; ?>
-<a href="https://www.trustindex.io/ti-redirect.php?a=sys&c=<?php echo $logoCampaignId; ?>" target="_blank" title="Trustindex" class="ti-logo">
-<img src="<?php echo $pluginManagerInstance->get_plugin_file_url($logoFile); ?>" />
+<a href="https://www.trustindex.io/ti-redirect.php?a=sys&c=<?php echo esc_attr($logoCampaignId); ?>" target="_blank" title="Trustindex" class="ti-logo">
+<img src="<?php echo esc_url($pluginManagerInstance->get_plugin_file_url($logoFile)); ?>" />
 </a>
 </div>
 <?php if ($httpBlocked): ?>
 <div class="ti-box ti-notice-error ti-mb-1">
 <p>
-<?php echo $pluginManager::___('Your site cannot download our widget templates, because of your server settings not allowing that:'); ?><br /><a href="https://wordpress.org/support/article/editing-wp-config-php/#block-external-url-requests" target="_blank">https://wordpress.org/support/article/editing-wp-config-php/#block-external-url-requests</a><br /><br />
-<strong><?php echo $pluginManager::___('Solution'); ?></strong><br />
-<?php echo $pluginManager::___('a) You should define <strong>WP_HTTP_BLOCK_EXTERNAL</strong> as false'); ?><br />
-<?php echo $pluginManager::___("b) or you should add Trustindex as an <strong>WP_ACCESSIBLE_HOSTS</strong>: \"*.trustindex.io\""); ?><br />
+<?php echo esc_html(__('Your site cannot download our widget templates, because of your server settings not allowing that:', 'trustindex-plugin')); ?><br /><a href="https://wordpress.org/support/article/editing-wp-config-php/#block-external-url-requests" target="_blank">https://wordpress.org/support/article/editing-wp-config-php/#block-external-url-requests</a><br /><br />
+<strong><?php echo esc_html(__('Solution', 'trustindex-plugin')); ?></strong><br />
+<?php echo wp_kses_post(__('a) You should define <strong>WP_HTTP_BLOCK_EXTERNAL</strong> as false', 'trustindex-plugin')); ?><br />
+<?php echo wp_kses_post(__("b) or you should add Trustindex as an <strong>WP_ACCESSIBLE_HOSTS</strong>: \"*.trustindex.io\"", 'trustindex-plugin')); ?><br />
 </p>
 </div>
 <?php endif; ?>
 <?php if ($proxyCheck !== TRUE): ?>
 <div class="ti-box ti-notice-error ti-mb-1">
 <p>
-<?php echo $pluginManager::___('It seems you are using a proxy for HTTP requests but after a test request it returned a following error:'); ?><br />
-<strong><?php echo $proxyCheck; ?></strong><br /><br />
-<?php echo $pluginManager::___('Therefore, our plugin might not work properly. Please, contact your hosting support, they can resolve this easily.'); ?>
+<?php echo esc_html(__('It seems you are using a proxy for HTTP requests but after a test request it returned a following error:', 'trustindex-plugin')); ?><br />
+<strong><?php echo wp_kses_post($proxyCheck); ?></strong><br /><br />
+<?php echo esc_html(__('Therefore, our plugin might not work properly. Please, contact your hosting support, they can resolve this easily.', 'trustindex-plugin')); ?>
 </p>
-<a href="<?php echo wp_nonce_url('?page='. esc_attr($_GET['page']) .'&tab='. esc_attr($_GET['tab']) .'&test_proxy', 'ti-test-proxy'); ?>" class="ti-btn ti-btn-loading-on-click"><?php echo $pluginManager::___('Test again') ;?></a>
+<a href="<?php echo wp_nonce_url('?page='. esc_attr(sanitize_text_field($_GET['page'])) .'&tab='. esc_attr(sanitize_text_field($_GET['tab'])) .'&test_proxy', 'ti-test-proxy'); ?>" class="ti-btn ti-btn-loading-on-click"><?php echo esc_html(__('Test again', 'trustindex-plugin')); ?></a>
 </div>
 <?php endif; ?>
 <?php if (!isset($noContainerElementTabs) || !in_array($selectedTab, $noContainerElementTabs)): ?>

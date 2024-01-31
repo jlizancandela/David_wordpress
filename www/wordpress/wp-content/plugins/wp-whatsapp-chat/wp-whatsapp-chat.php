@@ -4,7 +4,7 @@
  * Plugin Name:             Social Chat
  * Description:             Social Chat allows your visitors to contact you or your team through WhatsApp with a single click.
  * Plugin URI:              https://quadlayers.com/products/whatsapp-chat/
- * Version:                 7.2.5
+ * Version:                 7.3.0
  * Text Domain:             wp-whatsapp-chat
  * Author:                  QuadLayers
  * Author URI:              https://quadlayers.com
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'QLWAPP_PLUGIN_NAME', 'Social Chat' );
-define( 'QLWAPP_PLUGIN_VERSION', '7.2.5' );
+define( 'QLWAPP_PLUGIN_VERSION', '7.3.0' );
 define( 'QLWAPP_PLUGIN_FILE', __FILE__ );
 define( 'QLWAPP_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR );
 define( 'QLWAPP_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
@@ -28,7 +28,6 @@ define( 'QLWAPP_PREFIX', 'qlwapp' );
 define( 'QLWAPP_DOMAIN', QLWAPP_PREFIX );
 define( 'QLWAPP_WORDPRESS_URL', 'https://wordpress.org/plugins/wp-whatsapp-chat/' );
 define( 'QLWAPP_DEMO_URL', 'https://quadlayers.com/demo/whatsapp-chat/?utm_source=qlwapp_admin' );
-define( 'QLWAPP_PURCHASE_URL', QLWAPP_DEMO_URL );
 define( 'QLWAPP_LANDING_URL', 'https://quadlayers.com/landing/whatsapp-chat/?utm_source=qlwapp_admin' );
 define( 'QLWAPP_SUPPORT_URL', 'https://quadlayers.com/account/support/?utm_source=qlwapp_admin' );
 define( 'QLWAPP_DOCUMENTATION_URL', 'https://quadlayers.com/documentation/whatsapp-chat/?utm_source=qlwapp_admin' );
@@ -52,8 +51,6 @@ require_once __DIR__ . '/vendor_packages/wp-i18n-map.php';
 require_once __DIR__ . '/vendor_packages/wp-dashboard-widget-news.php';
 require_once __DIR__ . '/vendor_packages/wp-plugin-table-links.php';
 require_once __DIR__ . '/vendor_packages/wp-notice-plugin-promote.php';
-require_once __DIR__ . '/vendor_packages/wp-plugin-suggestions.php';
-
 /**
  * Load plugin classes
  */
@@ -64,7 +61,7 @@ require_once __DIR__ . '/lib/class-plugin.php';
  */
 register_activation_hook(
 	__FILE__,
-	function() {
+	function () {
 		do_action( 'qlwapp_activation' );
 	}
 );
@@ -74,7 +71,7 @@ register_activation_hook(
  */
 register_deactivation_hook(
 	__FILE__,
-	function() {
+	function () {
 		do_action( 'qlwapp_deactivation' );
 	}
 );

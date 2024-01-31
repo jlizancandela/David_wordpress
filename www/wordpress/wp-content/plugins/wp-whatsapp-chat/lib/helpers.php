@@ -57,7 +57,6 @@ function qlwapp_get_timezone_offset( $timezone ) {
 	if ( strpos( $timezone, 'UTC' ) !== false ) {
 		$offset = preg_replace( '/UTC\+?/', '', $timezone ) * 60;
 	} else {
-;
 		$current = timezone_open( $timezone );
 		$utc     = new \DateTime( 'now', new \DateTimeZone( 'UTC' ) );
 		$offset  = $current->getOffset( $utc ) / 3600 * 60;

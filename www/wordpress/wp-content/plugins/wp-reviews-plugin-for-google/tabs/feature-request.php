@@ -22,44 +22,47 @@ wp_mail('support@trustindex.io', $subject, $message, [ 'From: '. $email, 'Conten
 exit;
 }
 ?>
-<h1 class="ti-header-title"><?php echo $pluginManager::___('Feature request'); ?></h1>
+<h1 class="ti-header-title"><?php echo __('Feature request', 'trustindex-plugin'); ?></h1>
 <div class="ti-box ti-feature-request">
 <div class="ti-box-inner">
-<div class="ti-box-header"><?php echo $pluginManager::___('Missing a feature?'); ?></div>
+<div class="ti-box-header"><?php echo __('Missing a feature?', 'trustindex-plugin'); ?></div>
 <p>
-<?php echo $pluginManager::___('Anything you are missing in our product?'); ?><br />
-<?php echo $pluginManager::___('Drop a message here to let us know!'); ?>
+<?php echo __('Anything you are missing in our product?', 'trustindex-plugin'); ?><br />
+<?php echo __('Drop a message here to let us know!', 'trustindex-plugin'); ?>
 </p>
 <form method="post" enctype="multipart/form-data">
 <?php wp_nonce_field('send-feature-request_' . $pluginManagerInstance->get_plugin_slug(), '_wpnonce_send_feature_request' ); ?>
 <input type="hidden" name="command" value="send-feature-request" />
 <div class="ti-form-group">
-<label><?php echo $pluginManager::___('Please describe the feature you need'); ?>*</label>
-<textarea class="ti-form-control" name="description" rows="3" placeholder="<?php echo $pluginManager::___('The more detail you can share, the better.'); ?>"></textarea>
+<label><?php echo __('Please describe the feature you need', 'trustindex-plugin'); ?>*</label>
+<textarea class="ti-form-control" name="description" rows="3" placeholder="<?php echo __('The more detail you can share, the better.', 'trustindex-plugin'); ?>"></textarea>
 </div>
 <div class="ti-form-group">
-<label><?php echo $pluginManager::___('Attach images'); ?> (<?php echo $pluginManager::___('use %s for image share', [ '<a href="https://snipboard.io/" target="_blank">snipboard.io</a>' ]); ?>)</label>
-<textarea class="ti-form-control" name="attachments" rows="3" placeholder="<?php echo $pluginManager::___('URL of images (each on a separate line)'); ?>"></textarea>
+<label>
+<?php echo __('Attach images', 'trustindex-plugin'); ?>
+(<?php echo sprintf(__('use %s for image share', 'trustindex-plugin'),  '<a href="https://snipboard.io/" target="_blank">snipboard.io</a>'); ?>)
+</label>
+<textarea class="ti-form-control" name="attachments" rows="3" placeholder="<?php echo __('URL of images (each on a separate line)', 'trustindex-plugin'); ?>"></textarea>
 </div>
 <div class="ti-form-group">
-<label><?php echo $pluginManager::___('Please describe your current workaround'); ?></label>
-<textarea class="ti-form-control" name="workaround" rows="3" placeholder="<?php echo $pluginManager::___('If you have one - otherwise leave it blank.'); ?>"></textarea>
+<label><?php echo __('Please describe your current workaround', 'trustindex-plugin'); ?></label>
+<textarea class="ti-form-control" name="workaround" rows="3" placeholder="<?php echo __('If you have one - otherwise leave it blank.', 'trustindex-plugin'); ?>"></textarea>
 </div>
 <div class="ti-form-group">
-<label><?php echo $pluginManager::___('Your name'); ?></label>
-<input type="text" class="ti-form-control" name="name" placeholder="<?php echo $pluginManager::___('The more detail you can share, the better.'); ?>" />
+<label><?php echo __('Your name', 'trustindex-plugin'); ?></label>
+<input type="text" class="ti-form-control" name="name" placeholder="<?php echo __('The more detail you can share, the better.', 'trustindex-plugin'); ?>" />
 </div>
 <div class="ti-form-group">
-<label><?php echo $pluginManager::___('Your email address'); ?>*</label>
+<label><?php echo __('Your email address', 'trustindex-plugin'); ?>*</label>
 <input type="text" class="ti-form-control" name="email" value="<?php echo esc_attr($current_user->user_email); ?>" />
 </div>
-<p><?php echo $pluginManager::___('Thanks for taking the time - we will get back to you as soon as possible to ask a few clarifying question or to give you an update.'); ?></p>
+<p><?php echo __('Thanks for taking the time - we will get back to you as soon as possible to ask a few clarifying question or to give you an update.', 'trustindex-plugin'); ?></p>
 <div class="ti-box-footer">
 <a href="#" class="btn-send-feature-request ti-btn ti-tooltip ti-toggle-tooltip">
-<?php echo $pluginManager::___('Send feature request') ;?>
+<?php echo __('Send feature request', 'trustindex-plugin') ;?>
 <span class="ti-tooltip-message">
 <span style="color: #00ff00; margin-right: 2px">✓</span>
-<?php echo $pluginManager::___('Feature request sent'); ?>
+<?php echo __('Feature request sent', 'trustindex-plugin'); ?>
 </span>
 </a>
 </div>
