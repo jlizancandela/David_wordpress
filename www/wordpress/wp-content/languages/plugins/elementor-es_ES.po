@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Elementor Website Builder &#8211; More than Just a Page Builder - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-29 20:27:43+0000\n"
+"PO-Revision-Date: 2024-02-05 17:56:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,18 @@ msgstr ""
 "X-Generator: GlotPress/4.0.0-beta.2\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Elementor Website Builder &#8211; More than Just a Page Builder - Stable (latest release)\n"
+
+#: includes/controls/gallery.php:127 includes/controls/media.php:276
+msgid "Install Plugin"
+msgstr "Instalar plugin"
+
+#: includes/controls/gallery.php:116 includes/controls/media.php:268
+msgid "Don't let unoptimized images be the downfall of your site's performance. Use Image Optimizer!"
+msgstr "No dejes que las imágenes no optimizadas sean la perdición del rendimiento de tu sitio. ¡Utiliza el optimizador de Imágenes!"
+
+#: includes/controls/gallery.php:115 includes/controls/media.php:267
+msgid "Whoa! This image is quite large and might slow things down. Use Image Optimizer to reduce size without losing quality."
+msgstr "¡Guau! Esta imagen es bastante grande y puede ralentizar el proceso. Utiliza el Optimizador de Imágenes para reducir el tamaño sin perder calidad."
 
 #: modules/promotions/admin-menu-items/form-submissions-promotion-item.php:47
 msgid "* Requires an Advanced subscription or higher"
@@ -79,11 +91,7 @@ msgstr "Condiciones de visualización"
 msgid "Generate Variations"
 msgstr "Generar variaciones"
 
-#: includes/controls/media.php:265
-msgid "Oh! That image exceeds the recommended size.Try reducing it with the new Image Optimizer."
-msgstr "Esa imagen supera el tamaño recomendado. Intenta reducirla con el nuevo Optimizador de Imágenes."
-
-#: includes/controls/media.php:255
+#: includes/controls/media.php:256
 msgid "This image doesn’t contain ALT text - which is necessary for accessibility and SEO."
 msgstr "Esta imagen no contiene texto ALT, necesario para la accesibilidad y el SEO."
 
@@ -91,23 +99,7 @@ msgstr "Esta imagen no contiene texto ALT, necesario para la accesibilidad y el 
 msgid "Set locations and angle for each breakpoint to ensure the gradient adapts to different screen sizes."
 msgstr "Establece las ubicaciones y el ángulo de cada punto de ruptura para que el degradado se adapte a los distintos tamaños de pantalla."
 
-#: includes/controls/gallery.php:125 includes/controls/media.php:274
-msgid "Install Now"
-msgstr "Instalar ahora"
-
-#: includes/controls/gallery.php:125 includes/controls/media.php:274
-msgid "Activate Now"
-msgstr "Activar ahora"
-
-#: includes/controls/gallery.php:114 includes/controls/media.php:266
-msgid "Get a performance boost and improved SEO results with the Image Optimizer."
-msgstr "Consigue un aumento del rendimiento y mejores resultados SEO con el Optimizador de Imágenes."
-
-#: includes/controls/gallery.php:113
-msgid "Oh! Some images exceed the recommended size.Try reducing them with the new Image Optimizer."
-msgstr "Algunas imágenes superan el tamaño recomendado. Intenta reducirlas con el nuevo Optimizador de imágenes."
-
-#: includes/controls/gallery.php:105
+#: includes/controls/gallery.php:106
 msgid "Images marked in red don’t contain ALT text - which is necessary for accessibility and SEO."
 msgstr "Las imágenes en rojo no contienen texto ALT, que es necesario para la accesibilidad y el SEO."
 
@@ -123,11 +115,11 @@ msgstr "¡Atención!"
 msgid "Enable the option to upload JSON files"
 msgstr "Activar la opción de subir archivos JSON"
 
-#: core/files/uploads-manager.php:562
+#: core/files/uploads-manager.php:622
 msgid "You don't have permission to upload JSON files. Contact the administrator."
 msgstr "No tienes permiso para subir archivos JSON. Ponte en contacto con el administrador."
 
-#: core/files/uploads-manager.php:284
+#: core/files/uploads-manager.php:331
 msgid "Invalid file name."
 msgstr "Nombre de archivo no válido."
 
@@ -200,7 +192,7 @@ msgstr "Todas las plantillas"
 msgid "Add New Template"
 msgstr "Añadir nueva plantilla"
 
-#: includes/controls/groups/image-size.php:296 includes/controls/media.php:313
+#: includes/controls/groups/image-size.php:296 includes/controls/media.php:315
 #: includes/widgets/testimonial.php:292
 msgid "Image Resolution"
 msgstr "Resolución de la imagen"
@@ -506,7 +498,7 @@ msgid "Collapse"
 msgstr "Cerrar"
 
 #: modules/nested-accordion/widgets/nested-accordion.php:218
-#: assets/js/ai-layout.js:5419
+#: assets/js/ai-layout.js:5369
 msgid "Expand"
 msgstr "Abrir"
 
@@ -575,7 +567,7 @@ msgid "Build Smart with AI"
 msgstr "Construye de manera inteligente con la IA"
 
 #: includes/controls/groups/background.php:99 assets/js/ai-admin.js:6892
-#: assets/js/ai.js:7152
+#: assets/js/ai.js:7154
 msgid "Gradient"
 msgstr "Gradiente"
 
@@ -717,7 +709,7 @@ msgid "Get Elementor Pro"
 msgstr "Obtener Elementor Pro"
 
 #: modules/ai/connect/ai.php:24 assets/js/ai-admin.js:441
-#: assets/js/ai-layout.js:1117 assets/js/ai-layout.js:3675 assets/js/ai.js:569
+#: assets/js/ai-layout.js:1117 assets/js/ai-layout.js:3625 assets/js/ai.js:569
 msgid "AI"
 msgstr "IA"
 
@@ -1422,13 +1414,13 @@ msgstr "Trazo del texto"
 
 #: includes/admin-templates/beta-tester.php:53 assets/js/ai-admin.js:5037
 #: assets/js/ai-admin.js:10181 assets/js/ai-layout.js:2812
-#: assets/js/ai-layout.js:5747 assets/js/ai.js:5297 assets/js/ai.js:10441
+#: assets/js/ai-layout.js:5697 assets/js/ai.js:5299 assets/js/ai.js:10443
 msgid "Privacy Policy"
 msgstr "Política de privacidad"
 
 #: includes/admin-templates/beta-tester.php:48 assets/js/ai-admin.js:5033
 #: assets/js/ai-admin.js:10177 assets/js/ai-layout.js:2808
-#: assets/js/ai-layout.js:5743 assets/js/ai.js:5293 assets/js/ai.js:10437
+#: assets/js/ai-layout.js:5693 assets/js/ai.js:5295 assets/js/ai.js:10439
 msgid "Terms of Service"
 msgstr "Condiciones del servicio"
 
@@ -2211,7 +2203,7 @@ msgid "Release Candidate"
 msgstr "Candidato para lanzamiento"
 
 #: core/experiments/manager.php:469 assets/js/ai-admin.js:442
-#: assets/js/ai-layout.js:1118 assets/js/ai-layout.js:3676 assets/js/ai.js:570
+#: assets/js/ai-layout.js:1118 assets/js/ai-layout.js:3626 assets/js/ai.js:570
 msgid "Beta"
 msgstr "Beta"
 
@@ -2492,7 +2484,7 @@ msgstr "Los cambios se reflejarán en la vista previa solo después de que se vu
 msgid "Reset Data"
 msgstr "Restablecer los datos"
 
-#: includes/controls/media.php:286
+#: includes/controls/media.php:288
 msgid "Click the media icon to upload file"
 msgstr "Haz clic en el icono de medios para subir el archivo"
 
@@ -2611,7 +2603,7 @@ msgid "%s Widget"
 msgstr "Widget %s"
 
 #: core/experiments/manager.php:142 includes/editor-templates/global.php:29
-#: assets/js/ai-admin.js:5433 assets/js/ai.js:5693 assets/js/app.js:7894
+#: assets/js/ai-admin.js:5433 assets/js/ai.js:5695 assets/js/app.js:7894
 #: assets/js/editor.js:46511
 msgid "Back"
 msgstr "Volver"
@@ -3049,7 +3041,8 @@ msgstr "El archivo .htaccess de tu sitio no parece estar disponible."
 msgid "Some of your theme files are missing."
 msgstr "Algunos archivos de tu tema no están disponibles."
 
-#: core/files/file-types/svg.php:73 core/files/uploads-manager.php:563
+#: core/files/file-types/svg.php:73 core/files/uploads-manager.php:595
+#: core/files/uploads-manager.php:623
 msgid "This file is not allowed for security reasons."
 msgstr "Este archivo no está permitido por motivos de seguridad."
 
@@ -3057,7 +3050,7 @@ msgstr "Este archivo no está permitido por motivos de seguridad."
 msgid "Sign Up"
 msgstr "Regístrate"
 
-#: includes/controls/media.php:299 includes/controls/media.php:301
+#: includes/controls/media.php:301 includes/controls/media.php:303
 #: assets/js/editor.js:7947
 msgid "Upload"
 msgstr "Subir"
@@ -3390,12 +3383,12 @@ msgid "Go To"
 msgstr "Ir a"
 
 #: includes/editor-templates/hotkeys.php:31 assets/js/ai-admin.js:8686
-#: assets/js/ai.js:8946
+#: assets/js/ai.js:8948
 msgid "Redo"
 msgstr "Rehacer"
 
 #: includes/editor-templates/hotkeys.php:23 assets/js/ai-admin.js:8675
-#: assets/js/ai.js:8935 assets/js/kit-elements-defaults-editor.js:236
+#: assets/js/ai.js:8937 assets/js/kit-elements-defaults-editor.js:236
 msgid "Undo"
 msgstr "Deshacer"
 
@@ -3450,7 +3443,7 @@ msgstr "Conectado correctamente."
 #: core/common/modules/connect/connect-menu-item.php:28
 #: assets/js/ai-admin.js:837 assets/js/ai-admin.js:5047
 #: assets/js/ai-layout.js:1376 assets/js/ai-layout.js:2822 assets/js/ai.js:965
-#: assets/js/ai.js:5307
+#: assets/js/ai.js:5309
 msgid "Connect"
 msgstr "Conectar"
 
@@ -3572,7 +3565,7 @@ msgstr "¡Enhorabuena!"
 
 #: core/kits/documents/tabs/settings-lightbox.php:76 includes/frontend.php:1376
 #: includes/widgets/google-maps.php:152 assets/js/ai-admin.js:5851
-#: assets/js/ai-admin.js:5854 assets/js/ai.js:6111 assets/js/ai.js:6114
+#: assets/js/ai-admin.js:5854 assets/js/ai.js:6113 assets/js/ai.js:6116
 msgid "Zoom"
 msgstr "Zoom"
 
@@ -3636,7 +3629,7 @@ msgstr "Sitio"
 
 #: includes/managers/elements.php:289
 #: modules/promotions/widgets/pro-widget-promotion.php:53
-#: assets/js/ai-layout.js:3894
+#: assets/js/ai-layout.js:3844
 msgid "Pro"
 msgstr "Pro"
 
@@ -4091,10 +4084,10 @@ msgstr "Importar plantilla"
 
 #: core/kits/views/panel.php:44 includes/controls/icons.php:83
 #: includes/controls/icons.php:85 includes/controls/media.php:216
-#: includes/controls/media.php:218 includes/controls/media.php:295
-#: includes/controls/media.php:297 includes/editor-templates/repeater.php:27
+#: includes/controls/media.php:218 includes/controls/media.php:297
+#: includes/controls/media.php:299 includes/editor-templates/repeater.php:27
 #: modules/promotions/widgets/pro-widget-promotion.php:64
-#: assets/js/ai-admin.js:2079 assets/js/ai-layout.js:3336 assets/js/ai.js:2207
+#: assets/js/ai-admin.js:2079 assets/js/ai-layout.js:3286 assets/js/ai.js:2207
 #: assets/js/kit-library.f07b34b5f8e5950b1f5f.bundle.js:919
 msgid "Remove"
 msgstr "Eliminar"
@@ -4896,7 +4889,7 @@ msgid "Meet Our Global Widget"
 msgstr "Conoce nuestro widget global"
 
 #: modules/promotions/widgets/pro-widget-promotion.php:65
-#: assets/js/ai-layout.js:3825 assets/js/ai-layout.js:3981
+#: assets/js/ai-layout.js:3775 assets/js/ai-layout.js:3931
 msgid "Go Pro"
 msgstr "Ir a la versión Pro"
 
@@ -5077,7 +5070,7 @@ msgstr "Volver a la biblioteca"
 #: includes/editor-templates/templates.php:178
 #: includes/editor-templates/templates.php:202
 #: includes/editor-templates/templates.php:216 assets/js/ai-admin.js:5118
-#: assets/js/ai.js:5378 assets/js/editor.js:8366
+#: assets/js/ai.js:5380 assets/js/editor.js:8366
 msgid "Insert"
 msgstr "Insertar"
 
@@ -5334,7 +5327,7 @@ msgstr "Pegar"
 #: includes/elements/section.php:526 includes/widgets/accordion.php:304
 #: includes/widgets/accordion.php:475 includes/widgets/common.php:673
 #: includes/widgets/toggle.php:336 includes/widgets/toggle.php:499
-#: assets/js/ai-admin.js:6888 assets/js/ai.js:7148
+#: assets/js/ai-admin.js:6888 assets/js/ai.js:7150
 msgid "Background"
 msgstr "Fondo"
 
@@ -5465,7 +5458,7 @@ msgstr "Desvanecido"
 msgid "Effect"
 msgstr "Efecto"
 
-#: includes/controls/media.php:344
+#: includes/controls/media.php:346
 msgctxt "Image Size Control"
 msgid "Full"
 msgstr "Completo"
@@ -5780,7 +5773,7 @@ msgstr "Color principal"
 
 #: includes/widgets/icon-box.php:130 includes/widgets/icon.php:142
 #: includes/widgets/social-icons.php:261 assets/js/ai-admin.js:6942
-#: assets/js/ai.js:7202
+#: assets/js/ai.js:7204
 msgid "Square"
 msgstr "Cuadrado"
 
@@ -6168,7 +6161,7 @@ msgstr "Botón"
 #: core/common/modules/finder/categories/edit.php:30
 #: includes/controls/popover-toggle.php:68 assets/js/ai-admin.js:2102
 #: assets/js/ai-admin.js:5824 assets/js/ai-admin.js:5831 assets/js/ai.js:2230
-#: assets/js/ai.js:6084 assets/js/ai.js:6091
+#: assets/js/ai.js:6086 assets/js/ai.js:6093
 #: assets/js/element-manager-admin.js:2510
 #: assets/js/element-manager-admin.js:2567
 msgid "Edit"
@@ -6438,6 +6431,10 @@ msgstr "No"
 #: assets/js/app.js:9671
 msgid "Yes"
 msgstr "Sí"
+
+#: includes/controls/gallery.php:127 includes/controls/media.php:276
+msgid "Activate Plugin"
+msgstr "Activar plugin"
 
 #: core/role-manager/role-manager.php:73
 msgid "Exclude Roles"
@@ -6748,7 +6745,7 @@ msgstr "Avanzado"
 
 #: includes/managers/controls.php:328 includes/widgets/divider.php:363
 #: includes/widgets/icon-list.php:275 assets/js/ai-admin.js:6184
-#: assets/js/ai.js:6444 assets/js/editor.js:9402 assets/js/editor.js:36422
+#: assets/js/ai.js:6446 assets/js/editor.js:9402 assets/js/editor.js:36422
 msgid "Style"
 msgstr "Estilo"
 
@@ -6793,7 +6790,7 @@ msgstr "Restablecer"
 
 #: core/editor/loader/v1/templates/editor-body-v1.view.php:31
 #: core/editor/loader/v2/templates/editor-body-v2.view.php:33
-#: includes/editor-templates/templates.php:174 assets/js/ai-layout.js:3427
+#: includes/editor-templates/templates.php:174 assets/js/ai-layout.js:3377
 msgid "Preview"
 msgstr "Previsualizar"
 
@@ -7016,9 +7013,9 @@ msgstr "Continuo"
 #: modules/nested-tabs/widgets/nested-tabs.php:389 assets/js/ai-admin.js:6874
 #: assets/js/ai-admin.js:6880 assets/js/ai-admin.js:6890
 #: assets/js/ai-admin.js:6901 assets/js/ai-admin.js:6912
-#: assets/js/ai-admin.js:6928 assets/js/ai.js:7134 assets/js/ai.js:7140
-#: assets/js/ai.js:7150 assets/js/ai.js:7161 assets/js/ai.js:7172
-#: assets/js/ai.js:7188
+#: assets/js/ai-admin.js:6928 assets/js/ai.js:7136 assets/js/ai.js:7142
+#: assets/js/ai.js:7152 assets/js/ai.js:7163 assets/js/ai.js:7174
+#: assets/js/ai.js:7190
 msgid "None"
 msgstr "Ninguno"
 

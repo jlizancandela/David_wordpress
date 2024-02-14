@@ -49,7 +49,7 @@ class ULTP_Initialization {
 
         add_action( 'admin_init',                    array( $this, 'check_theme_compatibility' ) );
         add_action( 'after_switch_theme',            array( $this, 'wpxpo_swithch_thememe' ) );
-        add_action( 'in_plugin_update_message-'.ULTP_BASE, array( $this, 'in_plugin_settings_update_message' ) );
+        // add_action( 'in_plugin_update_message-'.ULTP_BASE, array( $this, 'in_plugin_settings_update_message' ) ); // only major update changelog shows 
         add_action( 'upgrader_process_complete', array( $this, 'plugin_upgrade_completed'), 10, 2 );
     }
 

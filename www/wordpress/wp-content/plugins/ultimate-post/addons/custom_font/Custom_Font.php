@@ -229,7 +229,7 @@ class Custom_Font {
 
     function metabox_save_data($post_id) {
         if (!isset($_POST['custom_font_nonce'])) { return; }
-        if (!wp_verify_nonce( sanitize_key( wp_unslash($_POST['custom_font_nonce']), 'font_meta_box'))) { return; }
+        if ( !wp_verify_nonce( sanitize_key( wp_unslash( $_POST['custom_font_nonce'] ) ), 'font_meta_box' ) ) { return; }
 
         $arr = array();
         if (isset($_POST['weight']) && is_array($_POST['weight'])) {

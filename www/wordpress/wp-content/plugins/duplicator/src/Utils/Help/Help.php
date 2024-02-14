@@ -208,7 +208,10 @@ class Help
         $maxPages = ceil($limit / self::PER_PAGE);
         for ($i = 1; $i <= $maxPages; $i++) {
             $endpointUrl .= '&page=' . $i;
-            $response     = wp_remote_get($endpointUrl);
+            $response     = wp_remote_get(
+                $endpointUrl,
+                ['timeout' => 15]
+            );
             if (is_wp_error($response)) {
                 DUP_Log::Trace("Failed to load from API: {$endpointUrl}");
                 DUP_Log::Trace($response->get_error_message());

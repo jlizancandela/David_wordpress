@@ -37,6 +37,10 @@ class DashboardWidget
      */
     public static function addDashboardWidget()
     {
+        if (!current_user_can('administrator')) {
+            return;
+        }
+
         wp_add_dashboard_widget(
             'duplicator_dashboard_widget',
             __('Duplicator', 'duplicator'),

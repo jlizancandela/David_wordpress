@@ -4,7 +4,7 @@ Tags: post grid, blog designer, wordPress blog plugin, gutenberg blocks, post bl
 Requires at least: 5.0    
 Tested up to: 6.4.1
 Requires PHP: 5.6
-Stable tag: 3.2.1
+Stable tag: 3.2.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -367,6 +367,9 @@ It is a Gutenberg plugin it works great with WordPress version 5.x.x or more. An
 11. With the help of the Elementor and Saved Template addons, you can use any of the post blocks of PostX to any pages while editing with Elementor builder.
 
 == Changelog ==
+= 3.2.2 – 05 February 2024 =
+* Fix: Custom Font variation saving issue
+
 = 3.2.1 – 15 January 2024 =
 * Fix: Taxonomy letter spacing issue in Post Slider #2 block.
 * Update: Performance Improved
@@ -503,72 +506,5 @@ It is a Gutenberg plugin it works great with WordPress version 5.x.x or more. An
 
 = 2.9.10 – 19 June 2023 =
 * New: ChatGPT Addon
-
-= 2.9.9 – 14 June 2023 =
-* Fix: Template Kits Alignment issue
-* Fix: Category Color Override issue
-
-= 2.9.8 – 11 June 2023 =
-* Fix: Ajax pagination issue on scrolling
-* Fix: Image full width issue in Archive Title block
-* Fix: Issue with View count in Advanced Post Meta block
-* Fix: Issue with Comment count in Post Comment Count block
-* Fix: Compatibility issue with PublishPress Revisions plugin
-* Fix: Image height issue with anchor tag in Image block in Twenty Twenty Two theme
-* Fix: Video height and Image border radius issue in Post Featured Image/Video block
-* Update: New unit rem added
-* Update: Updated Google Fonts
-* Update: Memory optimization improved
-* Update: Dynamic caption in Featured Image/Video block
-* Update: Premade Patterns added on toolbar for Button and List - PostX block
-
-= 2.9.7 – 25 May 2023 =
-* New: List Block Feature
-* Fix: Default font weight issue in typography
-* Fix: Post Content Block Css Issue in Builder Template
-
-= 2.9.6 – 22 May 2023 =
-* Update: Postx Banner Updated
-* Update: Feature Image/Video Support in Custom Post Type
-* Fix: Post Slider 1 Mobile Responsive Issue 
-* Fix: Single Post Builder Post Repetition Issue
- 
-= 2.9.5 – 18 May 2023 =
-* Fix: Php function parameter deprecated issues fixed
-
-= 2.9.4 – 17 May 2023 =
-* New: Button Block Feature
-* New: Dynamic icon Control Option 
-* Fix: Row Column and Wrapper Block compatibility issue
-* Fix: Slider 1,2 Arrow icon background color issue fixed
-* Fix: Unique content not working properly on Archive Builder
-
-= 2.9.3 – 10 May 2023 =
-* New: Custom Font Addon
-
-= 2.9.2 – 17 April 2023 =
-* Update: Dashboard Banner Updated
-
-= 2.9.1 – 5 April 2023 =
-* Fix: Row Column Issue Fixed
-
-= 2.9.0 – 3 April 2023 =
-* Fix: Wordpress 6.2 Compatibility Issue
-* Fix: Favicon issue with Twenty Twenty Three theme
-* Fix: Issue with saving attributes in the Row Block
-* Fix: Table of Contents block compatibility issue with default group block
-* Fix: Removed meta value number option from the query builder in Archive Builder
-* Fix: Advanced navigation block of Essential Blocks Plugin CSS broken issue
-* Fix: CSS Missing Issue in  Newspaper theme Widget Area
-* Fix: has_post_thumbnail function removed from Image Conditions
-* Update: Builder Template Copy Option Added
-* Update: Taxonomy Block Siblings Visible Option
-* Update: rem CSS unit added to Typography Control
-* Update: Image alt attribute value updated by dynamic image attribute value.
-* Update: A search field has been added to the taxonomy value select box
-* Update: Text control for No results found added in every block
-* Update: Option added to the Post Social Share block to disable sticky position when the footer appears
-* Update: New Upgraded Look for all Post List Block
-* Update: Large Post and small Post Excerpt Control Separated in Post List Block
 
 [See changelog for all versions](https://bitbucket.org/wpstabon/ultimate-post/raw/pro_update/changelog.txt).

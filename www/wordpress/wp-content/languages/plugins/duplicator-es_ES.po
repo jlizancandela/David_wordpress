@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Duplicator &#8211; WordPress Migration &amp; Backup Plugin - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-30 19:56:28+0000\n"
+"PO-Revision-Date: 2024-02-06 18:02:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,43 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: Plugins - Duplicator &#8211; WordPress Migration &amp; Backup Plugin - Stable (latest release)\n"
 
-#: views/tools/diagnostics/logging.php:189
+#: template/parts/help/main.php:237
+msgid "Upgrade to Duplicator Pro to access our world class customer support."
+msgstr "Actualiza a Duplicator Pro para acceder a nuestro servicio de atención al cliente de primera clase."
+
+#: template/parts/help/main.php:231
+msgid "View All Documentation"
+msgstr "Ver toda la documentación"
+
+#: template/parts/help/main.php:224
+msgid "Browse documentation, reference material, and tutorials for Duplicator."
+msgstr "Busca documentación, material de referencia y tutoriales para Duplicator."
+
+#: template/parts/help/main.php:222
+msgid "View Documentation"
+msgstr "Ver la documentación"
+
+#: template/parts/help/main.php:212
+msgid "Related Articles"
+msgstr "Artículos relacionados"
+
+#: template/parts/help/main.php:208
+msgid "No results found"
+msgstr "No se encontraron resultados"
+
+#: template/parts/help/main.php:206
+msgid "Search"
+msgstr "Buscar"
+
+#: assets/js/duplicator/dup.util.php:83
+msgid "RESPONSE SUCCESS"
+msgstr "ÉXITO DE LA RESPUESTA"
+
+#: assets/js/duplicator/dup.util.php:21
+msgid "wait ..."
+msgstr "espera..."
+
+#: views/tools/diagnostics/logging.php:188
 msgctxt "%1$s and %2$s are <a> tags"
 msgid "Consider our recommended %1$shost list%2$s if you’re unhappy with your current provider"
 msgstr "Consulta nuestra lista de alojamientos recomendados %1$shost%2$s si no estás satisfecho con tu proveedor actual"
@@ -326,7 +362,7 @@ msgstr "Ha fallado la activación de la licencia para esta web."
 msgid "Invalid license JSON data."
 msgstr "Datos del JSON de la licencia inválidos."
 
-#: views/settings/controller.php:49
+#: views/settings/controller.php:48
 msgid "Access"
 msgstr "Acceso"
 
@@ -640,7 +676,7 @@ msgstr "Gracias por elegir Duplicator, el plugin de migración y copia de seguri
 msgid "Willie the Duplicator mascot"
 msgstr "Willie, la mascota de Duplicator"
 
-#: template/admin_pages/welcome/footer.php:34
+#: template/admin_pages/welcome/footer.php:34 template/parts/help/main.php:243
 msgid "Upgrade to Duplicator Pro"
 msgstr "Actualizar a Duplicator Pro"
 
@@ -858,16 +894,16 @@ msgstr "Haz copias de seguridad a Dropbox, por FTP, Google Drive, OneDrive, Amaz
 msgid "Scheduled Backups - Ensure that important data is regularly and consistently backed up, allowing for quick and efficient recovery in case of data loss."
 msgstr "Scheduled Backups. Asegúrate de que se realizan copias de seguridad periódicas y constantes de los datos importantes, lo que permitirá una recuperación rápida y eficaz en caso de pérdida de datos."
 
-#: src/Views/DashboardWidget.php:191
+#: src/Views/DashboardWidget.php:195
 msgctxt "%s represents the time diff, eg. 2 days"
 msgid "%s ago"
 msgstr "%s atrás"
 
-#: src/Views/DashboardWidget.php:179
+#: src/Views/DashboardWidget.php:183
 msgid "No packages have been created yet."
 msgstr "No se ha creado ningún paquete todavía."
 
-#: src/Views/DashboardWidget.php:162
+#: src/Views/DashboardWidget.php:166
 msgid "A package is currently running."
 msgstr "Se está ejecutando un paquete actualmente."
 
@@ -1007,7 +1043,7 @@ msgid "SeedProd Pro"
 msgstr "SeedProd Pro"
 
 #: src/Utils/ExtraPlugins/ExtraPluginsMng.php:227
-#: src/Views/DashboardWidget.php:226
+#: src/Views/DashboardWidget.php:230
 msgid "SeedProd"
 msgstr "SeedProd"
 
@@ -1021,7 +1057,7 @@ msgid "The original WordPress SEO plugin and toolkit that improves your website'
 msgstr "El plugin original de SEO para WordPress y el paquete de herramientas que mejora el posicionamiento de búsqueda de tu web. Viene con todas las características SEO, como SEO local, SEO para WooCommerce, mapas del sitio, optimizador SEO, Schema y más."
 
 #: src/Utils/ExtraPlugins/ExtraPluginsMng.php:202
-#: src/Views/DashboardWidget.php:218
+#: src/Views/DashboardWidget.php:222
 msgid "AIOSEO"
 msgstr "AIOSEO"
 
@@ -1030,7 +1066,7 @@ msgid "WP Mail SMTP Pro"
 msgstr "WP Mail SMTP Pro"
 
 #: src/Utils/ExtraPlugins/ExtraPluginsMng.php:177
-#: src/Views/DashboardWidget.php:234
+#: src/Views/DashboardWidget.php:238
 msgid "WP Mail SMTP"
 msgstr "WP Mail SMTP"
 
@@ -1051,7 +1087,7 @@ msgid "MonsterInsights Pro"
 msgstr "MonsterInsights Pro"
 
 #: src/Utils/ExtraPlugins/ExtraPluginsMng.php:127
-#: src/Views/DashboardWidget.php:210
+#: src/Views/DashboardWidget.php:214
 msgid "MonsterInsights"
 msgstr "MonsterInsights"
 
@@ -1125,15 +1161,15 @@ msgstr "Importación de servidor a servidor"
 msgid "Secure File Encryption"
 msgstr "Cifrado seguro de archivos"
 
-#: src/Core/Bootstrap.php:318 template/admin_pages/about_us/tabs.php:17
+#: src/Core/Bootstrap.php:323 template/admin_pages/about_us/tabs.php:17
 msgid "About Us"
 msgstr "Acerca de nosotros"
 
-#: src/Core/Bootstrap.php:317
+#: src/Core/Bootstrap.php:322
 msgid "About Duplicator"
 msgstr "Acerca de Duplicator"
 
-#: src/Core/Bootstrap.php:251
+#: src/Core/Bootstrap.php:256
 msgid "NEW!"
 msgstr "¡NUEVO!"
 
@@ -1268,7 +1304,7 @@ msgstr "Realmente no"
 msgid "Are you enjoying %s?"
 msgstr "¿Estás disfrutando %s?"
 
-#: src/Core/Bootstrap.php:250 src/Core/Bootstrap.php:475
+#: src/Core/Bootstrap.php:255 src/Core/Bootstrap.php:480
 msgid "Upgrade to Pro"
 msgstr "Actualizar a la versión Pro"
 
@@ -1411,23 +1447,23 @@ msgstr "Error en el purgado de cachés de <b>%s</b>."
 msgid "All caches on <b>%s</b> have been purged."
 msgstr "Todas las cachés de <b>%s</b> han sido purgadas."
 
-#: src/Core/MigrationMng.php:397
+#: src/Core/MigrationMng.php:402
 msgid "Original files folder"
 msgstr "Carpeta de archivos originales"
 
-#: src/Core/MigrationMng.php:396
+#: src/Core/MigrationMng.php:401
 msgid "Installer boot log"
 msgstr "Registro de arranque del instalador"
 
-#: src/Core/MigrationMng.php:395
+#: src/Core/MigrationMng.php:400
 msgid "Installer log"
 msgstr "Registro del instalador"
 
-#: src/Core/MigrationMng.php:378
+#: src/Core/MigrationMng.php:383
 msgid "Can't move %s to %s"
 msgstr "No se puede mover %s a %s"
 
-#: src/Core/MigrationMng.php:373
+#: src/Core/MigrationMng.php:378
 msgid "Original files folder moved in installer backup directory"
 msgstr "La carpeta de archivos originales se ha movido en el directorio del instalador de la copia de seguridad"
 
@@ -1628,19 +1664,19 @@ msgstr "No se puede activar Duplicator LITE si la versión PRO está activada."
 msgid "Trace Logging Enabled.  Please disable when trace capture is complete."
 msgstr "Registro de seguimiento activado. Desactívalo cuando la captura de seguimiento haya finalizado."
 
-#: src/Core/MigrationMng.php:341
+#: src/Core/MigrationMng.php:345
 msgid "Can't rename installer file <b>%s</b> with HASH, please remove it for security reasons"
 msgstr "No se puede renombrar con HASH el archivo <b>%s</b> de instalación, por favor elimínalo por razones de seguridad"
 
-#: src/Core/MigrationMng.php:335
+#: src/Core/MigrationMng.php:339
 msgid "Installer file <b>%s</b> renamed with HASH"
 msgstr "El archivo de instalación <b>%s</b> se ha renombrado con HASH"
 
-#: src/Core/MigrationMng.php:324
+#: src/Core/MigrationMng.php:328
 msgid "Can't remove installer file <b>%s</b>, please remove it for security reasons"
 msgstr "No se puede eliminar el archivo <b>%s</b> de instalación, por favor, elimínalo por razones de seguridad"
 
-#: src/Core/MigrationMng.php:319
+#: src/Core/MigrationMng.php:323
 msgid "Installer file <b>%s</b> removed for security reasons"
 msgstr "Archivo de instalación <b>%s</b> eliminado por razones de seguridad"
 
@@ -1772,12 +1808,12 @@ msgstr "Instalaciones con arrastrar y soltar"
 msgid "AJAX Call Error!"
 msgstr "¡Error de llamada AJAX!"
 
-#: src/Core/Bootstrap.php:265 src/Core/Bootstrap.php:266
+#: src/Core/Bootstrap.php:270 src/Core/Bootstrap.php:271
 #: views/packages/main/packages.php:128
 msgid "Import"
 msgstr "Importar"
 
-#: views/packages/main/packages.php:132 views/tools/controller.php:27
+#: views/packages/main/packages.php:132 views/tools/controller.php:26
 msgid "Recovery"
 msgstr "Recuperación"
 
@@ -1922,15 +1958,15 @@ msgstr "Duplicator no puede cambiar la carpeta de almacenamiento a <i>%s</i>"
 msgid "Storage folder move problem"
 msgstr "Problema al mover la carpeta de almacenamiento"
 
-#: assets/js/javascript.php:276 assets/js/javascript.php:280
+#: assets/js/javascript.php:278 assets/js/javascript.php:282
 msgid "Copy to Clipboard!"
 msgstr "Copiar al portapapeles"
 
-#: assets/js/javascript.php:270 assets/js/javascript.php:272
+#: assets/js/javascript.php:272 assets/js/javascript.php:274
 msgid "unable to copy"
 msgstr "No ha sido posible copiar"
 
-#: assets/js/javascript.php:270
+#: assets/js/javascript.php:272
 msgid "Copied: "
 msgstr "Copiado:"
 
@@ -1943,7 +1979,7 @@ msgstr "Petición no válida."
 msgid "ARCHIVE"
 msgstr "ARCHIVO"
 
-#: src/Core/Bootstrap.php:495
+#: src/Core/Bootstrap.php:500
 msgid "Manage Packages"
 msgstr "Gestionar los paquetes"
 
@@ -1982,14 +2018,6 @@ msgstr "¡Claro!, me gustaría ayudar"
 #: src/Views/AdminNotices.php:377
 msgid "Congrats!"
 msgstr "¡Enhorabuena!"
-
-#: views/packages/screen.php:151
-msgid "<b>Packages » Details</b> <br/>The details view will give you a full break-down of the package including any errors that may have occured during the install. <br/><br/>"
-msgstr "<b>Paquetes » Detalles</b> <br/>La vista de detalles te proporcionará un desglose completo del paquete, incluidos los errores que se hayan producido durante la instalación. <br/><br/>"
-
-#: views/packages/screen.php:99
-msgid "<b>Packages New » 1 Setup</b> <br/>The setup step allows for optional filtered directory paths, files, file extensions and database tables.  To filter specific system files, click the 'Enable File Filters' checkbox and add the full path of the file or directory, followed by a semicolon.  For a file extension add the name (i.e. 'zip') followed by a semicolon. <br/><br/>To exclude a database table, check the box labeled 'Enable Table Filters' and check the table name to exclude. To include only a copy of your database in the archive file check the box labeled 'Archive Only the Database'.  The installer.php file can optionally be pre-filled with data at install time but is not required.  <br/><br/>"
-msgstr "<b>Nuevos paquetes => 1 Configuración</b> <br/>El paso de configuración permite rutas de directorio, archivos, extensiones de archivo y tablas de base de datos filtradas opcionales.  Para filtrar archivos específicos del sistema, haz clic en la casilla de verificación «Activar filtros de archivo» y añade la ruta completa del archivo o directorio, seguido de un punto y coma.  Para una extensión de archivo, añade el nombre (es decir, «zip») seguido de un punto y coma. <br/><br/>Para excluir una tabla de base de datos, marca la casilla «Activar filtros de tabla» y marca el nombre de la tabla para excluir. Para incluir solo la copia de tu base de datos en el archivo comprimido, marca la casilla «Archivar sólo la base de datos».  El archivo installer.php puede rellenarse opcionalmente con datos en el momento de la instalación, pero no es obligatorio.  <br/><br/>"
 
 #: views/packages/main/s1.setup2.php:549
 msgid "This feature works only with hosts that support cPanel."
@@ -2457,10 +2485,19 @@ msgstr "Añade una ruta personalizada si la ruta a mysqldump no se detecta corre
 msgid "Packages successfully reset"
 msgstr "Paquetes restablecidos con éxito"
 
+#: assets/js/duplicator/dup.util.php:97
 #: template/admin_pages/settings/general/general.php:323
 #: template/admin_pages/settings/general/general.php:376
 msgid "RESPONSE ERROR!"
 msgstr "¡ERROR DE RESPUESTA!"
+
+#: assets/js/duplicator/dup.util.php:106
+msgid "Ajax request error"
+msgstr "Error de solicitud de Ajax"
+
+#: assets/js/duplicator/dup.util.php:106
+msgid "AJAX ERROR! "
+msgstr "¡ERROR DE AJAX! "
 
 #: template/admin_pages/settings/general/general.php:300
 msgid "No"
@@ -2585,7 +2622,7 @@ msgstr "No se puede detectar"
 msgid "A message will show indicated that that a scan depth has been reached. If you have issues with the package scanner (step 2) during the build process then try to add The paths below to your file filters to allow the scanner to finish."
 msgstr "Aparecerá un mensaje que indica que se ha alcanzado una profundidad de exploración. Si tienes problemas con el escáner de paquetes (paso 2) durante el proceso de creación, intenta añadir las rutas a tus filtros de archivos para permitir que el escáner finalice."
 
-#: views/tools/diagnostics/inc.data.php:30
+#: views/tools/diagnostics/inc.data.php:29
 msgid "Clicking on the 'Remove Installation Files' button will attempt to remove the installer files used by Duplicator.  These files should not be left on production systems for security reasons. Below are the files that should be removed."
 msgstr "Al hacer clic en el botón 'Eliminar archivos de instalación' se intentará eliminar los archivos del instalador utilizados por Duplicator.  Por razones de seguridad, estos archivos no deben dejarse en los sistemas de producción. A continuación se muestran los archivos que deben eliminarse."
 
@@ -2821,15 +2858,15 @@ msgstr "Información"
 msgid "Error Log File "
 msgstr "Archivo de registro de errores"
 
-#: views/packages/main/packages.php:120 views/tools/controller.php:26
+#: views/packages/main/packages.php:120 views/tools/controller.php:25
 msgid "Templates"
 msgstr "Plantillas"
 
-#: src/Core/MigrationMng.php:241
+#: src/Core/MigrationMng.php:245
 msgid "NOTICE: Safe mode (Advanced) was enabled during install, be sure to re-enable all your plugins."
 msgstr "AVISO: El modo seguro (avanzado) se activó durante la instalación, asegúrate de volver a activar todos tus plugins."
 
-#: src/Core/MigrationMng.php:238
+#: src/Core/MigrationMng.php:242
 msgid "NOTICE: Safe mode (Basic) was enabled during install, be sure to re-enable all your plugins."
 msgstr "AVISO: El modo seguro (básico) se activó durante la instalación, asegúrate de volver a activar todos tus plugins."
 
@@ -2873,7 +2910,7 @@ msgstr "%1$sGestionar licencias%2$s"
 msgid "Activation"
 msgstr "Activación"
 
-#: views/settings/controller.php:55
+#: views/settings/controller.php:54
 msgid "License"
 msgstr "Licencia"
 
@@ -3068,25 +3105,9 @@ msgstr "Soporte para sitios grandes"
 msgid "Cloud Storage"
 msgstr "Almacenamiento en la nube"
 
-#: classes/ui/class.ui.screen.base.php:160 views/packages/main/packages.php:113
+#: views/packages/main/packages.php:113
 msgid "Package Settings"
 msgstr "Ajustes del paquete"
-
-#: classes/ui/class.ui.screen.base.php:159
-msgid "Technical FAQs"
-msgstr "FAQs técnicas"
-
-#: classes/ui/class.ui.screen.base.php:158
-msgid "Full User Guide"
-msgstr "Guía de usuario completa"
-
-#: classes/ui/class.ui.screen.base.php:157
-msgid "Knowledge Base"
-msgstr "Base de conocimiento"
-
-#: classes/ui/class.ui.screen.base.php:156
-msgid "Resources"
-msgstr "Recursos"
 
 #: src/Views/AdminNotices.php:250
 msgid "Invalid token permissions to perform this request."
@@ -3120,11 +3141,11 @@ msgstr "Nota: Los enlaces simbólicos no son detectables en el sistema operativo
 msgid "The utility will also shows how many files and directories you have in your system.  This process may take several minutes to run.  "
 msgstr "La utilidad también mostrará cuántos archivos y directorios tienes en tu sistema. Este proceso puede tardar varios minutos en ejecutarse."
 
-#: classes/ui/class.ui.screen.base.php:144 views/tools/diagnostics/main.php:45
+#: views/tools/diagnostics/main.php:45
 msgid "Support"
 msgstr "Soporte"
 
-#: views/tools/diagnostics/inc.data.php:21
+#: views/tools/diagnostics/inc.data.php:20
 msgid "Remove Installation Files"
 msgstr "Elimina los archivos de instalación"
 
@@ -3393,7 +3414,7 @@ msgstr "Guardar ajustes generales"
 msgid "General Settings Saved"
 msgstr "Ajustes generales guardados"
 
-#: src/Core/Bootstrap.php:276 src/Core/Bootstrap.php:277
+#: src/Core/Bootstrap.php:281 src/Core/Bootstrap.php:282
 msgid "Schedules"
 msgstr "Programaciones"
 
@@ -3464,23 +3485,7 @@ msgstr "Esto ejecutará el análisis de comprobación. Puede tardar varios minut
 msgid "Run Validator"
 msgstr "Ejecutar validación"
 
-#: views/tools/diagnostics/inc.data.php:107
-msgid "Delete the option value"
-msgstr "Borrar el valor de opción"
-
-#: views/tools/diagnostics/inc.data.php:89
-msgid "Removing Option, Please Wait..."
-msgstr "Eliminando opción, por favor espera..."
-
-#: views/tools/diagnostics/inc.data.php:88
-msgid "Delete the option value just selected?"
-msgstr "¿Borrar el valor de la opción seleccionada?"
-
-#: views/tools/diagnostics/inc.data.php:87
-msgid "Delete Option?"
-msgstr "¿Borrar la opción?"
-
-#: views/tools/diagnostics/inc.data.php:94
+#: views/tools/diagnostics/inc.data.php:59
 msgid "Clear Build Cache?"
 msgstr "¿Vaciar la caché de creación?"
 
@@ -3552,7 +3557,7 @@ msgstr "OK"
 msgid "Processing please wait..."
 msgstr "Procesando, por favor espera..."
 
-#: views/tools/diagnostics/logging.php:217
+#: views/tools/diagnostics/logging.php:216
 msgid "Top 20"
 msgstr "Top 20"
 
@@ -3677,11 +3682,11 @@ msgstr "Todos los valores en esta sección son"
 msgid "OptinMonster"
 msgstr "OptinMonster"
 
-#: views/settings/packages.php:126 views/tools/diagnostics/logging.php:184
+#: views/settings/packages.php:126 views/tools/diagnostics/logging.php:183
 msgid "Duplicator recommends going with the high performance pro plan or better from our recommended list"
 msgstr "Duplicator recomienda el plan pro de alto rendimiento o superior de nuestra lista recomendada"
 
-#: views/settings/packages.php:125 views/tools/diagnostics/logging.php:183
+#: views/settings/packages.php:125 views/tools/diagnostics/logging.php:182
 msgid "Host Recommendation:"
 msgstr "Recomendación de alojamiento"
 
@@ -3698,7 +3703,6 @@ msgid "1. Run a %1$s on the table to improve the overall size and performance."
 msgstr "1. Ejecuta una %1$s en la tabla para mejorar el tamaño y el rendimiento."
 
 #: views/packages/main/s2.scan3.php:426 views/packages/main/s3.build.php:326
-#: views/packages/screen.php:65
 msgid "Overview"
 msgstr "Resumen"
 
@@ -3871,58 +3875,50 @@ msgstr "Característica"
 
 #. Plugin Name of the plugin
 #. Author of the plugin
-#: src/Views/DashboardWidget.php:42 template/mail/email_summary.php:29
+#: src/Views/DashboardWidget.php:46 template/mail/email_summary.php:29
 msgid "Duplicator"
 msgstr "Duplicator"
 
-#: views/tools/diagnostics/logging.php:210
+#: views/tools/diagnostics/logging.php:209
 msgid "Auto Refresh"
 msgstr "Auto Refrescar"
 
-#: views/tools/diagnostics/logging.php:207
+#: views/tools/diagnostics/logging.php:206
 msgid "Refresh"
 msgstr "Refrescar"
 
-#: views/tools/diagnostics/logging.php:200
-#: views/tools/diagnostics/logging.php:205
+#: views/tools/diagnostics/logging.php:199
+#: views/tools/diagnostics/logging.php:204
 msgid "Options"
 msgstr "Opciones"
 
-#: views/tools/diagnostics/logging.php:174
+#: views/tools/diagnostics/logging.php:173
 msgid "The process that PHP runs under does not have enough permissions to create files.  Please contact your hosting provider for more details"
 msgstr "El proceso en el que se ejecuta PHP no tiene suficientes permisos para crear archivos. Ponte en contacto con tu proveedor de alojamiento para obtener más detalles"
 
-#: views/tools/diagnostics/logging.php:173
+#: views/tools/diagnostics/logging.php:172
 msgid "The snapshots directory does not have the correct permissions to write files.  Try setting the permissions to 755"
 msgstr "El directorio de instantáneas no tiene permisos válidos para escribir ficheros. Intenta cambiar los permisos a 755"
 
-#: views/tools/diagnostics/logging.php:172
+#: views/tools/diagnostics/logging.php:171
 msgid "The web server does not support returning .log file extentions"
 msgstr "El servidor web no permite devolver los archivos con extensión .log"
 
-#: views/tools/diagnostics/logging.php:171
+#: views/tools/diagnostics/logging.php:170
 msgid "Reasons for log file not showing"
 msgstr "Motivos por los que no se muestra el archivo de registro"
 
-#: views/tools/diagnostics/logging.php:170
+#: views/tools/diagnostics/logging.php:169
 msgid "Try to create a package, since no log files were found in the snapshots directory with the extension *.log"
 msgstr "Intenta crear un paquete, ya que no se han encontrado archivos de registro con la extensión *.log en el directorio de instantáneas"
 
-#: views/tools/diagnostics/logging.php:169
+#: views/tools/diagnostics/logging.php:168
 msgid "Log file not found or unreadable"
 msgstr "Archivo de registro no encontrado o ilegible"
 
 #: views/tools/diagnostics/inc.phpinfo.php:26
 msgid "PHP Information"
 msgstr "Información de PHP"
-
-#: views/tools/diagnostics/inc.data.php:53
-msgid "Options Values"
-msgstr "Valores de las opciones"
-
-#: views/tools/diagnostics/inc.data.php:11
-msgid "Stored Data"
-msgstr "Datos guardados"
 
 #: views/tools/diagnostics/inc.settings.php:231
 msgid "On shared hosts check your control panel for the 'TRUE' disk space quota value."
@@ -4053,40 +4049,28 @@ msgstr "Versión de Duplicator"
 msgid "Server Settings"
 msgstr "Ajustes del servidor"
 
-#: views/tools/diagnostics/information.php:68
-msgid "Active package settings reset."
-msgstr "Se han restablecido los ajustes del paquete activo."
-
-#: views/tools/diagnostics/information.php:65
-msgid "View state settings reset."
-msgstr "Ver los ajustes de estado restablecidos."
-
-#: views/tools/diagnostics/information.php:62
-msgid "Plugin settings reset."
-msgstr "Ajustes del plugin restablecidos."
-
 #: views/tools/diagnostics/inc.settings.php:5
 #: views/tools/diagnostics/inc.settings.php:6
 msgid "unknow"
 msgstr "desconocido"
 
-#: views/tools/diagnostics/inc.data.php:95
+#: views/tools/diagnostics/inc.data.php:60
 msgid "This process will remove all build cache files.  Be sure no packages are currently building or else they will be cancelled."
 msgstr "Este proceso eliminará todos los archivos de la caché de compilación. Asegúrate de que no se están creando paquetes en este momento o de lo contrario se cancelarán."
 
-#: views/tools/diagnostics/inc.data.php:48
+#: views/tools/diagnostics/inc.data.php:47
 msgid "Removes all build data from:"
 msgstr "Elimina todos los datos de creación de:"
 
-#: views/tools/diagnostics/inc.data.php:45
+#: views/tools/diagnostics/inc.data.php:44
 msgid "Clear Build Cache"
 msgstr "Vaciar la caché de construcción"
 
-#: views/tools/diagnostics/inc.data.php:25
+#: views/tools/diagnostics/inc.data.php:24
 msgid "Removes all reserved installer files."
 msgstr "Elimina todos los archivos reservados del instalador."
 
-#: views/tools/diagnostics/inc.data.php:16
+#: views/tools/diagnostics/inc.data.php:12
 msgid "Data Cleanup"
 msgstr "Limpieza de datos"
 
@@ -4138,8 +4122,8 @@ msgstr "Desinstalar"
 msgid "Plugin"
 msgstr "Plugin"
 
-#: views/packages/details/detail.php:92 views/settings/controller.php:31
-#: views/tools/controller.php:25 views/tools/diagnostics/inc.settings.php:35
+#: views/packages/details/detail.php:92 views/settings/controller.php:30
+#: views/tools/controller.php:24 views/tools/diagnostics/inc.settings.php:35
 msgid "General"
 msgstr "General"
 
@@ -4400,9 +4384,9 @@ msgstr "Ubicación"
 msgid "Type"
 msgstr "Tipo"
 
-#: src/Core/Bootstrap.php:287 src/Core/Bootstrap.php:288
+#: src/Core/Bootstrap.php:292 src/Core/Bootstrap.php:293
 #: template/mocks/storage/storage.php:59 views/packages/details/detail.php:276
-#: views/packages/main/s1.setup2.php:103 views/settings/controller.php:43
+#: views/packages/main/s1.setup2.php:103 views/settings/controller.php:42
 msgid "Storage"
 msgstr "Almacenamiento"
 
@@ -4415,7 +4399,7 @@ msgid "Reserved Files"
 msgstr "Archivos reservados"
 
 #: views/packages/main/s1.setup1.php:213
-#: views/tools/diagnostics/inc.data.php:26
+#: views/tools/diagnostics/inc.data.php:25
 msgid "more info"
 msgstr "Más info"
 
@@ -4585,7 +4569,7 @@ msgstr "Seleccionar todos los paquetes"
 msgid "Create New"
 msgstr "Crear nuevo"
 
-#: views/tools/diagnostics/logging.php:216
+#: views/tools/diagnostics/logging.php:215
 msgid "Package Logs"
 msgstr "Registro de los paquetes"
 
@@ -4612,6 +4596,10 @@ msgstr "Foro de soporte de Duplicator "
 #: views/packages/main/packages.php:160 views/packages/main/packages.php:213
 msgid "No Packages Found"
 msgstr "No se han encontrado paquetes"
+
+#: template/parts/help/main.php:236
+msgid "Get Support"
+msgstr "Obtener asistencia"
 
 #: views/tools/diagnostics/support.php:74
 msgid "Change Log"
@@ -4677,24 +4665,24 @@ msgstr "Difunde la palabra"
 msgid "Support Duplicator"
 msgstr "Apoya a Duplicator"
 
-#: src/Core/Bootstrap.php:496 views/settings/license.php:11
+#: src/Core/Bootstrap.php:501 views/settings/license.php:11
 msgid "Manage"
 msgstr "Gestionar"
 
-#: src/Core/Bootstrap.php:296 src/Core/Bootstrap.php:297
-#: views/tools/controller.php:22
+#: src/Core/Bootstrap.php:301 src/Core/Bootstrap.php:302
+#: views/tools/controller.php:21
 msgid "Tools"
 msgstr "Herramientas"
 
-#: src/Core/Bootstrap.php:307 src/Core/Bootstrap.php:308
+#: src/Core/Bootstrap.php:312 src/Core/Bootstrap.php:313
 #: template/admin_pages/settings/general/general.php:215
-#: views/settings/controller.php:24
+#: views/settings/controller.php:23
 msgid "Settings"
 msgstr "Ajustes"
 
-#: src/Core/Bootstrap.php:255 src/Core/Bootstrap.php:256
+#: src/Core/Bootstrap.php:260 src/Core/Bootstrap.php:261
 #: views/packages/details/controller.php:67
-#: views/packages/main/s3.build.php:124 views/settings/controller.php:37
+#: views/packages/main/s3.build.php:124 views/settings/controller.php:36
 msgid "Packages"
 msgstr "Paquetes"
 

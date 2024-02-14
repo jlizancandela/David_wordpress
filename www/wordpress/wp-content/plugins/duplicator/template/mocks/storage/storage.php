@@ -157,7 +157,7 @@ $storageAlert = StorageController::getDialogBox('storage-page');
         $(".storage-tbl tr a, .item-chk, #new_storage").click(function (e) {
             e.preventDefault();
             let btn = $('#dup-storage-upgrade-btn');
-            let baseUrl = "<?php echo Upsell::getCampaignUrl($tplData['utm_medium'], 'Popup Upgrade Now'); ?>";
+            let baseUrl = "<?php echo Upsell::getCampaignUrl('storage-page', 'Popup Upgrade Now'); ?>";
             let url = baseUrl + '&utm_term=New+Storage';
 
             if ($(this).is("a") || $(this).hasClass("item-chk")) {

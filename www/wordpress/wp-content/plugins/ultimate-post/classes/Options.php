@@ -127,7 +127,7 @@ class Options{
             'settings'          => esc_html__( 'Settings', 'ultimate-post' ),
             'tutorials'         => esc_html__( 'Tutorials', 'ultimate-post' ),
             'license'           => esc_html__( 'License', 'ultimate-post' ),
-            'support'           => '<span class="dashicons dashicons-email" style="font-size: 17px; line-height: 1.2; margin-right: 3px"></span>'.esc_html__( 'Get Quick Support', 'ultimate-post' )
+            'support'           => esc_html__( 'Quick Support', 'ultimate-post' )
         );
         foreach ( $menu_lists as $key => $val ) {
             add_submenu_page(
