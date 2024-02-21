@@ -82,10 +82,12 @@ $wpdb->insert($tableName, [
 'reply' => isset($row['reply']) ? $row['reply'] : ""
 ]);
 }
-if ($pluginManagerInstance->shortname === 'facebook' || count($reviews) == $pageDetails['rating_number'] || count($reviews) === 10) {
+if (count($reviews) === (int)$pageDetails['rating_number'] || count($reviews) === 10) {
 $timestamp = time() + (86400 * 10);
 if (isset($pageDetails['timestamp'])) {
+if ($pageDetails['timestamp']) {
 $timestamp = $pageDetails['timestamp'];
+}
 unset($pageDetails['timestamp']);
 }
 update_option($pluginManagerInstance->get_option_name('download-timestamp'), $timestamp, false);
@@ -306,38 +308,6 @@ else if ($ti_command === 'save-amp-notice-hide') {
 update_option($pluginManagerInstance->get_option_name('amp-hidden-notification'), 1, false);
 exit;
 }
-else if ($ti_command === 'review-manual-download') {
-check_admin_referer('ti-download-reviews');
-$response = wp_remote_post('https://admin.trustindex.io/source/wordpressPageRequest', [
-'body' => [ 'id' => get_option($pluginManagerInstance->get_option_name('review-download-request-id')) ],
-'timeout' => '30',
-'redirection' => '5',
-'blocking' => true
-]);
-if (is_wp_error($response)) {
-$wp_query->set_404();
-status_header(404);
-}
-else {
-$json = json_decode(wp_remote_retrieve_body($response), true);
-if (isset($json['error']) && $json['error']) {
-update_option($pluginManagerInstance->get_option_name('review-download-inprogress'), 'error', false);
-}
-else if (isset($json['details'])) {
-$pluginManagerInstance->save_details($json['details']);
-$pluginManagerInstance->save_reviews(isset($json['reviews']) ? $json['reviews'] : []);
-delete_option($pluginManagerInstance->get_option_name('review-download-token'));
-delete_option($pluginManagerInstance->get_option_name('review-download-inprogress'));
-delete_option($pluginManagerInstance->get_option_name('review-manual-download'));
-update_option($pluginManagerInstance->get_option_name('download-timestamp'), time() + (86400 * 10), false);
-}
-else {
-$wp_query->set_404();
-status_header(404);
-}
-}
-exit;
-}
 if (isset($_GET['recreate'])) {
 check_admin_referer('ti-recreate');
 $pluginManagerInstance->uninstall();
@@ -381,69 +351,11 @@ $scssSet = null;
 $widgetSettedUp = null;
 }
 wp_enqueue_style('trustindex-widget-preview-css', 'https://cdn.trustindex.io/assets/ti-preview-box.css');
-$example = 'HairPalace';
-$exampleUrl = null;
-switch ('google') {
-case 'airbnb':
-$exampleUrl = 'https://www.airbnb.com/rooms/2861469';
-break;
-case 'amazon':
-$exampleUrl = 'https://www.amazon.com/sp?seller=A2VE8XCDXE9M4H';
-break;
-case 'arukereso':
-$exampleUrl = 'https://www.arukereso.hu/stores/media-markt-online-s66489';
-break;
-case 'booking':
-$exampleUrl = 'https://www.booking.com/hotel/us/four-seasons-san-francisco.html';
-break;
-case 'capterra':
-$exampleUrl = 'https://www.capterra.com/p/192416/MicroStation';
-break;
-case 'ebay':
-$exampleUrl = 'https://www.ebay.com/fdbk/feedback_profile/scarhead1';
-break;
-case 'foursquare':
-$exampleUrl = 'https://foursquare.com/v/lands-end-lookout/4f839a12e4b049ff96c6b29a';
-break;
-case 'hotels':
-$exampleUrl = 'https://www.hotels.com/ho108742';
-break;
-case 'opentable':
-$exampleUrl = 'https://www.opentable.com/r/historic-johns-grill-san-francisco';
-break;
-case 'szallashu':
-$exampleUrl = 'https://revngo.com/ramada-by-wyndham-city-center-hotel-budapest';
-break;
-case 'thumbtack':
-$exampleUrl = 'https://www.thumbtack.com/ca/san-francisco/handyman/steve-switchenko-installations-handyman-services/service/246750705829561442';
-break;
-case 'tripadvisor':
-$exampleUrl = 'https://www.tripadvisor.com/Restaurant_Review-g186338-d5122082-Reviews-Alexander_The_Great-London_England.html';
-break;
-case 'trustpilot':
-$exampleUrl = 'https://www.trustpilot.com/review/generalitravelinsurance.com';
-break;
-case 'expedia':
-$exampleUrl = 'https://www.expedia.com/London-Hotels-The-Hayden-Pub-Rooms.h39457643.Hotel-Information';
-break;
-case 'yelp':
-$exampleUrl = 'https://www.yelp.ie/biz/the-iveagh-gardens-dublin-2';
-break;
-case 'zillow':
-$exampleUrl = 'https://www.zillow.com/profile/NealandNealTeam/#reviews';
-break;
-case 'sourceForge':
-$exampleUrl = 'https://sourceforge.net/software/product/EngageBay/';
-break;
-case 'wordpressPlugin':
-$exampleUrl = 'https://wordpress.org/plugins/wp-reviews-plugin-for-google/';
-break;
-}
 ?>
 <?php
 $stepUrl = '?page='. $_GET['page'] .'&tab=free-widget-configurator&step=%step%';
 $stepList = [
-sprintf(__('Connect %s', 'trustindex-plugin'),  'Google'),
+sprintf(__('Connect %s', 'trustindex-plugin'), 'Google'),
 __('Select Layout', 'trustindex-plugin'),
 __('Select Style', 'trustindex-plugin'),
 __('Set up widget', 'trustindex-plugin'),
@@ -475,42 +387,11 @@ include(plugin_dir_path(__FILE__) . '../include/step-list.php');
 <?php if ($pluginManagerInstance->is_trustindex_connected()): ?>
 <div class="ti-notice ti-notice-warning">
 <p>
-<?php echo sprintf(__("You have connected your Trustindex account, so you can find premium functionality under the \"%s\" tab. You no longer need this tab unless you choose the limited but forever free mode.", 'trustindex-plugin'),  'Trustindex admin'); ?>
+<?php echo sprintf(__("You have connected your Trustindex account, so you can find premium functionality under the \"%s\" tab. You no longer need this tab unless you choose the limited but forever free mode.", 'trustindex-plugin'), 'Trustindex admin'); ?>
 </p>
 </div>
 <?php endif; ?>
-<?php if ($isReviewDownloadInProgress === 'error'): ?>
-<div class="ti-box ti-notice-error">
-<p>
-<?php echo __('While downloading the reviews, we noticed that your connected page is not found.<br />If it really exists, please contact us to resolve the issue or try connect it again.', 'trustindex-plugin'); ?><br />
-</p>
-</div>
-<?php elseif ($isReviewDownloadInProgress && ($pluginManagerInstance->is_review_manual_download() || !in_array($pluginManagerInstance->shortname, [ 'facebook', 'google' ]))): ?>
-<div class="ti-notice ti-notice-warning">
-<p>
-<?php echo __('Your reviews are being downloaded.', 'trustindex-plugin'); ?>
-<?php if (!in_array($pluginManagerInstance->shortname, [ 'facebook', 'google' ])): ?>
-<?php echo ' ' . __('This process should only take a few minutes.', 'trustindex-plugin'); ?>
-<?php endif; ?>
-<?php if (!count($reviews)): ?>
-<br />
-<?php echo __('While you wait, you can start the widget setup with some review templates.', 'trustindex-plugin'); ?>
-<?php endif; ?>
-<?php if ($pluginManagerInstance->is_review_manual_download()): ?>
-<br />
-<a href="#" id="review-manual-download" data-nonce="<?php echo wp_create_nonce('ti-download-reviews'); ?>" class="ti-btn ti-btn-sm ti-tooltip ti-toggle-tooltip" style="margin-top: 5px">
-<?php echo __('Manual download', 'trustindex-plugin'); ?>
-<span class="ti-tooltip-message">
-<?php echo __('Your reviews are being downloaded.', 'trustindex-plugin'); ?>
-<?php if (!in_array($pluginManagerInstance->shortname, [ 'facebook', 'google' ])): ?>
-<?php echo ' ' . __('This process should only take a few minutes.', 'trustindex-plugin'); ?>
-<?php endif; ?>
-</span>
-</a>
-<?php endif; ?>
-</p>
-</div>
-<?php endif; ?>
+
 <?php if ($pluginManager::is_amp_active() && !get_option($pluginManagerInstance->get_option_name('amp-hidden-notification'), 0)): ?>
 <div class="ti-notice ti-notice-warning is-dismissible">
 <p>
@@ -525,7 +406,7 @@ include(plugin_dir_path(__FILE__) . '../include/step-list.php');
 </div>
 <?php endif; ?>
 <?php if ($stepCurrent === 1): ?>
-<h1 class="ti-header-title"><?php echo sprintf(__('Connect %s', 'trustindex-plugin'),  'Google'); ?></h1>
+<h1 class="ti-header-title"><?php echo sprintf(__('Connect %s', 'trustindex-plugin'), 'Google'); ?></h1>
 <?php if ($pluginManagerInstance->is_noreg_linked()): ?>
 <?php $pageDetails = $pluginManagerInstance->getPageDetails(); ?>
 <div class="ti-source-box">
@@ -559,7 +440,7 @@ update_option($pluginManagerInstance->get_option_name('review-download-token'), 
 <input type="hidden" id="ti-noreg-connect-token" name="ti-noreg-connect-token" value="<?php echo $reviewDownloadToken; ?>" />
 <input type="hidden" id="ti-noreg-webhook-url" value="<?php echo $pluginManagerInstance->get_webhook_url(); ?>" />
 <input type="hidden" id="ti-noreg-email" value="<?php echo get_option('admin_email'); ?>" />
-<input type="hidden" id="ti-noreg-version" value="11.4" />
+<input type="hidden" id="ti-noreg-version" value="11.5" />
 <input type="hidden" id="ti-noreg-review-download" name="review_download" value="0" />
 <input type="hidden" id="ti-noreg-review-request-id" name="review_request_id" value="" />
 <input type="hidden" id="ti-noreg-manual-download" name="manual_download" value=0 />
@@ -567,62 +448,20 @@ update_option($pluginManagerInstance->get_option_name('review-download-token'), 
 <div class="ti-notice ti-notice-info ti-d-none" id="ti-connect-info">
 <p><?php echo __("A popup window should be appear! Please, go to there and continue the steps! (If there is no popup window, you can check the the browser's popup blocker)", 'trustindex-plugin'); ?></p>
 </div>
-<?php if (in_array($pluginManagerInstance->shortname, [ 'facebook', 'google' ])): ?>
 <a href="#" class="ti-btn btn-connect-public"><?php echo __('Connect', 'trustindex-plugin'); ?></a>
-<?php else: ?>
-<?php
-$labelText = sprintf(__('%s Business URL', 'trustindex-plugin'),  'Google');
-$infoText = __("Type your business/company's URL and select from the list", 'trustindex-plugin');
-$errorText = sprintf(__('Please add your URL again: this is not a valid %s page.', 'trustindex-plugin'),  "Google");
-$placeholder = __('e.g.:', 'trustindex-plugin') . ' ' . esc_attr($exampleUrl);
-if (in_array($pluginManagerInstance->shortname, [ 'alibaba', 'aliexpress' ])) {
-$labelText = __('Google Seller Profile URL', 'trustindex-plugin');
-$errorText = sprintf(__('Please add your URL again: this is not a valid %s page.', 'trustindex-plugin'),  __('Google Seller Profile', 'trustindex-plugin'));
-}
-if ($pluginManagerInstance->shortname === 'amazon') {
-$placeholder = __('Seller Profile URL, Author Profile URL, Product Page URL, Kindle Product URL', 'trustindex-plugin');
-$infoText = __('e.g.:', 'trustindex-plugin') .' <a href="https://www.amazon.it/sp?seller=A2J0MITA2KJVTV" target="_blank">https://www.amazon.it/sp?seller=A2J0MITA2KJVTV</a>,
-<a href="https://www.amazon.com/stores/Stephanie-Grisham/author/B09GSWTRF9" target="_blank">https://www.amazon.com/stores/Stephanie-Grisham/author/B09GSWTRF9</a>, <br />
-<a href="https://www.amazon.com/gp/product/B09792ZGYZ" target="_blank">https://www.amazon.com/gp/product/B09792ZGYZ</a>,
-<a href="https://www.amazon.com/Castle-Air-Donald-Westlake-ebook/dp/B088QLNJFZ" target="_blank">https://www.amazon.com/Castle-Air-Donald-Westlake-ebook/dp/B088QLNJFZ</a>';
-$errorText = sprintf(__('Please add your URL again: this is not a valid %s page.', 'trustindex-plugin'),  __('Google Seller Profile', 'trustindex-plugin'));
-}
-if ($pluginManagerInstance->shortname === 'ebay') {
-$infoText = __('e.g.:', 'trustindex-plugin') .' <a href="https://www.ebay.com/fdbk/feedback_profile/scarhead1" target="_blank">https://www.ebay.com/fdbk/feedback_profile/scarhead1</a>';
-}
-if ($pluginManagerInstance->shortname === 'wordpressPlugin') {
-$labelText = sprintf(__('Your plugin URL on %s', 'trustindex-plugin'),  "Google");
-$infoText = __("Type your plugins' URL and select from the list", 'trustindex-plugin');
-}
-?>
-<div class="ti-notice ti-notice-error ti-d-none" id="ti-connect-error">
-<p><?php echo $errorText; ?></p>
-</div>
-<div class="ti-connect-platform">
-<div class="ti-connect-platform-inner">
-<label><?php echo $labelText; ?>:</label>
-<input class="ti-form-control" placeholder="<?php echo $placeholder; ?>" type="text" />
-<a href="#" class="ti-btn"><?php echo __('Check', 'trustindex-plugin'); ?></a>
-</div>
-<span class="ti-info-text"><?php echo $infoText; ?></span>
-</div>
-<div class="ti-source-box ti-d-none">
-<img />
-<div class="ti-source-info"></div>
-<a href="#" class="ti-btn btn-connect"><?php echo __('Connect', 'trustindex-plugin'); ?></a>
-</div>
-<?php endif; ?>
+
+
 </form>
 </div>
 <?php endif; ?>
-<h1 class="ti-header-title ti-mt-2"><?php echo sprintf(__('Check some %s widget layouts and styles', 'trustindex-plugin'),  'Google Reviews'); ?></h1>
+<h1 class="ti-header-title ti-mt-2"><?php echo sprintf(__('Check some %s widget layouts and styles', 'trustindex-plugin'), 'Google Reviews'); ?></h1>
 <?php include(plugin_dir_path(__FILE__) . '../include/demo-widgets.php'); ?>
 <?php elseif ($stepCurrent === 2): ?>
 <h1 class="ti-header-title"><?php echo __('Select Layout', 'trustindex-plugin'); ?></h1>
 <?php if (!count($reviews) && !$isReviewDownloadInProgress): ?>
 <div class="ti-notice ti-notice-warning" style="margin: 0 0 15px 0">
 <p>
-<?php echo sprintf(__('There are no reviews on your %s platform.', 'trustindex-plugin'),  'Google'); ?>
+<?php echo sprintf(__('There are no reviews on your %s platform.', 'trustindex-plugin'), 'Google'); ?>
 </p>
 </div>
 <?php endif; ?>
@@ -678,7 +517,7 @@ if (!isset($template['is-active']) || $template['is-active']):
 <?php if (!count($reviews) && !$isReviewDownloadInProgress): ?>
 <div class="ti-notice ti-notice-warning" style="margin: 0 0 15px 0">
 <p>
-<?php echo sprintf(__('There are no reviews on your %s platform.', 'trustindex-plugin'),  'Google'); ?>
+<?php echo sprintf(__('There are no reviews on your %s platform.', 'trustindex-plugin'), 'Google'); ?>
 </p>
 </div>
 <?php endif; ?>
@@ -718,7 +557,7 @@ $widgetHasReviews = !in_array($widgetType, [ 'button', 'badge' ]) || in_array($s
 <?php if (!count($reviews) && !$isReviewDownloadInProgress): ?>
 <div class="ti-notice ti-notice-warning" style="margin: 0 0 15px 0">
 <p>
-<?php echo sprintf(__('There are no reviews on your %s platform.', 'trustindex-plugin'),  'Google'); ?>
+<?php echo sprintf(__('There are no reviews on your %s platform.', 'trustindex-plugin'), 'Google'); ?>
 </p>
 </div>
 <?php endif; ?>
@@ -876,7 +715,7 @@ break;
 <label><?php echo __('Show "Load more" button', 'trustindex-plugin'); ?></label>
 </span>
 <?php endif; ?>
-<?php if ($widgetHasReviews && in_array(ucfirst($pluginManagerInstance->shortname), $pluginManager::$verified_platforms)): ?>
+<?php if ($widgetHasReviews && in_array(ucfirst($pluginManagerInstance->getShortName()), $pluginManager::$verified_platforms)): ?>
 <span class="ti-checkbox ti-checkbox-row">
 <input type="checkbox" name="verified-icon" value="1"<?php if ($verifiedIcon): ?> checked<?php endif; ?> />
 <label><?php echo __('Show verified review icon', 'trustindex-plugin'); ?></label>
@@ -939,7 +778,7 @@ break;
 <?php if (!count($reviews) && !$isReviewDownloadInProgress): ?>
 <div class="ti-notice ti-notice-warning" style="margin: 0 0 15px 0">
 <p>
-<?php echo sprintf(__('There are no reviews on your %s platform.', 'trustindex-plugin'),  'Google'); ?>
+<?php echo sprintf(__('There are no reviews on your %s platform.', 'trustindex-plugin'), 'Google'); ?>
 </p>
 </div>
 <?php endif; ?>

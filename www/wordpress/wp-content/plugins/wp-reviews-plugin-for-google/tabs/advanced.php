@@ -38,7 +38,7 @@ exit;
 }
 $yesIcon = '<span class="dashicons dashicons-yes-alt"></span>';
 $noIcon = '<span class="dashicons dashicons-dismiss"></span>';
-$pluginUpdated = ($pluginManagerInstance->get_plugin_current_version() <= "11.4");
+$pluginUpdated = ($pluginManagerInstance->get_plugin_current_version() <= "11.5");
 $cssInline = get_option($pluginManagerInstance->get_option_name('load-css-inline'), 0);
 $css = get_option($pluginManagerInstance->get_option_name('css-content'));
 ?>
@@ -59,6 +59,7 @@ echo __('Notification', 'trustindex-plugin') .': '. ($isNotificationActive ? $ye
 <a href="?page=<?php echo sanitize_text_field($_GET['page']); ?>&tab=advanced&notification=review-download-available&action=unhide" class="ti-btn ti-btn-loading-on-click"><?php echo __('Enable', 'trustindex-plugin'); ?></a>
 <?php endif; ?>
 </li>
+
 </ul>
 </li>
 <li>
@@ -134,7 +135,7 @@ echo $yesIcon;
 else {
 echo $noIcon .' '. __("corrupted", 'trustindex-plugin') .'
 <div class="ti-notice ti-notice-warning">
-<p><a href="'. wp_nonce_url('?page='. sanitize_text_field($_GET['page']) .'&tab=advanced&delete_css', 'ti-delete-css') .'">'. sprintf(__("Delete the CSS file at <strong>%s</strong>.", 'trustindex-plugin'),  $pluginManagerInstance->getCssFile()) .'</a></p>
+<p><a href="'. wp_nonce_url('?page='. sanitize_text_field($_GET['page']) .'&tab=advanced&delete_css', 'ti-delete-css') .'">'. sprintf(__("Delete the CSS file at <strong>%s</strong>.", 'trustindex-plugin'), $pluginManagerInstance->getCssFile()) .'</a></p>
 </div>';
 }
 }
@@ -174,15 +175,15 @@ $pluginUrl = 'https://wordpress.org/support/plugin/' . $pluginManagerInstance->g
 $screenshotUrl = 'https://snipboard.io';
 $screencastUrl = 'https://streamable.com/upload-video';
 $pastebinUrl = 'https://pastebin.com';
-echo sprintf(__('If the problem/question still exists, please create an issue here: %s', 'trustindex-plugin'),  '<a href="'. $pluginUrl .'" target="_blank">'. $pluginUrl .'</a>');
+echo sprintf(__('If the problem/question still exists, please create an issue here: %s', 'trustindex-plugin'), '<a href="'. $pluginUrl .'" target="_blank">'. $pluginUrl .'</a>');
 ?>
 <br />
 <?php echo __('Please help us with some information:', 'trustindex-plugin'); ?>
 <ul>
 <li><?php echo __('Describe your problem', 'trustindex-plugin'); ?></li>
-<li><?php echo sprintf(__('You can share a screenshot with %s', 'trustindex-plugin'),  '<a href="'. $screenshotUrl .'" target="_blank">'. $screenshotUrl .'</a>'); ?></li>
-<li><?php echo sprintf(__('You can share a screencast video with %s', 'trustindex-plugin'),  '<a href="'. $screencastUrl .'" target="_blank">'. $screencastUrl .'</a>'); ?></li>
-<li><?php echo sprintf(__('If you have an (webserver) error log, you can copy it to the issue, or link it with %s', 'trustindex-plugin'),  '<a href="'. $pastebinUrl .'" target="_blank">'. $pastebinUrl .'</a>'); ?></li>
+<li><?php echo sprintf(__('You can share a screenshot with %s', 'trustindex-plugin'), '<a href="'. $screenshotUrl .'" target="_blank">'. $screenshotUrl .'</a>'); ?></li>
+<li><?php echo sprintf(__('You can share a screencast video with %s', 'trustindex-plugin'), '<a href="'. $screencastUrl .'" target="_blank">'. $screencastUrl .'</a>'); ?></li>
+<li><?php echo sprintf(__('If you have an (webserver) error log, you can copy it to the issue, or link it with %s', 'trustindex-plugin'), '<a href="'. $pastebinUrl .'" target="_blank">'. $pastebinUrl .'</a>'); ?></li>
 <li><?php echo __('And include the information below:', 'trustindex-plugin'); ?></li>
 </ul>
 </li>

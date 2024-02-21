@@ -26,7 +26,7 @@ return trim($ti_db_schema[ $tableName ]);
 $preStyle = 'background: #eee; padding: 10px 20px; word-wrap: break-word; white-space: pre-wrap';
 wp_die(
 '<strong>' . __('Plugin activation is failed because the required database tables could not created!', 'trustindex-plugin') . '</strong><br /><br />' .
-sprintf(__('We got the following error from %s:', 'trustindex-plugin'),  __('database', 'trustindex-plugin')) .
+sprintf(__('We got the following error from %s:', 'trustindex-plugin'), __('database', 'trustindex-plugin')) .
 '<pre style="'. $preStyle .'">'. $mysqlError .'</pre>' .
 '<strong>' . __('Run the following SQL codes in your database administration interface (e.g. PhpMyAdmin) to create the tables or contact your system administrator:', 'trustindex-plugin') . '</strong>' .
 '<pre style="'. $preStyle .'">' . implode('</pre><pre style="'. $preStyle .'">', $sqlsToRun) . '</pre>' .

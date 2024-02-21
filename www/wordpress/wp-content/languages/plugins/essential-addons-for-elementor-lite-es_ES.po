@@ -2,14 +2,18 @@
 # This file is distributed under the same license as the Plugins - Essential Addons for Elementor &#8211; Best Elementor Templates, Widgets, Kits &amp; WooCommerce Builders - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-14 12:20:00+0000\n"
+"PO-Revision-Date: 2024-02-12 07:19:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/4.0.0-alpha.11\n"
+"X-Generator: GlotPress/4.0.0-beta.2\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Essential Addons for Elementor &#8211; Best Elementor Templates, Widgets, Kits &amp; WooCommerce Builders - Stable (latest release)\n"
+
+#: includes/Elements/Testimonial.php:635
+msgid "Rating Size"
+msgstr "Tamaño de la valoración"
 
 #: includes/Elements/Event_Calendar.php:692
 msgid "Popup Date Formate"
@@ -433,8 +437,8 @@ msgid "Automatically Cart Update"
 msgstr "Actualización automática del carrito"
 
 #: includes/Elements/Login_Register.php:2370
-msgid "<strong>Note:</strong> You can use dynamic content in the email body like [fieldname]. For example [username] will be replaced by user-typed username. Available tags are: [username], [email], [firstname],[lastname], [website], [loginurl] and [sitetitle]. <br>For custom profile fields use slug of the field name e.x. [my_custom_field_1]"
-msgstr "<strong>Nota:</strong> Puedes utilizar contenido dinámico en el cuerpo del correo electrónico como [fieldname]. Por ejemplo, [username] se sustituirá por el nombre de usuario introducido por el usuario. Las etiquetas disponibles son: [username], [email], [firstname],[lastname], [website], [loginurl] y [sitetitle]. <br>Para los campos de perfil personalizados, utiliza el slug del nombre del campo, por ejemplo [mi_campo_personalizado_1]."
+msgid "<strong>Note:</strong> You can use dynamic content in the email body like [fieldname]. For example [username] will be replaced by user-typed username. Available tags are: [username], [email], [firstname],[lastname], [website], [loginurl], [eael_phone_number] and [sitetitle]. <br>For custom profile fields use slug of the field name e.x. [my_custom_field_1]"
+msgstr "<strong>Nota:</strong> Puedes utilizar contenido dinámico en el cuerpo del correo electrónico como [fieldname]. Por ejemplo, [username] se sustituirá por el nombre de usuario introducido por el usuario. Las etiquetas disponibles son: [username], [email], [firstname],[lastname], [website], [loginurl], [eael_phone_number] y [sitetitle]. <br>Para los campos de perfil personalizados, utiliza el slug del nombre del campo, por ejemplo [mi_campo_personalizado_1]."
 
 #: includes/Elements/Login_Register.php:2261
 msgid "<strong>Note:</strong> You can use dynamic content in the email body like [fieldname]. For example [username] will be replaced by user-typed username. Available tags are: [password], [username], [email], [firstname],[lastname], [website], [loginurl], [password_reset_link], [eael_phone_number] and [sitetitle]. <br>For custom profile fields use slug of the field name e.x. [my_custom_field_1]"
@@ -1232,7 +1236,7 @@ msgstr "Mostrar botón"
 msgid "If you didn't find your custom checkout fields. Please remove this widget and again add this. "
 msgstr "Si no encuentras tus campos personalizados en el pago. Por favor, elimina este widget y añádelo de nuevo. "
 
-#: includes/Elements/Simple_Menu.php:1535
+#: includes/Elements/Simple_Menu.php:1534
 msgid "Desktop (> 2400px)"
 msgstr "Escritorio (> 2400px)"
 
@@ -2228,15 +2232,15 @@ msgid "Autoplay requires mute volume."
 msgstr "La reproducción automática requiere silenciar el volumen."
 
 #. translators: 1: Breakpoint label, 2: `>` character, 3: Breakpoint value
-#: includes/Elements/Simple_Menu.php:1528
+#: includes/Elements/Simple_Menu.php:1527
 msgid "%1$s (%2$s %3$dpx)"
 msgstr "%1$s (%2$s %3$dpx)"
 
-#: includes/Elements/Simple_Menu.php:251
+#: includes/Elements/Simple_Menu.php:250
 msgid "Breakpoint"
 msgstr "Punto de ruptura"
 
-#: includes/Elements/Simple_Menu.php:240
+#: includes/Elements/Simple_Menu.php:239
 msgid "Mobile Dropdown"
 msgstr "Desplegable en móvil"
 
@@ -3309,7 +3313,7 @@ msgstr "Base de datos (Pro)"
 msgid "Read More Text"
 msgstr "Texto de leer más"
 
-#: includes/Elements/Simple_Menu.php:497
+#: includes/Elements/Simple_Menu.php:496
 msgid "Dropdown Items"
 msgstr "Elementos desplegables"
 
@@ -3319,12 +3323,12 @@ msgstr "Elementos desplegables"
 msgid "View More"
 msgstr "Ver más"
 
-#: includes/Elements/NFT_Gallery.php:890 includes/Elements/Simple_Menu.php:358
+#: includes/Elements/NFT_Gallery.php:890 includes/Elements/Simple_Menu.php:357
 #: includes/Elements/Woo_Product_Gallery.php:1319
 msgid "Items"
 msgstr "Artículos"
 
-#: includes/Elements/Simple_Menu.php:285
+#: includes/Elements/Simple_Menu.php:284
 msgid "Min Height"
 msgstr "Altura mínima"
 
@@ -3340,89 +3344,89 @@ msgstr "Color primario"
 msgid "Main Page Offset"
 msgstr "Desplazamiento de la página principal"
 
-#: includes/Elements/Simple_Menu.php:1203
+#: includes/Elements/Simple_Menu.php:1202
 msgid "Dropdown Item"
 msgstr "Elemento desplegable"
 
-#: includes/Elements/Simple_Menu.php:965 includes/Elements/Simple_Menu.php:1055
-#: includes/Elements/Simple_Menu.php:1148
-#: includes/Elements/Simple_Menu.php:1366
-#: includes/Elements/Simple_Menu.php:1460
+#: includes/Elements/Simple_Menu.php:964 includes/Elements/Simple_Menu.php:1054
+#: includes/Elements/Simple_Menu.php:1147
+#: includes/Elements/Simple_Menu.php:1365
+#: includes/Elements/Simple_Menu.php:1459
 msgid "<div style=\"font-size: 11px;font-style:italic;line-height:1.4;color:#a4afb7;\">Following options are only available in the <span style=\"color:#d30c5c\"><strong>Small</strong></span> screens for <span style=\"color:#d30c5c\"><strong>Horizontal</strong></span> Layout, and all screens for <span style=\"color:#d30c5c\"><strong>Vertical</strong></span> Layout</div>"
 msgstr "<div style=\"font-size: 11px;font-style:italic;line-height:1.4;color:#a4afb7;\">Las siguientes opciones solo están disponibles en las pantallas <span style=\"color:#d30c5c\"><strong>pequeñas</strong></span> en diseño <span style=\"color:#d30c5c\"><strong>horizontal</strong></span> y en todas las pantallas en diseño <span style=\"color:#d30c5c\"><strong>vertical</strong></span></div>"
 
-#: includes/Elements/Simple_Menu.php:962 includes/Elements/Simple_Menu.php:1052
-#: includes/Elements/Simple_Menu.php:1145
-#: includes/Elements/Simple_Menu.php:1363
-#: includes/Elements/Simple_Menu.php:1457
+#: includes/Elements/Simple_Menu.php:961 includes/Elements/Simple_Menu.php:1051
+#: includes/Elements/Simple_Menu.php:1144
+#: includes/Elements/Simple_Menu.php:1362
+#: includes/Elements/Simple_Menu.php:1456
 msgid "Important Note"
 msgstr "Nota importante"
 
-#: includes/Elements/Simple_Menu.php:589 includes/Elements/Simple_Menu.php:915
-#: includes/Elements/Simple_Menu.php:1043
-#: includes/Elements/Simple_Menu.php:1136
-#: includes/Elements/Simple_Menu.php:1315
-#: includes/Elements/Simple_Menu.php:1448
+#: includes/Elements/Simple_Menu.php:588 includes/Elements/Simple_Menu.php:914
+#: includes/Elements/Simple_Menu.php:1042
+#: includes/Elements/Simple_Menu.php:1135
+#: includes/Elements/Simple_Menu.php:1314
+#: includes/Elements/Simple_Menu.php:1447
 msgid "Dropdown Indicator"
 msgstr "Indicador del desplegable"
 
-#: includes/Elements/Simple_Menu.php:851 includes/Elements/Simple_Menu.php:1257
+#: includes/Elements/Simple_Menu.php:850 includes/Elements/Simple_Menu.php:1256
 msgid "Divider Color"
 msgstr "Color del separador"
 
-#: includes/Elements/Simple_Menu.php:762
+#: includes/Elements/Simple_Menu.php:761
 msgid "Item Padding"
 msgstr "Relleno del elemento"
 
-#: includes/Elements/Simple_Menu.php:754
+#: includes/Elements/Simple_Menu.php:753
 msgid "Top Level Item"
 msgstr "Elemento de nivel superior"
 
-#: includes/Elements/Simple_Menu.php:710
+#: includes/Elements/Simple_Menu.php:709
 msgid "Main Menu"
 msgstr "Menú principal"
 
-#: includes/Elements/Simple_Menu.php:634
+#: includes/Elements/Simple_Menu.php:633
 msgid "ZoomOut"
 msgstr "ZoomAlejarse"
 
-#: includes/Elements/Simple_Menu.php:632
+#: includes/Elements/Simple_Menu.php:631
 msgid "To Top"
 msgstr "Al principio"
 
-#: includes/Elements/Simple_Menu.php:620
+#: includes/Elements/Simple_Menu.php:619
 msgid "Dropdown Menu"
 msgstr "Menú desplegable"
 
-#: includes/Elements/Simple_Menu.php:278
+#: includes/Elements/Simple_Menu.php:277
 msgid "Hamburger Menu"
 msgstr "Menú hamburguesa"
 
-#: includes/Elements/Simple_Menu.php:218
+#: includes/Elements/Simple_Menu.php:217
 msgid "Stretch the dropdown of the menu to full width."
 msgstr "Estira el desplegable del menú al ancho completo."
 
-#: includes/Elements/Simple_Menu.php:189
+#: includes/Elements/Simple_Menu.php:188
 msgid "Hamburger Alignment"
 msgstr "Alineación de la hamburguesa"
 
-#: includes/Elements/Simple_Menu.php:176
+#: includes/Elements/Simple_Menu.php:175
 msgid "Disable Selected Menu"
 msgstr "Desactivar el menú seleccionado"
 
-#: includes/Elements/Simple_Menu.php:169
+#: includes/Elements/Simple_Menu.php:168
 msgid "Hamburger Options"
 msgstr "Opciones de la hamburguesa"
 
-#: includes/Elements/Simple_Menu.php:130
+#: includes/Elements/Simple_Menu.php:129
 msgid "<strong>There are no menus in your site.</strong><br>Go to the <a href=\"%s\" target=\"_blank\">Menus screen</a> to create one."
 msgstr "<strong>No hay menus en tu sitio.</strong><br>Ve a la <a href=\"%s\" target=\"_blank\">pantalla de menús</a> para crear uno."
 
-#: includes/Elements/Simple_Menu.php:118
+#: includes/Elements/Simple_Menu.php:117
 msgid "Go to the <a href=\"%s\" target=\"_blank\">Menu screen</a> to manage your menus."
 msgstr "Ve a la <a href=\"%s\" target=\"_blank\">pantalla de menús</a> para gestionar tus menús."
 
-#: includes/Elements/Simple_Menu.php:117
+#: includes/Elements/Simple_Menu.php:116
 msgid "Select Menu"
 msgstr "Seleccionar menú"
 
@@ -4384,7 +4388,7 @@ msgid "Note: Use 5 posts per page from Content » Query » Posts Per Page, to vi
 msgstr "Nota: Usa 5 entadas por página en Contenido » Consulta » Entradas por página, para ver esta estructura perfectamente."
 
 #: includes/Elements/Interactive_Circle.php:68
-#: includes/Elements/Simple_Menu.php:139
+#: includes/Elements/Simple_Menu.php:138
 #: includes/Elements/Woo_Product_Carousel.php:2199
 #: includes/Elements/Woo_Product_List.php:666
 #: includes/Elements/Woo_Product_List.php:684 includes/Traits/Controls.php:444
@@ -4552,7 +4556,7 @@ msgstr "Preajuste 4"
 #: includes/Elements/Interactive_Circle.php:75
 #: includes/Elements/Product_Grid.php:275
 #: includes/Elements/Product_Grid.php:1801
-#: includes/Elements/Simple_Menu.php:145
+#: includes/Elements/Simple_Menu.php:144
 #: includes/Elements/Woo_Product_Carousel.php:886
 #: includes/Elements/Woo_Product_Carousel.php:2204
 #: includes/Elements/Woo_Product_Gallery.php:335
@@ -4569,7 +4573,7 @@ msgstr "Preajuste 3"
 #: includes/Elements/NFT_Gallery.php:259 includes/Elements/Product_Grid.php:274
 #: includes/Elements/Product_Grid.php:1800
 #: includes/Elements/Product_Grid.php:1931
-#: includes/Elements/Simple_Menu.php:144
+#: includes/Elements/Simple_Menu.php:143
 #: includes/Elements/Woo_Product_Carousel.php:885
 #: includes/Elements/Woo_Product_Carousel.php:2203
 #: includes/Elements/Woo_Product_Gallery.php:334
@@ -4586,7 +4590,7 @@ msgstr "Preajuste 2"
 #: includes/Elements/NFT_Gallery.php:258 includes/Elements/Product_Grid.php:273
 #: includes/Elements/Product_Grid.php:1799
 #: includes/Elements/Product_Grid.php:1930
-#: includes/Elements/Simple_Menu.php:143
+#: includes/Elements/Simple_Menu.php:142
 #: includes/Elements/Woo_Product_Carousel.php:884
 #: includes/Elements/Woo_Product_Carousel.php:2202
 #: includes/Elements/Woo_Product_Gallery.php:333
@@ -6681,7 +6685,7 @@ msgstr "Estilo tres"
 msgid "Style Two"
 msgstr "Estilo dos"
 
-#: includes/Elements/Testimonial.php:619
+#: includes/Elements/Testimonial.php:647
 msgid "Distance Between Rating Item"
 msgstr "Distancia entre cada elemento de valoración"
 
@@ -7520,7 +7524,7 @@ msgstr "Contraer"
 msgid "EA TOC Header"
 msgstr "Cabecera EA TOC"
 
-#: includes/Elements/Simple_Menu.php:598
+#: includes/Elements/Simple_Menu.php:597
 #: includes/Extensions/Table_of_Content.php:597
 msgid "Top Position"
 msgstr "Posición superior"
@@ -8397,13 +8401,13 @@ msgid "Enable Icon"
 msgstr "Activar el icono"
 
 #: includes/Elements/Adv_Tabs.php:86 includes/Elements/Image_Accordion.php:88
-#: includes/Elements/Simple_Menu.php:158
+#: includes/Elements/Simple_Menu.php:157
 #: includes/Elements/Woo_Product_Gallery.php:181
 msgid "Vertical"
 msgstr "Vertical"
 
 #: includes/Elements/Adv_Tabs.php:85 includes/Elements/Image_Accordion.php:87
-#: includes/Elements/Simple_Menu.php:157
+#: includes/Elements/Simple_Menu.php:156
 #: includes/Elements/Woo_Product_Gallery.php:180
 msgid "Horizontal"
 msgstr "Horizontal"
@@ -8825,7 +8829,7 @@ msgstr "Alternar el estilo del signo de intercalación"
 #: includes/Elements/Filterable_Gallery.php:1214
 #: includes/Elements/Interactive_Circle.php:712
 #: includes/Elements/Product_Grid.php:2442
-#: includes/Elements/Simple_Menu.php:462 includes/Elements/Simple_Menu.php:1102
+#: includes/Elements/Simple_Menu.php:461 includes/Elements/Simple_Menu.php:1101
 #: includes/Elements/Woo_Product_Carousel.php:2422
 #: includes/Elements/Woo_Product_Gallery.php:1443
 #: includes/Extensions/Table_of_Content.php:1066
@@ -8960,6 +8964,7 @@ msgid "Sale Badge"
 msgstr "Insignia de oferta"
 
 #: includes/Elements/Product_Grid.php:1352
+#: includes/Elements/Testimonial.php:619
 #: includes/Elements/Woo_Product_Carousel.php:1241
 #: includes/Elements/Woo_Product_Gallery.php:873
 #: includes/Elements/Woo_Product_List.php:2082
@@ -9718,7 +9723,7 @@ msgstr "Icono de la entrada al pasar el cursor"
 msgid "SlideUp"
 msgstr "Presentación"
 
-#: includes/Elements/Post_Grid.php:955 includes/Elements/Simple_Menu.php:633
+#: includes/Elements/Post_Grid.php:955 includes/Elements/Simple_Menu.php:632
 msgid "ZoomIn"
 msgstr "Ampliación"
 
@@ -9729,7 +9734,7 @@ msgstr "FundidoDentro"
 #: includes/Elements/Info_Box.php:630 includes/Elements/Info_Box.php:858
 #: includes/Elements/Info_Box.php:1091
 #: includes/Elements/Interactive_Circle.php:360
-#: includes/Elements/Post_Grid.php:949 includes/Elements/Simple_Menu.php:628
+#: includes/Elements/Post_Grid.php:949 includes/Elements/Simple_Menu.php:627
 #: includes/Elements/SVG_Draw.php:261
 msgid "Animation"
 msgstr "Animación"
@@ -10223,7 +10228,7 @@ msgstr "Sin bordes"
 #: includes/Elements/Facebook_Feed.php:601 includes/Elements/Post_Grid.php:418
 #: includes/Elements/Pricing_Table.php:515
 #: includes/Elements/Pricing_Table.php:1526
-#: includes/Elements/Simple_Menu.php:692 includes/Elements/Simple_Menu.php:741
+#: includes/Elements/Simple_Menu.php:691 includes/Elements/Simple_Menu.php:740
 #: includes/Elements/Woo_Product_Carousel.php:2492
 msgid "Shadow"
 msgstr "Sombra"
@@ -10338,7 +10343,7 @@ msgstr "¿Activar mensaje emergente?"
 #: includes/Elements/Interactive_Circle.php:858
 #: includes/Elements/Post_Grid.php:1003 includes/Elements/Pricing_Table.php:379
 #: includes/Elements/Pricing_Table.php:1826
-#: includes/Elements/Simple_Menu.php:332 includes/Elements/Team_Member.php:754
+#: includes/Elements/Simple_Menu.php:331 includes/Elements/Team_Member.php:754
 #: includes/Elements/Twitter_Feed.php:905 includes/Elements/Woo_Cart.php:238
 #: includes/Elements/Woo_Cart.php:824 includes/Elements/Woo_Cart.php:2045
 #: includes/Elements/Woo_Cart.php:2443 includes/Elements/Woo_Cart.php:2526
@@ -10638,19 +10643,19 @@ msgstr "Datos estáticos"
 msgid "Data Source"
 msgstr "Fuente de los datos"
 
-#: includes/Elements/Testimonial.php:695
+#: includes/Elements/Testimonial.php:723
 msgid "Quotation Postion From Right"
 msgstr "Posición de cita desde la derecha"
 
-#: includes/Elements/Testimonial.php:673
+#: includes/Elements/Testimonial.php:701
 msgid "Quotation Postion From Top"
 msgstr "Posición de la cita desde arriba"
 
-#: includes/Elements/Testimonial.php:653
+#: includes/Elements/Testimonial.php:681
 msgid "Quotation Mark Color"
 msgstr "Color de la marca de la cita"
 
-#: includes/Elements/Testimonial.php:645
+#: includes/Elements/Testimonial.php:673
 msgid "Quotation Style"
 msgstr "Estilo de la cita"
 
@@ -11133,7 +11138,7 @@ msgstr "Separación de los elementos"
 
 #: includes/Elements/Content_Ticker.php:167
 #: includes/Elements/Fancy_Text.php:216 includes/Elements/Pricing_Table.php:464
-#: includes/Elements/Simple_Menu.php:631
+#: includes/Elements/Simple_Menu.php:630
 msgid "Fade"
 msgstr "Desvanecido"
 
@@ -11540,8 +11545,8 @@ msgstr "Estilo del botón"
 #: includes/Elements/Pricing_Table.php:1935
 #: includes/Elements/Product_Grid.php:1393
 #: includes/Elements/Product_Grid.php:2955
-#: includes/Elements/Simple_Menu.php:315 includes/Elements/Simple_Menu.php:941
-#: includes/Elements/Simple_Menu.php:1341 includes/Elements/Team_Member.php:677
+#: includes/Elements/Simple_Menu.php:314 includes/Elements/Simple_Menu.php:940
+#: includes/Elements/Simple_Menu.php:1340 includes/Elements/Team_Member.php:677
 #: includes/Elements/Tooltip.php:114 includes/Elements/Twitter_Feed.php:1341
 #: includes/Elements/Woo_Cart.php:1486 includes/Elements/Woo_Cart.php:2067
 #: includes/Elements/Woo_Checkout.php:1798
@@ -11756,7 +11761,7 @@ msgstr "Imagen en caja giratoria"
 #: includes/Elements/Info_Box.php:900 includes/Elements/Info_Box.php:1038
 #: includes/Elements/Info_Box.php:1134
 #: includes/Elements/Interactive_Circle.php:365
-#: includes/Elements/Post_Grid.php:953 includes/Elements/Simple_Menu.php:1536
+#: includes/Elements/Post_Grid.php:953 includes/Elements/Simple_Menu.php:1535
 #: includes/Elements/Sticky_Video.php:598 includes/Elements/SVG_Draw.php:236
 #: includes/Elements/SVG_Draw.php:265
 #: includes/Extensions/Table_of_Content.php:942
@@ -12296,7 +12301,7 @@ msgstr "Personalizado"
 #: includes/Elements/Contact_Form_7.php:1202
 #: includes/Elements/FluentForm.php:1518 includes/Elements/Formstack.php:1404
 #: includes/Elements/GravityForms.php:1996
-#: includes/Elements/NinjaForms.php:1332 includes/Elements/Simple_Menu.php:216
+#: includes/Elements/NinjaForms.php:1332 includes/Elements/Simple_Menu.php:215
 #: includes/Elements/Woo_Checkout.php:703 includes/Elements/WpForms.php:1176
 msgid "Full Width"
 msgstr "Ancho completo"
@@ -12474,11 +12479,11 @@ msgstr "Ancho del borde"
 #: includes/Elements/Product_Grid.php:2850
 #: includes/Elements/Product_Grid.php:3007
 #: includes/Elements/Progress_Bar.php:479
-#: includes/Elements/Progress_Bar.php:568 includes/Elements/Simple_Menu.php:972
-#: includes/Elements/Simple_Menu.php:1063
-#: includes/Elements/Simple_Menu.php:1156
-#: includes/Elements/Simple_Menu.php:1373
-#: includes/Elements/Simple_Menu.php:1468 includes/Elements/SVG_Draw.php:393
+#: includes/Elements/Progress_Bar.php:568 includes/Elements/Simple_Menu.php:971
+#: includes/Elements/Simple_Menu.php:1062
+#: includes/Elements/Simple_Menu.php:1155
+#: includes/Elements/Simple_Menu.php:1372
+#: includes/Elements/Simple_Menu.php:1467 includes/Elements/SVG_Draw.php:393
 #: includes/Elements/Twitter_Feed.php:969
 #: includes/Elements/Twitter_Feed.php:998
 #: includes/Elements/Twitter_Feed.php:1028
@@ -12664,7 +12669,7 @@ msgstr "Botón de opción y casilla de verificación"
 #: includes/Elements/Post_Timeline.php:99
 #: includes/Elements/Pricing_Table.php:245
 #: includes/Elements/Pricing_Table.php:1968
-#: includes/Elements/Simple_Menu.php:179 includes/Elements/Simple_Menu.php:220
+#: includes/Elements/Simple_Menu.php:178 includes/Elements/Simple_Menu.php:219
 #: includes/Elements/SVG_Draw.php:128 includes/Elements/SVG_Draw.php:296
 #: includes/Elements/SVG_Draw.php:311 includes/Elements/Team_Member.php:741
 #: includes/Elements/Twitter_Feed.php:95 includes/Elements/Twitter_Feed.php:187
@@ -12752,7 +12757,7 @@ msgstr "No"
 #: includes/Elements/Post_Timeline.php:98
 #: includes/Elements/Pricing_Table.php:244
 #: includes/Elements/Pricing_Table.php:1967
-#: includes/Elements/Simple_Menu.php:178 includes/Elements/Simple_Menu.php:219
+#: includes/Elements/Simple_Menu.php:177 includes/Elements/Simple_Menu.php:218
 #: includes/Elements/SVG_Draw.php:127 includes/Elements/SVG_Draw.php:295
 #: includes/Elements/SVG_Draw.php:310 includes/Elements/Team_Member.php:740
 #: includes/Elements/Twitter_Feed.php:94 includes/Elements/Twitter_Feed.php:186
@@ -12965,8 +12970,8 @@ msgstr "Campo de entrada y área de texto"
 #: includes/Elements/Product_Grid.php:2730
 #: includes/Elements/Product_Grid.php:2787
 #: includes/Elements/Product_Grid.php:2904
-#: includes/Elements/Progress_Bar.php:773 includes/Elements/Simple_Menu.php:869
-#: includes/Elements/Simple_Menu.php:1271
+#: includes/Elements/Progress_Bar.php:773 includes/Elements/Simple_Menu.php:868
+#: includes/Elements/Simple_Menu.php:1270
 #: includes/Elements/Twitter_Feed.php:1326 includes/Elements/Woo_Cart.php:1819
 #: includes/Elements/Woo_Cart.php:1880 includes/Elements/Woo_Cart.php:2058
 #: includes/Elements/Woo_Cart.php:2150 includes/Elements/Woo_Checkout.php:1608
@@ -13036,9 +13041,9 @@ msgstr "Tipografía"
 #: includes/Elements/Product_Grid.php:1815
 #: includes/Elements/Product_Grid.php:2307
 #: includes/Elements/Progress_Bar.php:360
-#: includes/Elements/Progress_Bar.php:629 includes/Elements/Simple_Menu.php:367
-#: includes/Elements/Simple_Menu.php:774 includes/Elements/Simple_Menu.php:800
-#: includes/Elements/Simple_Menu.php:825 includes/Elements/Simple_Menu.php:1211
+#: includes/Elements/Progress_Bar.php:629 includes/Elements/Simple_Menu.php:366
+#: includes/Elements/Simple_Menu.php:773 includes/Elements/Simple_Menu.php:799
+#: includes/Elements/Simple_Menu.php:824 includes/Elements/Simple_Menu.php:1210
 #: includes/Elements/SVG_Draw.php:184 includes/Elements/Tooltip.php:210
 #: includes/Elements/Twitter_Feed.php:550 includes/Elements/Woo_Cart.php:268
 #: includes/Elements/Woo_Cart.php:496 includes/Elements/Woo_Cart.php:591
@@ -13858,10 +13863,10 @@ msgstr "Alineación del botón"
 #: includes/Elements/Product_Grid.php:2666
 #: includes/Elements/Product_Grid.php:2762
 #: includes/Elements/Product_Grid.php:2874
-#: includes/Elements/Simple_Menu.php:997 includes/Elements/Simple_Menu.php:1088
-#: includes/Elements/Simple_Menu.php:1181
-#: includes/Elements/Simple_Menu.php:1399
-#: includes/Elements/Simple_Menu.php:1494
+#: includes/Elements/Simple_Menu.php:996 includes/Elements/Simple_Menu.php:1087
+#: includes/Elements/Simple_Menu.php:1180
+#: includes/Elements/Simple_Menu.php:1398
+#: includes/Elements/Simple_Menu.php:1493
 #: includes/Elements/Sticky_Video.php:625
 #: includes/Elements/Twitter_Feed.php:916
 #: includes/Elements/Twitter_Feed.php:1489 includes/Elements/WeForms.php:464
@@ -14032,19 +14037,19 @@ msgstr "Color del borde"
 #: includes/Elements/Product_Grid.php:2750
 #: includes/Elements/Product_Grid.php:2811
 #: includes/Elements/Product_Grid.php:2862
-#: includes/Elements/Progress_Bar.php:679 includes/Elements/Simple_Menu.php:303
-#: includes/Elements/Simple_Menu.php:414 includes/Elements/Simple_Menu.php:448
-#: includes/Elements/Simple_Menu.php:482 includes/Elements/Simple_Menu.php:540
-#: includes/Elements/Simple_Menu.php:574 includes/Elements/Simple_Menu.php:646
-#: includes/Elements/Simple_Menu.php:718 includes/Elements/Simple_Menu.php:903
-#: includes/Elements/Simple_Menu.php:985 includes/Elements/Simple_Menu.php:1031
-#: includes/Elements/Simple_Menu.php:1076
-#: includes/Elements/Simple_Menu.php:1123
-#: includes/Elements/Simple_Menu.php:1169
-#: includes/Elements/Simple_Menu.php:1303
-#: includes/Elements/Simple_Menu.php:1387
-#: includes/Elements/Simple_Menu.php:1434
-#: includes/Elements/Simple_Menu.php:1481 includes/Elements/Team_Member.php:767
+#: includes/Elements/Progress_Bar.php:679 includes/Elements/Simple_Menu.php:302
+#: includes/Elements/Simple_Menu.php:413 includes/Elements/Simple_Menu.php:447
+#: includes/Elements/Simple_Menu.php:481 includes/Elements/Simple_Menu.php:539
+#: includes/Elements/Simple_Menu.php:573 includes/Elements/Simple_Menu.php:645
+#: includes/Elements/Simple_Menu.php:717 includes/Elements/Simple_Menu.php:902
+#: includes/Elements/Simple_Menu.php:984 includes/Elements/Simple_Menu.php:1030
+#: includes/Elements/Simple_Menu.php:1075
+#: includes/Elements/Simple_Menu.php:1122
+#: includes/Elements/Simple_Menu.php:1168
+#: includes/Elements/Simple_Menu.php:1302
+#: includes/Elements/Simple_Menu.php:1386
+#: includes/Elements/Simple_Menu.php:1433
+#: includes/Elements/Simple_Menu.php:1480 includes/Elements/Team_Member.php:767
 #: includes/Elements/Testimonial.php:287 includes/Elements/Tooltip.php:420
 #: includes/Elements/Tooltip.php:464 includes/Elements/Tooltip.php:638
 #: includes/Elements/Twitter_Feed.php:688
@@ -14190,7 +14195,7 @@ msgstr "Color de fondo"
 #: includes/Elements/Pricing_Table.php:1923 includes/Elements/SVG_Draw.php:468
 #: includes/Elements/Team_Member.php:507 includes/Elements/Testimonial.php:418
 #: includes/Elements/Testimonial.php:516 includes/Elements/Testimonial.php:557
-#: includes/Elements/Testimonial.php:598 includes/Elements/Testimonial.php:631
+#: includes/Elements/Testimonial.php:598 includes/Elements/Testimonial.php:659
 #: includes/Elements/Tooltip.php:373 includes/Elements/Tooltip.php:627
 #: includes/Elements/Twitter_Feed.php:1422 includes/Elements/WeForms.php:490
 #: includes/Elements/WeForms.php:666 includes/Elements/Woo_Cart.php:1303
@@ -14272,9 +14277,9 @@ msgstr "Margen"
 #: includes/Elements/Product_Grid.php:2174
 #: includes/Elements/Product_Grid.php:2398
 #: includes/Elements/Product_Grid.php:2845
-#: includes/Elements/Simple_Menu.php:428 includes/Elements/Simple_Menu.php:554
-#: includes/Elements/Simple_Menu.php:1011
-#: includes/Elements/Simple_Menu.php:1413 includes/Elements/Team_Member.php:827
+#: includes/Elements/Simple_Menu.php:427 includes/Elements/Simple_Menu.php:553
+#: includes/Elements/Simple_Menu.php:1010
+#: includes/Elements/Simple_Menu.php:1412 includes/Elements/Team_Member.php:827
 #: includes/Elements/Tooltip.php:460 includes/Elements/Twitter_Feed.php:1446
 #: includes/Elements/WeForms.php:739 includes/Elements/Woo_Cart.php:1927
 #: includes/Elements/Woo_Cart.php:2208 includes/Elements/Woo_Checkout.php:1174
@@ -14441,7 +14446,7 @@ msgstr "Al pasar el cursor"
 #: includes/Elements/Product_Grid.php:2830
 #: includes/Elements/Product_Grid.php:3029
 #: includes/Elements/Product_Grid.php:3061
-#: includes/Elements/Simple_Menu.php:667 includes/Elements/Sticky_Video.php:637
+#: includes/Elements/Simple_Menu.php:666 includes/Elements/Sticky_Video.php:637
 #: includes/Elements/SVG_Draw.php:444 includes/Elements/Team_Member.php:453
 #: includes/Elements/Team_Member.php:552 includes/Elements/Team_Member.php:803
 #: includes/Elements/Testimonial.php:463 includes/Elements/Tooltip.php:514
@@ -14600,7 +14605,7 @@ msgstr "Radio del borde"
 #: includes/Elements/Post_Grid.php:306 includes/Elements/Pricing_Table.php:1854
 #: includes/Elements/Pricing_Table.php:2022
 #: includes/Elements/Product_Grid.php:2390
-#: includes/Elements/Simple_Menu.php:659 includes/Elements/Simple_Menu.php:732
+#: includes/Elements/Simple_Menu.php:658 includes/Elements/Simple_Menu.php:731
 #: includes/Elements/Team_Member.php:445 includes/Elements/Team_Member.php:533
 #: includes/Elements/Testimonial.php:444 includes/Elements/Tooltip.php:453
 #: includes/Elements/Tooltip.php:497 includes/Elements/Twitter_Feed.php:735
@@ -14826,13 +14831,13 @@ msgstr "Fondo"
 #: includes/Elements/Product_Grid.php:2365
 #: includes/Elements/Product_Grid.php:2403
 #: includes/Elements/Product_Grid.php:2447
-#: includes/Elements/Simple_Menu.php:401 includes/Elements/Simple_Menu.php:435
-#: includes/Elements/Simple_Menu.php:469 includes/Elements/Simple_Menu.php:527
-#: includes/Elements/Simple_Menu.php:561 includes/Elements/Simple_Menu.php:889
-#: includes/Elements/Simple_Menu.php:1018
-#: includes/Elements/Simple_Menu.php:1109
-#: includes/Elements/Simple_Menu.php:1291
-#: includes/Elements/Simple_Menu.php:1420 includes/Elements/Tooltip.php:431
+#: includes/Elements/Simple_Menu.php:400 includes/Elements/Simple_Menu.php:434
+#: includes/Elements/Simple_Menu.php:468 includes/Elements/Simple_Menu.php:526
+#: includes/Elements/Simple_Menu.php:560 includes/Elements/Simple_Menu.php:888
+#: includes/Elements/Simple_Menu.php:1017
+#: includes/Elements/Simple_Menu.php:1108
+#: includes/Elements/Simple_Menu.php:1290
+#: includes/Elements/Simple_Menu.php:1419 includes/Elements/Tooltip.php:431
 #: includes/Elements/Tooltip.php:475 includes/Elements/Tooltip.php:649
 #: includes/Elements/Twitter_Feed.php:1278
 #: includes/Elements/Twitter_Feed.php:1473 includes/Elements/WeForms.php:694
@@ -15071,8 +15076,8 @@ msgstr "Viñeta"
 #: includes/Elements/Interactive_Circle.php:176
 #: includes/Elements/Interactive_Circle.php:207
 #: includes/Elements/Pricing_Table.php:196
-#: includes/Elements/Simple_Menu.php:228 includes/Elements/Simple_Menu.php:924
-#: includes/Elements/Simple_Menu.php:1324 includes/Elements/SVG_Draw.php:85
+#: includes/Elements/Simple_Menu.php:227 includes/Elements/Simple_Menu.php:923
+#: includes/Elements/Simple_Menu.php:1323 includes/Elements/SVG_Draw.php:85
 #: includes/Elements/SVG_Draw.php:94 includes/Elements/Team_Member.php:175
 #: includes/Elements/Tooltip.php:75 includes/Elements/Tooltip.php:98
 #: includes/Elements/Twitter_Feed.php:1164
@@ -15467,10 +15472,10 @@ msgstr "Posición de la fecha"
 #: includes/Elements/Product_Grid.php:1819
 #: includes/Elements/Product_Grid.php:2311
 #: includes/Elements/Progress_Bar.php:364
-#: includes/Elements/Progress_Bar.php:633 includes/Elements/Simple_Menu.php:193
-#: includes/Elements/Simple_Menu.php:371 includes/Elements/Simple_Menu.php:778
-#: includes/Elements/Simple_Menu.php:804 includes/Elements/Simple_Menu.php:829
-#: includes/Elements/Simple_Menu.php:1215 includes/Elements/SVG_Draw.php:188
+#: includes/Elements/Progress_Bar.php:633 includes/Elements/Simple_Menu.php:192
+#: includes/Elements/Simple_Menu.php:370 includes/Elements/Simple_Menu.php:777
+#: includes/Elements/Simple_Menu.php:803 includes/Elements/Simple_Menu.php:828
+#: includes/Elements/Simple_Menu.php:1214 includes/Elements/SVG_Draw.php:188
 #: includes/Elements/Team_Member.php:412 includes/Elements/Testimonial.php:323
 #: includes/Elements/Tooltip.php:215 includes/Elements/Tooltip.php:294
 #: includes/Elements/Tooltip.php:390 includes/Elements/Twitter_Feed.php:554
@@ -15561,10 +15566,10 @@ msgstr "Izquierda"
 #: includes/Elements/Product_Grid.php:1129
 #: includes/Elements/Product_Grid.php:2315
 #: includes/Elements/Progress_Bar.php:368
-#: includes/Elements/Progress_Bar.php:637 includes/Elements/Simple_Menu.php:197
-#: includes/Elements/Simple_Menu.php:375 includes/Elements/Simple_Menu.php:782
-#: includes/Elements/Simple_Menu.php:808 includes/Elements/Simple_Menu.php:833
-#: includes/Elements/Simple_Menu.php:1219 includes/Elements/SVG_Draw.php:192
+#: includes/Elements/Progress_Bar.php:637 includes/Elements/Simple_Menu.php:196
+#: includes/Elements/Simple_Menu.php:374 includes/Elements/Simple_Menu.php:781
+#: includes/Elements/Simple_Menu.php:807 includes/Elements/Simple_Menu.php:832
+#: includes/Elements/Simple_Menu.php:1218 includes/Elements/SVG_Draw.php:192
 #: includes/Elements/Team_Member.php:416 includes/Elements/Testimonial.php:327
 #: includes/Elements/Tooltip.php:219 includes/Elements/Tooltip.php:394
 #: includes/Elements/Twitter_Feed.php:558 includes/Elements/TypeForm.php:203
@@ -15651,10 +15656,10 @@ msgstr "Centro"
 #: includes/Elements/Product_Grid.php:1823
 #: includes/Elements/Product_Grid.php:2319
 #: includes/Elements/Progress_Bar.php:372
-#: includes/Elements/Progress_Bar.php:641 includes/Elements/Simple_Menu.php:201
-#: includes/Elements/Simple_Menu.php:379 includes/Elements/Simple_Menu.php:786
-#: includes/Elements/Simple_Menu.php:812 includes/Elements/Simple_Menu.php:837
-#: includes/Elements/Simple_Menu.php:1223 includes/Elements/SVG_Draw.php:196
+#: includes/Elements/Progress_Bar.php:641 includes/Elements/Simple_Menu.php:200
+#: includes/Elements/Simple_Menu.php:378 includes/Elements/Simple_Menu.php:785
+#: includes/Elements/Simple_Menu.php:811 includes/Elements/Simple_Menu.php:836
+#: includes/Elements/Simple_Menu.php:1222 includes/Elements/SVG_Draw.php:196
 #: includes/Elements/Team_Member.php:420 includes/Elements/Testimonial.php:331
 #: includes/Elements/Tooltip.php:223 includes/Elements/Tooltip.php:295
 #: includes/Elements/Tooltip.php:398 includes/Elements/Twitter_Feed.php:562
@@ -15689,7 +15694,7 @@ msgstr "Derecha"
 #: includes/Elements/Filterable_Gallery.php:181
 #: includes/Elements/NFT_Gallery.php:234 includes/Elements/Product_Grid.php:233
 #: includes/Elements/Product_Grid.php:501 includes/Elements/Progress_Bar.php:75
-#: includes/Elements/Progress_Bar.php:101 includes/Elements/Simple_Menu.php:153
+#: includes/Elements/Progress_Bar.php:101 includes/Elements/Simple_Menu.php:152
 #: includes/Elements/Woo_Cart.php:144 includes/Elements/Woo_Checkout.php:128
 #: includes/Elements/Woo_Product_Carousel.php:219
 #: includes/Elements/Woo_Product_Gallery.php:316
@@ -15740,9 +15745,9 @@ msgstr "Cubrir"
 #: includes/Elements/NinjaForms.php:281 includes/Elements/Post_Grid.php:257
 #: includes/Elements/Pricing_Table.php:87
 #: includes/Elements/Pricing_Table.php:511
-#: includes/Elements/Product_Grid.php:251 includes/Elements/Simple_Menu.php:394
-#: includes/Elements/Simple_Menu.php:520 includes/Elements/Simple_Menu.php:882
-#: includes/Elements/Simple_Menu.php:1284
+#: includes/Elements/Product_Grid.php:251 includes/Elements/Simple_Menu.php:393
+#: includes/Elements/Simple_Menu.php:519 includes/Elements/Simple_Menu.php:881
+#: includes/Elements/Simple_Menu.php:1283
 #: includes/Elements/Sticky_Video.php:395 includes/Elements/Team_Member.php:408
 #: includes/Elements/Testimonial.php:262 includes/Elements/Testimonial.php:319
 #: includes/Elements/TypeForm.php:195 includes/Elements/WeForms.php:161
@@ -15934,9 +15939,9 @@ msgstr "Ancho"
 #: includes/Elements/Product_Grid.php:918
 #: includes/Elements/Product_Grid.php:1169
 #: includes/Elements/Product_Grid.php:1584
-#: includes/Elements/Progress_Bar.php:830 includes/Elements/Simple_Menu.php:346
-#: includes/Elements/Simple_Menu.php:506 includes/Elements/Simple_Menu.php:679
-#: includes/Elements/Simple_Menu.php:1234 includes/Elements/SVG_Draw.php:456
+#: includes/Elements/Progress_Bar.php:830 includes/Elements/Simple_Menu.php:345
+#: includes/Elements/Simple_Menu.php:505 includes/Elements/Simple_Menu.php:678
+#: includes/Elements/Simple_Menu.php:1233 includes/Elements/SVG_Draw.php:456
 #: includes/Elements/Team_Member.php:519 includes/Elements/Testimonial.php:430
 #: includes/Elements/Tooltip.php:362 includes/Elements/Tooltip.php:616
 #: includes/Elements/Twitter_Feed.php:718
@@ -16107,7 +16112,7 @@ msgstr "Elementos"
 #: includes/Elements/Login_Register.php:303
 #: includes/Elements/Login_Register.php:2500
 #: includes/Elements/Progress_Bar.php:349
-#: includes/Elements/Progress_Bar.php:618 includes/Elements/Simple_Menu.php:107
+#: includes/Elements/Progress_Bar.php:618 includes/Elements/Simple_Menu.php:106
 #: includes/Elements/SVG_Draw.php:73 includes/Elements/Woo_Cart.php:1224
 #: includes/Elements/Woo_Product_List.php:225
 #: includes/Elements/Woo_Product_List.php:575 includes/Traits/Admin.php:113

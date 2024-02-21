@@ -1,11 +1,11 @@
 <?php
 
-namespace ImageOptimizer\Modules\Oauth\Classes;
+namespace ImageOptimization\Modules\Oauth\Classes;
 
-use ImageOptimizer\Modules\Oauth\Components\Connect;
+use ImageOptimization\Modules\Oauth\Components\Connect;
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit; // Exit if accessed directly.
 }
 
 /**
@@ -159,7 +159,7 @@ class Data {
 	}
 
 	public static function images_left(): int {
-		$plan_data = Connect::check_connect_status();
+		$plan_data = Connect::get_connect_status();
 
 		if ( empty( $plan_data ) ) {
 			return 0;

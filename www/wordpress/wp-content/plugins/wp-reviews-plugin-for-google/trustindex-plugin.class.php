@@ -4,7 +4,7 @@ class TrustindexPlugin_google
 private $plugin_file_path;
 private $plugin_name;
 private $platform_name;
-public $shortname;
+private $shortname;
 private $version;
 public function __construct($shortname, $pluginFilePath, $version, $pluginName, $platformName)
 {
@@ -76,7 +76,7 @@ return $this->shortname;
 }
 public function get_webhook_action()
 {
-return 'trustindex_reviews_hook_' . $this->shortname;
+return 'trustindex_reviews_hook_' . $this->getShortName();
 }
 public function get_webhook_url()
 {
@@ -236,7 +236,7 @@ $wpdb->query('ALTER TABLE `'. $tableName .'` ADD reply TEXT CHARACTER SET utf8mb
 if (count($wpdb->get_results('SHOW COLUMNS FROM `'. $tableName .'` LIKE "replied"')) === 1) {
 $wpdb->query('ALTER TABLE `'. $tableName .'` DROP replied');
 }
-if (in_array($this->shortname, [ 'facebook', 'google' ])) {
+if (in_array($this->getShortName(), [ 'facebook', 'google' ])) {
 delete_option($this->get_option_name('download-timestamp'));
 delete_option($this->get_option_name('review-download-inprogress'));
 delete_option($this->get_option_name('review-manual-download'));
@@ -257,6 +257,13 @@ delete_option($this->get_option_name('review-content'));
 $this->noreg_save_css(true);
 }
 }
+if ($this->is_review_download_in_progress()) {
+delete_option($this->get_option_name('download-timestamp'));
+delete_option($this->get_option_name('review-download-inprogress'));
+delete_option($this->get_option_name('review-manual-download'));
+delete_option($this->get_option_name('review-download-request-id'));
+delete_option($this->get_option_name('review-download-modal'));
+}
 $this->handleCssFile();
 if (get_option($this->get_option_name('activation-redirect'))) {
 delete_option($this->get_option_name('activation-redirect'));
@@ -272,6 +279,7 @@ $this->getNotificationParam('review-download-available', 'do-check', true)
 ) {
 $this->setNotificationParam('review-download-available', 'active', true);
 $this->setNotificationParam('review-download-available', 'do-check', false);
+
 }
 if (
 !$this->is_noreg_linked() &&
@@ -285,7 +293,7 @@ if ( !class_exists('TrustindexGutenbergPlugin') && function_exists( 'register_bl
 require_once dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'static' . DIRECTORY_SEPARATOR . 'block-editor' . DIRECTORY_SEPARATOR . 'block-editor.php';
 TrustindexGutenbergPlugin::instance();
 }
-$oldRateUs = get_option('trustindex-'. $this->shortname .'-rate-us');
+$oldRateUs = get_option('trustindex-'. $this->getShortName() .'-rate-us');
 if ($oldRateUs) {
 if ($oldRateUs === 'hide') {
 $this->setNotificationParam('rate-us', 'hidden', true);
@@ -295,7 +303,7 @@ $this->setNotificationParam('rate-us', 'active', true);
 $this->setNotificationParam('rate-us', 'timestamp', $oldRateUs);
 }
 }
-$oldNotificationEmail = get_option('trustindex-'. $this->shortname .'-review-download-notification-email');
+$oldNotificationEmail = get_option('trustindex-'. $this->getShortName() .'-review-download-notification-email');
 if ($oldNotificationEmail) {
 $this->setNotificationParam('review-download-finished', 'email', $oldNotificationEmail);
 }
@@ -303,7 +311,7 @@ $usedOptions = [];
 foreach ($this->get_option_names() as $optName) {
 $usedOptions []= $this->get_option_name($optName);
 }
-$wpdb->query('DELETE FROM `'. $wpdb->options .'` WHERE option_name LIKE "trustindex-'. $this->shortname .'-%" AND option_name NOT IN ("'. implode('", "', $usedOptions) .'")');
+$wpdb->query('DELETE FROM `'. $wpdb->options .'` WHERE option_name LIKE "trustindex-'. $this->getShortName() .'-%" AND option_name NOT IN ("'. implode('", "', $usedOptions) .'")');
 }
 public function loadI18N()
 {
@@ -372,7 +380,7 @@ $platformLink .= 'href="' . admin_url('admin.php?page=' . $this->get_plugin_slug
 else {
 $platformLink .= 'href="' . admin_url('admin.php?page=' . $this->get_plugin_slug() . '/settings.php') . '">';
 if (!$this->is_noreg_linked()) {
-$platformLink .= sprintf(__('Connect %s', 'trustindex-plugin'),  $this->platform_name);
+$platformLink .= sprintf(__('Connect %s', 'trustindex-plugin'), $this->platform_name);
 }
 else {
 $platformLink .= __('Create Widget', 'trustindex-plugin');
@@ -388,7 +396,7 @@ public function add_plugin_meta_links($meta, $file)
 {
 if (basename($file) === basename($this->plugin_file_path)) {
 $meta[] = '<a href="'. admin_url('admin.php?page=' . $this->get_plugin_slug() . '/settings.php&tab=get-more-features') .'">'. __('Get more Features', 'trustindex-plugin') . ' →</a>';
-$meta[] = '<a href="http://wordpress.org/support/view/plugin-reviews/'. $this->get_plugin_slug() .'" target="_blank" rel="noopener noreferrer" title="'. __('Rate our plugin', 'trustindex-plugin') .': '. $this->plugin_name .'">'. __('Rate our plugin', 'trustindex-plugin') . ' <span style="color: #F6BB07; font-size: 1.2em; line-height: 1; position: relative; top: 0.05em;">★★★★★</span></a>';
+$meta[] = '<a href="http://wordpress.org/support/view/plugin-reviews/'. $this->get_plugin_slug() .'" target="_blank" rel="noopener noreferrer">'. __('Rate our plugin', 'trustindex-plugin') . ' <span style="color: #F6BB07; font-size: 1.2em; line-height: 1; position: relative; top: 0.05em;">★★★★★</span></a>';
 }
 return $meta;
 }
@@ -396,13 +404,13 @@ return $meta;
 
 public function init_widget()
 {
-if (!class_exists('TrustindexWidget_'.$this->shortname)) {
-require $this->get_plugin_dir() . 'trustindex-'. $this->shortname .'-widget.class.php';
+if (!class_exists('TrustindexWidget_'.$this->getShortName())) {
+require $this->get_plugin_dir() . 'trustindex-'. $this->getShortName() .'-widget.class.php';
 }
 }
 public function register_widget()
 {
-return register_widget('TrustindexWidget_'.$this->shortname);
+return register_widget('TrustindexWidget_'.$this->getShortName());
 }
 
 
@@ -415,7 +423,7 @@ if (in_array($opt_name, [ 'subscription-id', 'proxy-check' ])) {
 return 'trustindex-'. $opt_name;
 }
 else {
-return 'trustindex-'. $this->shortname .'-'. $opt_name;
+return 'trustindex-'. $this->getShortName() .'-'. $opt_name;
 }
 }
 public function get_option_names()
@@ -500,15 +508,15 @@ public function getNotificationText($type)
 $platformName = $this->get_platform_name($this->getShortName());
 switch ($type) {
 case 'not-using-no-connection':
-return sprintf(__('Display %s reviews on your website.', 'trustindex-plugin'),  $platformName);
+return sprintf(__('Display %s reviews on your website.', 'trustindex-plugin'), $platformName);
 case 'not-using-no-widget':
-return sprintf(__('Build trust and display your %s reviews on your website.', 'trustindex-plugin'),  $platformName);
+return sprintf(__('Build trust and display your %s reviews on your website.', 'trustindex-plugin'), $platformName);
 case 'review-download-available':
-return sprintf(__('You can update your %s reviews.', 'trustindex-plugin'),  $platformName);
+return sprintf(__('You can update your %s reviews.', 'trustindex-plugin'), $platformName);
 case 'review-download-finished':
-return sprintf(__('Your new %s reviews have been downloaded.', 'trustindex-plugin'),  $platformName);
+return sprintf(__('Your new %s reviews have been downloaded.', 'trustindex-plugin'), $platformName);
 case 'rate-us':
-return sprintf(__("Hello, I am happy to see that you've been using our <strong>%s</strong> plugin for a while now!", 'trustindex-plugin'),  $this->plugin_name) . '<br />' .
+return sprintf(__("Hello, I am happy to see that you've been using our <strong>%s</strong> plugin for a while now!", 'trustindex-plugin'), $this->plugin_name) . '<br />' .
 __('Could you please help us and give it a 5-star rating on WordPress?', 'trustindex-plugin') . '<br /><br />' .
 __('-- Thanks, Gabor M.', 'trustindex-plugin');
 }
@@ -518,13 +526,54 @@ public function getNotificationButtonText($type)
 $platformName = $this->get_platform_name($this->getShortName());
 switch ($type) {
 case 'not-using-no-connection':
-return sprintf(__('Create a free %s widget! »', 'trustindex-plugin'),  $platformName);
+return sprintf(__('Create a free %s widget! »', 'trustindex-plugin'), $platformName);
 case 'not-using-no-widget':
-return sprintf(__('Embed the %s reviews widget! »', 'trustindex-plugin'),  $platformName);
+return sprintf(__('Embed the %s reviews widget! »', 'trustindex-plugin'), $platformName);
 case 'review-download-available':
 return __('Download your latest reviews! »', 'trustindex-plugin');
 case 'review-download-finished':
-return sprintf(__('Reply with %s! »', 'trustindex-plugin'),  'ChatGPT');
+return sprintf(__('Reply with %s! »', 'trustindex-plugin'), 'ChatGPT');
+}
+}
+public function getNotificationEmailContent($type)
+{
+$platformName = $this->get_platform_name($this->getShortName());
+$subject = "";
+$message = "";
+switch ($type) {
+
+case 'review-download-finished':
+$subject = $platformName . ' Reviews Downloaded';
+$message = '
+<p>Great news.</p>
+<p><strong>Your new '. $platformName .' reviews have been downloaded.</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate !important;border-radius: 3px;background-color: #2AA8D7;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+<tbody>
+<tr>
+<td align="center" valign="middle" style="font-family: Arial;font-size: 16px;padding: 12px 20px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+<a title="Reply with ChatGPT! »" href="'. admin_url('admin.php') .'?page='. urlencode($this->get_plugin_slug() .'/settings.php') .'&tab=my-reviews" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;display: block;">Reply with ChatGPT! »</a>
+</td>
+</tr>
+</tbody>
+</table>
+';
+break;
+}
+return [
+'subject' => $subject,
+'message' => $message
+];
+}
+public function sendNotificationEmail($type)
+{
+if ($email = $this->getNotificationParam($type, 'email', get_option('admin_email'))) {
+$msg = $this->getNotificationEmailContent($type);
+if ($msg['subject'] && $msg['message']) {
+try {
+wp_mail($email, $msg['subject'], $msg['message'], [ 'Content-Type: text/html; charset=UTF-8' ], [ '' ]);
+}
+catch(Exception $e) { }
+}
 }
 }
 public function get_platforms()
@@ -652,10 +701,10 @@ $filePath = __FILE__;
 if (isset($this->plugin_slugs[ $forcePlatform ])) {
 $filePath = preg_replace('/[^\/\\\\]+([\\\\\/]trustindex-plugin\.class\.php)/', $this->plugin_slugs[ $forcePlatform ] . '$1', $filePath);
 }
-$chosedPlatform = new self($forcePlatform, $filePath, "do-not-care-11.4", "do-not-care-Widgets for Google Reviews", "do-not-care-Google");
+$chosedPlatform = new self($forcePlatform, $filePath, "do-not-care-11.5", "do-not-care-Widgets for Google Reviews", "do-not-care-Google");
 $chosedPlatform->setNotificationParam('not-using-no-widget', 'active', false);
 if (!$chosedPlatform->is_noreg_linked()) {
-return $this->error_box_for_admins(sprintf(__('You have to connect your business (%s)!', 'trustindex-plugin'),  $forcePlatform));
+return $this->error_box_for_admins(sprintf(__('You have to connect your business (%s)!', 'trustindex-plugin'), $forcePlatform));
 }
 else {
 return $chosedPlatform->get_noreg_list_reviews($forcePlatform);
@@ -673,12 +722,7 @@ return "";
 return self::get_alertbox('error', ' @ <strong>'. __('Trustindex plugin', 'trustindex-plugin') .'</strong> <i style="opacity: 0.65">('. __('This message is not be visible to visitors in public mode.', 'trustindex-plugin') .')</i><br /><br />'. $text, false);
 }
 
-/* WITHOUT REG MODE HELPERS
- *
- * @force_platform - default ($this->shortname) platform name can be overriden, because of the general shortcode.
- * (For example: if Yelp plugin loaded first --> yelp plugin will load the widget, other Trustindex plugins will not load shortcode.
- * But Yelp plugins's shortcode should be able to operate other platforms' (ie.: Google) shortcodes, too. )
- */
+
 public function is_noreg_linked()
 {
 $pageDetails = $this->getPageDetails();
@@ -704,7 +748,7 @@ $args = [
 add_filter('https_ssl_verify', '__return_false');
 add_filter('block_local_requests', '__return_false');
 $params = [
-'platform' => $this->shortname,
+'platform' => $this->getShortName(),
 'layout_id' => $styleId,
 'overrides' => [
 'nav' => get_option($this->get_option_name('show-arrows'), 1) ? 'true' : 'false',
@@ -747,7 +791,7 @@ return $server_output;
 }
 public function getCssFile($returnOnlyFile = false)
 {
-$file = 'trustindex-'. $this->shortname .'-widget.css';
+$file = 'trustindex-'. $this->getShortName() .'-widget.css';
 if ($returnOnlyFile) {
 return $file;
 }
@@ -819,7 +863,7 @@ $html .= __('Grant write permissions to upload folder', 'trustindex-plugin');
 }
 $html .= '<br />' .
 __('or', 'trustindex-plugin') . '<br />' .
-sprintf(__("enable 'CSS internal loading' in the %s page!", 'trustindex-plugin'),  '<a href="'. admin_url('admin.php?page=' . $this->get_plugin_slug() . '/settings.php&tab=advanced') .'>'. __('Advanced', 'trustindex-plugin') .'</a>');
+sprintf(__("enable 'CSS internal loading' in the %s page!", 'trustindex-plugin'), '<a href="'. admin_url('admin.php?page=' . $this->get_plugin_slug() . '/settings.php&tab=advanced') .'>'. __('Advanced', 'trustindex-plugin') .'</a>');
 }
 echo $html . '</p></div>';
 });
@@ -4472,8 +4516,8 @@ private static $widget_footer_filter_texts = array (
  ),
  'sl' => 
  array (
- 'star' => 'Prikazane so le ocen s RATING_STAR_FILTER zvezdicami',
- 'latest' => 'Prikazane so naše najnovejše ocen',
+ 'star' => 'Prikazane so le ocene s RATING_STAR_FILTER zvezdicami',
+ 'latest' => 'Prikazane so naše najnovejše ocene',
  ),
  'sq' => 
  array (
@@ -5423,7 +5467,7 @@ private static $page_urls = array (
 );
 public function getPageUrl()
 {
-if (!isset(self::$page_urls[ $this->shortname ])) {
+if (!isset(self::$page_urls[ $this->getShortName() ])) {
 return "";
 }
 $pageDetails = $this->getPageDetails();
@@ -5432,24 +5476,9 @@ return "";
 }
 $pageId = $pageDetails['id'];
 $domain = "";
-if ($this->shortname === 'amazon' || $this->shortname === 'arukereso') {
-$tmp = explode('|', $pageId);
-$domain = $tmp[0];
-if (isset($tmp[1])) {
-$pageId = $tmp[1];
-}
-else {
-$domain = 'com';
-}
-}
-$url = str_replace([ '%domain%', '%page_id%', '%25page_id%25' ], [ $domain, $pageId, $pageId ], self::$page_urls[ $this->shortname ]);
-if ($this->shortname === 'airbnb') {
-$url = str_replace('rooms/experiences/', 'experiences/', $url);
-}
-if ($this->shortname === 'amazon' && strpos($pageId, '/') !== false) {
-$url = str_replace('sp?seller=', '', $url);
-}
-if ($this->shortname === 'google' && $this->getGoogleType($pageId) === 'shop') {
+
+$url = str_replace([ '%domain%', '%page_id%', '%25page_id%25' ], [ $domain, $pageId, $pageId ], self::$page_urls[ $this->getShortName() ]);
+if ($this->getGoogleType($pageId) === 'shop') {
 $url = 'https://customerreviews.google.com/v/merchant?q=' . $pageId;
 }
 return $url;
@@ -5458,7 +5487,7 @@ private function getGoogleType($pageId)
 {
 return preg_match('/&c=\w+&v=\d+/', $pageId) ? 'shop' : 'map';
 }
-public function getReviewPageUrl()
+private function getReviewPageUrl()
 {
 $pageDetails = $this->getPageDetails();
 if (!$pageDetails) {
@@ -5472,7 +5501,7 @@ else {
 return 'http://search.google.com/local/reviews?placeid=' . $pageId;
 }
 }
-public function getReviewWriteUrl()
+private function getReviewWriteUrl()
 {
 $pageDetails = $this->getPageDetails();
 if (!$pageDetails) {
@@ -5604,13 +5633,8 @@ $pageDetails['name'] = get_bloginfo('name');
 $reviews = $this->getRandomReviews(10);
 }
 if (!count($reviews)) {
-$text = sprintf(__('There are no reviews on your %s platform.', 'trustindex-plugin'),  ucfirst($this->shortname));
-if ($this->is_review_download_in_progress()) {
-$text = __('Your reviews are being downloaded.', 'trustindex-plugin');
-if (!in_array($this->shortname, [ 'facebook', 'google' ])) {
-$text .= ' ' . __('This process should only take a few minutes.', 'trustindex-plugin');
-}
-}
+$text = sprintf(__('There are no reviews on your %s platform.', 'trustindex-plugin'), ucfirst($this->getShortName()));
+
 return $this->error_box_for_admins($text);
 }
 if (self::is_amp_active() && self::is_amp_enabled()) {
@@ -5679,14 +5703,14 @@ $classAppends []= 'ti-no-stars';
 if (!$showReviewersPhoto) {
 $classAppends []= 'ti-no-profile-img';
 }
-$freeCssClass = 'ti-' . substr($this->shortname, 0, 4);
+$freeCssClass = 'ti-' . substr($this->getShortName(), 0, 4);
 if ($onlyPreview) {
-wp_enqueue_style("trustindex-widget-css-". $this->shortname ."-". $styleId . "-". $setId, "https://cdn.trustindex.io/assets/widget-presetted-css/". $styleId ."-". $setId .".css");
+wp_enqueue_style("trustindex-widget-css-". $this->getShortName() ."-". $styleId . "-". $setId, "https://cdn.trustindex.io/assets/widget-presetted-css/". $styleId ."-". $setId .".css");
 }
 else {
 $widgetCss = get_option($this->get_option_name('css-content'));
 if (!$widgetCss) {
-wp_enqueue_style("trustindex-widget-css-" . $this->shortname, "https://cdn.trustindex.io/widget-assets/css/". $styleId ."-blue.css");
+wp_enqueue_style("trustindex-widget-css-" . $this->getShortName(), "https://cdn.trustindex.io/widget-assets/css/". $styleId ."-blue.css");
 }
 else {
 $classAppends []= $freeCssClass;
@@ -5699,7 +5723,7 @@ if ($dateformat === 'modern') {
 $content = preg_replace('/class="(ti-widget[^\'"]*)" data-layout-id=/', 'class="$1" data-time-locale="'. self::$widget_date_format_locales[ $lang ] .'" data-layout-id=', $content);
 }
 if (!$onlyPreview) {
-if (!wp_style_is('ti-widget-css-' . $this->shortname, 'registered')) {
+if (!wp_style_is('ti-widget-css-' . $this->getShortName(), 'registered')) {
 if (!get_option($this->get_option_name('load-css-inline'), 0)) {
 if (class_exists('\Elementor\Plugin') && \Elementor\Plugin::$instance->editor->is_edit_mode()) {
 }
@@ -5710,7 +5734,7 @@ return $this->error_box_for_admins(__('CSS file could not saved.', 'trustindex-p
 $content .= '<style type="text/css">'. $widgetCss .'</style>';
 }
 else {
-wp_enqueue_style('ti-widget-css-' . $this->shortname);
+wp_enqueue_style('ti-widget-css-' . $this->getShortName());
 }
 }
 return $content;
@@ -5737,47 +5761,7 @@ $date = str_replace(self::$widget_month_names['en'], self::$widget_month_names[ 
 }
 }
 $ratingContent = $this->get_rating_stars($r->rating);
-if ($this->shortname === 'facebook' && in_array($r->rating, [ 1, 5 ])) {
-if ($r->rating == 1) {
-$ratingContent = self::$widget_recommendation_texts[ $array['language'] ]['negative'];
-}
-else {
-$ratingContent = self::$widget_recommendation_texts[ $array['language'] ]['positive'];
-}
-$recommendationText = trim(str_replace([ 'NOT_RECOMMEND_ICON', 'RECOMMEND_ICON' ], '', $ratingContent));
-$ratingContent = '<span class="ti-recommendation">'. str_replace(
-[
-'NOT_RECOMMEND_ICON',
-'RECOMMEND_ICON',
-' ' . $recommendationText,
-$recommendationText . ' '
-], [
-'<span class="ti-recommendation-icon negative"></span>',
-'<span class="ti-recommendation-icon positive"></span>',
-'<span class="ti-recommendation-title">'. $recommendationText .'</span>',
-'<span class="ti-recommendation-title">'. $recommendationText .'</span>'
-],
-$ratingContent
-) .'</span>';
-$ratingContent .= '<span class="ti-dummy-stars">';
-for ($si = 1; $si <= 5; $si++) {
-$ratingContent .= '<span class="ti-star '. ($si == 1 || $r->rating == 5 ? 'f' : 'e') .'"></span>';
-}
-$ratingContent .= '</span>';
-}
-else if($this->shortname === 'ebay' && in_array($r->rating, [ 1, 3, 5 ])) {
-if ($r->rating == 1) {
-$polarity = 'negative';
-}
-else if($r->rating == 3) {
-$polarity = 'neutral';
-}
-else {
-$polarity = 'positive';
-}
-$ratingContent = '<span class="ti-polarity"><span class="ti-polarity-icon ' . $polarity . '"></span></span>';
-}
-else if($this->is_ten_scale_rating_platform()) {
+if ($this->is_ten_scale_rating_platform()) {
 $ratingContent = '<div class="ti-rating-box">'. $this->formatTenRating($r->original_rating, $array['language']) .'</div>';
 }
 $platformName = ucfirst($this->getShortName());
@@ -5788,10 +5772,6 @@ $ratingContent .= '</div><div class="ti-logo-text"><span class="ti-verified-revi
 else {
 $ratingContent .= '<span class="ti-verified-review"><span class="ti-verified-tooltip">'. self::$widget_verified_texts[ $array['language'] ] .'</span></span>';
 }
-}
-if($platformName === 'Szallashu') {
-$tmp = explode('/', $array['page-details']['id']);
-$platformName .= '" data-domain="' . $tmp[0];
 }
 if (!$array['show-reviewers-photo']) {
 $matches[1] = str_replace('<div class="ti-profile-img"> <img src="%reviewer_photo%" alt="%reviewer_name%" /> </div>', '', $matches[1]);
@@ -5878,32 +5858,12 @@ $array['content'] = str_replace('platform/'. ucfirst($this->getShortName()) .'/l
 if ($this->is_ten_scale_rating_platform() && $array['style-id'] == 11) {
 $array['content'] = str_replace('<span class="ti-rating">'. $ratingScore .'</span> ', '', $array['content']);
 }
-if ($this->shortname === 'szallashu' || $this->shortname === 'arukereso') {
-$split = '/';
-$replaceHu = false;
-if ($this->shortname === 'arukereso') {
-$split = '|';
-$replaceHu = true;
-}
-$tmp = explode($split, $array['page-details']['id']);
-$array['content'] = str_replace([ 'img/platform/logo.svg', 'img/platform/logo-dark.svg' ], [ 'img/platform/logo-'. $tmp[0] .'.svg', 'img/platform/logo-'. $tmp[0] .'-dark.svg' ], $array['content']);
-$array['content'] = str_replace([ 'platform/'. ucfirst($this->getShortName()) .'/logo.svg', 'platform/'. ucfirst($this->getShortName()) .'/logo-dark.svg' ], [ 'platform/'. ucfirst($this->shortname) .'/logo-'. $tmp[0] .'.svg', 'platform/'. ucfirst($this->shortname) .'/logo-'. $tmp[0] .'-dark.svg' ], $array['content']);
-if ($replaceHu) {
-$array['content'] = str_replace('img/platform/logo-hu', 'img/platform/logo', $array['content']);
-$array['content'] = str_replace('platform/'. ucfirst($this->getShortName()) .'/logo-hu', 'platform/'. ucfirst($this->getShortName()) .'/logo', $array['content']);
-}
-}
 if (in_array($array['style-id'], [ 8, 10, 11, 12, 13, 20, 22, 24, 25, 26, 27, 28, 29, 35, 55, 56, 57, 58, 59, 60, 61, 62 ])) {
 if (!$array['show-header-button']) {
 $array['content'] = preg_replace('/<!-- HEADER-BUTTON-START.+HEADER-BUTTON-END -->/s', '', $array['content']);
 }
 $array['content'] = str_replace([ '<!-- HEADER-BUTTON-START', 'HEADER-BUTTON-END -->' ], '', $array['content']);
-if ($this->shortname === 'google') {
 $array['content'] = str_replace('%footer_link%', in_array($array['style-id'], [ 26, 59 ]) ? $this->getReviewWriteUrl() : $this->getReviewPageUrl(), $array['content']);
-}
-else {
-$array['content'] = str_replace('%footer_link%', $this->getPageUrl(), $array['content']);
-}
 }
 else {
 $array['content'] = preg_replace('/<a href=[\'"]%footer_link%[\'"][^>]*>(.+)<\/a>/mU', '$1', $array['content']);
@@ -6226,7 +6186,7 @@ __("You have no widget saved!", 'trustindex-plugin') . " "
 <?php else: ?>
 <?php echo self::get_alertbox("warning",
 __("You have not set up your Trustindex account yet!", 'trustindex-plugin') . " "
-. sprintf(__("Go to <a href='%s'>plugin setup page</a> to complete the one-step setup guide and enjoy the full functionalization!", 'trustindex-plugin'),  admin_url('admin.php?page='.$this->get_plugin_slug().'/settings.php&tab=setup_trustindex_join'))
+. sprintf(__("Go to <a href='%s'>plugin setup page</a> to complete the one-step setup guide and enjoy the full functionalization!", 'trustindex-plugin'), admin_url('admin.php?page='.$this->get_plugin_slug().'/settings.php&tab=setup_trustindex_join'))
 ); ?>
 <?php endif;
 wp_die();
@@ -6247,16 +6207,13 @@ $tmp = explode('/', $hook);
 $currentSlug = array_shift($tmp);
 if ($pluginSlug === $currentSlug) {
 if (file_exists($this->get_plugin_dir() . 'static' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'admin-page-settings.css')) {
-wp_enqueue_style('trustindex_settings_style_'. $this->shortname, $this->get_plugin_file_url('static/css/admin-page-settings.css'));
+wp_enqueue_style('trustindex_settings_style_'. $this->getShortName(), $this->get_plugin_file_url('static/css/admin-page-settings.css'));
 }
 if (file_exists($this->get_plugin_dir() . 'static' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'admin-page-settings-common.js')) {
-wp_enqueue_script('trustindex_settings_script_common_'. $this->shortname, $this->get_plugin_file_url('static/js/admin-page-settings-common.js'));
+wp_enqueue_script('trustindex_settings_script_common_'. $this->getShortName(), $this->get_plugin_file_url('static/js/admin-page-settings-common.js'));
 }
 if(file_exists($this->get_plugin_dir() . 'static' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'admin-page-settings-connect.js')) {
-wp_enqueue_script('trustindex_settings_script_connect_'. $this->shortname, $this->get_plugin_file_url('static/js/admin-page-settings-connect.js'));
-}
-if (in_array($this->shortname, [ 'google', 'facebook' ]) && file_exists($this->get_plugin_dir() . 'static' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'admin-page-settings.js')) {
-wp_enqueue_script('trustindex_settings_script_'. $this->shortname, $this->get_plugin_file_url('static/js/admin-page-settings.js') );
+wp_enqueue_script('trustindex_settings_script_connect_'. $this->getShortName(), $this->get_plugin_file_url('static/js/admin-page-settings-connect.js'));
 }
 }
 }
@@ -6360,7 +6317,7 @@ return json_encode($data);
 
 public function is_ten_scale_rating_platform()
 {
-return in_array($this->shortname, [ 'booking', 'hotels', 'foursquare', 'szallashu', 'expedia' ]);
+return in_array($this->getShortName(), [ 'booking', 'hotels', 'foursquare', 'szallashu', 'expedia' ]);
 }
 public function formatTenRating($rating, $language = null)
 {
@@ -6458,7 +6415,7 @@ register_rest_route('trustindex/v1', '/setup-complete', [
 public function get_tablename($name = "")
 {
 global $wpdb;
-return $wpdb->prefix . 'trustindex_' . $this->shortname . '_' . $name;
+return $wpdb->prefix . 'trustindex_' . $this->getShortName() . '_' . $name;
 }
 public function is_table_exists($name = "")
 {
@@ -6469,7 +6426,7 @@ return ($wpdb->get_var("SHOW TABLES LIKE '$tableName'") == $tableName);
 public function get_noreg_tablename($forcePlatform = null)
 {
 global $wpdb;
-$forcePlatform = $forcePlatform ? $forcePlatform : $this->shortname;
+$forcePlatform = $forcePlatform ? $forcePlatform : $this->getShortName();
 return $wpdb->prefix .'trustindex_'. $forcePlatform .'_reviews';
 }
 public function is_noreg_table_exists($forcePlatform = null)

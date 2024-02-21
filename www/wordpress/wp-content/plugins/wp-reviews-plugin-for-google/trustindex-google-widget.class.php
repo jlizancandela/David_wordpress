@@ -44,7 +44,7 @@ else if ($trustindex_pm_google->is_noreg_linked()) {
 echo $trustindex_pm_google->get_noreg_list_reviews();
 }
 else {
-echo $trustindex_pm_google->error_box_for_admins(sprintf(__("Please fill out <strong>all the required fields</strong> in the <a href='%s'>widget settings</a> page", 'trustindex-plugin'),  admin_url('admin.php?page='.$trustindex_pm_google->get_plugin_slug().'/settings.php')));
+echo $trustindex_pm_google->error_box_for_admins(sprintf(__("Please fill out <strong>all the required fields</strong> in the <a href='%s'>widget settings</a> page", 'trustindex-plugin'), admin_url('admin.php?page='.$trustindex_pm_google->get_plugin_slug().'/settings.php')));
 }
 echo $after_widget;
 }
@@ -114,7 +114,7 @@ Check our portal, <a href="<?php echo 'https://admin.trustindex.io/'; ?>widget" 
 <?php echo TrustindexPlugin_google::get_alertbox('warning',
 __('You have not set up your Trustindex account yet!', 'trustindex-plugin') . ' ' .
 __('You can only list 10 reviews without it.', 'trustindex-plugin') . '<br>'
-. sprintf(__("Go to <a href='%s'>plugin setup page</a> to complete the one-step setup guide and enjoy the full functionalization!", 'trustindex-plugin'),  admin_url('admin.php?page='.$trustindex_pm_google->get_plugin_slug().'/settings.php&tab=setup_trustindex'))
+. sprintf(__("Go to <a href='%s'>plugin setup page</a> to complete the one-step setup guide and enjoy the full functionalization!", 'trustindex-plugin'), admin_url('admin.php?page='.$trustindex_pm_google->get_plugin_slug().'/settings.php&tab=setup_trustindex'))
 ); ?>
 <?php endif; ?>
 </div>

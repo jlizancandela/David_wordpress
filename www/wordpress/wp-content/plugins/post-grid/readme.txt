@@ -4,7 +4,7 @@ Donate link: https://getpostgrid.com/
 Tags: post grid, form blocks, woocommerce blocks, popup, popup blocks, post blocks, carousel, breadcrumb, icon block, button block, date countdown 
 Requires at least: 5.0.0
 Tested up to: 6.4
-Stable tag: 2.2.73
+Stable tag: 2.2.75
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -386,6 +386,23 @@ You can report a bug via wordpress.org forum, also we are avilable on official f
 == Changelog ==
 
 
+
+
+
+= 2.2.75 =
+- 2024-02-19 - add - Add dashboard page for block editor.
+- 2024-02-19 - add - Block editor container width option added
+- 2024-02-19 - add - Block editor width option added
+- 2024-02-19 - add - Custom color added for block editor
+- 2024-02-19 - add - Dashboard - Export/Import options added.
+- 2024-02-19 - fix - Style component reset style issue fixed for all blocks
+- 2024-02-19 - fix - Form field checkbox, radio, select parameter source issue fixed
+
+
+= 2.2.74 =
+- 2024-02-10 - Fix - Style component reset issue fixed.
+- 2024-02-10 - Fix - Style component remove CSS issue fixed
+- 2024-02-10 - Fix - Post author fields postfix and prefix position issue fixed.
 
 
 = 2.2.73 =

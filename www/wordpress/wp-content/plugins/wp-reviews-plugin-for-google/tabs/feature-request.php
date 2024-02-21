@@ -40,7 +40,7 @@ exit;
 <div class="ti-form-group">
 <label>
 <?php echo __('Attach images', 'trustindex-plugin'); ?>
-(<?php echo sprintf(__('use %s for image share', 'trustindex-plugin'),  '<a href="https://snipboard.io/" target="_blank">snipboard.io</a>'); ?>)
+(<?php echo sprintf(__('use %s for image share', 'trustindex-plugin'), '<a href="https://snipboard.io/" target="_blank">snipboard.io</a>'); ?>)
 </label>
 <textarea class="ti-form-control" name="attachments" rows="3" placeholder="<?php echo __('URL of images (each on a separate line)', 'trustindex-plugin'); ?>"></textarea>
 </div>

@@ -10,106 +10,8 @@ jQuery(document).ready(function($) {
 	/*************************************************************************/
 	/* NO REG MODE */
 	TrustindexConnect = {
-		input: $('.ti-connect-platform .ti-form-control'),
 		button: $('.ti-connect-platform .ti-btn'),
 		form: $('#ti-connect-platform-form'),
-		check: function(event) {
-			event.preventDefault();
-
-			TrustindexConnect.form.find('.ti-source-box').addClass('ti-d-none')
-			$('#ti-connect-error').addClass('ti-d-none');
-
-			if (!TrustindexConnect.regex) {
-				return false;
-			}
-
-			let m = TrustindexConnect.regex.exec(TrustindexConnect.input.val().trim());
-			if (!TrustindexConnect.isRegexValid(m)) {
-				TrustindexConnect.input.focus();
-
-				return $('#ti-connect-error').removeClass('ti-d-none');
-			}
-
-			// support for 2 regexes
-			let part1 = m[1] || m[3] || "";
-			let part2 = m[2] || m[4] || "";
-
-			let pageId = part1;
-			if (part2) {
-				if (part1) {
-					pageId += TrustindexConnect.pageIdSeparator;
-				}
-
-				pageId += part2;
-			}
-
-			let valid = true;
-			if (TrustindexConnect.form.data('platform') === 'arukereso') {
-				pageId = pageId.replace(/^com/, 'bg');
-			}
-			else if (TrustindexConnect.form.data('platform') === 'amazon') {
-				valid = (
-					!(
-						pageId.search(/stores\/[^\/]+\/page/) > -1
-						|| pageId.search(/stores\/page/) > -1
-						|| pageId.search(/stores\/[^\/]+\/[^\/]+\/page/) > -1
-						|| pageId.indexOf('account/') > -1
-						|| (pageId.indexOf('gp/') > -1 && pageId.indexOf('gp/product/') === -1)
-						|| pageId.search(/\-\/[^\/]{2}\/[^\/]{2}$/) > -1
-					)
-					&& pageId.indexOf('product-reviews/') === -1
-					&& pageId.indexOf('/AccountInfo/') === -1
-					&& pageId.indexOf('/SellerProfileView/') === -1
-				);
-			}
-			else if (TrustindexConnect.form.data('platform') === 'tripadvisor') {
-				// set source to first page
-				let notFirstPage = pageId.match(/\-or[\d]+\-/);
-				if (notFirstPage && notFirstPage[0]) {
-					pageId = pageId.replace(notFirstPage[0], '-');
-				}
-
-				// add .html if not in pageId
-				if (pageId.indexOf('.html') === -1) {
-					pageId = pageId + '.html';
-				}
-			}
-
-			// no pageId
-			if (pageId.trim() === '' || !valid) {
-				TrustindexConnect.input.focus();
-
-				return $('#ti-connect-error').removeClass('ti-d-none');
-			}
-
-			$('#ti-noreg-page-id').val(pageId);
-
-			// show result
-			let pageDetails = { id: pageId };
-			let url = TrustindexConnect.input.val().trim();
-
-			let div = TrustindexConnect.form.find('.ti-source-box');
-			TrustindexConnect.form.find('#ti-noreg-page-details').val(JSON.stringify(pageDetails));
-
-			div.find('img').attr('src', 'https://cdn.trustindex.io/assets/platform/Google/icon.png');
-			div.find('.ti-source-info').html('<a target="_blank" href="'+ url +'">'+ url +'</a>');
-			div.removeClass('ti-d-none');
-		},
-		regex: null,
-		isRegexValid: function(m) {
-			if (!m) {
-				return false;
-			}
-
-			for (let i = 0; i < m.length; i++) {
-				if (m[i] === "") {
-					return false;
-				}
-			}
-
-			return true;
-		},
-		pageIdSeparator: '|',
 		asyncRequest: function(callback, btn) {
 			// get url params
 			let params = new URLSearchParams({
@@ -163,43 +65,70 @@ jQuery(document).ready(function($) {
 						// reset connect form, with invalid input message
 						TrustindexConnect.form.find('.ti-selected-source').hide();
 						TrustindexConnect.button.removeClass('btn-disabled');
-						TrustindexConnect.box.html('<span>' + TrustindexConnect.box.data('errortext') + '</span>');
-						TrustindexConnect.box.show();
 					}
 				}
 			});
 		}
 	};
 
-	// check button clicked
-	if (TrustindexConnect.button.length) {
-		TrustindexConnect.button.click(TrustindexConnect.check);
-	}
+			$('.btn-connect-public').click(function(event) {
+			event.preventDefault();
 
-	// show loading text on connect
-	TrustindexConnect.form.find('.btn-connect').on('click', function(event) {
-		event.preventDefault();
+			let button = $(this);
+			let token = $('#ti-noreg-connect-token').val();
 
-		// change button
-		let btn = $(this);
+			button.addClass('ti-btn-loading').blur();
 
-		btn.addClass('btn-loading').blur();
+			let dontRemoveLoading = false;
 
-		TrustindexConnect.button.css('pointer-events', 'none');
+			// get url params
+			let params = new URLSearchParams({
+				type: 'Google',
+				referrer: 'public',
+				webhook_url: $('#ti-noreg-webhook-url').val(),
+				token: token,
+				version: $('#ti-noreg-version').val()
+			});
 
-		// do request
-		TrustindexConnect.asyncRequest(function(token, request_id, manual_download, place) {
-			$('#ti-noreg-review-download').val(token);
-			$('#ti-noreg-review-request-id').val(request_id);
-			$('#ti-noreg-manual-download').val(manual_download);
+			let tiWindow = window.open('https://admin.trustindex.io/source/edit2?' + params.toString(), 'trustindex', 'width=850,height=850,menubar=0' + popupCenter(850, 850));
 
-			if (place) {
-				$('#ti-noreg-page-details').val(JSON.stringify(place));
-			}
+			window.addEventListener('message', function(event) {
+				if (event.origin.startsWith('https://admin.trustindex.io/'.replace(/\/$/,'')) && event.data.id) {
+					dontRemoveLoading = true;
 
-			TrustindexConnect.form.submit();
+					tiWindow.close();
+					$('#ti-connect-info').removeClass('ti-d-none');
+
+					$('#ti-noreg-page-details').val(JSON.stringify(event.data));
+
+					button.closest('form').submit();
+				}
+			});
+
+			$('#ti-connect-info').removeClass('ti-d-none');
+			let timer = setInterval(function() {
+				if (tiWindow.closed) {
+					$('#ti-connect-info').addClass('ti-d-none');
+
+					if (!dontRemoveLoading) {
+						button.removeClass('ti-btn-loading');
+					}
+
+					clearInterval(timer);
+				}
+			}, 1000);
 		});
-	});
+
+			// try reply again
+		jQuery(document).on('click', '.btn-try-reply-again', function(event) {
+			event.preventDefault();
+
+			let btn = jQuery(this);
+			let replyBox = btn.closest('td').find('.ti-reply-box');
+
+			replyBox.attr('data-state', btn.data('state'));
+			replyBox.find('.state-'+ btn.data('state') +' .btn-post-reply').attr('data-reconnect', 1).trigger('click');
+		});
 
 	// make async request on review download
 	$('.btn-download-reviews').on('click', function(event) {

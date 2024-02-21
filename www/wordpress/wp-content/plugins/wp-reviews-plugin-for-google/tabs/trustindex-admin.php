@@ -66,16 +66,16 @@ $tiWidgets = $pluginManagerInstance->get_trustindex_widgets();
 $tiPackage = is_array($tiWidgets) && $tiWidgets && isset($tiWidgets[0]['package']) ? $tiWidgets[0]['package'] : null;
 ?>
 <p>
-<?php echo sprintf(__('Your %s is connected.', 'trustindex-plugin'),  __('Trustindex account', 'trustindex-plugin')); ?><br />
+<?php echo sprintf(__('Your %s is connected.', 'trustindex-plugin'), __('Trustindex account', 'trustindex-plugin')); ?><br />
 - <?php echo __('Your subscription ID:', 'trustindex-plugin'); ?> <strong><?php echo esc_html($trustindexSubscriptionId); ?></strong><br />
 <?php if ($tiPackage): ?>
 - <?php echo __('Your package:', 'trustindex-plugin'); ?> <strong><?php echo esc_html($tiPackage); ?></strong>
 <?php endif; ?>
 </p>
 <?php if ($tiPackage === 'free'): ?>
-<?php echo $pluginManager::get_noticebox('error', sprintf(__("Once the trial period has expired, the widgets will not appear. You can subscribe or switch back to the \"%s\" tab", 'trustindex-plugin'),  [ __('Free Widget Configurator', 'trustindex-plugin') ])); ?>
+<?php echo $pluginManager::get_noticebox('error', sprintf(__("Once the trial period has expired, the widgets will not appear. You can subscribe or switch back to the \"%s\" tab", 'trustindex-plugin'), [ __('Free Widget Configurator', 'trustindex-plugin') ])); ?>
 <?php elseif ($tiPackage === 'trial'): ?>
-<?php echo $pluginManager::get_noticebox('warning', sprintf(__("Once the trial period has expired, the widgets will not appear. You can subscribe or switch back to the \"%s\" tab", 'trustindex-plugin'),  [ __('Free Widget Configurator', 'trustindex-plugin') ])); ?>
+<?php echo $pluginManager::get_noticebox('warning', sprintf(__("Once the trial period has expired, the widgets will not appear. You can subscribe or switch back to the \"%s\" tab", 'trustindex-plugin'), [ __('Free Widget Configurator', 'trustindex-plugin') ])); ?>
 <?php endif; ?>
 <form method="post" class="ti-mt-0" action="">
 <input type="hidden" name="command" value="disconnect" />
@@ -84,7 +84,7 @@ $tiPackage = is_array($tiWidgets) && $tiWidgets && isset($tiWidgets[0]['package'
 <div class="clear"></div>
 </form>
 <?php else: ?>
-<p><?php echo sprintf(__('You can connect your %s with your Trustindex account, and can display your widgets easier.', 'trustindex-plugin'),  'Widgets for Google Reviews'); ?></p>
+<p><?php echo sprintf(__('You can connect your %s with your Trustindex account, and can display your widgets easier.', 'trustindex-plugin'), 'Widgets for Google Reviews'); ?></p>
 <form id="form-connect" method="post" action="">
 <input type="hidden" name="command" value="connect" />
 <?php wp_nonce_field('connect-reg_' . $pluginManagerInstance->get_plugin_slug()); ?>
@@ -115,7 +115,7 @@ $tiPackage = is_array($tiWidgets) && $tiWidgets && isset($tiWidgets[0]['package'
 <div class="ti-box-header"><?php echo __('Insert your widget into your wordpress site using shortcode', 'trustindex-plugin'); ?></div>
 <?php if ($trustindexSubscriptionId): ?>
 <?php if ($widgetNumber): ?>
-<p><?php echo sprintf(__('You have got %d widgets saved in Trustindex admin.', 'trustindex-plugin'),  $widgetNumber); ?></p>
+<p><?php echo sprintf(__('You have got %d widgets saved in Trustindex admin.', 'trustindex-plugin'), $widgetNumber); ?></p>
 <?php foreach ($tiWidgets as $wcIndex => $wc): ?>
 <p class="ti-bold"><?php echo esc_html($wc['name']); ?>:</p>
 <?php if ($wc['widgets']): ?>

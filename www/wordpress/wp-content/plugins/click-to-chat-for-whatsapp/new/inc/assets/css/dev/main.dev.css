@@ -75,6 +75,12 @@
     .ctc_m_full_width .ctc_g_message_box_width {
         max-width: 85% !important;
     }
+
+    /* fix: animation and greetings in mobile devices not working properly.  clear animation-fill-mode for ..ht_ctc_animation only if child have .ht_ctc_greetings */
+    .ht_ctc_animation:has(.ht_ctc_greetings) {
+        animation-fill-mode: none !important;
+    }
+
 }
 
 /* above 900 */

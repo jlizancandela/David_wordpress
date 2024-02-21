@@ -3,10 +3,10 @@
  * Plugin Name: Image Optimizer by Elementor – Compress, Resize and Optimize Images
  * Description: Automatically compress and enhance your images, boosting your website speed, appearance, and SEO. Get Image Optimizer and optimize your images in seconds.
  * Plugin URI: https://go.elementor.com/wp-repo-description-tab-io-product-page/
- * Version: 1.0.2
+ * Version: 1.2.0
  * Author: Elementor.com
  * Author URI: https://go.elementor.com/wp-repo-description-tab-io-author-url/
- * Text Domain: image-optimizer
+ * Text Domain: image-optimization
  * License: GPL-3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
  */
@@ -15,20 +15,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'IMAGE_OPTIMIZER_VERSION', '1.0.2' );
-define( 'IMAGE_OPTIMIZER_PATH', plugin_dir_path( __FILE__ ) );
-define( 'IMAGE_OPTIMIZER_URL', plugins_url( '/', __FILE__ ) );
-define( 'IMAGE_OPTIMIZER_ASSETS_PATH', IMAGE_OPTIMIZER_PATH . 'assets/' );
-define( 'IMAGE_OPTIMIZER_ASSETS_URL', IMAGE_OPTIMIZER_URL . 'assets/' );
-define( 'IMAGE_OPTIMIZER_PLUGIN_FILE', basename( __FILE__ ) );
+define( 'IMAGE_OPTIMIZATION_VERSION', '1.2.0' );
+define( 'IMAGE_OPTIMIZATION_PATH', plugin_dir_path( __FILE__ ) );
+define( 'IMAGE_OPTIMIZATION_URL', plugins_url( '/', __FILE__ ) );
+define( 'IMAGE_OPTIMIZATION_ASSETS_PATH', IMAGE_OPTIMIZATION_PATH . 'assets/' );
+define( 'IMAGE_OPTIMIZATION_ASSETS_URL', IMAGE_OPTIMIZATION_URL . 'assets/' );
+define( 'IMAGE_OPTIMIZATION_PLUGIN_FILE', basename( __FILE__ ) );
 
 /**
- *  ImageOptimizer Class
- *
+ * ImageOptimization Class
  */
-final class ImageOptimizer {
-	private const REQUIRED_EXTENSIONS = [
+final class ImageOptimization {
+	private $requirements_errors = [];
+	const REQUIRED_EXTENSIONS = [
 		'exif',
+		'fileinfo',
+		'gd',
 	];
 
 	/**
@@ -53,24 +55,75 @@ final class ImageOptimizer {
 	 * @access public
 	 */
 	public function i18n() {
-		load_plugin_textdomain( 'image-optimizer' );
+		load_plugin_textdomain( 'image-optimization' );
 	}
 
-	public function insufficient_php_version() {
-		$message = sprintf(
-		/* translators: 1: `<h3>` opening tag, 2: `</h3>` closing tag, 3: PHP version. 4: Link opening tag, 5: Link closing tag. */
-			esc_html__( '%1$sImage Optimizer isn’t running because PHP is outdated.%2$s Update to PHP version %3$s and get back to optimizing! %4$sShow me how%5$s', 'image-optimizer' ),
-			'<h3>',
-			'</h3>',
-			'7.4',
-			'<a href="https://go.elementor.com/wp-dash-update-php/" target="_blank">',
-			'</a>'
-		);
-		$html_message = sprintf( '<div class="error">%s</div>', wpautop( $message ) );
-		echo wp_kses_post( $html_message );
+	/**
+	 * Checks if all requirements met to safely start the plugin and renders admin notices
+	 * if something is not right.
+	 *
+	 * @return bool
+	 */
+	public function plugin_can_start(): bool {
+		$can_start = true;
+
+		if ( ! version_compare( PHP_VERSION, '7.4', '>=' ) ) {
+			/* translators: 1: PHP version. 2: Link opening tag, 3: Link closing tag. */
+			$this->requirements_errors[] = sprintf(
+				esc_html__( 'PHP is outdated. Update to PHP version %1$s. %2$sShow me how%3$s', 'image-optimization' ),
+				'7.4',
+				'<a href="https://go.elementor.com/wp-dash-update-php/" target="_blank">',
+				'</a>'
+			);
+
+			$can_start = false;
+		}
+
+		if ( count( $this->get_missing_extensions_list() ) ) {
+			$missed_extensions = $this->get_missing_extensions_list();
+
+			$this->requirements_errors[] = sprintf(
+				esc_html__( 'The following required PHP extensions are missing: %s', 'image-optimization' ),
+				implode( ', ', $missed_extensions )
+			);
+
+			$can_start = false;
+		}
+
+		if ( ! $this->is_db_json_supported() ) {
+			$this->requirements_errors[] = sprintf(
+			/* translators: 1: MySQL minimum version. 2: MariaDB minimum version. */
+				esc_html__(
+					'The database server version is outdated. Update to MySQL version %1$s or MariaDB version %2$s',
+					'image-optimization'
+				),
+				'5.7',
+				'10.2'
+			);
+
+			$can_start = false;
+		}
+
+		$upload_dir = wp_upload_dir();
+
+		if ( ! wp_is_writable( $upload_dir['basedir'] ) ) {
+			$this->requirements_errors[] = esc_html__(
+				'Your site doesn’t have the necessary read/write permissions for your file system to use this plugin. Please contact your hosting provider to resolve this matter.',
+				'image-optimization',
+			);
+
+			$can_start = false;
+		}
+
+		return $can_start;
 	}
 
-	private function get_missed_extensions_list(): array {
+	/**
+	 * Returns an array of non-loaded extensions mentioned in self::REQUIRED_EXTENSIONS.
+	 *
+	 * @return array Missed extensions.
+	 */
+	private function get_missing_extensions_list(): array {
 		$output = [];
 
 		foreach ( self::REQUIRED_EXTENSIONS as $extension ) {
@@ -82,16 +135,41 @@ final class ImageOptimizer {
 		return $output;
 	}
 
-	public function add_missed_extensions_notice() {
-		$missed_extensions = $this->get_missed_extensions_list();
+	public function is_db_json_supported(): bool {
+		global $wpdb;
 
+		$result = $wpdb->query("
+			SELECT JSON_EXTRACT('[1, 2]', '$[1]');
+		");
+
+		return false !== $result;
+	}
+
+	/**
+	 * Renders an admin notice if the setup did not meet requirements.
+	 *
+	 * @return void
+	 */
+	public function add_requirements_error() {
 		$message = sprintf(
-		/* translators: 1: `<h3>` opening tag, 2: Missed extension names, 3: `</h3>` closing tag. */
-			esc_html__( '%1$sImage Optimizer isn’t running because the next required PHP extensions are missed: %2$s.%3$s', 'image-optimizer' ),
+		/* translators: 1: `<h3>` opening tag, 2: `</h3>` closing tag */
+			esc_html__( '%1$sImage Optimizer isn’t running because:%2$s', 'image-optimization' ),
 			'<h3>',
-			implode( ', ', $missed_extensions ),
-			'</h3>',
+			'</h3>'
 		);
+
+		$message .= '<ul>';
+
+		foreach ( $this->requirements_errors as $error ) {
+			$message .= sprintf(
+				'%s%s%s',
+				'<li>',
+				$error,
+				'</li>'
+			);
+		}
+
+		$message .= '</ul>';
 
 		$html_message = sprintf( '<div class="error">%s</div>', wpautop( $message ) );
 
@@ -107,14 +185,11 @@ final class ImageOptimizer {
 	 *
 	 * Fired by `plugins_loaded` action hook.
 	 *
-	 * @since 1.2.0
 	 * @access public
 	 */
 	public function init() {
-		if ( ! version_compare( PHP_VERSION, '7.4', '>=' ) ) {
-			add_action( 'admin_notices', [ $this, 'insufficient_php_version' ] );
-		} else if ( count( $this->get_missed_extensions_list() ) ) {
-			add_action( 'admin_notices', [ $this, 'add_missed_extensions_notice' ] );
+		if ( ! $this->plugin_can_start() ) {
+			add_action( 'admin_notices', [ $this, 'add_requirements_error' ] );
 		} else {
 			// Once we get here, We have passed all validation checks, so we can safely include our plugin
 			require_once 'plugin.php';
@@ -122,5 +197,5 @@ final class ImageOptimizer {
 	}
 }
 
-// Instantiate ImageOptimizer..
-new ImageOptimizer();
+// Instantiate ImageOptimization..
+new ImageOptimization();

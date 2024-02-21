@@ -615,6 +615,7 @@ class HT_CTC_Chat {
             }
         }
 
+        $values = apply_filters( 'ht_ctc_fh_variables', $values );
 
         // data-attribute - data-values 
         // $ht_ctc_values = htmlspecialchars(json_encode($values), ENT_QUOTES, 'UTF-8');

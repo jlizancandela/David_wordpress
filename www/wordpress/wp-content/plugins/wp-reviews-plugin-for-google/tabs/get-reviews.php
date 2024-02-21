@@ -3,20 +3,15 @@ defined('ABSPATH') or die('No script kiddies please!');
 ?>
 <h1 class="ti-header-title"><?php echo __('Get Reviews', 'trustindex-plugin'); ?></h1>
 <div class="ti-box">
-<div class="ti-box-header"><?php echo sprintf(__('Want more %s reviews?', 'trustindex-plugin'),  'Google'); ?></div>
-<?php if ($pluginManagerInstance->shortname === 'google'): ?>
+<div class="ti-box-header"><?php echo sprintf(__('Want more %s reviews?', 'trustindex-plugin'), 'Google'); ?></div>
 <p><?php echo __('Get 100+ REAL Google reviews, with only 3 minutes of work, without developer knowledge...', 'trustindex-plugin'); ?></p>
 <a href="https://wordpress.trustindex.io/collect-google-reviews/?source=wpcs-google" target="_blank" class="ti-btn"><?php echo __('DOWNLOAD OUR FREE GUIDE', 'trustindex-plugin'); ?></a>
-<?php else: ?>
-<p><?php echo __('Get 100+ REAL Customer reviews, with only 3 minutes of work, without developer knowledge...', 'trustindex-plugin'); ?></p>
-<a href="https://wordpress.trustindex.io/collect-reviews/?source=wpcs-google" target="_blank" class="ti-btn"><?php echo __('DOWNLOAD OUR FREE GUIDE', 'trustindex-plugin'); ?></a>
-<?php endif; ?>
 </div>
 <?php if (class_exists('Woocommerce')): ?>
 <div class="ti-box">
 <div class="ti-box-header"><?php echo __('Collect reviews automatically for your WooCommerce shop', 'trustindex-plugin'); ?></div>
 <?php if (!class_exists('TrustindexCollectorPlugin')): ?>
-<p><?php echo sprintf(__("Download our new <a href='%s' target='_blank'>%s</a> plugin and get features for free!", 'trustindex-plugin'),  'https://wordpress.org/plugins/customer-reviews-collector-for-woocommerce/', 'Customer Reviews Collector for WooCommerce'); ?></p>
+<p><?php echo sprintf(__("Download our new <a href='%s' target='_blank'>%s</a> plugin and get features for free!", 'trustindex-plugin'), 'https://wordpress.org/plugins/customer-reviews-collector-for-woocommerce/', 'Customer Reviews Collector for WooCommerce'); ?></p>
 <?php endif; ?>
 <ul class="ti-check-list">
 <li><?php echo __('Send unlimited review invitations for free', 'trustindex-plugin'); ?></li>

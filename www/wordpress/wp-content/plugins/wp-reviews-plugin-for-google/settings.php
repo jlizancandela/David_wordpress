@@ -14,9 +14,6 @@ $assetCheckJs = [
 'common' => 'static/js/admin-page-settings-common.js',
 'connect' => 'static/js/admin-page-settings-connect.js'
 ];
-if (in_array($pluginManagerInstance->shortname, [ 'google', 'facebook' ])) {
-$assetCheckJs['unique'] = 'static/js/admin-page-settings.js';
-}
 $assetCheckCssId = 'trustindex_settings_style_google';
 $assetCheckCssFile = 'static/css/admin-page-settings.css';
 function trustindexNotificationOpenRedirect($type)

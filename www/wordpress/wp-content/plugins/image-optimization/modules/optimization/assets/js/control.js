@@ -8,14 +8,29 @@ import ControlMeta from './classes/control/control-meta';
 
 class OptimizationControl {
 	constructor() {
+		this.controlSyncRequestInProgress = false;
+
 		this.init();
+
+		this.controlSync = new ControlSync();
 	}
 
 	init() {
 		this.initEventListeners();
 
-		const controlSync = new ControlSync();
-		setInterval( () => controlSync.run(), 5000 );
+		setInterval( () => this.runStatusCheckLoop(), 5000 );
+	}
+
+	async runStatusCheckLoop() {
+		if ( this.controlSyncRequestInProgress ) {
+			return;
+		}
+
+		this.controlSyncRequestInProgress = true;
+
+		await this.controlSync.run();
+
+		this.controlSyncRequestInProgress = false;
 	}
 
 	initEventListeners() {
@@ -29,7 +44,7 @@ class OptimizationControl {
 			return;
 		}
 
-		speak( __( 'Optimization is in progress', 'image-optimizer' ), 'assertive' );
+		speak( __( 'Optimization is in progress', 'image-optimization' ), 'assertive' );
 
 		const controlWrapper = e.target.closest( SELECTORS.controlWrapperSelector );
 		const states = new ControlStates( controlWrapper );
@@ -51,7 +66,7 @@ class OptimizationControl {
 			return;
 		}
 
-		speak( __( 'Reoptimizing is in progress', 'image-optimizer' ), 'assertive' );
+		speak( __( 'Reoptimizing is in progress', 'image-optimization' ), 'assertive' );
 
 		const controlWrapper = e.target.closest( SELECTORS.controlWrapperSelector );
 		const states = new ControlStates( controlWrapper );
@@ -73,7 +88,7 @@ class OptimizationControl {
 			return;
 		}
 
-		speak( __( 'Image restoring is in progress', 'image-optimizer' ), 'assertive' );
+		speak( __( 'Image restoring is in progress', 'image-optimization' ), 'assertive' );
 
 		const controlWrapper = e.target.closest( SELECTORS.controlWrapperSelector );
 		const states = new ControlStates( controlWrapper );
